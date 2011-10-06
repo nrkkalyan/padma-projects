@@ -1,0 +1,10 @@
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part I\ApuGasStation\ApuGasStation\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part I\ApuGasStation\ApuGasStation\obj\x86\Debug\ApuGasStation.Resources.resources
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part I\ApuGasStation\ApuGasStation\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part I\ApuGasStation\ApuGasStation\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part I\ApuGasStation\ApuGasStation\bin\Debug\ApuGasStation.exe
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part I\ApuGasStation\ApuGasStation\bin\Debug\ApuGasStation.pdb
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part I\ApuGasStation\ApuGasStation\bin\Debug\ApuGasStation.xml
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part I\ApuGasStation\ApuGasStation\obj\x86\Debug\ApuGasStation.exe
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part I\ApuGasStation\ApuGasStation\obj\x86\Debug\ApuGasStation.xml
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part I\ApuGasStation\ApuGasStation\obj\x86\Debug\ApuGasStation.pdb

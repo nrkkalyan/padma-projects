@@ -1,0 +1,10 @@
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Part II\EBookie\EBookie\bin\Debug\EBookie.exe
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Part II\EBookie\EBookie\bin\Debug\EBookie.pdb
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Part II\EBookie\EBookie\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Part II\EBookie\EBookie\obj\x86\Debug\EBookie.exe
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Part II\EBookie\EBookie\obj\x86\Debug\EBookie.pdb
+C:\Users\Koosie\Desktop\Puppy\C#\Assignment I\Part II\EBookie\EBookie\obj\x86\Debug\EBookie.exe
+C:\Users\Koosie\Desktop\Puppy\C#\Assignment I\Part II\EBookie\EBookie\obj\x86\Debug\EBookie.pdb
+C:\Users\Koosie\Desktop\Puppy\C#\Assignment I\Part II\EBookie\EBookie\bin\Debug\EBookie.exe
+C:\Users\Koosie\Desktop\Puppy\C#\Assignment I\Part II\EBookie\EBookie\bin\Debug\EBookie.pdb
+C:\Users\Koosie\Desktop\Puppy\C#\Assignment I\Part II\EBookie\EBookie\obj\x86\Debug\ResolveAssemblyReference.cache

@@ -1,0 +1,10 @@
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\Assignment2.Resources.resources
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\bin\Debug\Assignment2.exe
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\bin\Debug\Assignment2.pdb
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\bin\Debug\Assignment2.xml
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\Assignment2.exe
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\Assignment2.xml
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\Assignment2.pdb

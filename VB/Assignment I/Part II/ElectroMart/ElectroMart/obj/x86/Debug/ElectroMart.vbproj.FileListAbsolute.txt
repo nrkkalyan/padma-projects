@@ -1,0 +1,10 @@
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part II\ElectroMart\ElectroMart\bin\Debug\ElectroMart.exe
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part II\ElectroMart\ElectroMart\bin\Debug\ElectroMart.pdb
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part II\ElectroMart\ElectroMart\bin\Debug\ElectroMart.xml
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part II\ElectroMart\ElectroMart\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part II\ElectroMart\ElectroMart\obj\x86\Debug\ElectroMart.Resources.resources
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part II\ElectroMart\ElectroMart\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part II\ElectroMart\ElectroMart\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part II\ElectroMart\ElectroMart\obj\x86\Debug\ElectroMart.exe
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part II\ElectroMart\ElectroMart\obj\x86\Debug\ElectroMart.xml
+C:\Users\Koosie\Desktop\Puppy\VB\Assignment I\Part II\ElectroMart\ElectroMart\obj\x86\Debug\ElectroMart.pdb

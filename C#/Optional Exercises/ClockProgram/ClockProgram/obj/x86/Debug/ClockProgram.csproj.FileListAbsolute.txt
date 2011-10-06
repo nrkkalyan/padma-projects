@@ -1,0 +1,7 @@
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Optional Exercises\ClockProgram\ClockProgram\bin\Debug\ClockProgram.exe
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Optional Exercises\ClockProgram\ClockProgram\bin\Debug\ClockProgram.pdb
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Optional Exercises\ClockProgram\ClockProgram\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Optional Exercises\ClockProgram\ClockProgram\obj\x86\Debug\ClockProgram.exe
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Optional Exercises\ClockProgram\ClockProgram\obj\x86\Debug\ClockProgram.pdb
+C:\Users\Koosie\Desktop\Puppy\C#\Optional Exercises\ClockProgram\ClockProgram\obj\x86\Debug\ClockProgram.exe
+C:\Users\Koosie\Desktop\Puppy\C#\Optional Exercises\ClockProgram\ClockProgram\obj\x86\Debug\ClockProgram.pdb

@@ -1,0 +1,188 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Assignment2
+</name>
+</assembly>
+<members>
+<member name="T:Assignment2.MainModule">
+	<summary>
+ In this instance of Main.vb is created and its start method is called to start the program.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.WorkingSchedule.Start">
+	<summary>
+ Starts the WholeNumbersForAdd
+ 
+ Public sub-method that performs the whole process
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.WorkingSchedule.WeekendSchedule">
+	<summary>
+ It shows on which weekends of the year the user has to work
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.WorkingSchedule.NightSchedule">
+	<summary>
+ It shows on which nights of the year the user has to work
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Assignment2.WorkingSchedule">
+	<summary>
+ This class does the claculation for the 4th option of the main menu.
+ It reads the choice of the user to print on what weekends and nights the user needs to work.
+ It gives the schedule
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.CurrencyConverterDoWhile.Start">
+	<summary>
+ Starts the CurrencyConvertorDoWhile
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.CurrencyConverterDoWhile.WriteProgramInfo">
+	<summary>
+ Writes the welcome text to the console
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.CurrencyConverterDoWhile.ReadAndCalculateValues">
+	<summary>
+ Read the values from the user and calculates the sum
+ and convert the value to foriegn currency
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.CurrencyConverterDoWhile.GetCurrencyName">
+	<summary>
+ Reads the user input and and checks whether he entered a value or not
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.CurrencyConverterDoWhile.GetExchangeRate">
+	<summary>
+ Reads the user input and and checks whether he entered a value or not
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.CurrencyConverterDoWhile.WriteResult">
+	<summary>
+ Writes the result
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Assignment2.CurrencyConverterDoWhile">
+	<summary>
+ This class is executed when 3rd option of the program is selected.
+ It reads the currency name and exchange rate from the user first. 
+ Then it reads the numbers and makes sum and prints the total both in local currency and in 
+ foreign currency
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.floatingPointsNumberWhileAdd.Start">
+	<summary>
+ Starts the FloatingPointsNumberWhileAdd
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.floatingPointsNumberWhileAdd.WriteProgramInfo">
+	<summary>
+ Writes the welcome text to the console
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.floatingPointsNumberWhileAdd.ReadAndSumNumbers">
+	<summary>
+ Reads teh data and calculates the sum
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.floatingPointsNumberWhileAdd.WriteResult">
+	<summary>
+ Writes the result
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Assignment2.floatingPointsNumberWhileAdd">
+	<summary>
+ This class is executed when 2nd option of the program is selected.
+ It reads the numbers and makes sum and prints it. And it uses 'While' statement.
+ And the numbers are read from the user until the user enters 0.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.Menu.Start">
+	<summary>
+ The main loop of the program
+ </summary>
+</member><member name="T:Assignment2.Menu">
+	<summary>
+ The main menu class
+ Handles the main functionality of the program
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.Input.ReadIntegerConsole">
+	<summary>
+ Reads from the console until a correct integer is received
+ </summary>
+	<returns>An Integer</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment2.Input.ReadDoubleConsole">
+	<summary>
+ Reads from the console until a correct double is received
+ </summary>
+	<returns>An double</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment2.Input.ReadStringConsole">
+	<summary>
+ Reads from the console until string is received
+ </summary>
+	<returns>A string</returns>
+	<remarks></remarks>
+</member><member name="T:Assignment2.Input">
+	<summary>
+This class reads from the console until a correct input is entered or not
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Assignment2.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Assignment2.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Assignment2.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:Assignment2.WholeNumbersForAdd.Start">
+	<summary>
+ Starts the WholeNumbersForAdd
+ 
+ Public sub-method that performs the whole process
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.WholeNumbersForAdd.WriteProgramInfo">
+	<summary>
+ Writes the welcome text to the console
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.WholeNumbersForAdd.ReadInput">
+	<summary>
+ Reads the amount of numbers to add
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.WholeNumbersForAdd.SumNumbers">
+	<summary>
+ Sub-method that sums up the numbers as they are read
+ and the result is stored in the instance variable sum
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment2.WholeNumbersForAdd.WriteResult">
+	<summary>
+ Writes the result
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Assignment2.WholeNumbersForAdd">
+	<summary>
+ This class is executed when 1st option of the program is selected.
+ It reads the whole numbers from the user and makes a sum of it.. but first it asks
+ how many numbers the user wishes to enter. And finally prints the totatl.And it uses
+ 'For' loop to perform the calculations.
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

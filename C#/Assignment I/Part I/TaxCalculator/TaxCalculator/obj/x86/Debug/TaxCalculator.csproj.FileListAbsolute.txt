@@ -1,0 +1,10 @@
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Part I\TaxCalculator\TaxCalculator\bin\Debug\TaxCalculator.exe
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Part I\TaxCalculator\TaxCalculator\bin\Debug\TaxCalculator.pdb
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Part I\TaxCalculator\TaxCalculator\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Part I\TaxCalculator\TaxCalculator\obj\x86\Debug\TaxCalculator.exe
+C:\Users\Koosie\Desktop\Puppy\Assignment I\Part I\TaxCalculator\TaxCalculator\obj\x86\Debug\TaxCalculator.pdb
+C:\Users\Koosie\Desktop\Puppy\C#\Assignment I\Part I\TaxCalculator\TaxCalculator\obj\x86\Debug\TaxCalculator.exe
+C:\Users\Koosie\Desktop\Puppy\C#\Assignment I\Part I\TaxCalculator\TaxCalculator\obj\x86\Debug\TaxCalculator.pdb
+C:\Users\Koosie\Desktop\Puppy\C#\Assignment I\Part I\TaxCalculator\TaxCalculator\bin\Debug\TaxCalculator.exe
+C:\Users\Koosie\Desktop\Puppy\C#\Assignment I\Part I\TaxCalculator\TaxCalculator\bin\Debug\TaxCalculator.pdb
+C:\Users\Koosie\Desktop\Puppy\C#\Assignment I\Part I\TaxCalculator\TaxCalculator\obj\x86\Debug\ResolveAssemblyReference.cache

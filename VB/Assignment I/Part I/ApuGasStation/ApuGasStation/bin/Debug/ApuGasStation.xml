@@ -1,0 +1,42 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ApuGasStation
+</name>
+</assembly>
+<members>
+<member name="T:ApuGasStation.GasPump">
+	<summary>
+ This class reads the input from the user to make the calcuations. It reads user's name,
+ quanitity user needs along with the quality of the petrol user wants.
+ Then the program prints the receipt for the user
+ </summary>
+	<remarks></remarks>
+</member><member name="P:ApuGasStation.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ApuGasStation.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ApuGasStation.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:ApuGasStation.GasStation.Main">
+	<summary>
+ This is where the program begins when the program starts.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:ApuGasStation.GasStation">
+	<summary>
+ This program is made for pay-at-the-pump gas stations. It interacts with the customer and calculates
+ the amount to be paid before filling up the car
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

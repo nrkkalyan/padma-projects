@@ -1,0 +1,44 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ElectroMart
+</name>
+</assembly>
+<members>
+<member name="M:ElectroMart.MainShop.Main">
+	<summary>
+ This is where the program begins when the program starts.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:ElectroMart.MainShop">
+	<summary>
+ This program is developed for a Electric shop, Which offers online sale
+ on TV and other Electronic items. The shop sells both the used and old electronic items.
+ 
+ At the end the program prints the receipt showing how much discount the user will get along with 
+ the final price he has to pay for the Product.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:ElectroMart.Product">
+	<summary>
+ This class reads the input form the user and prints out the 
+ finaly price the customer have to pay.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:ElectroMart.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ElectroMart.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ElectroMart.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>
