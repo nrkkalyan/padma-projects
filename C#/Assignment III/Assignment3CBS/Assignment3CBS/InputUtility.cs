@@ -39,6 +39,7 @@ namespace Assignment3CBS
             {
                 // if dblOutValue is within the range return true
                 return (dblOutValue >= minLimt && dblOutValue <= maxLimit);
+                
             }
             // return false if the value is not validated as a double
             return false;
@@ -185,7 +186,7 @@ namespace Assignment3CBS
         public static bool CheckString( string name)
         {
             bool isNotValid = string.IsNullOrEmpty(name);
-            if (isNotValid)
+            if (isNotValid || name == " ")
                 return true;
             else
                 return false;

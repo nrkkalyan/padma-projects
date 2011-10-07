@@ -38,13 +38,18 @@ namespace Assignment3CBS
             lstReservations.Items.Clear();
             txtName.Text = string.Empty;
             txtPrice.Text = string.Empty;
+
+
             lblNumOfReserved.Text = string.Empty;
             lblNumOfSeats.Text = string.Empty;
             lblNumOfVacant.Text = string.Empty;
             lblTotalRevenue.Text = string.Empty;
+
             txtName.Focus(); // focus is set to the name field
+            txtName.SelectAll();
         }
 
+        
 
         /// <summary>
         /// Event-handler method for the Click-event of the button,when the user 
@@ -52,7 +57,7 @@ namespace Assignment3CBS
         /// Call the ReadAndValidateInput method, save its return value in a Boolean variable.
         /// If the return value is true, tehn call the UpdateGUI method to display the results.
         /// </summary>
-        /// <param name="sender">Reference to the object that has fired teh Click event (the button)</param>
+        /// <param name="sender">Reference to the object that has fired the Click event (the button)</param>
         /// <param name="e">Contains information about the event</param>
         /// <remarks>Send and e are part of event delegate hadling</remarks>
         private void btnOK_Click(object sender, EventArgs e)
@@ -69,6 +74,10 @@ namespace Assignment3CBS
                 numOfReservedSeats++;
                 revenue += seatPrice;
                 UpdateGUI(customerName, seatPrice); // perform the calculations and update GUI
+                
+                // Highlight the text box again for next values
+                txtName.Focus();
+                txtName.SelectAll();
             }
 
         }
@@ -81,17 +90,29 @@ namespace Assignment3CBS
         /// <remarks>It adds the name and price to the listbox for display</remarks>
         private void UpdateGUI(string customerName, double seatPrice)
         {
-            lblNumOfSeats.Text = Convert.ToString(totalNumOfSeats);
-            lblNumOfReserved.Text = Convert.ToString(numOfReservedSeats);
-            lblNumOfVacant.Text = Convert.ToString(totalNumOfSeats - numOfReservedSeats);
-            lblTotalRevenue.Text = Convert.ToString(revenue);
+            UpdateLabels(); // to update the labels
 
-            string str = string.Format("{0,15} {1,10} {2,20}\t{3} ", "0", "Reserved", seatPrice , customerName);
+
+            string str = string.Format(" {0,-15} {1,-20} {2,-15}{3}", "0", "Reserved",seatPrice.ToString("F"),customerName);
    
             lstReservations.Items.Add(str);
 
 
         }
+
+        /// <summary>
+        /// This method updates the labels of the output group with the values 
+        /// after the button is clicked
+        /// </summary>
+        private void UpdateLabels()
+        {
+
+            lblNumOfSeats.Text = Convert.ToString(totalNumOfSeats);
+            lblNumOfReserved.Text = Convert.ToString(numOfReservedSeats);
+            lblNumOfVacant.Text = Convert.ToString(totalNumOfSeats - numOfReservedSeats);
+            lblTotalRevenue.Text = revenue.ToString("F");
+        }
+
 
         
         /// <summary>
@@ -109,9 +130,24 @@ namespace Assignment3CBS
             bool priceValid = ReadAndValidatePrice(out price);
 
             if (nameValid && priceValid)
+            {
                 return true;
+            }
             else
+            {
+                if (nameValid)
+                {
+                    txtPrice.Focus();
+                    txtPrice.SelectAll();
+                }
+                else
+                {
+                    txtName.Focus();
+                    txtName.SelectAll();
+                }
+
                 return false;
+            }
         }
 
         /// <summary>
@@ -126,8 +162,8 @@ namespace Assignment3CBS
             name = txtName.Text;
 
             // calling CheckString method of InputUtility to validate name
-            bool isValid = InputUtility.CheckString(name);
-            if (!isValid)
+            bool isInValid = InputUtility.CheckString(name);
+            if (!isInValid)
             {
                 return true;
             }
@@ -171,5 +207,42 @@ namespace Assignment3CBS
             }
 
         }
+
+        /// <summary>
+        /// Event-handler method for the CheckedChange-event of the Reserved radio button,when the user 
+        /// clicks the button, this method will be executed automatically.
+        /// Enables the text boxes and button for the user to enter the inputs
+        /// </summary>
+        /// <param name="sender">Reference to the object that has fired the CheckedChanged event (the Radio-button)</param>
+        /// <param name="e">Contains information about the event</param>
+        /// <remarks>Send and e are part of event delegate hadling</remarks>
+        private void rbtnReserved_CheckedChanged(object sender, EventArgs e)
+        {
+            txtName.Enabled = true;
+            txtPrice.Enabled = true;
+
+            btnOK.Enabled = true;
+
+            txtName.Focus();
+        }
+
+
+        /// <summary>
+        /// Event-handler method for the CheckedChange-event of the Cancel radio button,when the user 
+        /// clicks the button, this method will be executed automatically.
+        /// Disnables the text boxes and button so the user cannot enter teh input
+        /// </summary>
+        /// <param name="sender">Reference to the object that has fired the CheckedChanged event (the Radio-button)</param>
+        /// <param name="e">Contains information about the event</param>
+        /// <remarks>Send and e are part of event delegate hadling</remarks>
+        private void rbtnCancel_CheckedChanged(object sender, EventArgs e)
+        {
+            txtName.Enabled = false;
+            txtPrice.Enabled = false;
+
+            btnOK.Enabled = false;
+        }
+
+        
     }
 }
