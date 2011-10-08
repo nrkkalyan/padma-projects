@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 
 namespace Assignment3CBS
 {
@@ -33,12 +34,14 @@ namespace Assignment3CBS
 
         public static bool GetDouble(string stringToConvert, out double dblOutValue, double minLimt, double maxLimit)
         {
+          
            // parsing the string to check for whether value is double value or not
-            bool isDouble = double.TryParse(stringToConvert, out dblOutValue);
+            bool isDouble = Double.TryParse(stringToConvert, out dblOutValue); 
             if (isDouble == true)
             {
                 // if dblOutValue is within the range return true
-                return (dblOutValue >= minLimt && dblOutValue <= maxLimit);
+                bool returnvalue = (dblOutValue >= minLimt && dblOutValue <= maxLimit);
+                return returnvalue;
                 
             }
             // return false if the value is not validated as a double
@@ -54,8 +57,8 @@ namespace Assignment3CBS
         /// <param name="dblOutValue"> output parameter, the converted Double value. </param>
         /// <param name="minLimit"> the output value should be greater or equal to minLimit. </param>
         /// <returns> 
-        /// true if the conversion is successful and the converted value is within the 
-        /// given range
+        /// true if the conversion is successful and the converted value greater than or equal to the 
+        /// minLimt
         /// </returns>
 
         public static bool GetDouble(string stringToConvert, out double dblOutValue, double minLimt)
@@ -80,8 +83,7 @@ namespace Assignment3CBS
         /// <param name ="stringToConvert"> string representing the Double value. </param>
         /// <param name="dblOutValue"> output parameter, the converted Double value. </param>
         /// <returns> 
-        /// true if the conversion is successful and the converted value is within the 
-        /// given range
+        /// true if the conversion is successful
         /// </returns>
 
         public static bool GetDouble(string stringToConvert, out double dblOutValue)
@@ -183,10 +185,10 @@ namespace Assignment3CBS
         /// </summary>
         /// <param name="name">the value inputted by the user</param>
         /// <returns>true if name is empty or a blank space</returns>
-        public static bool CheckString( string name)
+        public static bool CheckString(string name)
         {
-            bool isNotValid = string.IsNullOrEmpty(name);
-            if (isNotValid || name == " ")
+            bool isNotValid = string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name);
+            if (isNotValid)
                 return true;
             else
                 return false;

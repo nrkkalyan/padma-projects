@@ -8,3 +8,6 @@ C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\bin\Debug
 C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\Assignment2.exe
 C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\Assignment2.xml
 C:\Users\Koosie\Desktop\Puppy\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\Assignment2.pdb
+C:\Padma\padma-projects\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\Assignment2.exe
+C:\Padma\padma-projects\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\Assignment2.xml
+C:\Padma\padma-projects\VB\Assignment II\Assignment2\Assignment2\obj\x86\Debug\Assignment2.pdb

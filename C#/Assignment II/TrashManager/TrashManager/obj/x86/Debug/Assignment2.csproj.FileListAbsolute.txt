@@ -3,3 +3,8 @@ C:\Users\Koosie\Desktop\Puppy\C#\Assignment II\TrashManager\TrashManager\bin\Deb
 C:\Users\Koosie\Desktop\Puppy\C#\Assignment II\TrashManager\TrashManager\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Koosie\Desktop\Puppy\C#\Assignment II\TrashManager\TrashManager\obj\x86\Debug\Assignment2.exe
 C:\Users\Koosie\Desktop\Puppy\C#\Assignment II\TrashManager\TrashManager\obj\x86\Debug\Assignment2.pdb
+C:\Padma\padma-projects\C#\Assignment II\TrashManager\TrashManager\obj\x86\Debug\Assignment2.exe
+C:\Padma\padma-projects\C#\Assignment II\TrashManager\TrashManager\obj\x86\Debug\Assignment2.pdb
+C:\Padma\padma-projects\C#\Assignment II\TrashManager\TrashManager\bin\Debug\Assignment2.exe
+C:\Padma\padma-projects\C#\Assignment II\TrashManager\TrashManager\bin\Debug\Assignment2.pdb
+C:\Padma\padma-projects\C#\Assignment II\TrashManager\TrashManager\obj\x86\Debug\ResolveAssemblyReference.cache

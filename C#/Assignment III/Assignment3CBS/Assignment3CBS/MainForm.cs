@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Assignment3CBS
 {
@@ -71,15 +72,39 @@ namespace Assignment3CBS
 
             if (inputOk)
             {
+             
                 numOfReservedSeats++;
+                
                 revenue += seatPrice;
                 UpdateGUI(customerName, seatPrice); // perform the calculations and update GUI
+
+                // calling seatcheck method
+                SeatCheck();
                 
                 // Highlight the text box again for next values
                 txtName.Focus();
                 txtName.SelectAll();
             }
 
+        }
+
+        /// <summary>
+        /// This method checks for seats that can be allocated. And if available 
+        /// seats are over then will display that info to the user
+        /// </summary>
+        /// <remarks> As of now the text boxes and buttons are disabled, they will be implemented in later 
+        /// versions when the cancellation of reservation is available.</remarks>
+        private void SeatCheck()
+        {
+            if (numOfReservedSeats >= totalNumOfSeats)
+            {
+                MessageBox.Show("This is the last seat, no more left for reservation!!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtName.Enabled = false;
+                txtPrice.Enabled = false;
+                // as of now this button is disabled, in later versions when Cancellation is implemented code will be changed
+                btnOK.Enabled = false;
+            }
+            
         }
 
         /// <summary>
@@ -92,11 +117,9 @@ namespace Assignment3CBS
         {
             UpdateLabels(); // to update the labels
 
+             string str = string.Format("{0}\t{1,-10}{2,20}\t  {3}", 0, "Reserved", seatPrice.ToString("F"), customerName);
 
-            string str = string.Format(" {0,-15} {1,-20} {2,-15}{3}", "0", "Reserved",seatPrice.ToString("F"),customerName);
-   
-            lstReservations.Items.Add(str);
-
+             lstReservations.Items.Add(str);    
 
         }
 
@@ -135,15 +158,17 @@ namespace Assignment3CBS
             }
             else
             {
-                if (nameValid)
+                if (!nameValid)
                 {
-                    txtPrice.Focus();
-                    txtPrice.SelectAll();
+                    MessageBox.Show("Invalid input in name field! Name cannot be empty, and must have atleast one character(not a blank)", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtName.Focus(); // set focus to name textbox
+                    txtName.SelectAll(); // to select all the text present
                 }
                 else
                 {
-                    txtName.Focus();
-                    txtName.SelectAll();
+                    MessageBox.Show("Invalid input in price field!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPrice.Focus(); // set focus to price textbox
+                    txtPrice.SelectAll(); // to select all text
                 }
 
                 return false;
@@ -169,9 +194,6 @@ namespace Assignment3CBS
             }
             else
             {
-                MessageBox.Show("Invalid input in name field! Name cannot be empty, and must have atleast one character(not a blank)", "Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                txtName.Focus(); // set focus to name textbox
-                txtName.SelectAll(); // to select all the text present
                 return false;
             }
 
@@ -180,7 +202,7 @@ namespace Assignment3CBS
 
         /// <summary>
         /// Call GetDouble method of the InputUtility to convert the text given by the user
-        /// in the price TextBox. Validate and then the converted value to a value >= 0 and less than or equal to a 
+        /// in the price TextBox. Validate and then the converted value is checked with  a value >= 0 and less than or equal to a 
         /// max ticket price (3500.00)
         /// </summary>
         /// <param name="price">Variable receiving the converted value</param>
@@ -199,9 +221,6 @@ namespace Assignment3CBS
             }
             else
             {
-                MessageBox.Show("Invalid input in price field!", "Error!", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                txtPrice.Focus(); // set focus to price textbox
-                txtPrice.SelectAll(); // to select all text
                 return false;
 
             }
@@ -210,7 +229,7 @@ namespace Assignment3CBS
 
         /// <summary>
         /// Event-handler method for the CheckedChange-event of the Reserved radio button,when the user 
-        /// clicks the button, this method will be executed automatically.
+        /// selects this option, this method will be executed automatically.
         /// Enables the text boxes and button for the user to enter the inputs
         /// </summary>
         /// <param name="sender">Reference to the object that has fired the CheckedChanged event (the Radio-button)</param>
@@ -229,7 +248,7 @@ namespace Assignment3CBS
 
         /// <summary>
         /// Event-handler method for the CheckedChange-event of the Cancel radio button,when the user 
-        /// clicks the button, this method will be executed automatically.
+        /// selects this option, this method will be executed automatically.
         /// Disnables the text boxes and button so the user cannot enter teh input
         /// </summary>
         /// <param name="sender">Reference to the object that has fired the CheckedChanged event (the Radio-button)</param>
