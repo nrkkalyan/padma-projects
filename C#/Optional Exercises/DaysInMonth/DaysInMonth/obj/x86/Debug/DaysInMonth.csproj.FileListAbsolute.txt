@@ -1,0 +1,5 @@
+C:\Padma\padma-projects\C#\Optional Exercises\DaysInMonth\DaysInMonth\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Padma\padma-projects\C#\Optional Exercises\DaysInMonth\DaysInMonth\bin\Debug\DaysInMonth.exe
+C:\Padma\padma-projects\C#\Optional Exercises\DaysInMonth\DaysInMonth\bin\Debug\DaysInMonth.pdb
+C:\Padma\padma-projects\C#\Optional Exercises\DaysInMonth\DaysInMonth\obj\x86\Debug\DaysInMonth.exe
+C:\Padma\padma-projects\C#\Optional Exercises\DaysInMonth\DaysInMonth\obj\x86\Debug\DaysInMonth.pdb
