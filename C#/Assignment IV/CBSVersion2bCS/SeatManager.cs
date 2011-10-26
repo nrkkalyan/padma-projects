@@ -178,6 +178,36 @@ namespace Assignment4CBS
             
         }
 
+
+        /// <summary>
+        /// Returns the status for a seat in position = index
+        /// </summary>
+        /// <param name="index">Index of the array position</param>
+        /// <returns>A formatted string containing information about the 
+        /// seat customername, price and whether the seat is
+        /// reserved or vacant.</returns>
+        public string GetSeatInfoAt(int row, int col)
+        {
+            
+            bool isValid = CheckIndex(row, col);
+
+            if (isValid)
+            {
+                if (m_nameMatrix[row, col] == null || m_nameMatrix[row, col] == String.Empty)
+                {
+                    return "Vacant  ";
+                }
+                else
+                    return "Reserved";
+            }
+            else
+            {
+                return null;
+            }
+
+
+
+        }
         /// <summary>
         /// Converts matrix row and col values into a single vector index value
         /// </summary>
@@ -203,7 +233,7 @@ namespace Assignment4CBS
         {
             int indexRow = row;
 
-            row = (int)Math.Ceiling((double)(indexRow / m_totNumOfRows)); // row in the matrix
+            row = indexRow / m_totNumOfRows; // row in the matrix
             col = indexRow % m_totNumOfRows; // col in the matrix
         }
 
@@ -223,22 +253,15 @@ namespace Assignment4CBS
                 return 0;
                 string strOut = "Vacant  ";
                 int index = 0; // counter for return array
-    
-                    for (index = 0; index < count ; index++)
+
+                for (index = 0; index < TotNumOfSeats(); index++)
                     {
-                            strOut = GetSeatInfoAt(index);
                             int row = index;
                             int col = 0;
                             IndexToRowCol(ref row, ref col);
-                            CheckIndex(row, col);
-                            for (int i = 1; i <= row; i++)
-                            {
-                                for (int j = 1; i <= col; j++)
-                                {
+                            strOut = GetSeatInfoAt(row,col);
+                            strSeatInfoStrings[index] = string.Format("{0}\t{1} {2,10}\t {3} \n", row+1, col+1, strOut, m_nameMatrix[row, col]);
 
-                                    strSeatInfoStrings[index] = string.Format("{0}\t{1} {2,10}\t {3} \n", i, j, strOut, m_nameMatrix[row, col]);
-                                }
-                            }
                             if (choice == DisplayOptions.ReservedSeats && !strOut.Equals("Reserved"))
                             {
                                 strSeatInfoStrings[index] = null;
@@ -246,7 +269,7 @@ namespace Assignment4CBS
                             else if (choice == DisplayOptions.VacantSeats && !strOut.Equals("Vacant  "))
                             {
                                 strSeatInfoStrings[index] = null;
-                            }
+                            } 
                         
                     }
                 
@@ -263,7 +286,7 @@ namespace Assignment4CBS
         /// <remarks></remarks>
         private bool CheckIndex(int row, int col)
         {
-            if ( row > 0 && row <= m_totNumOfRows && col >= 0 && col <= m_totNumOfCols )
+            if ( row >= 0 && row < m_totNumOfRows && col >= 0 && col < m_totNumOfCols )
                 return true;
             else
                 return false;

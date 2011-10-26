@@ -1,0 +1,9 @@
+C:\Padma\padma-projects\C#\Assignment IV\test\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Padma\padma-projects\C#\Assignment IV\test\obj\x86\Debug\Assignment4CBS.MainForm.resources
+C:\Padma\padma-projects\C#\Assignment IV\test\obj\x86\Debug\test.Properties.Resources.resources
+C:\Padma\padma-projects\C#\Assignment IV\test\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Padma\padma-projects\C#\Assignment IV\test\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Padma\padma-projects\C#\Assignment IV\test\bin\Debug\test.exe
+C:\Padma\padma-projects\C#\Assignment IV\test\bin\Debug\test.pdb
+C:\Padma\padma-projects\C#\Assignment IV\test\obj\x86\Debug\test.exe
+C:\Padma\padma-projects\C#\Assignment IV\test\obj\x86\Debug\test.pdb

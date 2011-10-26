@@ -1,6 +1,6 @@
 ﻿namespace Assignment4CBS
 {
-    partial class MainForm
+    partial class MainForm2b
     {
         /// <summary>
         /// Required designer variable.

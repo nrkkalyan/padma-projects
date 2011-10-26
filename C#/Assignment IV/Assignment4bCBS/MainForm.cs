@@ -7,11 +7,12 @@ using System.Windows.Forms;
 
 namespace Assignment4CBS
 {
-    public partial class MainForm : Form
+    public partial class MainForm2b : Form
     {
         //Test variables - to test the application
         // Declare a constant for max number of seats in the cinema
-        private const int m_numOfSeats = 60;
+        private const int m_TotNoOfRow = 7;
+        private const int m_TotNoOfCol = 7;
 
         // declare a reference variable fo the SeatManager type
         private SeatManager m_seatMngr;
@@ -22,13 +23,13 @@ namespace Assignment4CBS
         //It is a good place for initializations and creation of
         // the objects that are used as fields, e.g m_seatMngr
 
-        public MainForm()
+        public MainForm2b()
         {
             //visual studio generated method
             InitializeComponent();
 
             //my initialization method
-            m_seatMngr = new SeatManager(m_numOfSeats);
+            m_seatMngr = new SeatManager(m_TotNoOfRow,m_TotNoOfCol);
             InitializeGUI();
         }
 
@@ -233,14 +234,14 @@ namespace Assignment4CBS
                     }
                         if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  ")
                         {
-                            m_seatMngr.ReserveSeat(customerName, price, lstReservations.SelectedIndex);
+                            m_seatMngr.ReserveSeat(customerName,lstReservations.SelectedIndex);
                         }
                         else
                         {
                             DialogResult result = MessageBox.Show("This seat is reserved, do you want to update it?", "Info!", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
                             if (result == DialogResult.Yes)
                             {
-                                m_seatMngr.ReserveSeat(customerName, price, lstReservations.SelectedIndex);
+                                m_seatMngr.ReserveSeat(customerName,lstReservations.SelectedIndex);
                             }
                         }
                 }
