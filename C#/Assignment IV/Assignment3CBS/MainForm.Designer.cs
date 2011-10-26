@@ -1,4 +1,4 @@
-﻿namespace Assignment3CBS
+﻿namespace Assignment4CBS
 {
     partial class MainForm
     {

@@ -1,11 +1,11 @@
 ﻿// MainForm.cs
 // Created By: Padma Priya Duvvuri
-// Created On: 02-Oct-2011
+// Created On: 21-Oct-2011
 
 using System;
 using System.Windows.Forms;
 
-namespace Assignment3CBS
+namespace Assignment4CBS
 {
     public partial class MainForm : Form
     {
@@ -231,7 +231,7 @@ namespace Assignment3CBS
                     {
                         return;
                     }
-                        if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant")
+                        if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  ")
                         {
                             m_seatMngr.ReserveSeat(customerName, price, lstReservations.SelectedIndex);
                         }
@@ -272,7 +272,9 @@ namespace Assignment3CBS
 
         /// <summary>
         /// Event-handler method for the SelectedIndexChanged event of the Combobox.
-        /// The method is automatically called when the user select an entry in the combobox
+        /// The method is automatically called when the user select an entry in the combobox.
+        /// The user will be able to update or reserve the seat only when the allseats of the 
+        /// combox is selected.
         /// </summary>
         /// <param name="sender">The object that fired the event (combobox)</param>
         /// <param name="e">An object containing useful information about the event.</param>
@@ -287,7 +289,8 @@ namespace Assignment3CBS
             txtName.Enabled = enableOrDisable;
             txtPrice.Enabled = enableOrDisable;
             btnOK.Enabled = enableOrDisable;
-            UpdateGUI();
+            lstReservations.Enabled = enableOrDisable;
+            UpdateGUI(); // update teh listbox depending on the choice of combo box
         }
 
         /// <summary>
@@ -323,12 +326,17 @@ namespace Assignment3CBS
 
         
 
+        /// <summary>
+        /// Event-handler method for the selectedIndexChanged event of the Listbox.
+        /// </summary>
+        /// <param name="sender">The object that fired the event(listbox)</param>
+        /// <param name="e"></param>
         private void lstReservations_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             if (rbtnReserved.Checked)
             {
-                if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant")
+                if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  ")
                 {
                     btnOK.Text = "Reserve";
                 }

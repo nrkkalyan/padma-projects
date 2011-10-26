@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assignment3CBS
+namespace Assignment4CBS
 {
     class SeatManager
     {
@@ -25,7 +25,7 @@ namespace Assignment3CBS
         public enum DisplayOptions
         {
             AllSeats,
-            VacanSeats,
+            VacantSeats,
             ReservedSeats
         }
 
@@ -82,7 +82,7 @@ namespace Assignment3CBS
         {
             if (choice == DisplayOptions.ReservedSeats)
                 return GetNumReserved();
-            else if (choice == DisplayOptions.VacanSeats)
+            else if (choice == DisplayOptions.VacantSeats)
                 return GetNumVacant();
             else
                 return m_totNumOfSeats;
@@ -145,7 +145,7 @@ namespace Assignment3CBS
             {
                 if (m_nameList[index] == null || m_nameList[index] == String.Empty)
                 {
-                    return "Vacant";
+                    return "Vacant  ";
                 }
                 else
                     return "Reserved";
@@ -172,7 +172,7 @@ namespace Assignment3CBS
 
             if (count <= 0)
                 return 0;
-                string strOut = "Vacant";
+                string strOut = "Vacant  ";
                 int i = 0; // counter for return array
     
                     for (int index = 0; index < m_totNumOfSeats; index++)
@@ -180,12 +180,12 @@ namespace Assignment3CBS
                         
                         strOut = GetSeatInfoAt(index);
                         CheckIndex(index);
-                        strSeatInfoStrings[index] = string.Format("{0,-5}\t{1,-15} {2,20}\t {3} \n", ++i, strOut, m_price[index].ToString("F"), m_nameList[index]);
+                        strSeatInfoStrings[index] = string.Format("{0,-5}\t{1,15} {2,10}\t {3} \n", ++i, strOut, m_price[index].ToString("F"), m_nameList[index]);
                         if (choice == DisplayOptions.ReservedSeats && !strOut.Equals("Reserved"))
                         {
                             strSeatInfoStrings[index] = null;        
                         }
-                        else if (choice == DisplayOptions.VacanSeats  && !strOut.Equals("Vacant"))
+                        else if (choice == DisplayOptions.VacantSeats  && !strOut.Equals("Vacant  "))
                         {
                             strSeatInfoStrings[index] = null;            
                         }

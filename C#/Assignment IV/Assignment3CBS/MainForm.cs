@@ -12,7 +12,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
 
-namespace Assignment3CBS
+namespace Assignment4CBS
 {
     public partial class MainForm : Form
     {
@@ -121,7 +121,7 @@ namespace Assignment3CBS
         {
             UpdateLabels(); // to update the labels
 
-             string str = string.Format("{0}\t{1,-10}{2,20}\t  {3}", 0, "Reserved", seatPrice.ToString("F"), customerName);
+             string str = string.Format("{0}\t{1,-10}{2,20}\t  {3}", numOfReservedSeats, "Reserved", seatPrice.ToString("F"), customerName);
 
              lstReservations.Items.Add(str);    
 

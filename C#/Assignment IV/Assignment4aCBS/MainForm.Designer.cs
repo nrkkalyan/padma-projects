@@ -1,4 +1,4 @@
-﻿namespace Assignment3CBS
+﻿namespace Assignment4CBS
 {
     partial class MainForm
     {
@@ -57,7 +57,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.ForeColor = System.Drawing.Color.Navy;
             this.btnOK.Location = new System.Drawing.Point(29, 115);
             this.btnOK.Name = "btnOK";
@@ -171,7 +171,8 @@
             // 
             this.lblNumOfVacant.BackColor = System.Drawing.Color.White;
             this.lblNumOfVacant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblNumOfVacant.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumOfVacant.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumOfVacant.ForeColor = System.Drawing.Color.Black;
             this.lblNumOfVacant.Location = new System.Drawing.Point(175, 88);
             this.lblNumOfVacant.Name = "lblNumOfVacant";
             this.lblNumOfVacant.Size = new System.Drawing.Size(46, 17);
@@ -182,7 +183,8 @@
             // 
             this.lblNumOfReserved.BackColor = System.Drawing.Color.White;
             this.lblNumOfReserved.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblNumOfReserved.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumOfReserved.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumOfReserved.ForeColor = System.Drawing.Color.Black;
             this.lblNumOfReserved.Location = new System.Drawing.Point(175, 60);
             this.lblNumOfReserved.Name = "lblNumOfReserved";
             this.lblNumOfReserved.Size = new System.Drawing.Size(46, 17);
@@ -193,7 +195,8 @@
             // 
             this.lblNumOfSeats.BackColor = System.Drawing.Color.White;
             this.lblNumOfSeats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblNumOfSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumOfSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumOfSeats.ForeColor = System.Drawing.Color.Black;
             this.lblNumOfSeats.Location = new System.Drawing.Point(175, 35);
             this.lblNumOfSeats.Name = "lblNumOfSeats";
             this.lblNumOfSeats.Size = new System.Drawing.Size(46, 17);
@@ -307,7 +310,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Navy;
-            this.label10.Location = new System.Drawing.Point(169, 34);
+            this.label10.Location = new System.Drawing.Point(158, 34);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 13);
             this.label10.TabIndex = 12;
