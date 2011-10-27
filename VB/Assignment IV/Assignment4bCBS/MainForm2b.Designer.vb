@@ -24,9 +24,7 @@ Partial Class MainForm2b
     Private Sub InitializeComponent()
         Me.grpInput = New System.Windows.Forms.GroupBox()
         Me.btnOK = New System.Windows.Forms.Button()
-        Me.txtPrice = New System.Windows.Forms.TextBox()
         Me.txtName = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.rbtnCancel = New System.Windows.Forms.RadioButton()
         Me.rbtnReserved = New System.Windows.Forms.RadioButton()
@@ -52,9 +50,7 @@ Partial Class MainForm2b
         'grpInput
         '
         Me.grpInput.Controls.Add(Me.btnOK)
-        Me.grpInput.Controls.Add(Me.txtPrice)
         Me.grpInput.Controls.Add(Me.txtName)
-        Me.grpInput.Controls.Add(Me.Label2)
         Me.grpInput.Controls.Add(Me.Label1)
         Me.grpInput.Controls.Add(Me.rbtnCancel)
         Me.grpInput.Controls.Add(Me.rbtnReserved)
@@ -72,33 +68,15 @@ Partial Class MainForm2b
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(191, 23)
         Me.btnOK.TabIndex = 2
-        Me.btnOK.Text = "Reserve / Cancel"
+        Me.btnOK.Text = "Reserve"
         Me.btnOK.UseVisualStyleBackColor = True
-        '
-        'txtPrice
-        '
-        Me.txtPrice.Location = New System.Drawing.Point(174, 81)
-        Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.txtPrice.Size = New System.Drawing.Size(47, 20)
-        Me.txtPrice.TabIndex = 1
-        Me.txtPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtName
         '
         Me.txtName.Location = New System.Drawing.Point(10, 81)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(125, 20)
+        Me.txtName.Size = New System.Drawing.Size(200, 20)
         Me.txtName.TabIndex = 0
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(171, 53)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(31, 13)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Price"
         '
         'Label1
         '
@@ -250,16 +228,16 @@ Partial Class MainForm2b
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(130, 30)
+        Me.Label9.Location = New System.Drawing.Point(66, 30)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(31, 13)
+        Me.Label9.Size = New System.Drawing.Size(22, 13)
         Me.Label9.TabIndex = 2
-        Me.Label9.Text = "Price"
+        Me.Label9.Text = "Col"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(51, 30)
+        Me.Label8.Location = New System.Drawing.Point(111, 30)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(37, 13)
         Me.Label8.TabIndex = 1
@@ -272,9 +250,9 @@ Partial Class MainForm2b
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(29, 13)
         Me.Label7.TabIndex = 0
-        Me.Label7.Text = "Seat"
+        Me.Label7.Text = "Row"
         '
-        'MainForm2a
+        'MainForm2b
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -282,8 +260,8 @@ Partial Class MainForm2b
         Me.Controls.Add(Me.grpReservations)
         Me.Controls.Add(Me.grpOutput)
         Me.Controls.Add(Me.grpInput)
-        Me.Name = "MainForm2a"
-        Me.Text = "CBS Cinema Booking System Version 2a"
+        Me.Name = "MainForm2b"
+        Me.Text = "CBS Cinema Booking System Version 2b"
         Me.grpInput.ResumeLayout(False)
         Me.grpInput.PerformLayout()
         Me.grpOutput.ResumeLayout(False)
@@ -295,9 +273,7 @@ Partial Class MainForm2b
     End Sub
     Friend WithEvents grpInput As System.Windows.Forms.GroupBox
     Friend WithEvents btnOK As System.Windows.Forms.Button
-    Friend WithEvents txtPrice As System.Windows.Forms.TextBox
     Friend WithEvents txtName As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents rbtnCancel As System.Windows.Forms.RadioButton
     Friend WithEvents rbtnReserved As System.Windows.Forms.RadioButton

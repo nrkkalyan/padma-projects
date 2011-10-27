@@ -130,23 +130,25 @@ Public Class MainForm2b
     ''' </summary>
     Private Sub ReserveOrCancelSeat()
         Dim customerName As String = Nothing
-        Dim price As Double = 0D
-
+        'if reserver radio button is checked then perform reservation or update of the seat
         If rbtnReserved.Checked = True Then
-            If ReadAndValidateInput(customerName) = True Then
-                If m_seatManager.GetSeatInfoAt(lstReservations.SelectedIndex) = "Vacant" Then
-                    m_seatManager.ReserveSeat(customerName, lstReservations.SelectedIndex)
-                Else
-                    Dim result As DialogResult = MessageBox.Show("This seat is reserved, do you want to update it?", "Info!", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-                    If result = DialogResult.Yes Then
-                        m_seatManager.ReserveSeat(customerName, price, lstReservations.SelectedIndex)
-                    End If
-                End If
-            Else
+            If ReadAndValidateInput(customerName) = False Then
                 Return
             End If
+
+            If m_seatManager.GetSeatInfoAt(lstReservations.SelectedIndex) = "Vacant" Then
+                m_seatManager.ReserveSeat(customerName, lstReservations.SelectedIndex)
+            Else
+                Dim result As DialogResult = MessageBox.Show("This seat is reserved, do you want to update it?", "Info!", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                If result = DialogResult.Yes Then
+                    m_seatManager.ReserveSeat(customerName, lstReservations.SelectedIndex)
+                End If
+            End If
+        Else
+            Return
         End If
 
+        'If cancel radio button is checked then perform cancellation of the seat
         If rbtnCancel.Checked = True Then
             Dim result As DialogResult = MessageBox.Show("Do you want to cancel the reservation?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop)
             If result = DialogResult.Yes Then
@@ -164,7 +166,7 @@ Public Class MainForm2b
     ''' <remarks></remarks>
     Private Sub UpdateLabels()
 
-        lblNumOfSeats.Text = Convert.ToString(m_numOfSeats)
+        lblNumOfSeats.Text = Convert.ToString(m_seatManager.TotNumOfSeats())
         lblNumOfReserved.Text = Convert.ToString(m_seatManager.GetNumReserved())
         lblNumOfVacant.Text = Convert.ToString(m_seatManager.GetNumVacant())
         If rbtnReserved.Checked Then
@@ -225,7 +227,6 @@ Public Class MainForm2b
     Private Sub rbtnReserved_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbtnReserved.CheckedChanged
 
         txtName.Enabled = True
-        txtPrice.Enabled = True
         If lstReservations.SelectedIndex >= 0 Then
             btnOK.Text = "Update"
         Else
@@ -244,7 +245,6 @@ Public Class MainForm2b
     ''' <remarks>Send and e are part of event delegate hadling</remarks>
     Private Sub rbtnCancel_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbtnCancel.CheckedChanged
         txtName.Enabled = False
-        txtPrice.Enabled = False
         btnOK.Text = "Cancel Reservation"
     End Sub
 
@@ -267,7 +267,6 @@ Public Class MainForm2b
         End If
 
         txtName.Enabled = enableOrDisable
-        txtPrice.Enabled = enableOrDisable
         btnOK.Enabled = enableOrDisable
 
         UpdateGUI() 'update listbox depending on the choice of the combo box

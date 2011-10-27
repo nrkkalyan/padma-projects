@@ -222,6 +222,7 @@
             this.lstReservations.Size = new System.Drawing.Size(423, 264);
             this.lstReservations.TabIndex = 3;
             this.lstReservations.SelectedIndexChanged += new System.EventHandler(this.lstReservations_SelectedIndexChanged);
+            this.lstReservations.DoubleClick += new System.EventHandler(this.lstReservations_DoubleClick);
             // 
             // grpReservations
             // 

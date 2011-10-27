@@ -176,7 +176,7 @@ namespace Assignment4CBS
         }
 
         /// <summary>
-        /// Gets the information about the seat
+        /// Overloaded method of GetSeatInfoAt which Gets the information about the seat
         /// </summary>
         /// <param name="row">row of the seat</param>
         /// <param name="col">col of the seat</param>

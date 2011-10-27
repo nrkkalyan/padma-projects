@@ -190,28 +190,34 @@ namespace Assignment4CBS
         private void ReserveOrCancelSeat()
         {
            string customerName = string.Empty;
-             // if reserve radiobutton is checked perform reservation of update of the seat
-                if (rbtnReserved.Checked)
-                {
-                    if (!ReadAndValidateInput(out customerName)) 
-                    {
-                        return;
-                    }
-                    if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  ")
-                            m_seatMngr.ReserveSeat(customerName, lstReservations.SelectedIndex);
-                }
-                else
-                {
-                    DialogResult result = MessageBox.Show("This seat is reserved, do you want to update it?", "Info!", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
-                    if (result == DialogResult.Yes)
-                    {
-                        m_seatMngr.ReserveSeat(customerName,lstReservations.SelectedIndex);
-                    }
-                }
+             // if reserve radiobutton is checked perform reservation of update or the seat
+           if (rbtnReserved.Checked)
+           {
+               if (!ReadAndValidateInput(out customerName))
+               {
+                   return;
+               }
+               if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  ")
+               {
+                   m_seatMngr.ReserveSeat(customerName, lstReservations.SelectedIndex);
+               }
+               else
+               {
+                   DialogResult result = MessageBox.Show("This seat is reserved, do you want to update it?", "Info!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                   if (result == DialogResult.Yes)
+                   {
+                       m_seatMngr.ReserveSeat(customerName, lstReservations.SelectedIndex);
+                   }
+               }
+           }
             // if cancel radio button is checked perform cancellation of reservation.
                 if (rbtnCancel.Checked)
                 {
-                   m_seatMngr.CancelSeat(lstReservations.SelectedIndex);
+                    DialogResult result = MessageBox.Show("Do you really want to cancel the reservation?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                    if (result == DialogResult.Yes)
+                    {
+                        m_seatMngr.CancelSeat(lstReservations.SelectedIndex);
+                    }
                 }
                 UpdateGUI();
       }
@@ -318,6 +324,16 @@ namespace Assignment4CBS
             {
                 btnOK.Text = "Cancel Reservation";
             }
+        }
+
+        /// <summary>
+        /// Event handler for Doubleclick event of listbox item
+        /// </summary>
+        /// <param name="sender">the object that fired the event (listbox index)</param>
+        /// <param name="e"></param>
+        private void lstReservations_DoubleClick(object sender, EventArgs e)
+        {
+            ReserveOrCancelSeat();
         }
 
          

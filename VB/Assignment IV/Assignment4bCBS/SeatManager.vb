@@ -35,7 +35,7 @@ Public Class SeatManager
         'Intialize the matrix to have total num of rows and columns
         m_totNumOfRows = totNumOfRows
         m_totNumOfCols = totNumOfCols
-        m_nameMatrix = New String(m_totNumOfRows, m_totNumOfCols) {}
+        m_nameMatrix = New String(m_totNumOfRows - 1, m_totNumOfCols - 1) {}
     End Sub
 
     ''' <summary>
@@ -187,6 +187,31 @@ Public Class SeatManager
         row = Math.Ceiling((indexRow / m_totNumOfRows)) 'row in seat matrix
         col = indexRow Mod m_totNumOfRows 'col in seat matrix
     End Sub
+
+
+    ''' <summary>
+    ''' Returns the status for a seat in position = index
+    ''' </summary>
+    ''' <param name="index">Index of the array position</param>
+    ''' <returns>A formatted string containing information about the 
+    ''' seat customername, price and whether the seat is
+    ''' reserved or vacant.</returns>
+    Public Function GetSeatInfoAt(ByVal index As Integer) As String
+        Dim row As Integer = index
+        Dim col As Integer = 0
+        IndexToRowCol(row, col)
+        Dim isValid As Boolean = CheckIndex(row, col)
+
+        If isValid Then
+            If m_nameMatrix(row, col) = Nothing Then
+                Return "Vacant"
+            Else
+                Return "Reserved"
+            End If
+        Else
+            Return Nothing
+        End If
+    End Function
 
 
     ''' <summary>

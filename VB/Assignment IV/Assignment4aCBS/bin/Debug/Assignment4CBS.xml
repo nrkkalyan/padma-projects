@@ -81,6 +81,19 @@ Assignment4CBS
  cancel a reservation
  </summary>
 	<remarks></remarks>
+</member><member name="P:Assignment4CBS.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Assignment4CBS.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Assignment4CBS.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
 </member><member name="M:Assignment4CBS.MainForm2a.#ctor">
 	<summary>
  custructor is a special method that is automatically called
@@ -297,19 +310,6 @@ Assignment4CBS
  It validates double, string and integer inputs
  </summary>
 	<remarks></remarks>
-</member><member name="P:Assignment4CBS.My.Resources.Resources.ResourceManager">
-	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:Assignment4CBS.My.Resources.Resources.Culture">
-	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="T:Assignment4CBS.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
 </member>
 </members>
 </doc>
