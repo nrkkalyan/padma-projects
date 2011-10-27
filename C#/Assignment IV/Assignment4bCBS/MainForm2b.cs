@@ -10,7 +10,7 @@ namespace Assignment4CBS
     public partial class MainForm2b : Form
     {
         //Test variables - to test the application
-        // Declare a constant for max number of seats in the cinema
+        // Declare a constant for max number of rows and colums of seats in the cinema
         private const int m_numOfRows = 7;
         private const int m_numOfCols = 7;
 
@@ -45,7 +45,6 @@ namespace Assignment4CBS
            
             lstReservations.Items.Clear();
             txtName.Text = string.Empty;
-
 
             lblNumOfReserved.Text = string.Empty;
             lblNumOfSeats.Text = m_seatMngr.TotNumOfSeats().ToString();
@@ -107,10 +106,9 @@ namespace Assignment4CBS
 
         /// <summary>
         /// Parse the user input, validate and save the data for later use.
-        /// This method calls two other methods to read and validate name and price repsectively
+        /// This method calls other method to read and validate name
         /// </summary>
         /// <param name="customerName">The name of the customer</param>
-        /// <param name="seatPrice">The price to be paid by the customer</param>
         /// <returns>True if input is valid, False otherwise</returns>
         private bool ReadAndValidateInput(out string name)
         {
@@ -176,7 +174,18 @@ namespace Assignment4CBS
 
         
         /// <summary>
+        /// 
         /// Reserve or cancel a seat
+        /// 
+        /// If reserve radiobutton is selected then
+        ///      1. If seat is reserved check with user to update or not that seat
+        ///      2. If seat is empty validate  name
+        ///      3. Call the reserve method of m_seatManager to reserve or update
+        ///      
+        /// If cancel radiobutton is selected then
+        ///      Call the cancel method of m_seatManager to canel 
+        ///      
+        /// call UpdateGUI
         /// </summary>
         private void ReserveOrCancelSeat()
         {

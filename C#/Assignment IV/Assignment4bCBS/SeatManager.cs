@@ -17,7 +17,7 @@ namespace Assignment4CBS
     class SeatManager
     {
         //Fields
-        private readonly int m_totNumOfCols; // number of columsn in the cinema
+        private readonly int m_totNumOfCols; // number of columns in the cinema
         private readonly int m_totNumOfRows; // number of Rows in the cinema
         private string[,] m_nameMatrix; // two dimensional array for storing seat names
 
@@ -108,7 +108,6 @@ namespace Assignment4CBS
         /// price list int the position index
         /// </summary>
         /// <param name="name">name of the cinema customer</param>
-        /// <param name="price">Price paid for the seat</param>
         /// <param name="index">Index of the array position</param>
         /// <returns>True if seat is successfully reserved, false if it is already
         /// occupied</returns>
@@ -174,16 +173,13 @@ namespace Assignment4CBS
             {
                 return null;
             }
-
-            
-            
         }
 
-
         /// <summary>
-        /// Returns the status for a seat in position = index
+        /// Gets the information about the seat
         /// </summary>
-        /// <param name="index">Index of the array position</param>
+        /// <param name="row">row of the seat</param>
+        /// <param name="col">col of the seat</param>
         /// <returns>A formatted string containing information about the 
         /// seat whether the seat is
         /// reserved or vacant.</returns>
@@ -249,39 +245,37 @@ namespace Assignment4CBS
 
             if (count <= 0)
                 return 0;
-                string strOut = "Vacant  ";
-                int index = 0; // counter for return array
+            string strOut = "Vacant  ";
+            int index = 0; // counter for return array
 
-                for (index = 0; index < TotNumOfSeats(); index++)
-                    {
-                            int row = index;
-                            int col = 0;
-                            IndexToRowCol(ref row, ref col);
-                            strOut = GetSeatInfoAt(row,col);
-                            strSeatInfoStrings[index] = string.Format("{0, -5}\t{1,4}\t{2,-10}\t {3} \n", row+1, col+1, strOut, m_nameMatrix[row, col]);
+            for (index = 0; index < TotNumOfSeats(); index++)
+            {
+                int row = index;
+                int col = 0;
+                IndexToRowCol(ref row, ref col);
+                strOut = GetSeatInfoAt(row,col);
+                strSeatInfoStrings[index] = string.Format("{0, -5}\t{1,4}\t{2,-10}\t {3} \n", row+1, col+1, strOut, m_nameMatrix[row, col]);
 
-                            if (choice == DisplayOptions.ReservedSeats && !strOut.Equals("Reserved"))
-                            {
-                                strSeatInfoStrings[index] = null;
-                            }
-                            else if (choice == DisplayOptions.VacantSeats && !strOut.Equals("Vacant  "))
-                            {
-                                strSeatInfoStrings[index] = null;
-                            } 
-                        
-                    }
+                if (choice == DisplayOptions.ReservedSeats && !strOut.Equals("Reserved"))
+                {
+                    strSeatInfoStrings[index] = null;
+                }
+                else if (choice == DisplayOptions.VacantSeats && !strOut.Equals("Vacant  "))
+                {
+                    strSeatInfoStrings[index] = null;
+             
+                } 
+            }
                 
                 return count;
         }
 
         /// <summary>
-        /// Check so the value of an index is within the array range,
-        /// i.e index >= 0 and index is less than m-totNumOfSeats.
+        /// Check whether value of row and column are with in the range
         /// </summary>
-        /// <param name="index">index of parameter</param>
-        /// <returns>true if the index is within the range, false
-        /// otherwise</returns>
-        /// <remarks></remarks>
+        /// <param name="row">row number</param>
+        /// <param name="col">column number</param>
+        /// <returns></returns>
         private bool CheckIndex(int row, int col)
         {
             if ( row >= 0 && row < m_totNumOfRows && col >= 0 && col < m_totNumOfCols )

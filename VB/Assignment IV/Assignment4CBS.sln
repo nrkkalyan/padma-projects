@@ -5,6 +5,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CBSVersion1aVB", "Assignmen
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CBSVersion2aVB", "Assignment4aCBS\CBSVersion2aVB.vbproj", "{FBC4714E-FF2C-48D5-9CA5-3BA0A04F4CEC}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CBSVersion2bVB", "Assignment4bCBS\CBSVersion2bVB.vbproj", "{6B386DFE-CD0A-4963-A385-763CFA73DCDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,6 +21,10 @@ Global
 		{FBC4714E-FF2C-48D5-9CA5-3BA0A04F4CEC}.Debug|x86.Build.0 = Debug|x86
 		{FBC4714E-FF2C-48D5-9CA5-3BA0A04F4CEC}.Release|x86.ActiveCfg = Release|x86
 		{FBC4714E-FF2C-48D5-9CA5-3BA0A04F4CEC}.Release|x86.Build.0 = Release|x86
+		{6B386DFE-CD0A-4963-A385-763CFA73DCDC}.Debug|x86.ActiveCfg = Debug|x86
+		{6B386DFE-CD0A-4963-A385-763CFA73DCDC}.Debug|x86.Build.0 = Debug|x86
+		{6B386DFE-CD0A-4963-A385-763CFA73DCDC}.Release|x86.ActiveCfg = Release|x86
+		{6B386DFE-CD0A-4963-A385-763CFA73DCDC}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
