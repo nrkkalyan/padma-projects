@@ -326,4 +326,14 @@ Public Class MainForm2a
             btnOK.Text = "Cancel Reservation"
         End If
     End Sub
+
+    ''' <summary>
+    ''' Event handler method for the DoubleClick even of listbox index
+    ''' </summary>
+    ''' <param name="sender">The object that fired the event (listbox index)</param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub lstReservations_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstReservations.DoubleClick
+        ReserveOrCancelSeat()
+    End Sub
 End Class

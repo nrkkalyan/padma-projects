@@ -360,6 +360,16 @@ namespace Assignment4CBS
             }
         }
 
+        /// <summary>
+        /// Event - handler method for the DoubleClick event of the Listbox index
+        /// </summary>
+        /// <param name="sender"> The boject that fired the event (listbox index)</param>
+        /// <param name="e"></param>
+        private void lstReservations_DoubleClick(object sender, EventArgs e)
+        {
+            ReserveOrCancelSeat();
+        }
+
          
 
         

@@ -244,6 +244,7 @@
             this.lstReservations.Size = new System.Drawing.Size(423, 264);
             this.lstReservations.TabIndex = 3;
             this.lstReservations.SelectedIndexChanged += new System.EventHandler(this.lstReservations_SelectedIndexChanged);
+            this.lstReservations.DoubleClick += new System.EventHandler(this.lstReservations_DoubleClick);
             // 
             // grpReservations
             // 
@@ -316,7 +317,7 @@
             this.label10.TabIndex = 12;
             this.label10.Text = "Price";
             // 
-            // MainForm
+            // MainForm2a
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -324,7 +325,7 @@
             this.Controls.Add(this.grpReservations);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpInput);
-            this.Name = "MainForm";
+            this.Name = "MainForm2a";
             this.Text = "CBS Cinema Booking System Version 2a";
             this.grpInput.ResumeLayout(false);
             this.grpInput.PerformLayout();
