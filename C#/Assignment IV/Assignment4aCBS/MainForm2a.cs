@@ -279,6 +279,7 @@ namespace Assignment4CBS
             if (rbtnReserved.Checked)
             {
                 btnOK.Text = "Reseve";
+            
             }
         }
 
@@ -293,16 +294,24 @@ namespace Assignment4CBS
         /// <param name="e">An object containing useful information about the event.</param>
         private void cmboxChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool enableOrDisable = true;
+            bool enableOrDisable = false;
             SeatManager.DisplayOptions selected = (SeatManager.DisplayOptions)Enum.Parse(typeof(SeatManager.DisplayOptions), (string)this.cmboxChoice.SelectedItem);
-            if (selected != SeatManager.DisplayOptions.AllSeats)
+            if (selected == SeatManager.DisplayOptions.AllSeats )
+            {
+                enableOrDisable = true;
+
+            }
+
+            btnOK.Enabled = enableOrDisable;
+            if (rbtnCancel.Checked)
             {
                 enableOrDisable = false;
             }
+      
+            
             txtName.Enabled = enableOrDisable;
             txtPrice.Enabled = enableOrDisable;
-            btnOK.Enabled = enableOrDisable;
-            
+
             UpdateGUI(); // update the listbox depending on the choice of combo box
         }
 
@@ -315,6 +324,15 @@ namespace Assignment4CBS
         {
             txtName.Enabled = false;
             txtPrice.Enabled = false;
+
+            if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  " || cmboxChoice.SelectedIndex != 0)
+            {
+                btnOK.Enabled = false;
+            }
+            else
+            {
+                btnOK.Enabled = true;
+            }
             btnOK.Text = "Cancel Reservation";
         }
 
@@ -325,16 +343,18 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void rbtnReserved_CheckedChanged(object sender, EventArgs e)
         {
-            txtName.Enabled = true;
-            txtPrice.Enabled = true;
-            if (lstReservations.SelectedIndex >= 0)
-            {
+            bool enableOrDisable = true;
+            if (cmboxChoice.SelectedIndex != 0)
+                enableOrDisable = false;
+
+            if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Reserved")
                 btnOK.Text = "Update";
-            }
             else
-            {
                 btnOK.Text = "Reserve";
-            }
+
+            btnOK.Enabled = enableOrDisable;
+            txtName.Enabled = enableOrDisable;
+            txtPrice.Enabled = enableOrDisable;
         }
 
         
@@ -371,7 +391,22 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void lstReservations_DoubleClick(object sender, EventArgs e)
         {
-            ReserveOrCancelSeat();
+
+            bool enableOrDisable = true;
+            SeatManager.DisplayOptions selected = (SeatManager.DisplayOptions)Enum.Parse(typeof(SeatManager.DisplayOptions), (string)this.cmboxChoice.SelectedItem);
+            if (selected != SeatManager.DisplayOptions.AllSeats)
+            {
+                MessageBox.Show("Please select *All Seats* for seat Reservations, Updates and Cancellations.", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                enableOrDisable = false;
+                return;
+            }
+            else
+            {
+                ReserveOrCancelSeat();
+            }
+            txtName.Enabled = enableOrDisable;
+            btnOK.Enabled = enableOrDisable;
+            txtPrice.Enabled = enableOrDisable;
         }
 
          

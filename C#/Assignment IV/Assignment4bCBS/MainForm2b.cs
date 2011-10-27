@@ -251,12 +251,23 @@ namespace Assignment4CBS
         /// <param name="e">An object containing useful information about the event.</param>
         private void cmboxChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool enableOrDisable = true;
+            bool enableOrDisable = false;
             SeatManager.DisplayOptions selected = (SeatManager.DisplayOptions)Enum.Parse(typeof(SeatManager.DisplayOptions), (string)this.cmboxChoice.SelectedItem);
-            if (selected != SeatManager.DisplayOptions.AllSeats)
+            if (selected == SeatManager.DisplayOptions.AllSeats)
+            {
+                enableOrDisable = true;
+
+            }
+            btnOK.Enabled = enableOrDisable;
+            if (rbtnCancel.Checked)
             {
                 enableOrDisable = false;
             }
+            if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Reserved" )
+                btnOK.Enabled = true;
+            else
+            btnOK.Enabled = false;
+
             txtName.Enabled = enableOrDisable;
             btnOK.Enabled = enableOrDisable;
    

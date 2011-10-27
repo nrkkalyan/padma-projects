@@ -298,10 +298,19 @@ Public Class MainForm2a
     Private Sub cmboxChoice_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmboxChoice.SelectedIndexChanged
         Dim enableOrDisable As Boolean = True
 
-        ' Dim selected As SeatManager.DisplayOptions = CType(cmboxChoice.SelectedValue, SeatManager.DisplayOptions)
-        If cmboxChoice.SelectedIndex = 1 Or cmboxChoice.SelectedIndex = 2 Then
+        If cmboxChoice.SelectedIndex = 0 Then
+            enableOrDisable = True
+        End If
+        btnOK.Enabled = enableOrDisable
+        If rbtnCancel.Checked = True Then
             enableOrDisable = False
         End If
+        If m_seatManager.GetSeatInfoAt(lstReservations.SelectedIndex) = "Vacant" Then
+            btnOK.Enabled = False
+        Else
+            btnOK.Enabled = True
+        End If
+
 
         txtName.Enabled = enableOrDisable
         txtPrice.Enabled = enableOrDisable
