@@ -150,7 +150,7 @@ Public Class SeatManager
         Dim col As Integer = 0
         Dim row As Integer = index
         IndexToRowCol(row, col)
-        If (CheckIndex(row, col)) Then
+        If (CheckIndex(row, col) = True) Then
             m_nameMatrix(row, col) = Nothing
             Return True
         Else
@@ -184,7 +184,7 @@ Public Class SeatManager
     Public Sub IndexToRowCol(ByRef row As Integer, ByRef col As Integer)
         Dim indexRow As Integer = row 'row in the index
 
-        row = Math.Ceiling((indexRow / m_totNumOfRows)) 'row in seat matrix
+        row = Math.Floor((indexRow / m_totNumOfRows)) 'row in seat matrix
         col = indexRow Mod m_totNumOfRows 'col in seat matrix
     End Sub
 
@@ -261,7 +261,7 @@ Public Class SeatManager
             IndexToRowCol(row, col)
 
             strOut = GetSeatInfoAt(row, col)
-            strSeatInfoStrings(index) = String.Format("{0,-10} {1,-15}  {2,-20} {3,-50}", row + 1, col + 1, strOut, m_nameMatrix(row, col))
+            strSeatInfoStrings(index) = String.Format("{0,-10} {1,-5}    {2,-20} {3,-50}", row + 1, col + 1, strOut, m_nameMatrix(row, col))
 
             If (choice = DisplayOptions.ReservedSeats And strOut = "Vacant") Then
                 strSeatInfoStrings(index) = Nothing

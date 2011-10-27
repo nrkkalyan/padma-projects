@@ -271,6 +271,15 @@ namespace Assignment4CBS
         private void rbtnCancel_CheckedChanged(object sender, EventArgs e)
         {
             txtName.Enabled = false;
+            
+            if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  " || cmboxChoice.SelectedIndex != 0)
+            {
+                btnOK.Enabled = false;
+            }
+            else
+            {
+                btnOK.Enabled = true;
+            }
             btnOK.Text = "Cancel Reservation";
         }
 
@@ -281,22 +290,17 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void rbtnReserved_CheckedChanged(object sender, EventArgs e)
         {
+            bool enableOrDisable = true;
+            if (cmboxChoice.SelectedIndex != 0)
+                enableOrDisable = false;
 
-            if (rbtnCancel.Checked)
-            {
-                txtName.Enabled = false;
-            }
-            else {
-                txtName.Enabled = true;
-            }
-            if (lstReservations.SelectedIndex >= 0)
-            {
+            if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Reserved")
                 btnOK.Text = "Update";
-            }
             else
-            {
                 btnOK.Text = "Reserve";
-            }
+
+            btnOK.Enabled = enableOrDisable;
+            txtName.Enabled = enableOrDisable;
         }
 
         
@@ -333,7 +337,22 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void lstReservations_DoubleClick(object sender, EventArgs e)
         {
-            ReserveOrCancelSeat();
+
+            bool enableOrDisable = true;
+            SeatManager.DisplayOptions selected = (SeatManager.DisplayOptions)Enum.Parse(typeof(SeatManager.DisplayOptions), (string)this.cmboxChoice.SelectedItem);
+            if (selected != SeatManager.DisplayOptions.AllSeats)
+            {
+                MessageBox.Show("Please select *All Seats* for seat Reservations, Updates and Cancellations.", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                enableOrDisable = false;
+                return;
+            }
+            else
+            {
+                ReserveOrCancelSeat();
+            }
+            txtName.Enabled = enableOrDisable;
+            btnOK.Enabled = enableOrDisable;
+            
         }
 
          

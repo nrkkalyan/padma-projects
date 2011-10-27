@@ -228,7 +228,7 @@ Partial Class MainForm2b
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(66, 30)
+        Me.Label9.Location = New System.Drawing.Point(51, 30)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(22, 13)
         Me.Label9.TabIndex = 2
@@ -237,7 +237,7 @@ Partial Class MainForm2b
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(111, 30)
+        Me.Label8.Location = New System.Drawing.Point(90, 30)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(37, 13)
         Me.Label8.TabIndex = 1

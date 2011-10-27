@@ -42,6 +42,7 @@ Public Class MainForm2b
 
         lstReservations.Items.Clear()
         txtName.Text = String.Empty
+        rbtnReserved.Checked = True
 
         lblNumOfReserved.Text = String.Empty
         lblNumOfSeats.Text = m_seatManager.TotNumOfSeats().ToString()
@@ -144,14 +145,17 @@ Public Class MainForm2b
                     m_seatManager.ReserveSeat(customerName, lstReservations.SelectedIndex)
                 End If
             End If
-        Else
-            Return
+        
         End If
 
         'If cancel radio button is checked then perform cancellation of the seat
         If rbtnCancel.Checked = True Then
-            Dim result As DialogResult = MessageBox.Show("Do you want to cancel the reservation?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop)
-            If result = DialogResult.Yes Then
+            If m_seatManager.GetSeatInfoAt(lstReservations.SelectedIndex) = "Reserved" Then
+                Dim result As DialogResult = MessageBox.Show("Do you want to cancel the reservation?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop)
+                If result = DialogResult.Yes Then
+                    m_seatManager.CancelSeat(lstReservations.SelectedIndex)
+                End If
+            Else
                 m_seatManager.CancelSeat(lstReservations.SelectedIndex)
             End If
         End If
@@ -225,13 +229,18 @@ Public Class MainForm2b
     ''' <param name="e">Contains information about the event</param>
     ''' <remarks>Send and e are part of event delegate hadling</remarks>
     Private Sub rbtnReserved_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbtnReserved.CheckedChanged
-
-        txtName.Enabled = True
-        If lstReservations.SelectedIndex >= 0 Then
+        Dim enableOrDisable As Boolean = True
+        If cmboxChoice.SelectedIndex <> 0 Then
+            enableOrDisable = False
+        End If
+        If m_seatManager.GetSeatInfoAt(lstReservations.SelectedIndex) = "Reserved" Then
             btnOK.Text = "Update"
         Else
             btnOK.Text = "Reserve"
         End If
+
+        btnOK.Enabled = enableOrDisable
+        txtName.Enabled = enableOrDisable
     End Sub
 
 
@@ -245,6 +254,11 @@ Public Class MainForm2b
     ''' <remarks>Send and e are part of event delegate hadling</remarks>
     Private Sub rbtnCancel_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbtnCancel.CheckedChanged
         txtName.Enabled = False
+        If m_seatManager.GetSeatInfoAt(lstReservations.SelectedIndex) = "Vacant" Or cmboxChoice.SelectedIndex <> 0 Then
+            btnOK.Enabled = False
+        Else
+            btnOK.Enabled = True
+        End If
         btnOK.Text = "Cancel Reservation"
     End Sub
 
@@ -261,9 +275,14 @@ Public Class MainForm2b
     Private Sub cmboxChoice_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmboxChoice.SelectedIndexChanged
         Dim enableOrDisable As Boolean = True
 
-        ' Dim selected As SeatManager.DisplayOptions = CType(cmboxChoice.SelectedValue, SeatManager.DisplayOptions)
-        If cmboxChoice.SelectedIndex = 1 Or cmboxChoice.SelectedIndex = 2 Then
+        If cmboxChoice.SelectedIndex <> 0 Then
             enableOrDisable = False
+        Else
+            If m_seatManager.GetSeatInfoAt(lstReservations.SelectedIndex) = "Vacant" Then
+                btnOK.Enabled = False
+            Else
+                btnOK.Enabled = True
+            End If
         End If
 
         txtName.Enabled = enableOrDisable
@@ -299,6 +318,17 @@ Public Class MainForm2b
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub lstReservations_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstReservations.DoubleClick
-        ReserveOrCancelSeat()
+        Dim enableOrDisable As Boolean = True
+
+        If cmboxChoice.SelectedIndex <> 0 Then
+            enableOrDisable = False
+            MessageBox.Show("Please select *All Seats* for seat Reservations, Updates and Cancellations.", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        Else
+            ReserveOrCancelSeat()
+        End If
+
+        txtName.Enabled = enableOrDisable
+        btnOK.Enabled = enableOrDisable
     End Sub
 End Class
