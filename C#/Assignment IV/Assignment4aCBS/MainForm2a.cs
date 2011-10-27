@@ -255,7 +255,11 @@ namespace Assignment4CBS
                 }
                 if (rbtnCancel.Checked)
                 {
-                   m_seatMngr.CancelSeat(lstReservations.SelectedIndex);
+                    DialogResult result = MessageBox.Show("Do you want to cancel the reservation?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                    if (result == DialogResult.Yes)
+                    {
+                        m_seatMngr.CancelSeat(lstReservations.SelectedIndex);
+                    }
                 }
                 UpdateGUI();
       }

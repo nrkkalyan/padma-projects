@@ -146,16 +146,19 @@ Public Class MainForm2a
                         m_seatManager.ReserveSeat(customerName, price, lstReservations.SelectedIndex)
                     End If
                 End If
-                UpdateGUI()
             Else
                 Return
             End If
         End If
 
         If rbtnCancel.Checked = True Then
-            m_seatManager.CancelSeat(lstReservations.SelectedIndex)
-            UpdateGUI()
+            Dim result As DialogResult = MessageBox.Show("Do you want to cancel the reservation?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop)
+            If result = DialogResult.Yes Then
+                m_seatManager.CancelSeat(lstReservations.SelectedIndex)
+            End If
         End If
+
+        UpdateGUI()
     End Sub
 
     ''' <summary>

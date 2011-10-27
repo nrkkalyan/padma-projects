@@ -179,7 +179,7 @@ Public Class SeatManager
         For index = 0 To m_totNumOfSeats - 1 Step 1
 
             strOut = GetSeatInfoAt(index)
-            strSeatInfoStrings(index) = String.Format("{0,-10}{1,-15} {2,-20} {3,-50}", index + 1, strOut, m_price(index).ToString("F"), m_nameList(index))
+            strSeatInfoStrings(index) = String.Format("{0,-10} {1,-15}  {2,-20} {3,-50}", index + 1, strOut, m_price(index).ToString("F"), m_nameList(index))
 
             If (choice = DisplayOptions.ReservedSeats And strOut = "Vacant") Then
                 strSeatInfoStrings(index) = Nothing
