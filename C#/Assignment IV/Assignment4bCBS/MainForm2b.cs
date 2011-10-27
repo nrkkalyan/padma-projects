@@ -7,11 +7,12 @@ using System.Windows.Forms;
 
 namespace Assignment4CBS
 {
-    public partial class MainForm2a : Form
+    public partial class MainForm2b : Form
     {
         //Test variables - to test the application
         // Declare a constant for max number of seats in the cinema
-        private const int m_numOfSeats = 60;
+        private const int m_numOfRows = 7;
+        private const int m_numOfCols = 7;
 
         // declare a reference variable fo the SeatManager type
         private SeatManager m_seatMngr;
@@ -22,13 +23,13 @@ namespace Assignment4CBS
         //It is a good place for initializations and creation of
         // the objects that are used as fields, e.g m_seatMngr
 
-        public MainForm2a()
+        public MainForm2b()
         {
             //visual studio generated method
             InitializeComponent();
 
             //my initialization method
-            m_seatMngr = new SeatManager(m_numOfSeats);
+            m_seatMngr = new SeatManager(m_numOfRows,m_numOfCols);
             InitializeGUI();
         }
 
@@ -44,11 +45,10 @@ namespace Assignment4CBS
            
             lstReservations.Items.Clear();
             txtName.Text = string.Empty;
-            txtPrice.Text = string.Empty;
 
 
             lblNumOfReserved.Text = string.Empty;
-            lblNumOfSeats.Text = m_numOfSeats.ToString();
+            lblNumOfSeats.Text = m_seatMngr.TotNumOfSeats().ToString();
             lblNumOfVacant.Text = string.Empty;
 
             cmboxChoice.Items.AddRange(Enum.GetNames(typeof(SeatManager.DisplayOptions)));
@@ -99,7 +99,6 @@ namespace Assignment4CBS
                 MessageBox.Show("Please select a seat first", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-
             else
             {
                 return true;
@@ -113,12 +112,11 @@ namespace Assignment4CBS
         /// <param name="customerName">The name of the customer</param>
         /// <param name="seatPrice">The price to be paid by the customer</param>
         /// <returns>True if input is valid, False otherwise</returns>
-        private bool ReadAndValidateInput(out string name, out double price)
+        private bool ReadAndValidateInput(out string name)
         {
             bool nameValid = ReadAndValidateName(out name);
-            bool priceValid = ReadAndValidatePrice(out price);
 
-            if (nameValid && priceValid)
+            if (nameValid)
             {
                 return true;
             }
@@ -129,12 +127,6 @@ namespace Assignment4CBS
                     MessageBox.Show("Invalid input in name field! Name cannot be empty, and must have atleast one character(not a blank)", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtName.Focus(); // set focus to name textbox
                     txtName.SelectAll(); // to select all the text present
-                }
-                else
-                {
-                    MessageBox.Show("Invalid input in price field!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtPrice.Focus(); // set focus to price textbox
-                    txtPrice.SelectAll(); // to select all text
                 }
 
                 return false;
@@ -151,7 +143,6 @@ namespace Assignment4CBS
         private bool ReadAndValidateName(out string name)
         {
             name = txtName.Text;
-
             // calling CheckString method of InputUtility to validate name
             bool isInValid = InputUtility.CheckString(name);
             if (!isInValid)
@@ -162,41 +153,12 @@ namespace Assignment4CBS
             {
                 return false;
             }
-
-        }
-
-
-        /// <summary>
-        /// Call GetDouble method of the InputUtility to convert the text given by the user
-        /// in the price TextBox. Validate and then the converted value is checked with  a value >= 0 and less than or equal to a 
-        /// max ticket price (3500.00)
-        /// </summary>
-        /// <param name="price">Variable receiving the converted value</param>
-        /// <returns>True if the convertion is successful and validation is OK, False otherwise</returns>
-        private bool ReadAndValidatePrice(out double price)
-        {
-            string str = txtPrice.Text;
-
-            double min = 0.0;
-            const double max = 3500.00; // delcaring a constant for max value
-
-            bool isValid = InputUtility.GetDouble(str, out price, min, max);
-            if (isValid)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-
-            }
-
         }
 
         /// <summary>
         /// Event-handler method for the Click-event of the button. When the user clicks the
         /// button, this method will be executed automatically.
-        /// If the Cancel Radiobutton is checked, no need to read customer name
+        /// If teh Cancel Radiobutton is checked, no need to read customer name
         /// or seatPrice.
         /// Call the method ReserverOrCancelSeat to process the reservation/ cancellation
         /// of a seat.
@@ -205,7 +167,6 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
-            
             if (!CheckSelectedIndex())
             {
                 return;
@@ -216,43 +177,29 @@ namespace Assignment4CBS
         
         /// <summary>
         /// Reserve or cancel a seat
-        /// 
-        /// If reserve radiobutton is selected then
-        ///      1. If seat is reserved check with user to update or not that seat
-        ///      2. If seat is empty validate  name and price
-        ///      3. Call the reserve method of m_seatManager to reserve or update
-        ///      
-        /// If cancel radiobutton is selected then
-        ///      Call the cancel method of m_seatManager to canel 
-        ///      
-        /// call UpdateGUI
-        /// 
         /// </summary>
         private void ReserveOrCancelSeat()
         {
-            string customerName = string.Empty;
-            double price = 0.0;
-             
+           string customerName = string.Empty;
+             // if reserve radiobutton is checked perform reservation of update of the seat
                 if (rbtnReserved.Checked)
                 {
-
-                    if (!ReadAndValidateInput(out customerName, out price)) 
+                    if (!ReadAndValidateInput(out customerName)) 
                     {
                         return;
                     }
-                        if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  ")
-                        {
-                            m_seatMngr.ReserveSeat(customerName, price, lstReservations.SelectedIndex);
-                        }
-                        else
-                        {
-                            DialogResult result = MessageBox.Show("This seat is reserved, do you want to update it?", "Info!", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
-                            if (result == DialogResult.Yes)
-                            {
-                                m_seatMngr.ReserveSeat(customerName, price, lstReservations.SelectedIndex);
-                            }
-                        }
+                    if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  ")
+                            m_seatMngr.ReserveSeat(customerName, lstReservations.SelectedIndex);
                 }
+                else
+                {
+                    DialogResult result = MessageBox.Show("This seat is reserved, do you want to update it?", "Info!", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        m_seatMngr.ReserveSeat(customerName,lstReservations.SelectedIndex);
+                    }
+                }
+            // if cancel radio button is checked perform cancellation of reservation.
                 if (rbtnCancel.Checked)
                 {
                    m_seatMngr.CancelSeat(lstReservations.SelectedIndex);
@@ -269,7 +216,7 @@ namespace Assignment4CBS
         private void UpdateLabels()
         {
 
-            lblNumOfSeats.Text = Convert.ToString(m_numOfSeats) ;
+            lblNumOfSeats.Text = Convert.ToString(m_seatMngr.TotNumOfSeats()) ;
             lblNumOfReserved.Text = Convert.ToString(m_seatMngr.GetNumReserved());
             lblNumOfVacant.Text = Convert.ToString(m_seatMngr.GetNumVacant());
             if (rbtnReserved.Checked)
@@ -296,10 +243,9 @@ namespace Assignment4CBS
                 enableOrDisable = false;
             }
             txtName.Enabled = enableOrDisable;
-            txtPrice.Enabled = enableOrDisable;
             btnOK.Enabled = enableOrDisable;
-            
-            UpdateGUI(); // update the listbox depending on the choice of combo box
+   
+            UpdateGUI(); // update teh listbox depending on the choice of combo box
         }
 
         /// <summary>
@@ -310,7 +256,6 @@ namespace Assignment4CBS
         private void rbtnCancel_CheckedChanged(object sender, EventArgs e)
         {
             txtName.Enabled = false;
-            txtPrice.Enabled = false;
             btnOK.Text = "Cancel Reservation";
         }
 
@@ -321,8 +266,14 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void rbtnReserved_CheckedChanged(object sender, EventArgs e)
         {
-            txtName.Enabled = true;
-            txtPrice.Enabled = true;
+
+            if (rbtnCancel.Checked)
+            {
+                txtName.Enabled = false;
+            }
+            else {
+                txtName.Enabled = true;
+            }
             if (lstReservations.SelectedIndex >= 0)
             {
                 btnOK.Text = "Update";

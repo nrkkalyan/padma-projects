@@ -1,4 +1,4 @@
-﻿// SeatManager.cs
+﻿    // SeatManager.cs
 // Created by: Padma Priya Duvvuri
 // Created on: 21-Oct-2011
 
@@ -134,7 +134,7 @@ namespace Assignment4CBS
         /// </summary>
         /// <param name="index">Index of the array position</param>
         /// <returns>A formatted string containing information about the 
-        /// seat customername, price and whether the seat is
+        /// seat whether the seat is
         /// reserved or vacant.</returns>
         public string GetSeatInfoAt(int index)
         {
@@ -172,27 +172,28 @@ namespace Assignment4CBS
 
             if (count <= 0)
                 return 0;
-                string strOut = "Vacant  ";
-                int i = 0; // counter for return array
-    
-                    for (int index = 0; index < m_totNumOfSeats; index++)
-                    {
-                        
-                        strOut = GetSeatInfoAt(index);
-                        CheckIndex(index);
-                        strSeatInfoStrings[index] = string.Format("{0,-5}\t{1,15} {2,10}\t {3} \n", ++i, strOut, m_price[index].ToString("F"), m_nameList[index]);
-                        if (choice == DisplayOptions.ReservedSeats && !strOut.Equals("Reserved"))
-                        {
-                            strSeatInfoStrings[index] = null;        
-                        }
-                        else if (choice == DisplayOptions.VacantSeats  && !strOut.Equals("Vacant  "))
-                        {
-                            strSeatInfoStrings[index] = null;            
-                        }
-                        
-                    }
+            string strOut = "Vacant  ";
+            int i = 0; // counter for return array
+            //is the element corresponding with the index empty
+            for (int index = 0; index < m_totNumOfSeats; index++)
+            {
+                strOut = GetSeatInfoAt(index);
                 
-                return count;
+                strSeatInfoStrings[index] = string.Format("{0,-5}\t{1,15} {2,10}\t {3} \n", ++i, strOut, m_price[index].ToString("F"), m_nameList[index]);
+                
+                if (choice == DisplayOptions.ReservedSeats && !strOut.Equals("Reserved"))
+                {
+                    strSeatInfoStrings[index] = null;        
+                }
+                
+                if (choice == DisplayOptions.VacantSeats  && !strOut.Equals("Vacant  "))
+                {
+                    strSeatInfoStrings[index] = null;            
+                }
+                        
+             }
+                
+            return count;
         }
 
         /// <summary>

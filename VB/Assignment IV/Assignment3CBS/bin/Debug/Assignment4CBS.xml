@@ -1,0 +1,189 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Assignment4CBS
+</name>
+</assembly>
+<members>
+<member name="M:Assignment4CBS.MainForm.InitializeGUI">
+	<summary>
+ Clear the input and output controls(if needed)
+ Do other inializatios for example, select one of the radiobuttons as default.
+ </summary>
+	<remarks>This is to be called from the constructor, AFTER the call to
+ InitializeComponent</remarks>
+</member><member name="M:Assignment4CBS.MainForm.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler method for the Click-event of the button,when the user 
+ clicks the button, this method will be executed automatically.
+ Call the ReadAndValidateInput method, save its return value in a Boolean variable.
+ If the return value is true, tehn call the UpdateGUI method to display the results.
+ </summary>
+	<param name="sender">Reference to the object that has fired the Click event (the button)</param>
+	<param name="e">Contains information about the event</param>
+	<remarks>Send and e are part of event delegate hadling</remarks>
+</member><member name="M:Assignment4CBS.MainForm.SeatCheck">
+	<summary>
+ This method checks for seats that can be allocated. And if available 
+ seats are over then will display that info to the user
+ </summary>
+	<remarks>As of now the text boxes and buttons are disabled, they will be implemented in later
+ versions when the cancellation of reservation is available</remarks>
+</member><member name="M:Assignment4CBS.MainForm.UpdateGUI(System.String,System.Double)">
+	<summary>
+ This updates GUI to show the updated values, by perfoming necessary calculations if needed.
+ </summary>
+	<param name="customerName">Receives customer name after performing the validations</param>
+	<param name="seatPrice">Receives teh price after the validation</param>
+	<remarks>It adds name and price to the listbox for display</remarks>
+</member><member name="M:Assignment4CBS.MainForm.UpdateLabels">
+	<summary>
+ This method updates the labels of the output group with the values 
+ after the button is clicked
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm.ReadAndValidateInput(System.String@,System.Double@)">
+	<summary>
+ Parse the user input, validate and save the data for later use.
+ In this version, all inputs are saved in local variables and therefore values are passed
+ as parameters in method calls.
+ this method calls two other methods to read and validate name and price respectively
+ </summary>
+	<param name="customerName">the name of the customer</param>
+	<param name="seatPrice">the price to be paid by the customer</param>
+	<returns>True if input is valid, False otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm.ReadAndValidateName(System.String@)">
+	<summary>
+ Check so the user has entered a text in the TextBox for name
+ </summary>
+	<param name="customerName">A string variable passing customer name inputted by the user</param>
+	<returns> True validation (name must have atleast one character other than
+ a blank space) is OK, false otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm.ReadAndValidatePrice(System.Double@)">
+	<summary>
+ Call the GetDouble method of InputUtility class to convert the text given by the user
+ in the price textbox.Validates and then the converted value is checked with a value &gt;= 0 and less than or 
+ equal to a max ticket price (3500.00)
+ </summary>
+	<param name="seatPrice">Variable receiving the converted value</param>
+	<returns>True if the convertion is successful and validation is OK,False otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm.rbtnReserved_CheckedChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler method for the CheckedChanged -event of the Reserved radiobutton, when the user 
+ selection this option, this method will be executed automatically
+ Enables the textboxes and button for the user to enter the inputs.
+ </summary>
+	<param name="sender">Reference to the object that has fired the CheckedChanged event (the Radio-button)</param>
+	<param name="e">Contains information about the event</param>
+	<remarks>Send and e are part of event delegate hadling</remarks>
+</member><member name="M:Assignment4CBS.MainForm.rbtnCancel_CheckedChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler method for the CheckedChanged -event of the cancel radiobutton, when the user 
+ selection this option, this method will be executed automatically
+ Disables the textboxes and button for the user to enter the inputs.
+ </summary>
+	<param name="sender">Reference to the object that has fired the CheckedChanged event (the Radio-button)</param>
+	<param name="e">Contains information about the event</param>
+	<remarks>Send and e are part of event delegate hadling</remarks>
+</member><member name="M:Assignment4CBS.InputUtility.GetDouble(System.String,System.Double@,System.Double,System.Double)">
+	<summary>
+ Converts a string represented double value into a double type, and validates
+ the converted value to be within (and inclusive) a range, defined by minLimit and
+ max Limit
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
+	<returns>true if the conversion is successful and value is within the 
+ given range</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.GetDouble(System.String,System.Double@,System.Double)">
+	<summary>
+ Overloading the GetDouble Function so it can be used when a string is to be converted
+ to a numerical value with only minLimit Condition
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.GetDouble(System.String,System.Double@)">
+	<summary>
+ Overloading the GetDouble Function so it can be used when a string is to be converted
+ to a numerical value withoug any max or min conditions
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32,System.Int32)">
+	<summary>
+ Converts a string represented Integer value into a integer type, and validates
+ the converted value to be within (and inclusive) a range, defined by minLimit and
+ max Limit
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
+	<returns>true if the conversion is successful and value is within the 
+ given range</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32)">
+	<summary>
+ Overloading the GetInteger Function so it can be used when a string is to be converted
+ to a numerical value with only minLimit Condition
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.GetInteger(System.String,System.Int32@)">
+	<summary>
+ Overloading the GetInteger Function so it can be used when a string is to be converted
+ to a numerical value with no min or max conditions
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.CheckString(System.String)">
+	<summary>
+ this function evaluates the name. If it contains any white spaces or does not contain any value
+ it returns true.
+ </summary>
+	<param name="stringName">the name inputted by the user</param>
+	<returns>true if name is empty or a blank space</returns>
+	<remarks></remarks>
+</member><member name="T:Assignment4CBS.InputUtility">
+	<summary>
+ This class holds the shared methods which are used to validate the user inputs.
+ It validates double, string and integer inputs
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Assignment4CBS.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Assignment4CBS.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Assignment4CBS.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

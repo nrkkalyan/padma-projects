@@ -1,9 +1,0 @@
-C:\Padma\padma-projects\C#\Assignment IV\CBSVersion2bCS\bin\Debug\CBSVersion2bCS.exe
-C:\Padma\padma-projects\C#\Assignment IV\CBSVersion2bCS\bin\Debug\CBSVersion2bCS.pdb
-C:\Padma\padma-projects\C#\Assignment IV\CBSVersion2bCS\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Padma\padma-projects\C#\Assignment IV\CBSVersion2bCS\obj\x86\Debug\CBSVersion2bCS.Properties.Resources.resources
-C:\Padma\padma-projects\C#\Assignment IV\CBSVersion2bCS\obj\x86\Debug\GenerateResource.read.1.tlog
-C:\Padma\padma-projects\C#\Assignment IV\CBSVersion2bCS\obj\x86\Debug\GenerateResource.write.1.tlog
-C:\Padma\padma-projects\C#\Assignment IV\CBSVersion2bCS\obj\x86\Debug\CBSVersion2bCS.exe
-C:\Padma\padma-projects\C#\Assignment IV\CBSVersion2bCS\obj\x86\Debug\CBSVersion2bCS.pdb
-C:\Padma\padma-projects\C#\Assignment IV\CBSVersion2bCS\obj\x86\Debug\Assignment4CBS.MainForm2a.resources

@@ -1,0 +1,10 @@
+C:\Padma\padma-projects\VB\Assignment IV\Assignment4aCBS\bin\Debug\Assignment4aCBS.exe
+C:\Padma\padma-projects\VB\Assignment IV\Assignment4aCBS\bin\Debug\Assignment4aCBS.pdb
+C:\Padma\padma-projects\VB\Assignment IV\Assignment4aCBS\bin\Debug\Assignment4aCBS.xml
+C:\Padma\padma-projects\VB\Assignment IV\Assignment4aCBS\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Padma\padma-projects\VB\Assignment IV\Assignment4aCBS\obj\x86\Debug\Assignment4aCBS.Resources.resources
+C:\Padma\padma-projects\VB\Assignment IV\Assignment4aCBS\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Padma\padma-projects\VB\Assignment IV\Assignment4aCBS\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Padma\padma-projects\VB\Assignment IV\Assignment4aCBS\obj\x86\Debug\Assignment4aCBS.exe
+C:\Padma\padma-projects\VB\Assignment IV\Assignment4aCBS\obj\x86\Debug\Assignment4aCBS.xml
+C:\Padma\padma-projects\VB\Assignment IV\Assignment4aCBS\obj\x86\Debug\Assignment4aCBS.pdb

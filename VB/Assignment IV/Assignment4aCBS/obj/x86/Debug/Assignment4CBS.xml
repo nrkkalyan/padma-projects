@@ -1,0 +1,308 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Assignment4CBS
+</name>
+</assembly>
+<members>
+<member name="M:Assignment4CBS.SeatManager.#ctor(System.Object)">
+	<summary>
+ Consturctor - do all your initializations here
+ </summary>
+	<param name="maxNumberOfSeats">Total Number of seats</param>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.SeatManager.CheckIndex(System.Int32)">
+	<summary>
+ Check so the value of an index is within the array range,
+ i.e. index &gt;= 0 and index is less than m_totNumOfSeats.
+ </summary>
+	<param name="index"></param>
+	<returns>The index selected by the user in the list box</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.SeatManager.GetNumReserved">
+	<summary>
+ Calculate the number of seats reserved
+ </summary>
+	<returns>number of reserved seats</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.SeatManager.GetNumVacant">
+	<summary>
+ Calculate the number of seats vacant
+ </summary>
+	<returns>number of vacant seats</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.SeatManager.GetNumOfSeats(Assignment4CBS.SeatManager.DisplayOptions)">
+	<summary>
+ Get number of seats depending on the value of choice
+ defined in the enum DisplayOptions
+ </summary>
+	<param name="choice">a member of the enum DisplayOptions</param>
+	<returns>the number of seats for the chosen option</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.SeatManager.ReserveSeat(System.String,System.Double,System.Int32)">
+	<summary>
+ Adds a reservation. Save name in teh nameList and the price in the priceList
+ in the position = index
+ </summary>
+	<param name="name">name of the cinema customer</param>
+	<param name="price">price paid for the seat</param>
+	<param name="index">index of the array position</param>
+	<returns>true if the seat is successfully reserved, false if it is already occupied</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.SeatManager.CancelSeat(System.Int32)">
+	<summary>
+ Cancel a reservation. Assign a value nothing in teh namelist, and 0.0D in the 
+ priceList in the position = index
+ </summary>
+	<param name="index">Index for array position</param>
+	<returns>true if the seat was successully cancelled or false otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.SeatManager.GetSeatInfoAt(System.Int32)">
+	<summary>
+ Returns the status for a seat in a postion = index
+ </summary>
+	<param name="index">Index of the array position</param>
+	<returns>A formatted string containing information about availability of seat</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.SeatManager.GetSeatInfoStrings(Assignment4CBS.SeatManager.DisplayOptions,System.String[]@)">
+	<summary>
+ This method prepares an array of strings with information about all seats.
+ Each element is a string formatted using the GetSeatInfo function.
+ </summary>
+	<param name="choice">Choice of seats that needs to be displayed</param>
+	<param name="strSeatInfoStrings">updates the array</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Assignment4CBS.SeatManager">
+	<summary>
+ This class performs necessary operations to manage the seat details that 
+ are reserved or not reserved along with the calculations needed to 
+ cancel a reservation
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.#ctor">
+	<summary>
+ custructor is a special method that is automatically called
+ when an instance of the class is created by using the keyword
+ new. It is a good place for initializations and creation of the objects 
+ that are used as fields, e.g. m_seatManager
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.InitializeGUI">
+	<summary>
+ Clear the input and output controls(if needed)
+ Do other inializatios for example, select one of the radiobuttons as default.
+ </summary>
+	<remarks>This is to be called from the constructor, AFTER the call to
+ InitializeComponent</remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.UpdateGUI">
+	<summary>
+ Clear output controls (if needed)
+ Fill the listbox with infor for each seat. Each row in teh
+ listbox is to represent a seat
+ Update also the lables with values for the num of reserved/vacant
+ seats.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.CheckSelectedIndex">
+	<summary>
+ The user must highlight an item in the ListBox before a reservation or
+ cancellation can be performed. If an item in the ListBox is not 
+ highlighted, give an error message to the user
+ </summary>
+	<returns>true if the user selects the row, otherwise false</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-hanlder method for click-event ot the button. When the user clicks the buttons
+ this method will be executed automatically.
+ If the cancel Radiobutton is checked, no need to read customer name or
+ seatPrice
+ Call the method ReserveOrCancelSeat to process the reservation / cancellation
+ of the seat
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.ReserveOrCancelSeat">
+	<summary>
+ Reserve or cancel a seat
+ 
+ If reserve radiobutton is selected then
+      1. If seat is reserved check with user to update or not that seat
+      2. If seat is empty validate  name and price
+      3. Call the reserve method of m_seatManager to reserve or update
+      
+ If cancel radiobutton is selected then
+      Call the cancel method of m_seatManager to canel 
+      
+ call UpdateGUI
+ 
+ </summary>
+</member><member name="M:Assignment4CBS.MainForm2a.UpdateLabels">
+	<summary>
+ This method updates the labels of the output group with the values 
+ after the button is clicked
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.ReadAndValidateInput(System.String@,System.Double@)">
+	<summary>
+ Parse the user input, validate and save the data for later use.
+ In this version, all inputs are saved in local variables and therefore values are passed
+ as parameters in method calls.
+ this method calls two other methods to read and validate name and price respectively
+ </summary>
+	<param name="customerName">the name of the customer</param>
+	<param name="seatPrice">the price to be paid by the customer</param>
+	<returns>True if input is valid, False otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.ReadAndValidateName(System.String@)">
+	<summary>
+ Check so the user has entered a text in the TextBox for name
+ </summary>
+	<param name="customerName">A string variable passing customer name inputted by the user</param>
+	<returns> True validation (name must have atleast one character other than
+ a blank space) is OK, false otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.ReadAndValidatePrice(System.Double@)">
+	<summary>
+ Call the GetDouble method of InputUtility class to convert the text given by the user
+ in the price textbox.Validates and then the converted value is checked with a value &gt;= 0 and less than or 
+ equal to a max ticket price (3500.00)
+ </summary>
+	<param name="seatPrice">Variable receiving the converted value</param>
+	<returns>True if the convertion is successful and validation is OK,False otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.rbtnReserved_CheckedChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler method for the CheckedChanged -event of the Reserved radiobutton, when the user 
+ selection this option, this method will be executed automatically
+ Enables the textboxes and button for the user to enter the inputs.
+ </summary>
+	<param name="sender">Reference to the object that has fired the CheckedChanged event (Reserve Radio-button)</param>
+	<param name="e">Contains information about the event</param>
+	<remarks>Send and e are part of event delegate hadling</remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.rbtnCancel_CheckedChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler method for the CheckedChanged -event of the cancel radiobutton, when the user 
+ selection this option, this method will be executed automatically
+ Disables the textboxes and button for the user to enter the inputs.
+ </summary>
+	<param name="sender">Reference to the object that has fired the CheckedChanged event (Cancel Radio-button)</param>
+	<param name="e">Contains information about the event</param>
+	<remarks>Send and e are part of event delegate hadling</remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.cmboxChoice_SelectedIndexChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler method for the SelectedIndexChanged event of the Combobox.
+ The method is automatically called when the user select an entry in the combobox.
+ The user will be able to update or reserve the seat only when the allseats of the 
+ combox is selected.
+ </summary>
+	<param name="sender">The object that fired the event (combobox)</param>
+	<param name="e">An object containing useful information about the event.</param>
+</member><member name="M:Assignment4CBS.MainForm2a.lstReservations_SelectedIndexChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler method for the SelectedIndexChanged event of the listbox.
+ The method is automatically called when the user select an entry in the listbox.
+ </summary>
+	<param name="sender">The object that fired the event (listbox)</param>
+	<param name="e">An object containing useful information about the event.</param>
+</member><member name="M:Assignment4CBS.InputUtility.GetDouble(System.String,System.Double@,System.Double,System.Double)">
+	<summary>
+ Converts a string represented double value into a double type, and validates
+ the converted value to be within (and inclusive) a range, defined by minLimit and
+ max Limit
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
+	<returns>true if the conversion is successful and value is within the 
+ given range</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.GetDouble(System.String,System.Double@,System.Double)">
+	<summary>
+ Overloading the GetDouble Function so it can be used when a string is to be converted
+ to a numerical value with only minLimit Condition
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.GetDouble(System.String,System.Double@)">
+	<summary>
+ Overloading the GetDouble Function so it can be used when a string is to be converted
+ to a numerical value withoug any max or min conditions
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32,System.Int32)">
+	<summary>
+ Converts a string represented Integer value into a integer type, and validates
+ the converted value to be within (and inclusive) a range, defined by minLimit and
+ max Limit
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
+	<returns>true if the conversion is successful and value is within the 
+ given range</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32)">
+	<summary>
+ Overloading the GetInteger Function so it can be used when a string is to be converted
+ to a numerical value with only minLimit Condition
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.GetInteger(System.String,System.Int32@)">
+	<summary>
+ Overloading the GetInteger Function so it can be used when a string is to be converted
+ to a numerical value with no min or max conditions
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4CBS.InputUtility.CheckString(System.String)">
+	<summary>
+ this function evaluates the name. If it contains any white spaces or does not contain any value
+ it returns true.
+ </summary>
+	<param name="stringName">the name inputted by the user</param>
+	<returns>true if name is empty or a blank space</returns>
+	<remarks></remarks>
+</member><member name="T:Assignment4CBS.InputUtility">
+	<summary>
+ This class holds the shared methods which are used to validate the user inputs.
+ It validates double, string and integer inputs
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Assignment4CBS.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Assignment4CBS.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Assignment4CBS.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>
