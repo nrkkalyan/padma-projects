@@ -43,6 +43,7 @@ Public Class MainForm2a
         txtName.Text = String.Empty
         txtPrice.Text = String.Empty
         rbtnReserved.Checked = True
+
         txtName.Focus() ' focus is set to the name field
         txtName.SelectAll()
 
@@ -261,13 +262,16 @@ Public Class MainForm2a
     ''' <remarks>Send and e are part of event delegate hadling</remarks>
     Private Sub rbtnReserved_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbtnReserved.CheckedChanged
 
-        txtName.Enabled = True
-        txtPrice.Enabled = True
-        If lstReservations.SelectedIndex >= 0 Then
+        If m_seatManager.GetSeatInfoAt(lstReservations.SelectedIndex) = "Reserved" Then
             btnOK.Text = "Update"
         Else
             btnOK.Text = "Reserve"
         End If
+
+        txtName.Enabled = True
+        txtPrice.Enabled = True
+        btnOK.Enabled = True
+
     End Sub
 
 
@@ -283,6 +287,12 @@ Public Class MainForm2a
         txtName.Enabled = False
         txtPrice.Enabled = False
         btnOK.Text = "Cancel Reservation"
+
+        If m_seatManager.GetSeatInfoAt(lstReservations.SelectedIndex) = "Vacant" Then
+            btnOK.Enabled = False
+        Else
+            btnOK.Enabled = True
+        End If
     End Sub
 
 
@@ -296,27 +306,25 @@ Public Class MainForm2a
     ''' <param name="e">An object containing useful information about the event.</param>
 
     Private Sub cmboxChoice_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmboxChoice.SelectedIndexChanged
-        Dim enableOrDisable As Boolean = True
 
-        If cmboxChoice.SelectedIndex = 0 Then
-            enableOrDisable = True
-        End If
-        btnOK.Enabled = enableOrDisable
-        If rbtnCancel.Checked = True Then
-            enableOrDisable = False
-        End If
-        If m_seatManager.GetSeatInfoAt(lstReservations.SelectedIndex) = "Vacant" Then
+        If cmboxChoice.SelectedIndex <> 0 And (rbtnCancel.Checked = True Or rbtnReserved.Checked = True) Then
+            txtName.Enabled = False
+            txtPrice.Enabled = False
             btnOK.Enabled = False
-        Else
+            UpdateGUI() 'update listbox depending on the choice of the combo box
+        ElseIf cmboxChoice.SelectedIndex = 0 And rbtnCancel.Checked = True Then
+            txtName.Enabled = False
+            txtPrice.Enabled = False
             btnOK.Enabled = True
+            UpdateGUI() 'update listbox depending on the choice of the combo box
+        ElseIf cmboxChoice.SelectedIndex = 0 And rbtnReserved.Checked = True Then
+            txtName.Enabled = True
+            txtPrice.Enabled = True
+            btnOK.Enabled = True
+            UpdateGUI() 'update listbox depending on the choice of the combo box
+
         End If
 
-
-        txtName.Enabled = enableOrDisable
-        txtPrice.Enabled = enableOrDisable
-        btnOK.Enabled = enableOrDisable
-
-        UpdateGUI() 'update listbox depending on the choice of the combo box
     End Sub
 
 
@@ -346,6 +354,24 @@ Public Class MainForm2a
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub lstReservations_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstReservations.DoubleClick
-        ReserveOrCancelSeat()
+
+        Dim enableOrDisable As Boolean = True
+        If cmboxChoice.SelectedIndex <> 0 Then
+            MessageBox.Show("Please select *All Seats* to reserve, update and cancel the reservation", "Alert!", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            enableOrDisable = False
+        ElseIf cmboxChoice.SelectedIndex = 0 And rbtnCancel.Checked = True Then
+            txtName.Enabled = False
+            txtPrice.Enabled = False
+            ReserveOrCancelSeat()
+        ElseIf rbtnCancel.Checked = True And m_seatManager.GetSeatInfoAt(lstReservations.SelectedIndex) = "Vacant" Then
+            enableOrDisable = False
+        Else
+            ReserveOrCancelSeat()
+        End If
+
+        txtName.Enabled = enableOrDisable
+        txtPrice.Enabled = enableOrDisable
+        btnOK.Enabled = enableOrDisable
+
     End Sub
 End Class
