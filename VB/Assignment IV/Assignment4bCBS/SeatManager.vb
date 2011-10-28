@@ -2,7 +2,8 @@
 'Created by: Padma Priya Duvvuri
 'Created on: 21-Oct-2011
 
-
+Option Strict On
+Option Explicit On
 
 ''' <summary>
 ''' This class performs necessary operations to manage the seat details that 
@@ -184,7 +185,7 @@ Public Class SeatManager
     Public Sub IndexToRowCol(ByRef row As Integer, ByRef col As Integer)
         Dim indexRow As Integer = row 'row in the index
 
-        row = Math.Floor((indexRow / m_totNumOfRows)) 'row in seat matrix
+        row = CInt(Math.Floor((indexRow / m_totNumOfRows))) 'row in seat matrix
         col = indexRow Mod m_totNumOfRows 'col in seat matrix
     End Sub
 

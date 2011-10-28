@@ -72,7 +72,7 @@ Partial Class MainForm2a
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(191, 23)
         Me.btnOK.TabIndex = 2
-        Me.btnOK.Text = "Reserve / Cancel"
+        Me.btnOK.Text = "Reserve "
         Me.btnOK.UseVisualStyleBackColor = True
         '
         'txtPrice

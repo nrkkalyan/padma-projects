@@ -2,7 +2,8 @@
 'Created by: Padma Priya Duvvuri
 'Created on: 04-Oct-2011
 
-
+Option Explicit On
+Option Strict On
 
 Public Class MainForm
     'Test variables to test the application

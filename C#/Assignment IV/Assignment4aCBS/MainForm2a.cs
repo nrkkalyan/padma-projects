@@ -82,8 +82,6 @@ namespace Assignment4CBS
             }
 
             UpdateLabels(); // to update the labels
-
-
         }
 
         /// <summary>
@@ -205,12 +203,12 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
-            
+            //perform the index check
             if (!CheckSelectedIndex())
             {
                 return;
             }
-            ReserveOrCancelSeat();
+            ReserveOrCancelSeat(); 
         }
 
         
@@ -232,36 +230,37 @@ namespace Assignment4CBS
         {
             string customerName = string.Empty;
             double price = 0.0;
-             
-                if (rbtnReserved.Checked)
+            // reservation of the seat
+            if (rbtnReserved.Checked)
+            {
+                if (!ReadAndValidateInput(out customerName, out price)) 
                 {
-
-                    if (!ReadAndValidateInput(out customerName, out price)) 
-                    {
-                        return;
-                    }
-                        if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  ")
-                        {
-                            m_seatMngr.ReserveSeat(customerName, price, lstReservations.SelectedIndex);
-                        }
-                        else
-                        {
-                            DialogResult result = MessageBox.Show("This seat is reserved, do you want to update it?", "Info!", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
-                            if (result == DialogResult.Yes)
-                            {
-                                m_seatMngr.ReserveSeat(customerName, price, lstReservations.SelectedIndex);
-                            }
-                        }
+                    return;
                 }
-                if (rbtnCancel.Checked)
+                if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  ")
                 {
-                    DialogResult result = MessageBox.Show("Do you want to cancel the reservation?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                    m_seatMngr.ReserveSeat(customerName, price, lstReservations.SelectedIndex);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("This seat is reserved, do you want to update it?", "Info!", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)
                     {
-                        m_seatMngr.CancelSeat(lstReservations.SelectedIndex);
+                        m_seatMngr.ReserveSeat(customerName, price, lstReservations.SelectedIndex);
                     }
                 }
-                UpdateGUI();
+             }
+            // cancellation of the seat (only possible if the seat is already reserved)
+            if (rbtnCancel.Checked && m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Reserved")
+            {
+                DialogResult result = MessageBox.Show("Do you want to cancel the reservation?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                if (result == DialogResult.Yes)
+                {
+                    m_seatMngr.CancelSeat(lstReservations.SelectedIndex);
+                }
+             }
+            // call the UpdateGUI to perform updation 
+            UpdateGUI();
       }
 
 
@@ -272,7 +271,6 @@ namespace Assignment4CBS
         /// </summary>
         private void UpdateLabels()
         {
-
             lblNumOfSeats.Text = Convert.ToString(m_numOfSeats) ;
             lblNumOfReserved.Text = Convert.ToString(m_seatMngr.GetNumReserved());
             lblNumOfVacant.Text = Convert.ToString(m_seatMngr.GetNumVacant());
@@ -294,24 +292,25 @@ namespace Assignment4CBS
         /// <param name="e">An object containing useful information about the event.</param>
         private void cmboxChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool enableOrDisable = false;
-            SeatManager.DisplayOptions selected = (SeatManager.DisplayOptions)Enum.Parse(typeof(SeatManager.DisplayOptions), (string)this.cmboxChoice.SelectedItem);
-            if (selected == SeatManager.DisplayOptions.AllSeats )
+            bool textBoxBool = false;
+            bool buttonBool = false;
+           
+            if (cmboxChoice.SelectedIndex == 0 )
             {
-                enableOrDisable = true;
-
+                buttonBool = textBoxBool = true;
+                rbtnCancel.Enabled = true;
+                rbtnReserved.Enabled = true;
+                if (rbtnCancel.Checked)
+                {
+                    textBoxBool = false;
+                }
             }
-
-            btnOK.Enabled = enableOrDisable;
-            if (rbtnCancel.Checked)
+            else 
             {
-                enableOrDisable = false;
+                rbtnCancel.Enabled = false;
+                rbtnReserved.Enabled = false;
             }
-      
-            
-            txtName.Enabled = enableOrDisable;
-            txtPrice.Enabled = enableOrDisable;
-
+            EnableDisable(textBoxBool, buttonBool);
             UpdateGUI(); // update the listbox depending on the choice of combo box
         }
 
@@ -322,17 +321,15 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void rbtnCancel_CheckedChanged(object sender, EventArgs e)
         {
-            txtName.Enabled = false;
-            txtPrice.Enabled = false;
+            bool textBoxBool = false;
+            bool buttonBool = false;
 
-            if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  " || cmboxChoice.SelectedIndex != 0)
+            if (cmboxChoice.SelectedIndex == 0 )
             {
-                btnOK.Enabled = false;
+                buttonBool = true;
             }
-            else
-            {
-                btnOK.Enabled = true;
-            }
+
+            EnableDisable(textBoxBool, buttonBool);
             btnOK.Text = "Cancel Reservation";
         }
 
@@ -343,21 +340,27 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void rbtnReserved_CheckedChanged(object sender, EventArgs e)
         {
-            bool enableOrDisable = true;
-            if (cmboxChoice.SelectedIndex != 0)
-                enableOrDisable = false;
-
-            if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Reserved")
+            String value = m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex);
+            if (String.Equals(value, "Reserved"))
+            {
                 btnOK.Text = "Update";
+            }
             else
+            {
                 btnOK.Text = "Reserve";
+            }
 
-            btnOK.Enabled = enableOrDisable;
-            txtName.Enabled = enableOrDisable;
-            txtPrice.Enabled = enableOrDisable;
+            bool textBoxBool = false;
+            bool buttonBool = false;
+
+            if (cmboxChoice.SelectedIndex == 0)
+            {
+                buttonBool = textBoxBool = true;
+            }
+
+            EnableDisable(textBoxBool, buttonBool);
         }
 
-        
 
         /// <summary>
         /// Event-handler method for the selectedIndexChanged event of the Listbox.
@@ -366,7 +369,6 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void lstReservations_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (rbtnReserved.Checked)
             {
                 if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  ")
@@ -391,28 +393,40 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void lstReservations_DoubleClick(object sender, EventArgs e)
         {
+            bool textBoxBool = false;
+            bool buttonBool = false;
 
-            bool enableOrDisable = true;
-            SeatManager.DisplayOptions selected = (SeatManager.DisplayOptions)Enum.Parse(typeof(SeatManager.DisplayOptions), (string)this.cmboxChoice.SelectedItem);
-            if (selected != SeatManager.DisplayOptions.AllSeats)
+            if (cmboxChoice.SelectedIndex == 0)
             {
-                MessageBox.Show("Please select *All Seats* for seat Reservations, Updates and Cancellations.", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                enableOrDisable = false;
-                return;
-            }
-            else
-            {
+                if (rbtnCancel.Checked  == true)
+                    textBoxBool = false;
+                else 
+                    textBoxBool = true;
+
+                buttonBool = true;
                 ReserveOrCancelSeat();
             }
-            txtName.Enabled = enableOrDisable;
-            btnOK.Enabled = enableOrDisable;
-            txtPrice.Enabled = enableOrDisable;
+            else 
+            {
+                MessageBox.Show("Please select *All Seats* for seat Reservations, Updates and Cancellations.", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;            
+            }
+            // updates the status of the textbox and button controls
+            EnableDisable(textBoxBool, buttonBool);
         }
 
-         
 
-        
-
+        /// <summary>
+        /// This method updates the status of the textboxes and button OK
+        /// </summary>
+        /// <param name="textBoxBool">The status for testboxes</param>
+        /// <param name="buttonBool">The status for Ok button</param>
+        private void EnableDisable(bool textBoxBool, bool buttonBool) 
+        {
+            txtName.Enabled = textBoxBool;
+            txtPrice.Enabled = textBoxBool;
+            btnOK.Enabled = buttonBool;
+        }
 
     }
         

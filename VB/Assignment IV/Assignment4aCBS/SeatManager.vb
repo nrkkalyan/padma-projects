@@ -2,7 +2,8 @@
 'Created by: Padma Priya Duvvuri
 'Created on: 21-Oct-2011
 
-
+Option Strict On
+Option Explicit On
 
 ''' <summary>
 ''' This class performs necessary operations to manage the seat details that 
@@ -29,7 +30,7 @@ Public Class SeatManager
     ''' </summary>
     ''' <param name="maxNumberOfSeats">Total Number of seats</param>
     ''' <remarks></remarks>
-    Public Sub New(ByVal maxNumberOfSeats)
+    Public Sub New(ByVal maxNumberOfSeats As Integer)
         'only time m_totNumOfSeats can be assigned a value
         m_totNumOfSeats = maxNumberOfSeats
         m_nameList = New String(m_totNumOfSeats - 1) {}
@@ -43,7 +44,7 @@ Public Class SeatManager
     ''' <param name="index"></param>
     ''' <returns>The index selected by the user in the list box</returns>
     ''' <remarks></remarks>
-    Private Function CheckIndex(ByVal index As Integer)
+    Private Function CheckIndex(ByVal index As Integer) As Boolean
         If (index >= 0 And index <= m_totNumOfSeats) Then
             Return True
         Else

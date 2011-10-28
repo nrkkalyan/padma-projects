@@ -6,7 +6,196 @@ Assignment4bCBS
 </name>
 </assembly>
 <members>
-<member name="M:Assignment4bCBS.MainForm2b.#ctor">
+<member name="M:Assignment4bCBS.InputUtility.GetDouble(System.String,System.Double@,System.Double,System.Double)">
+	<summary>
+ Converts a string represented double value into a double type, and validates
+ the converted value to be within (and inclusive) a range, defined by minLimit and
+ max Limit
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
+	<returns>true if the conversion is successful and value is within the 
+ given range</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.InputUtility.GetDouble(System.String,System.Double@,System.Double)">
+	<summary>
+ Overloading the GetDouble Function so it can be used when a string is to be converted
+ to a numerical value with only minLimit Condition
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.InputUtility.GetDouble(System.String,System.Double@)">
+	<summary>
+ Overloading the GetDouble Function so it can be used when a string is to be converted
+ to a numerical value withoug any max or min conditions
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32,System.Int32)">
+	<summary>
+ Converts a string represented Integer value into a integer type, and validates
+ the converted value to be within (and inclusive) a range, defined by minLimit and
+ max Limit
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
+	<returns>true if the conversion is successful and value is within the 
+ given range</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32)">
+	<summary>
+ Overloading the GetInteger Function so it can be used when a string is to be converted
+ to a numerical value with only minLimit Condition
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.InputUtility.GetInteger(System.String,System.Int32@)">
+	<summary>
+ Overloading the GetInteger Function so it can be used when a string is to be converted
+ to a numerical value with no min or max conditions
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.InputUtility.CheckString(System.String)">
+	<summary>
+ this function evaluates the name. If it contains any white spaces or does not contain any value
+ it returns true.
+ </summary>
+	<param name="stringName">the name inputted by the user</param>
+	<returns>true if name is empty or a blank space</returns>
+	<remarks></remarks>
+</member><member name="T:Assignment4bCBS.InputUtility">
+	<summary>
+ This class holds the shared methods which are used to validate the user inputs.
+ It validates double, string and integer inputs
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.SeatManager.#ctor(System.Int32,System.Int32)">
+	<summary>
+ Custructor with initial values for number of seats
+ </summary>
+	<param name="totNumOfRows">number of rows</param>
+	<param name="totNumOfCols">number of columns</param>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.SeatManager.CheckIndex(System.Int32,System.Int32)">
+	<summary>
+ Check so the value of an row and column are within the range
+ </summary>
+	<param name="row">row number</param>
+	<param name="col">column number</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.SeatManager.GetNumReserved">
+	<summary>
+ Calculate the number of seats reserved
+ </summary>
+	<returns>number of reserved seats</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.SeatManager.GetNumVacant">
+	<summary>
+ Calculate the number of seats vacant
+ </summary>
+	<returns>number of vacant seats</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.SeatManager.TotNumOfSeats">
+	<summary>
+ Calculate the total number of seats
+ </summary>
+	<returns>Total number of seats</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.SeatManager.GetNumOfSeats(Assignment4bCBS.SeatManager.DisplayOptions)">
+	<summary>
+ Get number of seats depending on the value of choice
+ defined in the enum DisplayOptions
+ </summary>
+	<param name="choice">a member of the enum DisplayOptions</param>
+	<returns>the number of seats for the chosen option</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.SeatManager.ReserveSeat(System.String,System.Int32)">
+	<summary>
+ Adds a reservation. Save name in teh nameList and the price in the priceList
+ in the position = index
+ </summary>
+	<param name="name">name of the cinema customer</param>
+	<param name="index">index of the array position</param>
+	<returns>true if the seat is successfully reserved, false if it is already occupied</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.SeatManager.CancelSeat(System.Int32)">
+	<summary>
+ Cancel a reservation. Assign a value nothing in teh namelist, and 0.0D in the 
+ priceList in the position = index
+ </summary>
+	<param name="index">Index for array position</param>
+	<returns>true if the seat was successully cancelled or false otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.SeatManager.ConvertToIndex(System.Int32,System.Int32)">
+	<summary>
+ Converts matrix row and col values into a single vector index value
+ </summary>
+	<param name="row">Row</param>
+	<param name="col">Col</param>
+	<returns>Index Value</returns>
+</member><member name="M:Assignment4bCBS.SeatManager.IndexToRowCol(System.Int32@,System.Int32@)">
+	<summary>
+ Determines the index in the matrix (row, col) that corresponds to a given
+ index in a on.dim array(listbox). This method actully is a reverse process of the method 
+ ConvertToIndex. The parameter row contains the input, i.e. index of the element in a one.dim array. 
+ The results(row, col) are saved and sent back to the caller via the ref variables row,col.
+ </summary>
+	<param name="row">Input and output parameter</param>
+	<param name="col">Output parameter</param>
+</member><member name="M:Assignment4bCBS.SeatManager.GetSeatInfoAt(System.Int32)">
+	<summary>
+ Returns the status for a seat in position = index
+ </summary>
+	<param name="index">Index of the array position</param>
+	<returns>A formatted string containing information about the 
+ seat customername, price and whether the seat is
+ reserved or vacant.</returns>
+</member><member name="M:Assignment4bCBS.SeatManager.GetSeatInfoAt(System.Int32,System.Int32)">
+	<summary>
+ overloaded method/Function of GetSeatInfoAt which Gets the information about the seat
+ </summary>
+	<param name="row">row of the seat</param>
+	<param name="col">col of the seat</param>
+	<returns>A formatted string containing information about the 
+ seat whether the seat is
+ reserved or vacant.</returns>
+</member><member name="M:Assignment4bCBS.SeatManager.GetSeatInfoStrings(Assignment4bCBS.SeatManager.DisplayOptions,System.String[]@)">
+	<summary>
+ This method prepares an array of strings with information about all seats.
+ Each element is a string formatted using the GetSeatInfo function.
+ </summary>
+	<param name="choice">Choice of seats that needs to be displayed</param>
+	<param name="strSeatInfoStrings">updates the array</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Assignment4bCBS.SeatManager">
+	<summary>
+ This class performs necessary operations to manage the seat details that 
+ are reserved or not reserved along with the calculations needed to 
+ cancel a reservation
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Assignment4bCBS.MainForm2b.#ctor">
 	<summary>
  custructor is a special method that is automatically called
  when an instance of the class is created by using the keyword
@@ -128,195 +317,12 @@ Assignment4bCBS
 	<param name="sender">The object that fired the event (listbox index)</param>
 	<param name="e"></param>
 	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.SeatManager.#ctor(System.Int32,System.Int32)">
+</member><member name="M:Assignment4bCBS.MainForm2b.EnableDisable(System.Boolean@,System.Boolean@)">
 	<summary>
- Custructor with initial values for number of seats
+ This method updates the status of the textboxes and button OK
  </summary>
-	<param name="totNumOfRows">number of rows</param>
-	<param name="totNumOfCols">number of columns</param>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.SeatManager.CheckIndex(System.Int32,System.Int32)">
-	<summary>
- Check so the value of an row and column are within the range
- </summary>
-	<param name="row">row number</param>
-	<param name="col">column number</param>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.SeatManager.GetNumReserved">
-	<summary>
- Calculate the number of seats reserved
- </summary>
-	<returns>number of reserved seats</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.SeatManager.GetNumVacant">
-	<summary>
- Calculate the number of seats vacant
- </summary>
-	<returns>number of vacant seats</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.SeatManager.TotNumOfSeats">
-	<summary>
- Calculate the total number of seats
- </summary>
-	<returns>Total number of seats</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.SeatManager.GetNumOfSeats(Assignment4bCBS.SeatManager.DisplayOptions)">
-	<summary>
- Get number of seats depending on the value of choice
- defined in the enum DisplayOptions
- </summary>
-	<param name="choice">a member of the enum DisplayOptions</param>
-	<returns>the number of seats for the chosen option</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.SeatManager.ReserveSeat(System.String,System.Int32)">
-	<summary>
- Adds a reservation. Save name in teh nameList and the price in the priceList
- in the position = index
- </summary>
-	<param name="name">name of the cinema customer</param>
-	<param name="index">index of the array position</param>
-	<returns>true if the seat is successfully reserved, false if it is already occupied</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.SeatManager.CancelSeat(System.Int32)">
-	<summary>
- Cancel a reservation. Assign a value nothing in teh namelist, and 0.0D in the 
- priceList in the position = index
- </summary>
-	<param name="index">Index for array position</param>
-	<returns>true if the seat was successully cancelled or false otherwise</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.SeatManager.ConvertToIndex(System.Int32,System.Int32)">
-	<summary>
- Converts matrix row and col values into a single vector index value
- </summary>
-	<param name="row">Row</param>
-	<param name="col">Col</param>
-	<returns>Index Value</returns>
-</member><member name="M:Assignment4bCBS.SeatManager.IndexToRowCol(System.Int32@,System.Int32@)">
-	<summary>
- Determines the index in the matrix (row, col) that corresponds to a given
- index in a on.dim array(listbox). This method actully is a reverse process of the method 
- ConvertToIndex. The parameter row contains the input, i.e. index of the element in a one.dim array. 
- The results(row, col) are saved and sent back to the caller via the ref variables row,col.
- </summary>
-	<param name="row">Input and output parameter</param>
-	<param name="col">Output parameter</param>
-</member><member name="M:Assignment4bCBS.SeatManager.GetSeatInfoAt(System.Int32)">
-	<summary>
- Returns the status for a seat in position = index
- </summary>
-	<param name="index">Index of the array position</param>
-	<returns>A formatted string containing information about the 
- seat customername, price and whether the seat is
- reserved or vacant.</returns>
-</member><member name="M:Assignment4bCBS.SeatManager.GetSeatInfoAt(System.Int32,System.Int32)">
-	<summary>
- overloaded method/Function of GetSeatInfoAt which Gets the information about the seat
- </summary>
-	<param name="row">row of the seat</param>
-	<param name="col">col of the seat</param>
-	<returns>A formatted string containing information about the 
- seat whether the seat is
- reserved or vacant.</returns>
-</member><member name="M:Assignment4bCBS.SeatManager.GetSeatInfoStrings(Assignment4bCBS.SeatManager.DisplayOptions,System.String[]@)">
-	<summary>
- This method prepares an array of strings with information about all seats.
- Each element is a string formatted using the GetSeatInfo function.
- </summary>
-	<param name="choice">Choice of seats that needs to be displayed</param>
-	<param name="strSeatInfoStrings">updates the array</param>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="T:Assignment4bCBS.SeatManager">
-	<summary>
- This class performs necessary operations to manage the seat details that 
- are reserved or not reserved along with the calculations needed to 
- cancel a reservation
- </summary>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.InputUtility.GetDouble(System.String,System.Double@,System.Double,System.Double)">
-	<summary>
- Converts a string represented double value into a double type, and validates
- the converted value to be within (and inclusive) a range, defined by minLimit and
- max Limit
- </summary>
-	<param name="stringToConvert">string representing the double value</param>
-	<param name="dblOutValue">output parameter, the converted double</param>
-	<param name="minLimit">output value should be greater than or equal to minLimit</param>
-	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
-	<returns>true if the conversion is successful and value is within the 
- given range</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.InputUtility.GetDouble(System.String,System.Double@,System.Double)">
-	<summary>
- Overloading the GetDouble Function so it can be used when a string is to be converted
- to a numerical value with only minLimit Condition
- </summary>
-	<param name="stringToConvert">string representing the double value</param>
-	<param name="dblOutValue">output parameter, the converted double</param>
-	<param name="minLimit">output value should be greater than or equal to minLimit</param>
-	<returns> true if the converstion is successful and the value is greater than or 
- equal to minLimt</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.InputUtility.GetDouble(System.String,System.Double@)">
-	<summary>
- Overloading the GetDouble Function so it can be used when a string is to be converted
- to a numerical value withoug any max or min conditions
- </summary>
-	<param name="stringToConvert">string representing the double value</param>
-	<param name="dblOutValue">output parameter, the converted double</param>
-	<returns> true if the converstion is successful and the value is greater than or 
- equal to minLimt</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32,System.Int32)">
-	<summary>
- Converts a string represented Integer value into a integer type, and validates
- the converted value to be within (and inclusive) a range, defined by minLimit and
- max Limit
- </summary>
-	<param name="stringToConvert">string representing the integer value</param>
-	<param name="intOutValue">output parameter, the converted integer</param>
-	<param name="minLimit">output value should be greater than or equal to minLimit</param>
-	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
-	<returns>true if the conversion is successful and value is within the 
- given range</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32)">
-	<summary>
- Overloading the GetInteger Function so it can be used when a string is to be converted
- to a numerical value with only minLimit Condition
- </summary>
-	<param name="stringToConvert">string representing the integer value</param>
-	<param name="intOutValue">output parameter, the converted integer</param>
-	<param name="minLimit">output value should be greater than or equal to minLimit</param>
-	<returns> true if the converstion is successful and the value is greater than or 
- equal to minLimt</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.InputUtility.GetInteger(System.String,System.Int32@)">
-	<summary>
- Overloading the GetInteger Function so it can be used when a string is to be converted
- to a numerical value with no min or max conditions
- </summary>
-	<param name="stringToConvert">string representing the integer value</param>
-	<param name="intOutValue">output parameter, the converted integer</param>
-	<returns> true if the converstion is successful and the value is greater than or 
- equal to minLimt</returns>
-	<remarks></remarks>
-</member><member name="M:Assignment4bCBS.InputUtility.CheckString(System.String)">
-	<summary>
- this function evaluates the name. If it contains any white spaces or does not contain any value
- it returns true.
- </summary>
-	<param name="stringName">the name inputted by the user</param>
-	<returns>true if name is empty or a blank space</returns>
-	<remarks></remarks>
-</member><member name="T:Assignment4bCBS.InputUtility">
-	<summary>
- This class holds the shared methods which are used to validate the user inputs.
- It validates double, string and integer inputs
- </summary>
-	<remarks></remarks>
+	<param name="textBoxBool">The status for testboxes</param>
+	<param name="buttonBool">The status for Ok button</param>
 </member><member name="P:Assignment4bCBS.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.

@@ -6,7 +6,7 @@ Assignment4CBS
 </name>
 </assembly>
 <members>
-<member name="M:Assignment4CBS.SeatManager.#ctor(System.Object)">
+<member name="M:Assignment4CBS.SeatManager.#ctor(System.Int32)">
 	<summary>
  Consturctor - do all your initializations here
  </summary>
@@ -228,6 +228,12 @@ Assignment4CBS
 	<param name="sender">The object that fired the event (listbox index)</param>
 	<param name="e"></param>
 	<remarks></remarks>
+</member><member name="M:Assignment4CBS.MainForm2a.EnableDisable(System.Boolean@,System.Boolean@)">
+	<summary>
+ This method updates the status of the textboxes and button OK
+ </summary>
+	<param name="textBoxBool">The status for testboxes</param>
+	<param name="buttonBool">The status for Ok button</param>
 </member><member name="M:Assignment4CBS.InputUtility.GetDouble(System.String,System.Double@,System.Double,System.Double)">
 	<summary>
  Converts a string represented double value into a double type, and validates

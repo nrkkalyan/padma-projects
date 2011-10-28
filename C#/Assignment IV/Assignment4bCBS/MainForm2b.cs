@@ -81,8 +81,6 @@ namespace Assignment4CBS
             }
 
             UpdateLabels(); // to update the labels
-
-
         }
 
         /// <summary>
@@ -165,6 +163,7 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
+            //perfomr the index validation
             if (!CheckSelectedIndex())
             {
                 return;
@@ -210,16 +209,17 @@ namespace Assignment4CBS
                    }
                }
            }
-            // if cancel radio button is checked perform cancellation of reservation.
-                if (rbtnCancel.Checked)
-                {
-                    DialogResult result = MessageBox.Show("Do you really want to cancel the reservation?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
-                    if (result == DialogResult.Yes)
-                    {
-                        m_seatMngr.CancelSeat(lstReservations.SelectedIndex);
-                    }
-                }
-                UpdateGUI();
+           // cancellation of the seat (only possible if the seat is already reserved)
+           if (rbtnCancel.Checked && m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Reserved")
+           {
+               DialogResult result = MessageBox.Show("Do you want to cancel the reservation?", "Alert!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+               if (result == DialogResult.Yes)
+               {
+                   m_seatMngr.CancelSeat(lstReservations.SelectedIndex);
+               }
+           }
+           // call the UpdateGUI to perform updation 
+           UpdateGUI();
       }
 
 
@@ -230,7 +230,6 @@ namespace Assignment4CBS
         /// </summary>
         private void UpdateLabels()
         {
-
             lblNumOfSeats.Text = Convert.ToString(m_seatMngr.TotNumOfSeats()) ;
             lblNumOfReserved.Text = Convert.ToString(m_seatMngr.GetNumReserved());
             lblNumOfVacant.Text = Convert.ToString(m_seatMngr.GetNumVacant());
@@ -251,27 +250,26 @@ namespace Assignment4CBS
         /// <param name="e">An object containing useful information about the event.</param>
         private void cmboxChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool enableOrDisable = false;
-            SeatManager.DisplayOptions selected = (SeatManager.DisplayOptions)Enum.Parse(typeof(SeatManager.DisplayOptions), (string)this.cmboxChoice.SelectedItem);
-            if (selected == SeatManager.DisplayOptions.AllSeats)
-            {
-                enableOrDisable = true;
+            bool textBoxBool = false;
+            bool buttonBool = false;
 
-            }
-            btnOK.Enabled = enableOrDisable;
-            if (rbtnCancel.Checked)
+            if (cmboxChoice.SelectedIndex == 0)
             {
-                enableOrDisable = false;
+                buttonBool = textBoxBool = true;
+                rbtnCancel.Enabled = true;
+                rbtnReserved.Enabled = true;
+                if (rbtnCancel.Checked)
+                {
+                    textBoxBool = false;
+                }
             }
-            if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Reserved" )
-                btnOK.Enabled = true;
             else
-            btnOK.Enabled = false;
-
-            txtName.Enabled = enableOrDisable;
-            btnOK.Enabled = enableOrDisable;
-   
-            UpdateGUI(); // update teh listbox depending on the choice of combo box
+            {
+                rbtnCancel.Enabled = false;
+                rbtnReserved.Enabled = false;
+            }
+            enableDisable(textBoxBool, buttonBool);
+            UpdateGUI(); // update the listbox depending on the choice of combo box
         }
 
         /// <summary>
@@ -281,18 +279,18 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void rbtnCancel_CheckedChanged(object sender, EventArgs e)
         {
-            txtName.Enabled = false;
-            
-            if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  " || cmboxChoice.SelectedIndex != 0)
+            bool textBoxBool = false;
+            bool buttonBool = false;
+
+            if (cmboxChoice.SelectedIndex == 0)
             {
-                btnOK.Enabled = false;
+                buttonBool = true;
             }
-            else
-            {
-                btnOK.Enabled = true;
-            }
+
+            enableDisable(textBoxBool, buttonBool);
             btnOK.Text = "Cancel Reservation";
         }
+
 
         /// <summary>
         /// Event-handler method for the checkedchanged event of the Reserve radiobutton.
@@ -301,19 +299,26 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void rbtnReserved_CheckedChanged(object sender, EventArgs e)
         {
-            bool enableOrDisable = true;
-            if (cmboxChoice.SelectedIndex != 0)
-                enableOrDisable = false;
-
-            if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Reserved")
+            String value = m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex);
+            if (String.Equals(value, "Reserved"))
+            {
                 btnOK.Text = "Update";
+            }
             else
+            {
                 btnOK.Text = "Reserve";
+            }
 
-            btnOK.Enabled = enableOrDisable;
-            txtName.Enabled = enableOrDisable;
+            bool textBoxBool = false;
+            bool buttonBool = false;
+
+            if (cmboxChoice.SelectedIndex == 0)
+            {
+                buttonBool = textBoxBool = true;
+            }
+
+            enableDisable(textBoxBool, buttonBool);
         }
-
         
 
         /// <summary>
@@ -323,7 +328,6 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void lstReservations_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (rbtnReserved.Checked)
             {
                 if (m_seatMngr.GetSeatInfoAt(lstReservations.SelectedIndex) == "Vacant  ")
@@ -348,23 +352,39 @@ namespace Assignment4CBS
         /// <param name="e"></param>
         private void lstReservations_DoubleClick(object sender, EventArgs e)
         {
+            bool textBoxBool = false;
+            bool buttonBool = false;
 
-            bool enableOrDisable = true;
-            SeatManager.DisplayOptions selected = (SeatManager.DisplayOptions)Enum.Parse(typeof(SeatManager.DisplayOptions), (string)this.cmboxChoice.SelectedItem);
-            if (selected != SeatManager.DisplayOptions.AllSeats)
+            if (cmboxChoice.SelectedIndex == 0)
             {
-                MessageBox.Show("Please select *All Seats* for seat Reservations, Updates and Cancellations.", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                enableOrDisable = false;
-                return;
+                if (rbtnCancel.Checked == true)
+                    textBoxBool = false;
+                else
+                    textBoxBool = true;
+
+                buttonBool = true;
+                ReserveOrCancelSeat();
             }
             else
             {
-                ReserveOrCancelSeat();
+                MessageBox.Show("Please select *All Seats* for seat Reservations, Updates and Cancellations.", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-            txtName.Enabled = enableOrDisable;
-            btnOK.Enabled = enableOrDisable;
-            
+            // updates the status of the textbox and button controls
+            enableDisable(textBoxBool, buttonBool);
         }
+
+        /// <summary>
+        /// This method updates the status of the textboxes and button OK
+        /// </summary>
+        /// <param name="textBoxBool">The status for testboxes</param>
+        /// <param name="buttonBool">The status for Ok button</param>
+        private void enableDisable(bool textBoxBool, bool buttonBool)
+        {
+            txtName.Enabled = textBoxBool;
+            btnOK.Enabled = buttonBool;
+        }
+
 
          
 

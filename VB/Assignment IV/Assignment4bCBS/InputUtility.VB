@@ -2,6 +2,8 @@
 'Created by: Padma Priya Duvvuri
 'Created on: 04-Oct-2011
 
+Option Explicit On
+Option Strict On
 ''' <summary>
 ''' This class holds the shared methods which are used to validate the user inputs.
 ''' It validates double, string and integer inputs
