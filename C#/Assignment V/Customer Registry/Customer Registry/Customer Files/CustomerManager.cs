@@ -36,7 +36,7 @@ namespace Customer_Registry.Customer_Files
 
         private bool IsValidIndex(int index)
         {
-            if (index >= Count)
+            if (index >= 0 && index < Count)
                 return true;
             else
                 return false;

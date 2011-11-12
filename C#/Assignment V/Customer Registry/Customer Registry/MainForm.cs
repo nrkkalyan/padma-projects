@@ -69,7 +69,13 @@ namespace Customer_Registry
 
         private void mnuCustomerDelete_Click(object sender, EventArgs e)
         {
-            customerMngr.RemoveCustomer(lstCustomerDetails.SelectedIndex);
+            int index = lstCustomerDetails.SelectedIndex;
+            if (index == -1)
+            {
+                MessageBox.Show("Please select an index", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            customerMngr.RemoveCustomer(index);
             UpdateCustomerList();
         }
 
