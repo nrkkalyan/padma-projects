@@ -16,11 +16,15 @@ namespace Customer_Registry.Customer_Files
             m_id = id;
         }
 
-        public Customer(Contact contactIn)
-            : this(contactIn, string.Empty)
+        public Customer(Customer customerIn)
+            : this(customerIn.ContactData, customerIn.ID)
         { }
 
-        public Customer(): this(null)
+        public Customer(): this(new Contact())
+        { }
+
+        public Customer(Contact contactIn)
+            : this(contactIn, string.Empty)
         { }
 
         public Contact ContactData

@@ -13,6 +13,9 @@ namespace Customer_Registry.Customer_Files
         private string m_lastName;
         private Phone m_phone;
 
+        public Contact() : this(string.Empty, string.Empty, new Address(), new Email(), new Phone()) 
+        { }
+
         public Contact(string firstName, string lastName, Address adr, Email mail, Phone tel)
         {
             m_firstName = firstName;

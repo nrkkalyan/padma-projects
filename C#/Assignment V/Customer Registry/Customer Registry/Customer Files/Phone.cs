@@ -8,18 +8,16 @@ namespace Customer_Registry.Customer_Files
     public class Phone
     {
         private string m_home;
-        private string m_other;
-        private string m_work;
+        private string m_cell;
 
-        public Phone(string homePhone, string workPhone, string otherPhone)
+        public Phone(string homePhone, string cellPhone)
         {
             m_home = homePhone;
-            m_work = workPhone;
-            m_other = otherPhone;
+            m_cell = cellPhone;
         }
 
-        public Phone(string homePhone, string workPhone)
-            :this(homePhone,workPhone,string.Empty)
+        public Phone(string homePhone)
+            :this(homePhone,string.Empty)
         { }
 
         public Phone()
@@ -31,20 +29,16 @@ namespace Customer_Registry.Customer_Files
             get { return m_home; }
             set { m_home = value; }
         }
-        public string Work
+        
+        public string Cell
         {
-            get { return m_work; }
-            set { m_work = value; }
-        }
-        public string Other
-        {
-            get { return m_other; }
-            set { m_other = value; }
+            get { return m_cell; }
+            set { m_cell = value; }
         }
 
         public override string ToString()
         {
-            string strOut = string.Format("{0} {1} {2}", m_home, m_work,m_other);
+            string strOut = string.Format("{0,-12} {1,-12}", m_home, m_cell);
             return strOut;
         }
     }

@@ -102,7 +102,7 @@ namespace Customer_Registry.Customer_Files
 
        public override string ToString()
        {
-           string str = string.Format("{0} {1} {2} {3}", m_street, m_zipCode, m_city, GetCountryString());
+           string str = string.Format("{0,-20} {1,-5} {2,-8} {3,-13}", m_street, m_zipCode, m_city, GetCountryString());
            return str;
        }
     }

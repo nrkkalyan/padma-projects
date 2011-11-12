@@ -40,20 +40,20 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.grpName = new System.Windows.Forms.GroupBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.grpPhoneEmail = new System.Windows.Forms.GroupBox();
+            this.txtPersonalEmail = new System.Windows.Forms.TextBox();
+            this.txtProfessionalEmail = new System.Windows.Forms.TextBox();
+            this.txtCellPhone = new System.Windows.Forms.TextBox();
+            this.txtHomePhone = new System.Windows.Forms.TextBox();
             this.grpAddress = new System.Windows.Forms.GroupBox();
+            this.txtZip = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.txtStreet = new System.Windows.Forms.TextBox();
+            this.cmbCountry = new System.Windows.Forms.ComboBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.cmbCountry = new System.Windows.Forms.ComboBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtHomePhone = new System.Windows.Forms.TextBox();
-            this.txtWorkPhone = new System.Windows.Forms.TextBox();
-            this.txtOtherPhone = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtStreet = new System.Windows.Forms.TextBox();
-            this.txtCity = new System.Windows.Forms.TextBox();
-            this.txtZip = new System.Windows.Forms.TextBox();
             this.grpName.SuspendLayout();
             this.grpPhoneEmail.SuspendLayout();
             this.grpAddress.SuspendLayout();
@@ -108,18 +108,18 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(27, 70);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 13);
+            this.label7.Size = new System.Drawing.Size(63, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Other ";
+            this.label7.Text = "Office Email";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(28, 95);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(79, 13);
             this.label8.TabIndex = 7;
-            this.label8.Text = "E-mail";
+            this.label8.Text = "Personal E-mail";
             // 
             // label10
             // 
@@ -170,11 +170,25 @@
             this.grpName.TabStop = false;
             this.grpName.Text = "Name";
             // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(170, 53);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(289, 20);
+            this.txtLastName.TabIndex = 4;
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(170, 21);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(289, 20);
+            this.txtFirstName.TabIndex = 3;
+            // 
             // grpPhoneEmail
             // 
-            this.grpPhoneEmail.Controls.Add(this.txtEmail);
-            this.grpPhoneEmail.Controls.Add(this.txtOtherPhone);
-            this.grpPhoneEmail.Controls.Add(this.txtWorkPhone);
+            this.grpPhoneEmail.Controls.Add(this.txtPersonalEmail);
+            this.grpPhoneEmail.Controls.Add(this.txtProfessionalEmail);
+            this.grpPhoneEmail.Controls.Add(this.txtCellPhone);
             this.grpPhoneEmail.Controls.Add(this.txtHomePhone);
             this.grpPhoneEmail.Controls.Add(this.label6);
             this.grpPhoneEmail.Controls.Add(this.label5);
@@ -186,6 +200,34 @@
             this.grpPhoneEmail.TabIndex = 14;
             this.grpPhoneEmail.TabStop = false;
             this.grpPhoneEmail.Text = "Phone & E-mail";
+            // 
+            // txtPersonalEmail
+            // 
+            this.txtPersonalEmail.Location = new System.Drawing.Point(170, 92);
+            this.txtPersonalEmail.Name = "txtPersonalEmail";
+            this.txtPersonalEmail.Size = new System.Drawing.Size(289, 20);
+            this.txtPersonalEmail.TabIndex = 11;
+            // 
+            // txtProfessionalEmail
+            // 
+            this.txtProfessionalEmail.Location = new System.Drawing.Point(170, 66);
+            this.txtProfessionalEmail.Name = "txtProfessionalEmail";
+            this.txtProfessionalEmail.Size = new System.Drawing.Size(289, 20);
+            this.txtProfessionalEmail.TabIndex = 10;
+            // 
+            // txtCellPhone
+            // 
+            this.txtCellPhone.Location = new System.Drawing.Point(170, 40);
+            this.txtCellPhone.Name = "txtCellPhone";
+            this.txtCellPhone.Size = new System.Drawing.Size(289, 20);
+            this.txtCellPhone.TabIndex = 9;
+            // 
+            // txtHomePhone
+            // 
+            this.txtHomePhone.Location = new System.Drawing.Point(170, 14);
+            this.txtHomePhone.Name = "txtHomePhone";
+            this.txtHomePhone.Size = new System.Drawing.Size(289, 20);
+            this.txtHomePhone.TabIndex = 8;
             // 
             // grpAddress
             // 
@@ -204,6 +246,36 @@
             this.grpAddress.TabStop = false;
             this.grpAddress.Text = "Address";
             // 
+            // txtZip
+            // 
+            this.txtZip.Location = new System.Drawing.Point(170, 83);
+            this.txtZip.Name = "txtZip";
+            this.txtZip.Size = new System.Drawing.Size(289, 20);
+            this.txtZip.TabIndex = 16;
+            // 
+            // txtCity
+            // 
+            this.txtCity.Location = new System.Drawing.Point(170, 57);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(289, 20);
+            this.txtCity.TabIndex = 15;
+            // 
+            // txtStreet
+            // 
+            this.txtStreet.Location = new System.Drawing.Point(170, 29);
+            this.txtStreet.Name = "txtStreet";
+            this.txtStreet.Size = new System.Drawing.Size(289, 20);
+            this.txtStreet.TabIndex = 14;
+            // 
+            // cmbCountry
+            // 
+            this.cmbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCountry.FormattingEnabled = true;
+            this.cmbCountry.Location = new System.Drawing.Point(170, 109);
+            this.cmbCountry.Name = "cmbCountry";
+            this.cmbCountry.Size = new System.Drawing.Size(289, 21);
+            this.cmbCountry.TabIndex = 13;
+            // 
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(180, 422);
@@ -221,78 +293,6 @@
             this.btnCancel.TabIndex = 16;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // cmbCountry
-            // 
-            this.cmbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCountry.FormattingEnabled = true;
-            this.cmbCountry.Location = new System.Drawing.Point(170, 109);
-            this.cmbCountry.Name = "cmbCountry";
-            this.cmbCountry.Size = new System.Drawing.Size(289, 21);
-            this.cmbCountry.TabIndex = 13;
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Location = new System.Drawing.Point(170, 21);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(289, 20);
-            this.txtFirstName.TabIndex = 3;
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Location = new System.Drawing.Point(170, 53);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(289, 20);
-            this.txtLastName.TabIndex = 4;
-            // 
-            // txtHomePhone
-            // 
-            this.txtHomePhone.Location = new System.Drawing.Point(170, 14);
-            this.txtHomePhone.Name = "txtHomePhone";
-            this.txtHomePhone.Size = new System.Drawing.Size(289, 20);
-            this.txtHomePhone.TabIndex = 8;
-            // 
-            // txtWorkPhone
-            // 
-            this.txtWorkPhone.Location = new System.Drawing.Point(170, 40);
-            this.txtWorkPhone.Name = "txtWorkPhone";
-            this.txtWorkPhone.Size = new System.Drawing.Size(289, 20);
-            this.txtWorkPhone.TabIndex = 9;
-            // 
-            // txtOtherPhone
-            // 
-            this.txtOtherPhone.Location = new System.Drawing.Point(170, 66);
-            this.txtOtherPhone.Name = "txtOtherPhone";
-            this.txtOtherPhone.Size = new System.Drawing.Size(289, 20);
-            this.txtOtherPhone.TabIndex = 10;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(170, 92);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(289, 20);
-            this.txtEmail.TabIndex = 11;
-            // 
-            // txtStreet
-            // 
-            this.txtStreet.Location = new System.Drawing.Point(170, 29);
-            this.txtStreet.Name = "txtStreet";
-            this.txtStreet.Size = new System.Drawing.Size(289, 20);
-            this.txtStreet.TabIndex = 14;
-            // 
-            // txtCity
-            // 
-            this.txtCity.Location = new System.Drawing.Point(170, 57);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(289, 20);
-            this.txtCity.TabIndex = 15;
-            // 
-            // txtZip
-            // 
-            this.txtZip.Location = new System.Drawing.Point(170, 83);
-            this.txtZip.Name = "txtZip";
-            this.txtZip.Size = new System.Drawing.Size(289, 20);
-            this.txtZip.TabIndex = 16;
             // 
             // CustomerForm
             // 
@@ -335,9 +335,9 @@
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.GroupBox grpPhoneEmail;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtOtherPhone;
-        private System.Windows.Forms.TextBox txtWorkPhone;
+        private System.Windows.Forms.TextBox txtPersonalEmail;
+        private System.Windows.Forms.TextBox txtProfessionalEmail;
+        private System.Windows.Forms.TextBox txtCellPhone;
         private System.Windows.Forms.TextBox txtHomePhone;
         private System.Windows.Forms.GroupBox grpAddress;
         private System.Windows.Forms.TextBox txtZip;
