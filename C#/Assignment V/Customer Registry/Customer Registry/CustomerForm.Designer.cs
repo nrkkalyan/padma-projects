@@ -284,6 +284,7 @@
             this.btnOK.TabIndex = 15;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
@@ -307,6 +308,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CustomerForm_FormClosing);
             this.grpName.ResumeLayout(false);
             this.grpName.PerformLayout();
             this.grpPhoneEmail.ResumeLayout(false);

@@ -131,25 +131,28 @@
             // mnuCustomerAdd
             // 
             this.mnuCustomerAdd.Name = "mnuCustomerAdd";
-            this.mnuCustomerAdd.Size = new System.Drawing.Size(115, 22);
+            this.mnuCustomerAdd.Size = new System.Drawing.Size(152, 22);
             this.mnuCustomerAdd.Text = "Add";
+            this.mnuCustomerAdd.Click += new System.EventHandler(this.mnuCustomerAdd_Click);
             // 
             // mnuCustomerChange
             // 
             this.mnuCustomerChange.Name = "mnuCustomerChange";
-            this.mnuCustomerChange.Size = new System.Drawing.Size(115, 22);
+            this.mnuCustomerChange.Size = new System.Drawing.Size(152, 22);
             this.mnuCustomerChange.Text = "Change";
+            this.mnuCustomerChange.Click += new System.EventHandler(this.mnuCustomerChange_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(112, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuCustomerDelete
             // 
             this.mnuCustomerDelete.Name = "mnuCustomerDelete";
-            this.mnuCustomerDelete.Size = new System.Drawing.Size(115, 22);
+            this.mnuCustomerDelete.Size = new System.Drawing.Size(152, 22);
             this.mnuCustomerDelete.Text = "Delete";
+            this.mnuCustomerDelete.Click += new System.EventHandler(this.mnuCustomerDelete_Click);
             // 
             // lstCustomerDetails
             // 

@@ -41,7 +41,7 @@ namespace Customer_Registry.Customer_Files
 
         public override string ToString()
         {
-            return m_contact.ToString();
+            return m_id+" "+m_contact.ToString();
         }
     }
 }

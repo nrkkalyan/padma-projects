@@ -29,13 +29,14 @@ namespace Customer_Registry.Customer_Files
 
         public bool AddCustomer(Customer customerIn)
         {
+            customerIn.ID = GetNewID.ToString();
             customers.Add(customerIn);
                 return true;
         }
 
         private bool IsValidIndex(int index)
         {
-            if (index < Count)
+            if (index >= Count)
                 return true;
             else
                 return false;
@@ -45,7 +46,11 @@ namespace Customer_Registry.Customer_Files
         {
             if(IsValidIndex(index))
             {
-            customers.Insert(index, contactIn);
+
+            Customer customer = (Customer)customers[index];
+            customer.ContactData = contactIn;        
+            customers.RemoveAt(index);
+            customers.Insert(index, customer);
             return true;
             }
             else
