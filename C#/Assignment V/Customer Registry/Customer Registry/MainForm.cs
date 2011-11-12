@@ -31,7 +31,10 @@ namespace Customer_Registry
 
         private void mnuFileExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result =  MessageBox.Show("Do you want to exit the application?", "Alert", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (result == DialogResult.OK)
+                this.Close();
         }
 
         private void mnuCustomerAdd_Click(object sender, EventArgs e)

@@ -12,8 +12,9 @@ namespace Customer_Registry.Customer_Files
 
         public Phone(string homePhone, string cellPhone)
         {
-            m_home = homePhone;
             m_cell = cellPhone;
+            m_home = homePhone;
+           
         }
 
         public Phone(string homePhone)
@@ -38,8 +39,9 @@ namespace Customer_Registry.Customer_Files
 
         public override string ToString()
         {
-            string strOut = string.Format("{0,-12} {1,-12}", m_home, m_cell);
+            string strOut = string.Format("{0,-12} {1,-12}",m_home,m_cell);
             return strOut;
         }
+
     }
 }

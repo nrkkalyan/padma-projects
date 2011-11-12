@@ -66,6 +66,10 @@ namespace Customer_Registry
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (!ValidateInputFields())
+            {
+                return;
+            }
             if (m_customer == null)
             {
                 m_customer = new Customer();
@@ -75,11 +79,57 @@ namespace Customer_Registry
                 
             m_customer.ContactData.AddressData = new Address(txtStreet.Text, txtZip.Text, txtCity.Text, selectedCountry);
             m_customer.ContactData.EmailData = new Email(txtProfessionalEmail.Text, txtPersonalEmail.Text);
+
+
             m_customer.ContactData.PhoneData = new Phone(txtHomePhone.Text, txtCellPhone.Text);
-            m_customer.ContactData.FirstName = txtFirstName.Text;
-            m_customer.ContactData.LastName = txtLastName.Text;
+
             
-            this.DialogResult = DialogResult.OK;
+
+                m_customer.ContactData.FirstName = txtFirstName.Text;
+                m_customer.ContactData.LastName = txtLastName.Text;
+
+                this.DialogResult = DialogResult.OK;
+            
+            
         }
+
+        private bool ValidateInputFields()
+        {
+            if (!InputUtility.CheckString(txtFirstName.Text))
+            {
+                MessageBox.Show("First name cannot be empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblFirstName.Text = "First Name *";
+                return false;
+            }
+            if (!InputUtility.CheckString(txtLastName.Text))
+            {
+                MessageBox.Show("Last name cannot be empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblLastName.Text = "Last Name *";
+                return false;
+            }
+            if (!ValidateAndFormatPhoneNumber(txtCellPhone.Text) || !ValidateAndFormatPhoneNumber(txtHomePhone.Text))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        private bool ValidateAndFormatPhoneNumber(string phone)
+        {
+            long number;
+            bool isValid = InputUtility.GetLong(phone, out number);
+            if (isValid)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Invalid Format","Info!", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                return false;
+            }
+        }
+
     }
 }

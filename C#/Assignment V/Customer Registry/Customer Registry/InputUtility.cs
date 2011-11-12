@@ -178,6 +178,22 @@ using System.Globalization;
 
         }
 
+
+        public static bool GetLong(string stringToConvert, out long longOutValue)
+        {
+            // parsing the string to check for whether value is double value or not
+            bool isLong = long.TryParse(stringToConvert, out longOutValue);
+            if (isLong == true)
+            {
+                // return true if the value is validated as a integer
+                return true;
+            }
+            // return false if the value is not validated as a integer
+            return false;
+
+        }
+
+
         /// <summary>
         /// this method validates the name. If it contains any any white spaces or does not contain any value
         /// it returns true.
