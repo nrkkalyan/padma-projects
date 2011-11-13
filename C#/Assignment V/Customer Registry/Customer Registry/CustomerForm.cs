@@ -66,31 +66,26 @@ namespace Customer_Registry
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            //validate the user given values for Name fields and phone number
             if (!ValidateInputFields())
             {
                 return;
             }
+            //if no customer is present then create a new customer
             if (m_customer == null)
             {
                 m_customer = new Customer();
             }
-            
+            // passing the values given by the user to the fields
+            //get selected coutry
             Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), (string)this.cmbCountry.SelectedItem);
-                
             m_customer.ContactData.AddressData = new Address(txtStreet.Text, txtZip.Text, txtCity.Text, selectedCountry);
             m_customer.ContactData.EmailData = new Email(txtProfessionalEmail.Text, txtPersonalEmail.Text);
-
-
             m_customer.ContactData.PhoneData = new Phone(txtHomePhone.Text, txtCellPhone.Text);
-
-            
-
-                m_customer.ContactData.FirstName = txtFirstName.Text;
-                m_customer.ContactData.LastName = txtLastName.Text;
-
-                this.DialogResult = DialogResult.OK;
-            
-            
+            m_customer.ContactData.FirstName = txtFirstName.Text;
+            m_customer.ContactData.LastName = txtLastName.Text;
+            //return the dialog result value as OK so as to perform next calculations
+            this.DialogResult = DialogResult.OK;
         }
 
         private bool ValidateInputFields()
@@ -107,16 +102,36 @@ namespace Customer_Registry
                 lblLastName.Text = "Last Name *";
                 return false;
             }
-            if (!ValidateAndFormatPhoneNumber(txtCellPhone.Text) || !ValidateAndFormatPhoneNumber(txtHomePhone.Text))
+
+            if (!ValidationForPhoneNumbers())
             {
                 return false;
             }
-
+           
             return true;
         }
 
 
-        private bool ValidateAndFormatPhoneNumber(string phone)
+        private bool ValidationForPhoneNumbers()
+        {
+            if (txtCellPhone.Text == string.Empty && txtHomePhone.Text == string.Empty)
+            {
+                MessageBox.Show("Atleast one telephone number should be provided", "Informationd!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            if (txtCellPhone.Text != string.Empty)
+            {
+                return ValidatePhoneNumber(txtCellPhone.Text);
+            }
+            if (txtHomePhone.Text != string.Empty)
+            {
+                return ValidatePhoneNumber(txtHomePhone.Text);
+            }
+                
+            return true;
+        }
+
+        private bool ValidatePhoneNumber(string phone)
         {
             long number;
             bool isValid = InputUtility.GetLong(phone, out number);
@@ -126,9 +141,14 @@ namespace Customer_Registry
             }
             else
             {
-                MessageBox.Show("Invalid Format","Info!", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Invalid Phone Format","Info!", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 return false;
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

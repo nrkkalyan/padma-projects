@@ -82,5 +82,17 @@ namespace Customer_Registry
             UpdateCustomerList();
         }
 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("Do you want to exit the application?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+                e.Cancel = false;
+            else
+                e.Cancel = true;
+
+        }
+
     }
 }
