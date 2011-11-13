@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Assignment4CBS
 {
+    
     public partial class MainForm2b : Form
     {
         //Test variables - to test the application
