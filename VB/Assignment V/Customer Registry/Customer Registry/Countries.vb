@@ -1,11 +1,14 @@
-﻿''File: Countries.vb
-''Created by: 
-''Created on:
+﻿'File: Countries.vb
+'Created by: 
+'Created on:
 
 Option Strict On
 Option Explicit On
 
-
+''' <summary>
+''' the countries of the world
+''' </summary>
+''' <remarks></remarks>
 Public Enum Countries
     Afghanistan
     Algeria

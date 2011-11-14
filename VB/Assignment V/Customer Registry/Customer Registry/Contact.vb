@@ -1,14 +1,14 @@
-﻿''File: Contact.vb
-''Created by: Padma Priya Duvvuri
-''Created on: 10-Nov-2010
+﻿'File: Contact.vb
+'Created by: Padma Priya Duvvuri
+'Created on: 10-Nov-2010
 
 Option Strict On
 Option Explicit On
 
 Public Class Contact
 
-    ''private address, email, phone objects and
-    ''private firstname and last name fields
+    'private address, email, phone objects and
+    'private firstname and last name fields
     Private m_address As Address
     Private m_email As Email
     Private m_firstName As String

@@ -1,4 +1,10 @@
-﻿
+﻿''File: Email.vb
+''Created by: 
+''Created on: 
+
+Option Strict On
+Option Explicit On
+
 Public Class Email
     'private email
     Private m_personal As String

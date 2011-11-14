@@ -1,6 +1,6 @@
-﻿''File: Address.vb
-''Created by: Padma Priya Duvvuri
-''Created on: 10-Nov-2010
+﻿'File: Address.vb
+'Created by: Padma Priya Duvvuri
+'Created on: 10-Nov-2010
 
 Option Strict On
 Option Explicit On
@@ -18,7 +18,7 @@ Public Class Address
     Private m_strErrMessage As String
     Private m_zipCode As String
 
-    ''property to read and write m_city
+    'property to read and write m_city
     Public Property City() As String
         Get
             City = m_city
@@ -28,7 +28,7 @@ Public Class Address
         End Set
     End Property
 
-    ''property to read and write m_country
+    'property to read and write m_country
     Public Property Country() As Countries
         Get
             Country = m_country
@@ -39,7 +39,7 @@ Public Class Address
     End Property
 
 
-    ''property to read and write m_street
+    'property to read and write m_street
     Public Property Street() As String
         Get
             Street = m_street
@@ -49,7 +49,7 @@ Public Class Address
         End Set
     End Property
 
-    ''property to read and write error message
+    'property to read and write error message
     Public Property ErrorMessage() As String
         Get
             ErrorMessage = m_strErrMessage
@@ -59,7 +59,7 @@ Public Class Address
         End Set
     End Property
 
-    ''property to read and write m_zipcode
+    'property to read and write m_zipcode
     Public Property ZipCode() As String
         Get
             ZipCode = m_zipCode
@@ -69,7 +69,8 @@ Public Class Address
         End Set
     End Property
 
-    ''defining constructors
+    'defining constructors
+
     ''' <summary>
     ''' Consturctor with 4 parameters. This is constuctor that has most
     ''' number of paramets. It is in this constructor that all coding should

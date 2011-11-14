@@ -1,12 +1,12 @@
-﻿''File: Customer.vb
-''Created by: Padma Priya Duvvuri
-''Created on: 10-Nov-2010
+﻿'File: Customer.vb
+'Created by: Padma Priya Duvvuri
+'Created on: 10-Nov-2010
 
 Option Strict On
 Option Explicit On
 
 Public Class Customer
-    ''private fields
+    'private fields
     Private m_contact As Contact
     Private m_id As String
 
