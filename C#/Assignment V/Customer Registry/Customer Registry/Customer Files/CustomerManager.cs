@@ -24,7 +24,7 @@ namespace Customer_Registry.Customer_Files
         public CustomerManager()
         {
             customers = new ArrayList();
-            m_idCounter = 101;
+            m_idCounter = 100;
         }
 
         /// <summary>
