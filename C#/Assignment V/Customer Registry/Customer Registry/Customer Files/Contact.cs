@@ -14,7 +14,7 @@ namespace Customer_Registry.Customer_Files
     public class Contact
     {
         //private address, email, phone objects and 
-        //private firstname adn last name fields
+        //private firstname and last name fields
         private Address m_address;
         private Email m_email;
         private string m_firstName;

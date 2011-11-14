@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Customer_Registry.Customer_Files.Address" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAEAAAAAMgBAAAAAAAQIQAAABAAIAAQAAAAg=</HashCode>
+      <FileName>Customer Files\Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Customer_Registry.Customer_Files.Contact" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAEAEAAAAAIAFAAAAAIAAAAAAAEQAAAQABAAAAAg=</HashCode>
+      <FileName>Customer Files\Contact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Customer_Registry.Customer_Files.Customer" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAgAAEAAAAAAAAAAAAAAQAAAAAAIAAAAA=</HashCode>
+      <FileName>Customer Files\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Customer_Registry.Customer_Files.CustomerManager">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAABIAAAAAAIAQAAAAQAACAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Customer Files\CustomerManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Customer_Registry.Customer_Files.Email" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJgAAAAAAAEAAAAEAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Customer Files\Email.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Customer_Registry.Customer_Files.Phone">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAEAABAAAAAAAwAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Customer Files\Phone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Customer_Registry.CustomerForm" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>8AGAEAAAACBAABECABCDCMgCAwBAgEACAAASAAAAAgA=</HashCode>
+      <FileName>CustomerForm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Customer1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Customer_Registry.MainForm" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAKBACAAELRCAhSgAAADAAACCAAAAAgAAAgAAAQ=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Customer_Registry.Program" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputUtility" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAgAAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InputUtility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Customer_Registry.Properties.Resources" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Customer_Registry.Properties.Settings" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Customer_Registry.Customer_Files.Countries" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iv9xbfbzI1rWmtgC3YUk9lZ6Chh6NfxGM3O0rBUA1b0=</HashCode>
+      <FileName>Customer Files\Countries.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -58,7 +58,7 @@ namespace Customer_Registry.Customer_Files
 
        /// <summary>
        /// Constructor with 4 parameters.  This is  constructor that has most
-       /// number of parameters. It is in tis constructor that all coding 
+       /// number of parameters. It is in this constructor that all coding 
        /// should be done.
        /// </summary>
        /// <param name="street">Input - street name</param>

@@ -1,4 +1,4 @@
-﻿//File: Customer.cs
+﻿//File: CustomerManager.cs
 //Created by: Padma Priya Duvvuri
 //Created on: 10-Nov-2011
 
