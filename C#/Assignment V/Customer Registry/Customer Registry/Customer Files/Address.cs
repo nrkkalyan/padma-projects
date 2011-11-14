@@ -56,6 +56,15 @@ namespace Customer_Registry.Customer_Files
 
        // defining consturctors
 
+       /// <summary>
+       /// Constructor with 4 parameters.  This is  constructor that has most
+       /// number of parameters. It is in tis constructor that all coding 
+       /// should be done.
+       /// </summary>
+       /// <param name="street">Input - street name</param>
+       /// <param name="zip">Input - zip code</param>
+       /// <param name="city">Input - city name</param>
+       /// <param name="country">Input - country name</param>
        public Address(string street, string zip, string city, Countries country)
        {
            m_city = city;
@@ -64,21 +73,32 @@ namespace Customer_Registry.Customer_Files
            m_country = country;
        }
 
+       /// <summary>
+       /// Constructor with three parameter - calls the constructor with 
+       /// four parameters, using a default value as the fourth argument.
+       /// </summary>
+       /// <param name="street">Input - street name</param>
+       /// <param name="zip">Input - zip code</param>
+       /// <param name="city">Input - city name</param>
        public Address(string street, string zip, string city)
            : this(street,city,zip, Countries.Sverige)
        { }
-
+       
        /// <summary>
-       /// default constructor to initialize the values
+       /// Default constructor - calls the constructor with 3 parameters,
+       /// using default values.
        /// </summary>
        public Address() : this(string.Empty,string.Empty,string.Empty)
        {
 
        }
 
+       /// <summary>
+       /// To perform the validation for city and street names
+       /// </summary>
+       /// <returns></returns>
        public bool CheckData()
        {
-
            if (!InputUtility.CheckString(m_city))
            {
                m_strErrMessage = "Enter proper City name";
@@ -93,6 +113,11 @@ namespace Customer_Registry.Customer_Files
            return true;
        }
 
+       /// <summary>
+       /// Replaces the '_' character of the selected country name
+       /// if it has any.
+       /// </summary>
+       /// <returns></returns>
        private string GetCountryString()
        {
            string strCountry = m_country.ToString();
@@ -100,9 +125,14 @@ namespace Customer_Registry.Customer_Files
            return strCountry.Replace('_', ' ');
        }
 
+       /// <summary>
+       /// Delivers a formatted string with data stored in the object. The values will
+       /// appear as columns. 
+       /// </summary>
+       /// <returns></returns>
        public override string ToString()
        {
-           string str = string.Format("{0,-20} {1,-5} {2,-8} {3,-13}", m_street, m_zipCode, m_city, GetCountryString());
+           string str = string.Format("{0,-10} {1,-5} {2,-8} {3,-13}", m_street, m_zipCode, m_city, GetCountryString());
            return str;
        }
     }

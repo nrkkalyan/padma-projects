@@ -1,4 +1,8 @@
-﻿using System;
+﻿//File : Email.cs
+//Created by:
+//Created On:
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

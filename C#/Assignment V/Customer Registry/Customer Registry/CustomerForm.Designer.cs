@@ -70,7 +70,7 @@
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(24, 26);
+            this.lblFirstName.Location = new System.Drawing.Point(28, 24);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(57, 13);
             this.lblFirstName.TabIndex = 1;
@@ -79,7 +79,7 @@
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(24, 56);
+            this.lblLastName.Location = new System.Drawing.Point(28, 56);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(58, 13);
             this.lblLastName.TabIndex = 2;
@@ -106,7 +106,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 70);
+            this.label7.Location = new System.Drawing.Point(26, 69);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 13);
             this.label7.TabIndex = 6;
@@ -115,7 +115,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 95);
+            this.label8.Location = new System.Drawing.Point(26, 95);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 13);
             this.label8.TabIndex = 7;
@@ -151,7 +151,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(26, 109);
+            this.label13.Location = new System.Drawing.Point(23, 109);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(43, 13);
             this.label13.TabIndex = 12;
@@ -172,17 +172,19 @@
             // 
             // txtLastName
             // 
+            this.txtLastName.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.Location = new System.Drawing.Point(170, 53);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(289, 20);
-            this.txtLastName.TabIndex = 4;
+            this.txtLastName.TabIndex = 2;
             // 
             // txtFirstName
             // 
+            this.txtFirstName.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.Location = new System.Drawing.Point(170, 21);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(289, 20);
-            this.txtFirstName.TabIndex = 3;
+            this.txtFirstName.TabIndex = 1;
             // 
             // grpPhoneEmail
             // 
@@ -203,31 +205,35 @@
             // 
             // txtPersonalEmail
             // 
+            this.txtPersonalEmail.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersonalEmail.Location = new System.Drawing.Point(170, 92);
             this.txtPersonalEmail.Name = "txtPersonalEmail";
             this.txtPersonalEmail.Size = new System.Drawing.Size(289, 20);
-            this.txtPersonalEmail.TabIndex = 11;
+            this.txtPersonalEmail.TabIndex = 6;
             // 
             // txtProfessionalEmail
             // 
+            this.txtProfessionalEmail.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProfessionalEmail.Location = new System.Drawing.Point(170, 66);
             this.txtProfessionalEmail.Name = "txtProfessionalEmail";
             this.txtProfessionalEmail.Size = new System.Drawing.Size(289, 20);
-            this.txtProfessionalEmail.TabIndex = 10;
+            this.txtProfessionalEmail.TabIndex = 5;
             // 
             // txtCellPhone
             // 
+            this.txtCellPhone.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCellPhone.Location = new System.Drawing.Point(170, 40);
             this.txtCellPhone.Name = "txtCellPhone";
             this.txtCellPhone.Size = new System.Drawing.Size(289, 20);
-            this.txtCellPhone.TabIndex = 9;
+            this.txtCellPhone.TabIndex = 4;
             // 
             // txtHomePhone
             // 
+            this.txtHomePhone.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHomePhone.Location = new System.Drawing.Point(170, 14);
             this.txtHomePhone.Name = "txtHomePhone";
             this.txtHomePhone.Size = new System.Drawing.Size(289, 20);
-            this.txtHomePhone.TabIndex = 8;
+            this.txtHomePhone.TabIndex = 3;
             // 
             // grpAddress
             // 
@@ -248,40 +254,44 @@
             // 
             // txtZip
             // 
+            this.txtZip.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtZip.Location = new System.Drawing.Point(170, 83);
             this.txtZip.Name = "txtZip";
             this.txtZip.Size = new System.Drawing.Size(289, 20);
-            this.txtZip.TabIndex = 16;
+            this.txtZip.TabIndex = 9;
             // 
             // txtCity
             // 
+            this.txtCity.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCity.Location = new System.Drawing.Point(170, 57);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(289, 20);
-            this.txtCity.TabIndex = 15;
+            this.txtCity.TabIndex = 8;
             // 
             // txtStreet
             // 
+            this.txtStreet.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStreet.Location = new System.Drawing.Point(170, 29);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(289, 20);
-            this.txtStreet.TabIndex = 14;
+            this.txtStreet.TabIndex = 7;
             // 
             // cmbCountry
             // 
             this.cmbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCountry.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCountry.FormattingEnabled = true;
             this.cmbCountry.Location = new System.Drawing.Point(170, 109);
             this.cmbCountry.Name = "cmbCountry";
-            this.cmbCountry.Size = new System.Drawing.Size(289, 21);
-            this.cmbCountry.TabIndex = 13;
+            this.cmbCountry.Size = new System.Drawing.Size(289, 22);
+            this.cmbCountry.TabIndex = 10;
             // 
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(180, 422);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 31);
-            this.btnOK.TabIndex = 15;
+            this.btnOK.TabIndex = 11;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -291,7 +301,7 @@
             this.btnCancel.Location = new System.Drawing.Point(328, 422);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 31);
-            this.btnCancel.TabIndex = 16;
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

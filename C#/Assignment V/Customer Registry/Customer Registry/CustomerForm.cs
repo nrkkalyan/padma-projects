@@ -1,4 +1,8 @@
-﻿using System;
+﻿//File: CustomerForm.cs
+//Created by: Padma Priya Duvvuri
+//Created on: 11-Nov-2011
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,21 +17,25 @@ namespace Customer_Registry
 {
     public partial class CustomerForm : Form
     {
+        //customer object receiving input and/or sending output
         private bool closeForm;
+        //flag to handle the closing of the form
         private Customer m_customer;
 
+        //constructor with one parameter (title of the form)
         public CustomerForm(string title)
         {
             InitializeComponent();
-
+            //Other initialization
             this.Text = title;
             closeForm = true;
-
+            //populate the combo box and select the default country as Sverige
             cmbCountry.Items.AddRange(Enum.GetNames(typeof(Countries)));
             cmbCountry.SelectedIndex = (int)Countries.Sverige;
         }
 
        
+        //create the customer object to assign the new customer values
         public Customer CustomerData
         {
             get { return m_customer; }
@@ -35,11 +43,14 @@ namespace Customer_Registry
             {
                 if (value != null)
                     m_customer = value;
-
+                //update input controls
                 UpdateGUI();
             }
         }
 
+        /// <summary>
+        /// update the controls of customerForm to the m_customer object values
+        /// </summary>
         private void UpdateGUI()
         {
             txtCellPhone.Text = m_customer.ContactData.PhoneData.Cell;
@@ -52,10 +63,13 @@ namespace Customer_Registry
             txtPersonalEmail.Text = m_customer.ContactData.EmailData.Personal;
             txtProfessionalEmail.Text = m_customer.ContactData.EmailData.Work;
             cmbCountry.SelectedIndex = (int)m_customer.ContactData.AddressData.Country;
-        
         }
 
-       
+        /// <summary>
+        /// Event hadler for formclosing event event fo the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CustomerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (closeForm)
@@ -64,6 +78,11 @@ namespace Customer_Registry
                 e.Cancel = true;
         }
 
+        /// <summary>
+        /// Event handler for click event of the OK button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
             //validate the user given values for Name fields and phone number
@@ -88,8 +107,14 @@ namespace Customer_Registry
             this.DialogResult = DialogResult.OK;
         }
 
+        /// <summary>
+        /// Validates the firstname, lastname and telephone numbers.
+        /// </summary>
+        /// <returns>returns true if all the three fields are validated, false
+        /// otherwise</returns>
         private bool ValidateInputFields()
         {
+            //calls checkstring method of inpututility class
             if (!InputUtility.CheckString(txtFirstName.Text))
             {
                 MessageBox.Show("First name cannot be empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -102,7 +127,7 @@ namespace Customer_Registry
                 lblLastName.Text = "Last Name *";
                 return false;
             }
-
+            //validation for phone numbers
             if (!ValidationForPhoneNumbers())
             {
                 return false;
@@ -111,12 +136,17 @@ namespace Customer_Registry
             return true;
         }
 
-
+        /// <summary>
+        /// checks whehter atleast one telepone number is provided or not.And validates the
+        /// presented by the user
+        /// </summary>
+        /// <returns>true if atleast one phone number is given and validates the given
+        /// user input</returns>
         private bool ValidationForPhoneNumbers()
         {
             if (txtCellPhone.Text == string.Empty && txtHomePhone.Text == string.Empty)
             {
-                MessageBox.Show("Atleast one telephone number should be provided", "Informationd!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Atleast one telephone number should be provided", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             if (txtCellPhone.Text != string.Empty)
@@ -131,6 +161,12 @@ namespace Customer_Registry
             return true;
         }
 
+        /// <summary>
+        /// If atleast one phone number is provided, converts the value to long
+        /// by calling GetLong method of InputUtility
+        /// </summary>
+        /// <param name="phone">string value of the user input for phone number</param>
+        /// <returns>true if conversion is successful</returns>
         private bool ValidatePhoneNumber(string phone)
         {
             long number;
@@ -146,6 +182,11 @@ namespace Customer_Registry
             }
         }
 
+        /// <summary>
+        /// event handler for the click event of cancel button. It closes the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -179,6 +179,13 @@ using System.Globalization;
         }
 
 
+        /// <summary>
+        /// Converts the string value to long value. If the parsing is successfull
+        /// returns the long value
+        /// </summary>
+        /// <param name="stringToConvert"> string to be converted</param>
+        /// <param name="longOutValue">long valued output parameter</param>
+        /// <returns></returns>
         public static bool GetLong(string stringToConvert, out long longOutValue)
         {
             // parsing the string to check for whether value is double value or not
