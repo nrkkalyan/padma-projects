@@ -6,155 +6,58 @@ CustomerRegistry
 </name>
 </assembly>
 <members>
-<member name="P:Customer_Registry.CustomerForm.CustomerData">
+<member name="M:Customer_Registry.Address.#ctor(System.String,System.String,System.String,Customer_Registry.Countries)">
 	<summary>
- Property CustomerData to read customer values, with access to
- read and write
+ Consturctor with 4 parameters. This is constuctor that has most
+ number of paramets. It is in this constructor that all coding should
+ be done
  </summary>
-	<value></value>
-	<returns>Customer object</returns>
+	<param name="street">Input - street name</param>
+	<param name="zip">Input - zipcode</param>
+	<param name="city">Input - city name</param>
+	<param name="country">Input - country name</param>
 	<remarks></remarks>
-</member><member name="M:Customer_Registry.CustomerForm.UpdateGUI">
+</member><member name="M:Customer_Registry.Address.#ctor(System.String,System.String,System.String)">
 	<summary>
- update controls of customerForm to the m_customer object values
+ Consturctor with 3 parameters. this consturctors calls the constructor with 
+ 4 parameters passing default value for country
  </summary>
+	<param name="street">Input - street name</param>
+	<param name="zip">Input - zipcode</param>
+	<param name="city">Input - city name</param>
 	<remarks></remarks>
-</member><member name="M:Customer_Registry.CustomerForm.CustomerForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+</member><member name="M:Customer_Registry.Address.#ctor">
 	<summary>
- Event handler for formclosing event of the customer form
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.CustomerForm.ValidateInputFields">
-	<summary>
- validate firstname, lastname and telephone numbers
- </summary>
-	<returns>returns true if all fields are validated, false otherwise</returns>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.CustomerForm.ValidationForPhoneNumbers">
-	<summary>
- checks whehter atleast one telepone number is provided or not.And validates the
- presented by the user
- </summary>
-	<returns>true if atleast one phone number is given and validates the given
- user input</returns>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.CustomerForm.ValidatePhoneNumber(System.String)">
-	<summary>
- If atleast one phone number is provided, converts the value to long
- by calling GetLong method of InputUtility
- </summary>
-	<param name="phone">string value of the user input for phone number</param>
-	<returns>true if conversion is successful</returns>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.CustomerForm.btnCancel_Click(System.Object,System.EventArgs)">
-	<summary>
- event handler for click event of cancel button
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.MainForm.UpdateCustomerList">
-	<summary>
- clears the listbox and updates it with the customer values of the 
- customerMngr arraylist
+ It is default constructor - calls the consturctor with 3 parameters,
+ using default values
  </summary>
 	<remarks></remarks>
-</member><member name="M:Customer_Registry.MainForm.ExitToolStripMenuItem_Click(System.Object,System.EventArgs)">
+</member><member name="M:Customer_Registry.Address.CheckIndex">
 	<summary>
- event handler for click event of Exit menu item of File menu
+ to perform validation for street and city names
  </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.MainForm.AddToolStripMenuItem_Click(System.Object,System.EventArgs)">
-	<summary>
- Event handler for click event of Add menu item of Customer Menu
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.MainForm.ChangeToolStripMenuItem_Click(System.Object,System.EventArgs)">
-	<summary>
- Event handler for teh click event of Change menuitme of the Customer Menu.
- If list box is not empty then allow the user to change details of the customer
- at the selected index, else call showError() method
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.MainForm.ShowError">
-	<summary>
- If list box is empty then user will not be able to update or delete any values.
- This method is called form click event of Delete and Change menuitems of Customer menu.
- </summary>
-</member><member name="M:Customer_Registry.MainForm.DeleteToolStripMenuItem1_Click(System.Object,System.EventArgs)">
-	<summary>
- event handler for click event of Delete menu item of Customer menu
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.MainForm.MainForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
-	<summary>
- Event handler for FormClosing event of MainForm
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.CustomerManager.#ctor">
-	<summary>
- default constructor. It creates a new arraylist object.
- and it assigns default value of 101 for starters.
- </summary>
-</member><member name="P:Customer_Registry.CustomerManager.Count">
-	<summary>
- It counts the number of customers objects that are 
- present in the arraylist.
- </summary>
-	<returns>no.of customers present</returns>
-</member><member name="P:Customer_Registry.CustomerManager.GetNewID">
-	<summary>
- It creates a new customer id for every customer 
- present in the arraylist.
- </summary>
-	<returns>new id for the new customer</returns>
-</member><member name="M:Customer_Registry.CustomerManager.AddCustomer(Customer_Registry.Customer)">
-	<summary>
- It stores the new customer details entered by the user, and returns
- true if added.
- </summary>
-	<param name="customerIn">Input - customer details</param>
-	<returns>True when the new customer is added</returns>
-</member><member name="M:Customer_Registry.CustomerManager.IsValidIndex(System.Int32)">
-	<summary>
- validates the index of the array list.
- </summary>
-	<param name="index">selected index</param>
-	<returns>true if index is less than the arraysize</returns>
-</member><member name="M:Customer_Registry.CustomerManager.ChangeCustomer(Customer_Registry.Contact,System.Int32)">
-	<summary>
- If the index is valid then it will allow the updation 
- of the fields
- </summary>
-	<param name="contactIn">details of selected customer</param>
-	<param name="index">selected index</param>
-	<returns>true if value is changed</returns>
-</member><member name="M:Customer_Registry.CustomerManager.RemoveCustomer(System.Int32)">
-	<summary>
- If index is valid then it will remove that customer 
- from the arraylist.
- </summary>
-	<param name="index">index at which customer need to be deleted</param>
 	<returns></returns>
-</member><member name="M:Customer_Registry.CustomerManager.GetCustomer(System.Int32)">
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.Address.GetCountryString">
 	<summary>
- returns the customer object at the selected 
- index of the customers arraylist
+ replaces the '_' char of the country name 
+ if it has any
  </summary>
-	<param name="index">selected index by the user</param>
-	<returns>customer object</returns>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.Address.ToString">
+	<summary>
+  Delivers a formatted string with data stored in the object. The values will
+  appear as columns. 
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Customer_Registry.Address">
+	<summary>
+ This class stores the information of Adress of the customer.
+ It calls list of enums from the countries.
+ </summary>
+	<remarks></remarks>
 </member><member name="M:Customer_Registry.Customer.#ctor(Customer_Registry.Contact,System.String)">
 	<summary>
  constructor that takes 2 parameters.
@@ -203,49 +106,10 @@ CustomerRegistry
  </summary>
 	<returns>formatted string </returns>
 	<remarks></remarks>
-</member><member name="M:Customer_Registry.Phone.#ctor(System.String,System.String)">
+</member><member name="T:Customer_Registry.Countries">
 	<summary>
- Constructor with two parameters. This is  constructor that has most
- number of parameters. It is in tis constructor that all coding 
- should be done.
+ the countries of the world
  </summary>
-	<param name="homePhone">Input - Home Phone</param>
-	<param name="cellPhone">Input - Cell Phone</param>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.Phone.#ctor(System.String)">
-	<summary>
- Constructor with one parameter - calls the constructor with 
- two parameters, using a default value as the second argument.
- </summary>
-	<param name="homePhone">input coming from the client object</param>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.Phone.#ctor">
-	<summary>
- Default consturctor - calls another constructor in the class
- </summary>
-	<remarks></remarks>
-</member><member name="P:Customer_Registry.Phone.Home">
-	<summary>
- Property related to the field m_home
- Both read and write access
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Customer_Registry.Phone.Cell">
-	<summary>
- Property related to the field m_cell
- Both read and write access
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.Phone.ToString">
-	<summary>
- Delivers a formatted string with data stored in the object. The values will
- appear as columns. 
- </summary>
-	<returns>the Formatted strings.</returns>
 	<remarks></remarks>
 </member><member name="M:Customer_Registry.Email.#ctor">
 	<summary>
@@ -301,78 +165,6 @@ CustomerRegistry
  the control displaying this information.
  </summary>
 	<returns>the Formatted strings.</returns>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.Contact.#ctor(System.String,System.String,Customer_Registry.Address,Customer_Registry.Phone,Customer_Registry.Email)">
-	<summary>
- Constructor with 5 parameters.This is  constructor that has most
- number of parameters. It is in tis constructor that all coding 
- should be done.
- </summary>
-	<param name="firstName">Input - first name</param>
-	<param name="lastName">Input - last name</param>
-	<param name="adr">Input - address object</param>
-	<param name="mail">Input - mail object</param>
-	<param name="tel">Input - phone object</param>
-</member><member name="M:Customer_Registry.Contact.#ctor">
-	<summary>
- Default constuctor. It calls constructor with 5 parameters
- passing the defaluts values.
- </summary>
-	<remarks></remarks>
-</member><member name="P:Customer_Registry.Contact.AddressData">
-	<summary>
- Property related to the field m_address
- Both read and write access
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Customer_Registry.Contact.EmailData">
-	<summary>
- Property related to the field m_email
- Both read and write access
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Customer_Registry.Contact.FirstName">
-	<summary>
- Property related to the field m_firstname
- Both read and write access
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Customer_Registry.Contact.LastName">
-	<summary>
- Property related to the field m_lastname
- Both read and write access
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Customer_Registry.Contact.FullName">
-	<summary>
- It creates a string fullname by adding
- firstname and last name
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Customer_Registry.Contact.PhoneData">
-	<summary>
- Property related to the field m_phone
- Both read and write access
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.Contact.ToString">
-	<summary>
-  Delivers a formatted string with data stored in the object. The values will
-  appear as columns. 
- </summary>
-	<returns>formatted string </returns>
 	<remarks></remarks>
 </member><member name="M:Customer_Registry.InputUtility.GetDouble(System.String,System.Double@,System.Double,System.Double)">
 	<summary>
@@ -465,62 +257,149 @@ CustomerRegistry
  It validates double, string and integer inputs
  </summary>
 	<remarks></remarks>
-</member><member name="T:Customer_Registry.Countries">
+</member><member name="M:Customer_Registry.Phone.#ctor(System.String,System.String)">
 	<summary>
- the countries of the world
+ Constructor with two parameters. This is  constructor that has most
+ number of parameters. It is in tis constructor that all coding 
+ should be done.
+ </summary>
+	<param name="homePhone">Input - Home Phone</param>
+	<param name="cellPhone">Input - Cell Phone</param>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.Phone.#ctor(System.String)">
+	<summary>
+ Constructor with one parameter - calls the constructor with 
+ two parameters, using a default value as the second argument.
+ </summary>
+	<param name="homePhone">input coming from the client object</param>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.Phone.#ctor">
+	<summary>
+ Default consturctor - calls another constructor in the class
  </summary>
 	<remarks></remarks>
-</member><member name="M:Customer_Registry.Address.#ctor(System.String,System.String,System.String,Customer_Registry.Countries)">
+</member><member name="P:Customer_Registry.Phone.Home">
 	<summary>
- Consturctor with 4 parameters. This is constuctor that has most
- number of paramets. It is in this constructor that all coding should
- be done
+ Property related to the field m_home
+ Both read and write access
  </summary>
-	<param name="street">Input - street name</param>
-	<param name="zip">Input - zipcode</param>
-	<param name="city">Input - city name</param>
-	<param name="country">Input - country name</param>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.Address.#ctor(System.String,System.String,System.String)">
-	<summary>
- Consturctor with 3 parameters. this consturctors calls the constructor with 
- 4 parameters passing default value for country
- </summary>
-	<param name="street">Input - street name</param>
-	<param name="zip">Input - zipcode</param>
-	<param name="city">Input - city name</param>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.Address.#ctor">
-	<summary>
- It is default constructor - calls the consturctor with 3 parameters,
- using default values
- </summary>
-	<remarks></remarks>
-</member><member name="M:Customer_Registry.Address.CheckIndex">
-	<summary>
- to perform validation for street and city names
- </summary>
+	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:Customer_Registry.Address.GetCountryString">
+</member><member name="P:Customer_Registry.Phone.Cell">
 	<summary>
- replaces the '_' char of the country name 
- if it has any
+ Property related to the field m_cell
+ Both read and write access
  </summary>
+	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:Customer_Registry.Address.ToString">
+</member><member name="M:Customer_Registry.Phone.ToString">
 	<summary>
-  Delivers a formatted string with data stored in the object. The values will
-  appear as columns. 
+ Delivers a formatted string with data stored in the object. The values will
+ appear as columns. 
  </summary>
-	<returns></returns>
+	<returns>the Formatted strings.</returns>
 	<remarks></remarks>
-</member><member name="T:Customer_Registry.Address">
+</member><member name="M:Customer_Registry.CustomerManager.#ctor">
 	<summary>
- This class stores the information of Adress of the customer.
- It calls list of enums from the countries.
+ default constructor. It creates a new arraylist object.
+ and it assigns default value of 101 for starters.
  </summary>
+</member><member name="P:Customer_Registry.CustomerManager.Count">
+	<summary>
+ It counts the number of customers objects that are 
+ present in the arraylist.
+ </summary>
+	<returns>no.of customers present</returns>
+</member><member name="P:Customer_Registry.CustomerManager.GetNewID">
+	<summary>
+ It creates a new customer id for every customer 
+ present in the arraylist.
+ </summary>
+	<returns>new id for the new customer</returns>
+</member><member name="M:Customer_Registry.CustomerManager.AddCustomer(Customer_Registry.Customer)">
+	<summary>
+ It stores the new customer details entered by the user, and returns
+ true if added.
+ </summary>
+	<param name="customerIn">Input - customer details</param>
+	<returns>True when the new customer is added</returns>
+</member><member name="M:Customer_Registry.CustomerManager.IsValidIndex(System.Int32)">
+	<summary>
+ validates the index of the array list.
+ </summary>
+	<param name="index">selected index</param>
+	<returns>true if index is less than the arraysize</returns>
+</member><member name="M:Customer_Registry.CustomerManager.ChangeCustomer(Customer_Registry.Contact,System.Int32)">
+	<summary>
+ If the index is valid then it will allow the updation 
+ of the fields
+ </summary>
+	<param name="contactIn">details of selected customer</param>
+	<param name="index">selected index</param>
+	<returns>true if value is changed</returns>
+</member><member name="M:Customer_Registry.CustomerManager.RemoveCustomer(System.Int32)">
+	<summary>
+ If index is valid then it will remove that customer 
+ from the arraylist.
+ </summary>
+	<param name="index">index at which customer need to be deleted</param>
+	<returns></returns>
+</member><member name="M:Customer_Registry.CustomerManager.GetCustomer(System.Int32)">
+	<summary>
+ returns the customer object at the selected 
+ index of the customers arraylist
+ </summary>
+	<param name="index">selected index by the user</param>
+	<returns>customer object</returns>
+</member><member name="M:Customer_Registry.MainForm.UpdateCustomerList">
+	<summary>
+ clears the listbox and updates it with the customer values of the 
+ customerMngr arraylist
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.MainForm.ExitToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ event handler for click event of Exit menu item of File menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.MainForm.AddToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event handler for click event of Add menu item of Customer Menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.MainForm.ChangeToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event handler for teh click event of Change menuitme of the Customer Menu.
+ If list box is not empty then allow the user to change details of the customer
+ at the selected index, else call showError() method
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.MainForm.ShowError">
+	<summary>
+ If list box is empty then user will not be able to update or delete any values.
+ This method is called form click event of Delete and Change menuitems of Customer menu.
+ </summary>
+</member><member name="M:Customer_Registry.MainForm.DeleteToolStripMenuItem1_Click(System.Object,System.EventArgs)">
+	<summary>
+ event handler for click event of Delete menu item of Customer menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.MainForm.MainForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+	<summary>
+ Event handler for FormClosing event of MainForm
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
 	<remarks></remarks>
 </member><member name="P:Customer_Registry.My.Resources.Resources.ResourceManager">
 	<summary>
@@ -535,6 +414,127 @@ CustomerRegistry
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
+</member><member name="M:Customer_Registry.Contact.#ctor(System.String,System.String,Customer_Registry.Address,Customer_Registry.Phone,Customer_Registry.Email)">
+	<summary>
+ Constructor with 5 parameters.This is  constructor that has most
+ number of parameters. It is in tis constructor that all coding 
+ should be done.
+ </summary>
+	<param name="firstName">Input - first name</param>
+	<param name="lastName">Input - last name</param>
+	<param name="adr">Input - address object</param>
+	<param name="mail">Input - mail object</param>
+	<param name="tel">Input - phone object</param>
+</member><member name="M:Customer_Registry.Contact.#ctor">
+	<summary>
+ Default constuctor. It calls constructor with 5 parameters
+ passing the defaluts values.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Customer_Registry.Contact.AddressData">
+	<summary>
+ Property related to the field m_address
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Customer_Registry.Contact.EmailData">
+	<summary>
+ Property related to the field m_email
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Customer_Registry.Contact.FirstName">
+	<summary>
+ Property related to the field m_firstname
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Customer_Registry.Contact.LastName">
+	<summary>
+ Property related to the field m_lastname
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Customer_Registry.Contact.FullName">
+	<summary>
+ It creates a string fullname by adding
+ firstname and last name
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Customer_Registry.Contact.PhoneData">
+	<summary>
+ Property related to the field m_phone
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.Contact.ToString">
+	<summary>
+  Delivers a formatted string with data stored in the object. The values will
+  appear as columns. 
+ </summary>
+	<returns>formatted string </returns>
+	<remarks></remarks>
+</member><member name="P:Customer_Registry.CustomerForm.CustomerData">
+	<summary>
+ Property CustomerData to read customer values, with access to
+ read and write
+ </summary>
+	<value></value>
+	<returns>Customer object</returns>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.CustomerForm.UpdateGUI">
+	<summary>
+ update controls of customerForm to the m_customer object values
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.CustomerForm.CustomerForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+	<summary>
+ Event handler for formclosing event of the customer form
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.CustomerForm.ValidateInputFields">
+	<summary>
+ validate firstname, lastname and telephone numbers
+ </summary>
+	<returns>returns true if all fields are validated, false otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.CustomerForm.ValidationForPhoneNumbers">
+	<summary>
+ checks whehter atleast one telepone number is provided or not.And validates the
+ presented by the user
+ </summary>
+	<returns>true if atleast one phone number is given and validates the given
+ user input</returns>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.CustomerForm.ValidatePhoneNumber(System.String)">
+	<summary>
+ If atleast one phone number is provided, converts the value to long
+ by calling GetLong method of InputUtility
+ </summary>
+	<param name="phone">string value of the user input for phone number</param>
+	<returns>true if conversion is successful</returns>
+	<remarks></remarks>
+</member><member name="M:Customer_Registry.CustomerForm.btnCancel_Click(System.Object,System.EventArgs)">
+	<summary>
+ event handler for click event of cancel button
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
 </member>
 </members>
 </doc>
