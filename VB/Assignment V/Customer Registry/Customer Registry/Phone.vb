@@ -53,7 +53,7 @@ Public Class Phone
     ''' <remarks></remarks>
     Public Property Home As String
         Get
-            Home = m_home
+            Return m_home
         End Get
         Set(ByVal value As String)
             m_home = value
@@ -70,7 +70,7 @@ Public Class Phone
     ''' <remarks></remarks>
     Public Property Cell As String
         Get
-            Cell = m_cell
+            Return m_cell
         End Get
         Set(ByVal value As String)
             m_cell = value

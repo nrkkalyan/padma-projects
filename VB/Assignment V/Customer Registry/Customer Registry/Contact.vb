@@ -52,9 +52,8 @@ Public Class Contact
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Property AddressData As Address
-
         Get
-            AddressData = m_address
+            Return m_address
         End Get
         Set(ByVal value As Address)
             m_address = value
@@ -71,10 +70,12 @@ Public Class Contact
     Public Property EmailData As Email
 
         Get
-            EmailData = m_email
+            Return m_email
         End Get
         Set(ByVal value As Email)
-            m_email = value
+            If value IsNot Nothing Then
+                m_email = value
+            End If
         End Set
     End Property
 
@@ -89,10 +90,12 @@ Public Class Contact
     Public Property FirstName As String
 
         Get
-            FirstName = m_firstName
+            Return m_firstName
         End Get
         Set(ByVal value As String)
-            m_firstName = value
+            If value <> String.Empty Then
+                m_firstName = value
+            End If
         End Set
     End Property
 
@@ -106,10 +109,12 @@ Public Class Contact
     Public Property LastName As String
 
         Get
-            LastName = m_lastName
+            Return m_lastName
         End Get
         Set(ByVal value As String)
-            m_lastName = value
+            If value <> String.Empty Then
+                m_lastName = value
+            End If
         End Set
     End Property
 
@@ -122,7 +127,7 @@ Public Class Contact
     ''' <remarks></remarks>
     Public ReadOnly Property FullName As String
         Get
-            FullName = m_firstName + " " + m_lastName
+            Return m_firstName + " " + m_lastName
         End Get
     End Property
 
@@ -136,7 +141,7 @@ Public Class Contact
     ''' <remarks></remarks>
     Public Property PhoneData As Phone
         Get
-            PhoneData = m_phone
+            Return m_phone
         End Get
         Set(ByVal value As Phone)
             m_phone = value

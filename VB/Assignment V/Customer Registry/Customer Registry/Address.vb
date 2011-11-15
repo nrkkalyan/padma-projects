@@ -21,7 +21,7 @@ Public Class Address
     'property to read and write m_city
     Public Property City() As String
         Get
-            City = m_city
+            Return m_city
         End Get
         Set(ByVal value As String)
             m_city = value
@@ -31,7 +31,7 @@ Public Class Address
     'property to read and write m_country
     Public Property Country() As Countries
         Get
-            Country = m_country
+            Return m_country
         End Get
         Set(ByVal value As Countries)
             m_country = value
@@ -42,7 +42,7 @@ Public Class Address
     'property to read and write m_street
     Public Property Street() As String
         Get
-            Street = m_street
+            Return m_street
         End Get
         Set(ByVal value As String)
             m_street = value
@@ -52,7 +52,7 @@ Public Class Address
     'property to read and write error message
     Public Property ErrorMessage() As String
         Get
-            ErrorMessage = m_strErrMessage
+            Return m_strErrMessage
         End Get
         Set(ByVal value As String)
             m_strErrMessage = value
@@ -62,7 +62,7 @@ Public Class Address
     'property to read and write m_zipcode
     Public Property ZipCode() As String
         Get
-            ZipCode = m_zipCode
+            Return m_zipCode
         End Get
         Set(ByVal value As String)
             m_zipCode = value

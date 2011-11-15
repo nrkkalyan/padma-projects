@@ -57,7 +57,7 @@ Public Class Customer
     ''' <remarks></remarks>
     Public Property ContactData As Contact
         Get
-            ContactData = m_contact
+            Return m_contact
         End Get
         Set(ByVal value As Contact)
             m_contact = value
@@ -73,7 +73,7 @@ Public Class Customer
     ''' <remarks></remarks>
     Public Property ID As String
         Get
-            ID = m_id
+            Return m_id
         End Get
         Set(ByVal value As String)
             m_id = value

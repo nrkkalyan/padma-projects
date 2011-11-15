@@ -27,7 +27,7 @@ Public Class CustomerManager
     ''' <returns>no.of customers present</returns>
     Public ReadOnly Property Count As Integer
         Get
-            Count = customers.Count
+            Return customers.Count
         End Get
     End Property
 
@@ -39,7 +39,7 @@ Public Class CustomerManager
     ''' <returns>new id for the new customer</returns>
     Public ReadOnly Property GetNewID As Integer
         Get
-            GetNewID = m_idCounter + 1
+            Return m_idCounter + 1
         End Get
     End Property
 

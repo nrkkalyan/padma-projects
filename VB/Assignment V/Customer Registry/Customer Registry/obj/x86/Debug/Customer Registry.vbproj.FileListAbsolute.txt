@@ -1,0 +1,12 @@
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\obj\x86\Debug\Customer_Registry.CustomerForm.resources
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\obj\x86\Debug\Customer_Registry.MainForm.resources
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\obj\x86\Debug\Customer_Registry.Resources.resources
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\bin\Debug\Customer Registry.exe
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\bin\Debug\Customer Registry.pdb
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\bin\Debug\Customer Registry.xml
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\obj\x86\Debug\Customer Registry.exe
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\obj\x86\Debug\Customer Registry.xml
+C:\Padma\padma-projects\VB\Assignment V\Customer Registry\Customer Registry\obj\x86\Debug\Customer Registry.pdb

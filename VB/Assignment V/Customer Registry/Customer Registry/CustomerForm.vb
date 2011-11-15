@@ -31,10 +31,10 @@ Public Class CustomerForm
     ''' <remarks></remarks>
     Public Property CustomerData As Customer
         Get
-            CustomerData = m_customer
+            Return m_customer
         End Get
         Set(ByVal value As Customer)
-            If IsNothing(value) = False Then
+            If value IsNot Nothing Then
                 m_customer = value
                 'Update input controls
                 UpdateGUI()
@@ -78,9 +78,7 @@ Public Class CustomerForm
             Return
         End If
         'if no customer is present then create a new customer
-        If IsDBNull(m_customer) Then
-            m_customer = New Customer()
-        End If
+        m_customer = New Customer()
         'passing the values given by the user to the controls
         'get selected country
         Dim selectedCountry As Countries = CType(DirectCast(CType(cmbCountry.SelectedIndex, Countries), Integer), Countries)
@@ -89,6 +87,7 @@ Public Class CustomerForm
         m_customer.ContactData.PhoneData = New Phone(txtHomePhone.Text, txtCellPhone.Text)
         m_customer.ContactData.FirstName = txtFirstName.Text
         m_customer.ContactData.LastName = txtLastName.Text
+
         'return the dialog result value OK so as to perform next calculations
         Me.DialogResult = DialogResult.OK
     End Sub
@@ -100,21 +99,19 @@ Public Class CustomerForm
     ''' <remarks></remarks>
     Private Function ValidateInputFields() As Boolean
         'calls checkstring method of inpututility class
-        If InputUtility.CheckString(txtFirstName.Text) = False Then
+        If InputUtility.CheckString(txtFirstName.Text) = True Then
             MessageBox.Show("First name cannot be empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
             lblFirstName.Text = "First Name*"
             Return False
-        End If
-        If InputUtility.CheckString(txtLastName.Text) = False Then
+        ElseIf InputUtility.CheckString(txtLastName.Text) = True Then
             MessageBox.Show("First name cannot be empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
             lblLastName.Text = "Last Name*"
             Return False
-        End If
-        'validation for the phone numbers
-        If ValidationForPhoneNumbers() = False Then
+        ElseIf ValidationForPhoneNumbers() = False Then 'validation for the phone numbers
             Return False
+        Else
+            Return True
         End If
-        Return True
     End Function
 
     ''' <summary>
@@ -125,7 +122,7 @@ Public Class CustomerForm
     ''' user input</returns>
     ''' <remarks></remarks>
     Private Function ValidationForPhoneNumbers() As Boolean
-        if (txtCellPhone.Text == string.Empty) and (txtHomePhone.Text == string.Empty) then
+        If (txtCellPhone.Text = String.Empty) And (txtHomePhone.Text = String.Empty) Then
             MessageBox.Show("Atleast one telephone number should be provided", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return False
         End If
