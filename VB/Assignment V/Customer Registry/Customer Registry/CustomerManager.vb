@@ -39,7 +39,8 @@ Public Class CustomerManager
     ''' <returns>new id for the new customer</returns>
     Public ReadOnly Property GetNewID As Integer
         Get
-            Return m_idCounter + 1
+            m_idCounter = m_idCounter + 1
+            Return m_idCounter
         End Get
     End Property
 
