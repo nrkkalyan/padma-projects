@@ -18,9 +18,9 @@ namespace Customer_Registry
     public partial class CustomerForm : Form
     {
         //customer object receiving input and/or sending output
-        private bool closeForm;
-        //flag to handle the closing of the form
         private Customer m_customer;
+        //flag to handle the closing of the form
+        private bool closeForm;
 
         //constructor with one parameter (title of the form)
         public CustomerForm(string title)
@@ -35,7 +35,12 @@ namespace Customer_Registry
         }
 
        
-        //create the customer object to assign the new customer values
+        /// <summary>
+        /// Property CustomerData to read customer values, with access to 
+        /// read and write
+        /// </summary>
+        /// <value></value>
+        /// <returns>Customer object</returns>
         public Customer CustomerData
         {
             get { return m_customer; }
@@ -66,7 +71,7 @@ namespace Customer_Registry
         }
 
         /// <summary>
-        /// Event hadler for formclosing event event fo the form
+        /// Event hadler for formclosing event event of the form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -118,13 +123,13 @@ namespace Customer_Registry
             if (!InputUtility.CheckString(txtFirstName.Text))
             {
                 MessageBox.Show("First name cannot be empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                lblFirstName.Text = "First Name *";
+                lblFirstName.Text = "First Name*";
                 return false;
             }
             if (!InputUtility.CheckString(txtLastName.Text))
             {
                 MessageBox.Show("Last name cannot be empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                lblLastName.Text = "Last Name *";
+                lblLastName.Text = "Last Name*";
                 return false;
             }
             //validation for phone numbers
