@@ -81,7 +81,23 @@ Public Class InputUtility
         'return false if the value is not validated as double
         Return False
     End Function
-
+    ''' <summary>
+    ''' Convers a string represented long value into a long type. If parsing sucessfull
+    ''' returns the long value
+    ''' </summary>
+    ''' <param name="stringToConvert">the string to be converted</param>
+    ''' <param name="longOutValue">long valued out put parameter</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Shared Function GetLong(ByVal stringToConvert As String, ByRef longOutValue As Long) As Boolean
+        Dim isLong As Boolean = Long.TryParse(stringToConvert, longOutValue)
+        If isLong = True Then
+            'if longOutValue is a long return true
+            Return True
+        End If
+        'return false if teh value is not validated as long
+        Return False
+    End Function
 
     ''' <summary>
     ''' Converts a string represented Integer value into a integer type, and validates
