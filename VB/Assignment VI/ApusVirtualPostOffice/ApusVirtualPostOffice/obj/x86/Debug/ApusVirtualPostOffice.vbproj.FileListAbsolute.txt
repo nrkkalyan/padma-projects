@@ -1,0 +1,6 @@
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\ApusVirtualPostOffice.CustomerForm.resources
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\ApusVirtualPostOffice.MainForm.resources
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\ApusVirtualPostOffice.Resources.resources
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\GenerateResource.write.1.tlog
