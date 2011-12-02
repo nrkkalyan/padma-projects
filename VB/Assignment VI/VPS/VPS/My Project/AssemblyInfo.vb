@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("VPS")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("VPS")> 
+<Assembly: AssemblyTitle("Apu's Virtual Post Office")> 
+<Assembly: AssemblyDescription("VPO Keeps a record of all senders and recipients of mail items as a registry of constomer.  VPO focuses mainly on business post. The services include delivery of letters, postcards, packages and parcel.")> 
+<Assembly: AssemblyCompany("Duvvuri's Inc.")> 
+<Assembly: AssemblyProduct("VPO")> 
 <Assembly: AssemblyCopyright("Copyright ©  2011")> 
 <Assembly: AssemblyTrademark("")> 
 

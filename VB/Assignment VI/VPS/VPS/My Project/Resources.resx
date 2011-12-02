@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,49 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Letter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Letter.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Package" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Package.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Parcel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Parcel.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Postcard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Postcard.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="strCmb" xml:space="preserve">
+    <value>Select From List</value>
+  </data>
+  <data name="strError" xml:space="preserve">
+    <value>Values are not valid</value>
+  </data>
+  <data name="strLargeEnvolopeFee" xml:space="preserve">
+    <value> Large Envelope fee of SEK 12 included</value>
+  </data>
+  <data name="strLargePackageFee" xml:space="preserve">
+    <value> Large package or parcel fee of SEK 20 included</value>
+  </data>
+  <data name="strLetter" xml:space="preserve">
+    <value> Letter is defined as mail itemthat has a weight not exceeding 2000 gr. And logest side is not greater than 500mm.                                                                                                                                                                                                                                              Prices of postage vary according to weight.</value>
+  </data>
+  <data name="strPackageParcel" xml:space="preserve">
+    <value> A parcel or Package exceeding a weight of 20Kg or logest side greaterthan 1.5m are not accepted.                                                                                                                                                                                                                                                                             Prices vary according to weight.                                                                                                                                                                                                                                            For packages or parcels with logest side exceeding 1200mm will be charged an extra amount of SEK 30</value>
+  </data>
+  <data name="strPostCard" xml:space="preserve">
+    <value> Postcard is a letter with predefined measures and a constant price.                                                                                                                                                                                                                                                                                                                                    Price for postcards with normal sizes is SEK 5.00</value>
+  </data>
+  <data name="strSwedishKronar" xml:space="preserve">
+    <value> SEK </value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
 </root>

@@ -15,7 +15,7 @@ Public Class Parcel
             If IsLong() Then
                 extraprice = CDec(30.0)
             End If
-            Return MyBase.Price + extraprice
+            Return Me.Price + extraprice
 
         End Get
     End Property
@@ -61,11 +61,11 @@ Public Class Parcel
     Public Overrides Function ToString() As String
         Dim str As String = String.Empty
         If IsLong() = True Then
-            SetPrice()
-            str = Me.ExtraLenghtPrice.ToString()
+            Me.SetPrice()
+            str = Me.ExtraLenghtPrice.ToString() + My.Resources.strLargePackageFee
         Else
-            SetPrice()
-            str = MyBase.ToString()
+            Me.SetPrice()
+            str = MyBase.Price.ToString()
         End If
         Return str
     End Function

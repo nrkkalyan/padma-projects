@@ -11,6 +11,7 @@
 Option Strict On
 Option Explicit On
 
+Imports System
 
 Namespace My.Resources
     
@@ -21,20 +22,20 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"), _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(), _
-     Global.Microsoft.VisualBasic.HideModuleNameAttribute()> _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
+     Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
     Friend Module Resources
-
+        
         Private resourceMan As Global.System.Resources.ResourceManager
-
+        
         Private resourceCulture As Global.System.Globalization.CultureInfo
-
+        
         '''<summary>
         '''  Returns the cached ResourceManager instance used by this class.
         '''</summary>
-        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
+        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
         Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
@@ -44,19 +45,128 @@ Namespace My.Resources
                 Return resourceMan
             End Get
         End Property
-
+        
         '''<summary>
         '''  Overrides the current thread's CurrentUICulture property for all
         '''  resource lookups using this strongly typed resource class.
         '''</summary>
-        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
+        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
         Friend Property Culture() As Global.System.Globalization.CultureInfo
             Get
                 Return resourceCulture
             End Get
-            Set(ByVal value As Global.System.Globalization.CultureInfo)
+            Set
                 resourceCulture = value
             End Set
+        End Property
+        
+        Friend ReadOnly Property Letter() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Letter", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property Package() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Package", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property Parcel() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Parcel", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property Postcard() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Postcard", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Select From List.
+        '''</summary>
+        Friend ReadOnly Property strCmb() As String
+            Get
+                Return ResourceManager.GetString("strCmb", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Values are not valid.
+        '''</summary>
+        Friend ReadOnly Property strError() As String
+            Get
+                Return ResourceManager.GetString("strError", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to  Large Envelope fee of SEK 12 included.
+        '''</summary>
+        Friend ReadOnly Property strLargeEnvolopeFee() As String
+            Get
+                Return ResourceManager.GetString("strLargeEnvolopeFee", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to  Large package or parcel fee of SEK 20 included.
+        '''</summary>
+        Friend ReadOnly Property strLargePackageFee() As String
+            Get
+                Return ResourceManager.GetString("strLargePackageFee", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to  Letter is defined as mail itemthat has a weight not exceeding 2000 gr. And logest side is not greater than 500mm.                                                                                                                                                                                                                                              Prices of postage vary according to weight..
+        '''</summary>
+        Friend ReadOnly Property strLetter() As String
+            Get
+                Return ResourceManager.GetString("strLetter", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to  A parcel or Package exceeding a weight of 20Kg or logest side greaterthan 1.5m are not accepted.                                                                                                                                                                                                                                                                             Prices vary according to weight.                                                                                                                   [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property strPackageParcel() As String
+            Get
+                Return ResourceManager.GetString("strPackageParcel", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to  Postcard is a letter with predefined measures and a constant price.                                                                                                                                                                                                                                                                                                                                    Price for postcards with normal sizes is SEK 5.00.
+        '''</summary>
+        Friend ReadOnly Property strPostCard() As String
+            Get
+                Return ResourceManager.GetString("strPostCard", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to  SEK .
+        '''</summary>
+        Friend ReadOnly Property strSwedishKronar() As String
+            Get
+                Return ResourceManager.GetString("strSwedishKronar", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Error.
+        '''</summary>
+        Friend ReadOnly Property Title() As String
+            Get
+                Return ResourceManager.GetString("Title", resourceCulture)
+            End Get
         End Property
     End Module
 End Namespace

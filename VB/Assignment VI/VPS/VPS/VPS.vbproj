@@ -72,6 +72,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox1.Designer.vb">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AboutBox1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Address.vb" />
     <Compile Include="Contact.vb" />
     <Compile Include="Countries.vb" />
@@ -116,6 +122,9 @@
     <Compile Include="PostCard.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +148,18 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Letter.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Package.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Parcel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Postcard.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

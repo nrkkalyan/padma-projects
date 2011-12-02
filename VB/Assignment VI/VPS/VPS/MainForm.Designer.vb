@@ -38,14 +38,6 @@ Partial Class MainForm
         Me.DeleteToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.label5 = New System.Windows.Forms.Label()
-        Me.label4 = New System.Windows.Forms.Label()
-        Me.label3 = New System.Windows.Forms.Label()
-        Me.label2 = New System.Windows.Forms.Label()
-        Me.label1 = New System.Windows.Forms.Label()
-        Me.lstCustomerDetails = New System.Windows.Forms.ListBox()
         Me.btnOK = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.grpReciever = New System.Windows.Forms.GroupBox()
@@ -54,13 +46,18 @@ Partial Class MainForm
         Me.lblReceiverCountry = New System.Windows.Forms.Label()
         Me.lblReceiverName = New System.Windows.Forms.Label()
         Me.grpPostage = New System.Windows.Forms.GroupBox()
+        Me.rtbPostage = New System.Windows.Forms.RichTextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.lblSenderCountry = New System.Windows.Forms.Label()
         Me.lblSendPostCity = New System.Windows.Forms.Label()
         Me.lblSenderStreetAdr = New System.Windows.Forms.Label()
         Me.lblSenderName = New System.Windows.Forms.Label()
         Me.grpMailData = New System.Windows.Forms.GroupBox()
+        Me.txtLength = New System.Windows.Forms.TextBox()
+        Me.txtWeight = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtThickness = New System.Windows.Forms.TextBox()
+        Me.txtWidth = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -72,18 +69,20 @@ Partial Class MainForm
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.rtbDetails = New System.Windows.Forms.RichTextBox()
         Me.imgInfo = New System.Windows.Forms.PictureBox()
-        Me.rtbPostage = New System.Windows.Forms.RichTextBox()
-        Me.txtWeight = New System.Windows.Forms.TextBox()
-        Me.txtLength = New System.Windows.Forms.TextBox()
-        Me.txtWidth = New System.Windows.Forms.TextBox()
-        Me.txtThickness = New System.Windows.Forms.TextBox()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.label5 = New System.Windows.Forms.Label()
+        Me.label4 = New System.Windows.Forms.Label()
+        Me.label3 = New System.Windows.Forms.Label()
+        Me.label2 = New System.Windows.Forms.Label()
+        Me.label1 = New System.Windows.Forms.Label()
+        Me.lstCustomerDetails = New System.Windows.Forms.ListBox()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.grpReciever.SuspendLayout()
         Me.grpPostage.SuspendLayout()
@@ -91,12 +90,14 @@ Partial Class MainForm
         Me.grpMailData.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.grpMailInfo.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         CType(Me.imgInfo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.CustomerToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(957, 24)
@@ -214,88 +215,6 @@ Partial Class MainForm
         Me.TabPage1.Text = "Mail Type"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.rtbDetails)
-        Me.TabPage2.Controls.Add(Me.imgInfo)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(925, 415)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Info"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Controls.Add(Me.label5)
-        Me.TabPage3.Controls.Add(Me.label4)
-        Me.TabPage3.Controls.Add(Me.label3)
-        Me.TabPage3.Controls.Add(Me.label2)
-        Me.TabPage3.Controls.Add(Me.label1)
-        Me.TabPage3.Controls.Add(Me.lstCustomerDetails)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(925, 415)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Customer"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'label5
-        '
-        Me.label5.AutoSize = True
-        Me.label5.Location = New System.Drawing.Point(170, 11)
-        Me.label5.Name = "label5"
-        Me.label5.Size = New System.Drawing.Size(45, 13)
-        Me.label5.TabIndex = 18
-        Me.label5.Text = "Address"
-        '
-        'label4
-        '
-        Me.label4.AutoSize = True
-        Me.label4.Location = New System.Drawing.Point(3, 11)
-        Me.label4.Name = "label4"
-        Me.label4.Size = New System.Drawing.Size(18, 13)
-        Me.label4.TabIndex = 17
-        Me.label4.Text = "ID"
-        '
-        'label3
-        '
-        Me.label3.AutoSize = True
-        Me.label3.Location = New System.Drawing.Point(657, 11)
-        Me.label3.Name = "label3"
-        Me.label3.Size = New System.Drawing.Size(37, 13)
-        Me.label3.TabIndex = 16
-        Me.label3.Text = "Emails"
-        '
-        'label2
-        '
-        Me.label2.AutoSize = True
-        Me.label2.Location = New System.Drawing.Point(454, 11)
-        Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(81, 13)
-        Me.label2.TabIndex = 15
-        Me.label2.Text = "Phone numbers"
-        '
-        'label1
-        '
-        Me.label1.AutoSize = True
-        Me.label1.Location = New System.Drawing.Point(44, 11)
-        Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(82, 13)
-        Me.label1.TabIndex = 14
-        Me.label1.Text = "Customer Name"
-        '
-        'lstCustomerDetails
-        '
-        Me.lstCustomerDetails.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lstCustomerDetails.FormattingEnabled = True
-        Me.lstCustomerDetails.ItemHeight = 14
-        Me.lstCustomerDetails.Location = New System.Drawing.Point(3, 27)
-        Me.lstCustomerDetails.Name = "lstCustomerDetails"
-        Me.lstCustomerDetails.Size = New System.Drawing.Size(913, 354)
-        Me.lstCustomerDetails.TabIndex = 13
-        '
         'btnOK
         '
         Me.btnOK.Location = New System.Drawing.Point(548, 335)
@@ -335,9 +254,8 @@ Partial Class MainForm
         Me.lblRecStreetAdr.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRecStreetAdr.Location = New System.Drawing.Point(20, 52)
         Me.lblRecStreetAdr.Name = "lblRecStreetAdr"
-        Me.lblRecStreetAdr.Size = New System.Drawing.Size(52, 15)
+        Me.lblRecStreetAdr.Size = New System.Drawing.Size(0, 15)
         Me.lblRecStreetAdr.TabIndex = 10
-        Me.lblRecStreetAdr.Text = "Label13"
         '
         'lblRecPostCity
         '
@@ -345,9 +263,8 @@ Partial Class MainForm
         Me.lblRecPostCity.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRecPostCity.Location = New System.Drawing.Point(20, 76)
         Me.lblRecPostCity.Name = "lblRecPostCity"
-        Me.lblRecPostCity.Size = New System.Drawing.Size(52, 15)
+        Me.lblRecPostCity.Size = New System.Drawing.Size(0, 15)
         Me.lblRecPostCity.TabIndex = 9
-        Me.lblRecPostCity.Text = "Label13"
         '
         'lblReceiverCountry
         '
@@ -355,9 +272,8 @@ Partial Class MainForm
         Me.lblReceiverCountry.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblReceiverCountry.Location = New System.Drawing.Point(20, 100)
         Me.lblReceiverCountry.Name = "lblReceiverCountry"
-        Me.lblReceiverCountry.Size = New System.Drawing.Size(52, 15)
+        Me.lblReceiverCountry.Size = New System.Drawing.Size(0, 15)
         Me.lblReceiverCountry.TabIndex = 8
-        Me.lblReceiverCountry.Text = "Label13"
         '
         'lblReceiverName
         '
@@ -365,9 +281,8 @@ Partial Class MainForm
         Me.lblReceiverName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblReceiverName.Location = New System.Drawing.Point(20, 25)
         Me.lblReceiverName.Name = "lblReceiverName"
-        Me.lblReceiverName.Size = New System.Drawing.Size(52, 15)
+        Me.lblReceiverName.Size = New System.Drawing.Size(0, 15)
         Me.lblReceiverName.TabIndex = 7
-        Me.lblReceiverName.Text = "Label13"
         '
         'grpPostage
         '
@@ -378,6 +293,15 @@ Partial Class MainForm
         Me.grpPostage.TabIndex = 1
         Me.grpPostage.TabStop = False
         Me.grpPostage.Text = "Postage"
+        '
+        'rtbPostage
+        '
+        Me.rtbPostage.Location = New System.Drawing.Point(6, 13)
+        Me.rtbPostage.Name = "rtbPostage"
+        Me.rtbPostage.ReadOnly = True
+        Me.rtbPostage.Size = New System.Drawing.Size(188, 67)
+        Me.rtbPostage.TabIndex = 4
+        Me.rtbPostage.Text = "Postage details are given here."
         '
         'GroupBox3
         '
@@ -397,36 +321,32 @@ Partial Class MainForm
         Me.lblSenderCountry.AutoSize = True
         Me.lblSenderCountry.Location = New System.Drawing.Point(6, 61)
         Me.lblSenderCountry.Name = "lblSenderCountry"
-        Me.lblSenderCountry.Size = New System.Drawing.Size(45, 13)
+        Me.lblSenderCountry.Size = New System.Drawing.Size(0, 13)
         Me.lblSenderCountry.TabIndex = 9
-        Me.lblSenderCountry.Text = "Label13"
         '
         'lblSendPostCity
         '
         Me.lblSendPostCity.AutoSize = True
         Me.lblSendPostCity.Location = New System.Drawing.Point(6, 48)
         Me.lblSendPostCity.Name = "lblSendPostCity"
-        Me.lblSendPostCity.Size = New System.Drawing.Size(45, 13)
+        Me.lblSendPostCity.Size = New System.Drawing.Size(0, 13)
         Me.lblSendPostCity.TabIndex = 8
-        Me.lblSendPostCity.Text = "Label13"
         '
         'lblSenderStreetAdr
         '
         Me.lblSenderStreetAdr.AutoSize = True
         Me.lblSenderStreetAdr.Location = New System.Drawing.Point(6, 31)
         Me.lblSenderStreetAdr.Name = "lblSenderStreetAdr"
-        Me.lblSenderStreetAdr.Size = New System.Drawing.Size(45, 13)
+        Me.lblSenderStreetAdr.Size = New System.Drawing.Size(0, 13)
         Me.lblSenderStreetAdr.TabIndex = 7
-        Me.lblSenderStreetAdr.Text = "Label13"
         '
         'lblSenderName
         '
         Me.lblSenderName.AutoSize = True
         Me.lblSenderName.Location = New System.Drawing.Point(6, 16)
         Me.lblSenderName.Name = "lblSenderName"
-        Me.lblSenderName.Size = New System.Drawing.Size(45, 13)
+        Me.lblSenderName.Size = New System.Drawing.Size(0, 13)
         Me.lblSenderName.TabIndex = 6
-        Me.lblSenderName.Text = "Label13"
         '
         'grpMailData
         '
@@ -442,6 +362,20 @@ Partial Class MainForm
         Me.grpMailData.TabStop = False
         Me.grpMailData.Text = "Mail Data"
         '
+        'txtLength
+        '
+        Me.txtLength.Location = New System.Drawing.Point(147, 65)
+        Me.txtLength.Name = "txtLength"
+        Me.txtLength.Size = New System.Drawing.Size(100, 20)
+        Me.txtLength.TabIndex = 4
+        '
+        'txtWeight
+        '
+        Me.txtWeight.Location = New System.Drawing.Point(147, 25)
+        Me.txtWeight.Name = "txtWeight"
+        Me.txtWeight.Size = New System.Drawing.Size(100, 20)
+        Me.txtWeight.TabIndex = 3
+        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.txtThickness)
@@ -453,6 +387,20 @@ Partial Class MainForm
         Me.GroupBox1.Size = New System.Drawing.Size(237, 82)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
+        '
+        'txtThickness
+        '
+        Me.txtThickness.Location = New System.Drawing.Point(141, 46)
+        Me.txtThickness.Name = "txtThickness"
+        Me.txtThickness.Size = New System.Drawing.Size(100, 20)
+        Me.txtThickness.TabIndex = 6
+        '
+        'txtWidth
+        '
+        Me.txtWidth.Location = New System.Drawing.Point(141, 20)
+        Me.txtWidth.Name = "txtWidth"
+        Me.txtWidth.Size = New System.Drawing.Size(100, 20)
+        Me.txtWidth.TabIndex = 5
         '
         'Label12
         '
@@ -559,6 +507,18 @@ Partial Class MainForm
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "From"
         '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.rtbDetails)
+        Me.TabPage2.Controls.Add(Me.imgInfo)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(925, 415)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Info"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
         'rtbDetails
         '
         Me.rtbDetails.Location = New System.Drawing.Point(514, 60)
@@ -566,52 +526,93 @@ Partial Class MainForm
         Me.rtbDetails.ReadOnly = True
         Me.rtbDetails.Size = New System.Drawing.Size(372, 295)
         Me.rtbDetails.TabIndex = 3
-        Me.rtbDetails.Text = ""
+        Me.rtbDetails.Text = "Details will be given here."
         '
         'imgInfo
         '
         Me.imgInfo.Location = New System.Drawing.Point(39, 60)
         Me.imgInfo.Name = "imgInfo"
         Me.imgInfo.Size = New System.Drawing.Size(418, 295)
+        Me.imgInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.imgInfo.TabIndex = 2
         Me.imgInfo.TabStop = False
         '
-        'rtbPostage
+        'TabPage3
         '
-        Me.rtbPostage.Location = New System.Drawing.Point(6, 13)
-        Me.rtbPostage.Name = "rtbPostage"
-        Me.rtbPostage.ReadOnly = True
-        Me.rtbPostage.Size = New System.Drawing.Size(188, 67)
-        Me.rtbPostage.TabIndex = 4
-        Me.rtbPostage.Text = "Postage details are given here."
+        Me.TabPage3.Controls.Add(Me.label5)
+        Me.TabPage3.Controls.Add(Me.label4)
+        Me.TabPage3.Controls.Add(Me.label3)
+        Me.TabPage3.Controls.Add(Me.label2)
+        Me.TabPage3.Controls.Add(Me.label1)
+        Me.TabPage3.Controls.Add(Me.lstCustomerDetails)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(925, 415)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Customer"
+        Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'txtWeight
+        'label5
         '
-        Me.txtWeight.Location = New System.Drawing.Point(147, 25)
-        Me.txtWeight.Name = "txtWeight"
-        Me.txtWeight.Size = New System.Drawing.Size(100, 20)
-        Me.txtWeight.TabIndex = 3
+        Me.label5.AutoSize = True
+        Me.label5.Location = New System.Drawing.Point(170, 11)
+        Me.label5.Name = "label5"
+        Me.label5.Size = New System.Drawing.Size(45, 13)
+        Me.label5.TabIndex = 18
+        Me.label5.Text = "Address"
         '
-        'txtLength
+        'label4
         '
-        Me.txtLength.Location = New System.Drawing.Point(147, 65)
-        Me.txtLength.Name = "txtLength"
-        Me.txtLength.Size = New System.Drawing.Size(100, 20)
-        Me.txtLength.TabIndex = 4
+        Me.label4.AutoSize = True
+        Me.label4.Location = New System.Drawing.Point(3, 11)
+        Me.label4.Name = "label4"
+        Me.label4.Size = New System.Drawing.Size(18, 13)
+        Me.label4.TabIndex = 17
+        Me.label4.Text = "ID"
         '
-        'txtWidth
+        'label3
         '
-        Me.txtWidth.Location = New System.Drawing.Point(141, 20)
-        Me.txtWidth.Name = "txtWidth"
-        Me.txtWidth.Size = New System.Drawing.Size(100, 20)
-        Me.txtWidth.TabIndex = 5
+        Me.label3.AutoSize = True
+        Me.label3.Location = New System.Drawing.Point(657, 11)
+        Me.label3.Name = "label3"
+        Me.label3.Size = New System.Drawing.Size(37, 13)
+        Me.label3.TabIndex = 16
+        Me.label3.Text = "Emails"
         '
-        'txtThickness
+        'label2
         '
-        Me.txtThickness.Location = New System.Drawing.Point(141, 46)
-        Me.txtThickness.Name = "txtThickness"
-        Me.txtThickness.Size = New System.Drawing.Size(100, 20)
-        Me.txtThickness.TabIndex = 6
+        Me.label2.AutoSize = True
+        Me.label2.Location = New System.Drawing.Point(454, 11)
+        Me.label2.Name = "label2"
+        Me.label2.Size = New System.Drawing.Size(81, 13)
+        Me.label2.TabIndex = 15
+        Me.label2.Text = "Phone numbers"
+        '
+        'label1
+        '
+        Me.label1.AutoSize = True
+        Me.label1.Location = New System.Drawing.Point(44, 11)
+        Me.label1.Name = "label1"
+        Me.label1.Size = New System.Drawing.Size(82, 13)
+        Me.label1.TabIndex = 14
+        Me.label1.Text = "Customer Name"
+        '
+        'lstCustomerDetails
+        '
+        Me.lstCustomerDetails.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lstCustomerDetails.FormattingEnabled = True
+        Me.lstCustomerDetails.ItemHeight = 14
+        Me.lstCustomerDetails.Location = New System.Drawing.Point(3, 27)
+        Me.lstCustomerDetails.Name = "lstCustomerDetails"
+        Me.lstCustomerDetails.Size = New System.Drawing.Size(913, 354)
+        Me.lstCustomerDetails.TabIndex = 13
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.H), System.Windows.Forms.Keys)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'MainForm
         '
@@ -622,14 +623,11 @@ Partial Class MainForm
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "MainForm"
-        Me.Text = "MainForm"
+        Me.Text = "Apu's Virtual Post Office"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.grpReciever.ResumeLayout(False)
         Me.grpReciever.PerformLayout()
@@ -642,7 +640,10 @@ Partial Class MainForm
         Me.GroupBox1.PerformLayout()
         Me.grpMailInfo.ResumeLayout(False)
         Me.grpMailInfo.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
         CType(Me.imgInfo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -704,4 +705,5 @@ Partial Class MainForm
     Friend WithEvents txtWeight As System.Windows.Forms.TextBox
     Friend WithEvents txtThickness As System.Windows.Forms.TextBox
     Friend WithEvents txtWidth As System.Windows.Forms.TextBox
+    Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

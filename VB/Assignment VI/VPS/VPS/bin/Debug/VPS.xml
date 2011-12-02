@@ -540,6 +540,42 @@ VPS
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
+</member><member name="P:VPS.My.Resources.Resources.strCmb">
+	<summary>
+  Looks up a localized string similar to Select From List.
+</summary>
+</member><member name="P:VPS.My.Resources.Resources.strError">
+	<summary>
+  Looks up a localized string similar to Values are not valid.
+</summary>
+</member><member name="P:VPS.My.Resources.Resources.strLargeEnvolopeFee">
+	<summary>
+  Looks up a localized string similar to  Large Envelope fee of SEK 12 included.
+</summary>
+</member><member name="P:VPS.My.Resources.Resources.strLargePackageFee">
+	<summary>
+  Looks up a localized string similar to  Large package or parcel fee of SEK 20 included.
+</summary>
+</member><member name="P:VPS.My.Resources.Resources.strLetter">
+	<summary>
+  Looks up a localized string similar to  Letter is defined as mail itemthat has a weight not exceeding 2000 gr. And logest side is not greater than 500mm.                                                                                                                                                                                                                                              Prices of postage vary according to weight..
+</summary>
+</member><member name="P:VPS.My.Resources.Resources.strPackageParcel">
+	<summary>
+  Looks up a localized string similar to  A parcel or Package exceeding a weight of 20Kg or logest side greaterthan 1.5m are not accepted.                                                                                                                                                                                                                                                                             Prices vary according to weight.                                                                                                                   [rest of string was truncated]";.
+</summary>
+</member><member name="P:VPS.My.Resources.Resources.strPostCard">
+	<summary>
+  Looks up a localized string similar to  Postcard is a letter with predefined measures and a constant price.                                                                                                                                                                                                                                                                                                                                    Price for postcards with normal sizes is SEK 5.00.
+</summary>
+</member><member name="P:VPS.My.Resources.Resources.strSwedishKronar">
+	<summary>
+  Looks up a localized string similar to  SEK .
+</summary>
+</member><member name="P:VPS.My.Resources.Resources.Title">
+	<summary>
+  Looks up a localized string similar to Error.
+</summary>
 </member><member name="T:VPS.My.Resources.Resources">
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.

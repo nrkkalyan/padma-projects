@@ -8,6 +8,12 @@ Option Explicit On
 Public Class MainForm
     'creates the customerMngr private object
     Private customerMngr As CustomerManager
+    'fields to store the values
+    Private weight As Double = 0D
+    Private lenght As Double = 0D
+    Private widthValue As Double = 0D
+    Private thickness As Double = 0D
+
     'form initialization
     Public Sub New()
         ' This call is required by the designer.
@@ -152,13 +158,116 @@ Public Class MainForm
         txtWeight.Text = String.Empty
         txtWidth.Text = String.Empty
 
+        imgInfo.Image = My.Resources.Letter
+        rtbDetails.Text = My.Resources.strPostCard
+
         FillComboBoxes()
     End Sub
 
     Private Sub FillComboBoxes()
         cmbMailType.Items.AddRange([Enum].GetNames(GetType(MailType)))
         cmbMailType.SelectedIndex = MailType.Postcard
-        
     End Sub
 
+    Private Sub cmbMailType_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbMailType.SelectedIndexChanged
+        If cmbMailType.SelectedIndex = 0 Then 'for Letter MailType
+            imgInfo.Image = My.Resources.Letter
+            rtbDetails.Text = My.Resources.strLetter
+        ElseIf cmbMailType.SelectedIndex = 1 Then 'for Postcard MailType
+            imgInfo.Image = My.Resources.Postcard
+            rtbDetails.Text = My.Resources.strPostCard
+        ElseIf cmbMailType.SelectedIndex = 2 Then 'for Package MailType
+            imgInfo.Image = My.Resources.Package
+            rtbDetails.Text = My.Resources.strPackageParcel
+        ElseIf cmbMailType.SelectedIndex = 3 Then 'for Parcel MailType
+            imgInfo.Image = My.Resources.Parcel
+            rtbDetails.Text = My.Resources.strPackageParcel
+        End If
+    End Sub
+
+    Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
+
+        Dim mailObj As MailItem = Nothing
+
+        Select Case cmbMailType.SelectedIndex
+            'for Letter Type
+            Case MailType.Letter
+                ReadAndValidateInput(weight, lenght, widthValue, thickness)
+                Dim measures As MeasureData = New MeasureData(lenght, widthValue, thickness)
+                mailObj = New Letter(weight, measures)
+                If mailObj.CheckData() = True Then
+                    rtbPostage.Text = My.Resources.strSwedishKronar + mailObj.ToString()
+                Else
+                    MessageBox.Show(My.Resources.strError, My.Resources.Title, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+                'for Package Type
+            Case MailType.Package
+                ReadAndValidateInput(weight, lenght, widthValue, thickness)
+
+                Dim measures As MeasureData = New MeasureData(lenght, widthValue, thickness)
+                mailObj = New Package(weight, measures)
+                If mailObj.CheckData() = True Then
+                    rtbPostage.Text = My.Resources.strSwedishKronar + mailObj.ToString()
+                Else
+                    MessageBox.Show(My.Resources.strError, My.Resources.Title, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+
+                'for Parcel Type
+            Case MailType.Parcel
+                ReadAndValidateInput(weight, lenght, widthValue, thickness)
+                Dim measures As MeasureData = New MeasureData(lenght, widthValue, thickness)
+                mailObj = New Parcel(weight, measures)
+                If mailObj.CheckData() = True Then
+                    rtbPostage.Text = My.Resources.strSwedishKronar + mailObj.ToString()
+                Else
+                    MessageBox.Show(My.Resources.strError, My.Resources.Title, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+
+                'For Postcard Type
+            Case MailType.Postcard
+                mailObj = New PostCard()
+                If mailObj.CheckData() = True Then
+                    rtbPostage.Text = My.Resources.strSwedishKronar + mailObj.ToString()
+                Else
+                    MessageBox.Show(My.Resources.strError, My.Resources.Title, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+        End Select
+
+        ' End If
+    End Sub
+
+    Private Function ReadAndValidateInput(ByRef weight As Double, ByRef length As Double, ByRef width As Double, ByRef thickness As Double) As Boolean
+        Dim weightValid As Boolean = InputUtility.GetDouble(txtWeight.Text, weight)
+        Dim lengthValid As Boolean = InputUtility.GetDouble(txtLength.Text, length)
+        Dim widthValid As Boolean = InputUtility.GetDouble(txtWidth.Text, width)
+        Dim thicknessValid As Boolean = InputUtility.GetDouble(txtThickness.Text, thickness)
+
+        If thicknessValid And weightValid And lengthValid And thicknessValid Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Private Sub HelpToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HelpToolStripMenuItem.Click
+        AboutBox.Show()
+    End Sub
+
+    Private Sub cmbSender_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbSender.SelectedIndexChanged
+        lstCustomerDetails.SelectedIndex = cmbSender.SelectedIndex
+        lblSenderName.Text = customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.FullName
+        lblSenderStreetAdr.Text = customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.AddressData.Street
+        lblSendPostCity.Text = customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.AddressData.ZipCode _
+            + customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.AddressData.City
+        lblSenderCountry.Text = customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.AddressData.Country.ToString()
+    End Sub
+
+    Private Sub cmbReceiver_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbReceiver.SelectedIndexChanged
+        lstCustomerDetails.SelectedIndex = cmbReceiver.SelectedIndex
+        lblReceiverName.Text = customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.FullName
+        lblRecStreetAdr.Text = customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.AddressData.Street
+        lblRecPostCity.Text = customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.AddressData.ZipCode _
+            + customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.AddressData.City
+        lblReceiverCountry.Text = customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.AddressData.Country.ToString()
+    End Sub
 End Class

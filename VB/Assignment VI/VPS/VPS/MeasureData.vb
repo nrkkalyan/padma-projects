@@ -14,8 +14,10 @@ Public Class MeasureData
     Private m_Width As Double
     Private m_thickness As Double
 
-    Public Sub New()
-
+    Public Sub New(ByRef lenght As Double, ByRef width As Double, ByRef thickness As Double)
+        m_length = lenght
+        m_Width = width
+        m_thickness = thickness
     End Sub
 
     Public Property Length() As Double

@@ -6,7 +6,7 @@ Public Class PostCard
     Inherits Letter
 
     Public Sub New()
-        MyBase.New(30, New MeasureData)
+        MyBase.New(30, New MeasureData(10, 10, 10))
 
     End Sub
 
@@ -23,6 +23,7 @@ Public Class PostCard
     End Sub
 
     Public Overrides Function ToString() As String
+        Me.SetPrice()
         Return MyBase.Price.ToString()
     End Function
 

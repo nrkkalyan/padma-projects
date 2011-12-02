@@ -45,11 +45,11 @@ Public Class Letter
     Public Overrides Function ToString() As String
         Dim str As String = String.Empty
         If IsLarge() = True Then
-            SetPrice()
-            str = LargeEnvolopeCharger().ToString()
+            Me.SetPrice()
+            str = Me.LargeEnvolopeCharger().ToString() + My.Resources.strLargeEnvolopeFee
         Else
-            SetPrice()
-            str = MyBase.ToString()
+            Me.SetPrice()
+            str = MyBase.Price.ToString()
         End If
         Return str
     End Function
@@ -67,7 +67,7 @@ Public Class Letter
         If IsLarge() Then
             extraprice = CDec(12.0)
         End If
-        Return MyBase.Price + extraprice
+        Return Me.Price + extraprice
     End Function
 
 End Class

@@ -10,3 +10,4 @@ C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\GenerateResource.
 C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\VPS.exe
 C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\VPS.xml
 C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\VPS.pdb
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\VPS.AboutBox.resources
