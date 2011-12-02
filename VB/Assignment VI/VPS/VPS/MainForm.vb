@@ -14,6 +14,7 @@ Public Class MainForm
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
+        MyInitialization()
         customerMngr = New CustomerManager()
 
     End Sub
@@ -25,9 +26,13 @@ Public Class MainForm
     ''' <remarks></remarks>
     Private Sub UpdateCustomerList()
         lstCustomerDetails.Items.Clear()
+        cmbReceiver.Items.Clear()
+        cmbSender.Items.Clear()
         Dim index As Integer
         For index = 0 To customerMngr.Count - 1 Step 1
             lstCustomerDetails.Items.Add(customerMngr.GetCustomer(index).ToString())
+            cmbReceiver.Items.Add(customerMngr.GetName(index).ToString())
+            cmbSender.Items.Add(customerMngr.GetName(index).ToString())
         Next
     End Sub
 
@@ -139,4 +144,21 @@ Public Class MainForm
             e.Cancel = True
         End If
     End Sub
+
+    Private Sub MyInitialization()
+        lstCustomerDetails.Items.Clear()
+        txtLength.Text = String.Empty
+        txtThickness.Text = String.Empty
+        txtWeight.Text = String.Empty
+        txtWidth.Text = String.Empty
+
+        FillComboBoxes()
+    End Sub
+
+    Private Sub FillComboBoxes()
+        cmbMailType.Items.AddRange([Enum].GetNames(GetType(MailType)))
+        cmbMailType.SelectedIndex = MailType.Postcard
+        
+    End Sub
+
 End Class

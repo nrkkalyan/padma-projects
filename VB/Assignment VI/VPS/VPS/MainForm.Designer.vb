@@ -73,7 +73,12 @@ Partial Class MainForm
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.rtbDetails = New System.Windows.Forms.RichTextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.imgInfo = New System.Windows.Forms.PictureBox()
+        Me.rtbPostage = New System.Windows.Forms.RichTextBox()
+        Me.txtWeight = New System.Windows.Forms.TextBox()
+        Me.txtLength = New System.Windows.Forms.TextBox()
+        Me.txtWidth = New System.Windows.Forms.TextBox()
+        Me.txtThickness = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -81,11 +86,12 @@ Partial Class MainForm
         Me.TabPage3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.grpReciever.SuspendLayout()
+        Me.grpPostage.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.grpMailData.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.grpMailInfo.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.imgInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -211,7 +217,7 @@ Partial Class MainForm
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.rtbDetails)
-        Me.TabPage2.Controls.Add(Me.PictureBox1)
+        Me.TabPage2.Controls.Add(Me.imgInfo)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -365,6 +371,7 @@ Partial Class MainForm
         '
         'grpPostage
         '
+        Me.grpPostage.Controls.Add(Me.rtbPostage)
         Me.grpPostage.Location = New System.Drawing.Point(277, 38)
         Me.grpPostage.Name = "grpPostage"
         Me.grpPostage.Size = New System.Drawing.Size(200, 86)
@@ -423,6 +430,8 @@ Partial Class MainForm
         '
         'grpMailData
         '
+        Me.grpMailData.Controls.Add(Me.txtLength)
+        Me.grpMailData.Controls.Add(Me.txtWeight)
         Me.grpMailData.Controls.Add(Me.GroupBox1)
         Me.grpMailData.Controls.Add(Me.Label10)
         Me.grpMailData.Controls.Add(Me.Label9)
@@ -435,6 +444,8 @@ Partial Class MainForm
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtThickness)
+        Me.GroupBox1.Controls.Add(Me.txtWidth)
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Location = New System.Drawing.Point(6, 94)
@@ -557,13 +568,50 @@ Partial Class MainForm
         Me.rtbDetails.TabIndex = 3
         Me.rtbDetails.Text = ""
         '
-        'PictureBox1
+        'imgInfo
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(39, 60)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(418, 295)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
+        Me.imgInfo.Location = New System.Drawing.Point(39, 60)
+        Me.imgInfo.Name = "imgInfo"
+        Me.imgInfo.Size = New System.Drawing.Size(418, 295)
+        Me.imgInfo.TabIndex = 2
+        Me.imgInfo.TabStop = False
+        '
+        'rtbPostage
+        '
+        Me.rtbPostage.Location = New System.Drawing.Point(6, 13)
+        Me.rtbPostage.Name = "rtbPostage"
+        Me.rtbPostage.ReadOnly = True
+        Me.rtbPostage.Size = New System.Drawing.Size(188, 67)
+        Me.rtbPostage.TabIndex = 4
+        Me.rtbPostage.Text = "Postage details are given here."
+        '
+        'txtWeight
+        '
+        Me.txtWeight.Location = New System.Drawing.Point(147, 25)
+        Me.txtWeight.Name = "txtWeight"
+        Me.txtWeight.Size = New System.Drawing.Size(100, 20)
+        Me.txtWeight.TabIndex = 3
+        '
+        'txtLength
+        '
+        Me.txtLength.Location = New System.Drawing.Point(147, 65)
+        Me.txtLength.Name = "txtLength"
+        Me.txtLength.Size = New System.Drawing.Size(100, 20)
+        Me.txtLength.TabIndex = 4
+        '
+        'txtWidth
+        '
+        Me.txtWidth.Location = New System.Drawing.Point(141, 20)
+        Me.txtWidth.Name = "txtWidth"
+        Me.txtWidth.Size = New System.Drawing.Size(100, 20)
+        Me.txtWidth.TabIndex = 5
+        '
+        'txtThickness
+        '
+        Me.txtThickness.Location = New System.Drawing.Point(141, 46)
+        Me.txtThickness.Name = "txtThickness"
+        Me.txtThickness.Size = New System.Drawing.Size(100, 20)
+        Me.txtThickness.TabIndex = 6
         '
         'MainForm
         '
@@ -585,6 +633,7 @@ Partial Class MainForm
         Me.GroupBox2.ResumeLayout(False)
         Me.grpReciever.ResumeLayout(False)
         Me.grpReciever.PerformLayout()
+        Me.grpPostage.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.grpMailData.ResumeLayout(False)
@@ -593,7 +642,7 @@ Partial Class MainForm
         Me.GroupBox1.PerformLayout()
         Me.grpMailInfo.ResumeLayout(False)
         Me.grpMailInfo.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.imgInfo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -649,5 +698,10 @@ Partial Class MainForm
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents rtbDetails As System.Windows.Forms.RichTextBox
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents imgInfo As System.Windows.Forms.PictureBox
+    Friend WithEvents rtbPostage As System.Windows.Forms.RichTextBox
+    Friend WithEvents txtLength As System.Windows.Forms.TextBox
+    Friend WithEvents txtWeight As System.Windows.Forms.TextBox
+    Friend WithEvents txtThickness As System.Windows.Forms.TextBox
+    Friend WithEvents txtWidth As System.Windows.Forms.TextBox
 End Class
