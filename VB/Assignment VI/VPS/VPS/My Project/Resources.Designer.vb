@@ -67,9 +67,23 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property LetterPrices() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("LetterPrices", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property Package() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Package", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property PackagePrices() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("PackagePrices", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -98,7 +112,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Values are not valid.
+        '''  Looks up a localized string similar to Values are not within the Range. Please select the Info tab to see the allowable values..
         '''</summary>
         Friend ReadOnly Property strError() As String
             Get

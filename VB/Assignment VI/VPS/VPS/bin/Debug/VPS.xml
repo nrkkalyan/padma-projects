@@ -54,6 +54,66 @@ VPS
 	<param name="sender"></param>
 	<param name="e"></param>
 	<remarks></remarks>
+</member><member name="M:VPS.MainForm.MyInitialization">
+	<summary>
+ My initializations to set all the usercontrols to string.empty
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.FillComboBoxes">
+	<summary>
+ To populate the cmbMailType combobox and sets the default
+ as postcard
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.cmbMailType_SelectedIndexChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event handler for the SelectedIndexChanged event of the cmbMailType
+ combobox
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.btnOK_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event hadler for the Click event of the OK button
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.ReadAndValidateInput(System.Double@,System.Double@,System.Double@,System.Double@)">
+	<summary>
+ This method validates the input fields of the forma nd converts them to double values.
+ If all fields are valid as double values it returns true
+ </summary>
+	<param name="weight"></param>
+	<param name="length"></param>
+	<param name="width"></param>
+	<param name="thickness"></param>
+	<returns>true if all fields are valid and false otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.HelpToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event handler for the click event of the Help tool strip menu item
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.cmbSender_SelectedIndexChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event handler for the SelectedIndexChange event of the cmbSender 
+ combobox. It assigns the values to the lables of the From groupbox.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.cmbReceiver_SelectedIndexChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event handler for the SelectedIndexChange event of the cmbReciever
+ combobox. It assigns the values to the lables of the To groupbox.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
 </member><member name="M:VPS.Contact.#ctor(System.String,System.String,VPS.Address,VPS.Phone,VPS.Email)">
 	<summary>
  Constructor with 5 parameters.This is  constructor that has most
@@ -478,13 +538,170 @@ VPS
  </summary>
 	<param name="index">selected index by the user</param>
 	<returns>customer object</returns>
+</member><member name="M:VPS.MeasureData.#ctor(System.Double@,System.Double@,System.Double@)">
+	<summary>
+ Constructor taking 3 perameters
+ </summary>
+	<param name="lenght"></param>
+	<param name="width"></param>
+	<param name="thickness"></param>
+	<remarks></remarks>
+</member><member name="P:VPS.MeasureData.Length">
+	<summary>
+ Read and Write property for m_lenght
+ variable
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.MeasureData.Width">
+	<summary>
+ read adn write property for m_width
+ field
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.MeasureData.Thickness">
+	<summary>
+ read and write property for m_thickness
+ of Double datatype
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.MeasureData.CheckData">
+	<summary>
+ If all dimensions are valid numbers 
+ returns true
+ </summary>
+	<returns>true if all fields are valid and returns false otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.MeasureData.LongestSide">
+	<summary>
+ This method calculates the maximum value of the
+ dimensions
+ </summary>
+	<returns>maximum value of the dimensions </returns>
+	<remarks></remarks>
 </member><member name="T:VPS.MeasureData">
 	<summary>
  This class defines  the measurements of postal object, such as
  letter, package, etc.
- You job:  Review and understand teh code. Use it in your projecdt 
- (optional).
- The documentation of the methods is also left for you.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.Parcel.#ctor(System.Double,VPS.MeasureData)">
+	<summary>
+ constructor having 2 parameters. It calls base method's
+ constructors
+ </summary>
+	<param name="weight"></param>
+	<param name="measures"></param>
+	<remarks></remarks>
+</member><member name="P:VPS.Parcel.ExtraLenghtPrice">
+	<summary>
+ read only property to set price field. If parcel is long
+ it adds additional postage
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.Parcel.IsLong">
+	<summary>
+ readonly property to check whether the parcel is long or not
+ </summary>
+	<value></value>
+	<returns>true if parcel or package is long, false otherwise</returns>
+	<remarks></remarks>
+</member><member name="P:VPS.Parcel.PriceString">
+	<summary>
+ Readonly property to set the pricestring according to calculated price 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Parcel.CheckData">
+	<summary>
+ This functions overrides the checkdata() methodof the 
+ base class i.e.MailType.vb
+ </summary>
+	<returns>true if the package dimensions are within the range and false otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Parcel.SetPrice">
+	<summary>
+ This method overrides teh SetPrice() method of base class i.e. MailType.vb
+ and calcuates the price of postage according to weight of the Package or Parcel
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.Parcel.ToString">
+	<summary>
+ This mehtod overrides the ToString() method of the
+ base class and updates the price value accordingly
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:VPS.Parcel">
+	<summary>
+ This class inherits the MailItem.vb class and 
+ overrides the methods of the baseclass if necessary
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.Package.#ctor(System.Double,VPS.MeasureData)">
+	<summary>
+ construcor having 2 parameters. It assigns the values to 
+ the base class constructor
+ </summary>
+	<param name="weight"></param>
+	<param name="measures"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.Package.CheckData">
+	<summary>
+ It overrides the CheckData() method of base class
+ </summary>
+	<returns>true if data is valid and false otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Package.SetPrice">
+	<summary>
+ this method overrides teh SetPrice() method of the base
+ class and sets teh value of price
+ </summary>
+	<remarks></remarks>
+</member><member name="T:VPS.Package">
+	<summary>
+ This class inherits the Parcel.vb class
+ and sets the values of price and other details
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.PostCard.#ctor">
+	<summary>
+ default constructor that sends default values to the base
+ class constructor
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.PostCard.CheckData">
+	<summary>
+ ovverides the CheckData() method of the base class
+ i.e. Letter.vb
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.PostCard.SetPrice">
+	<summary>
+ this method overrides the SetPrice() method of the
+ base class and returns a fixed postal price of 5 SEK
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.PostCard.ToString">
+	<summary>
+ This method overrides teh ToString() method of 
+ the base class
+ </summary>
+	<returns>returns a string</returns>
+	<remarks></remarks>
+</member><member name="T:VPS.PostCard">
+	<summary>
+ This class inherits the Letter class and returns price for
+ fixed demensions of the Letter ie. post card
  </summary>
 	<remarks></remarks>
 </member><member name="M:VPS.Phone.#ctor(System.String,System.String)">
@@ -531,6 +748,141 @@ VPS
  </summary>
 	<returns>the Formatted strings.</returns>
 	<remarks></remarks>
+</member><member name="M:VPS.Letter.#ctor(System.Double,VPS.MeasureData)">
+	<summary>
+ constructor with 2 parameters. It calls constructor of the
+ base class i.e. MailType.vb
+ </summary>
+	<param name="weight"></param>
+	<param name="measures"></param>
+	<remarks></remarks>
+</member><member name="P:VPS.Letter.PriceString">
+	<summary>
+ ReadOnly property of the Price. It returns the
+ price accordance with weight of the letter
+ </summary>
+	<value></value>
+	<returns>string having the final price of the Letter</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Letter.CheckData">
+	<summary>
+ This method overrides the CheckData() of the base method
+ and returns true if Letter is in within the limits
+ </summary>
+	<returns>True if Letter dimensions are valid and False otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Letter.SetPrice">
+	<summary>
+ Calculate the prices according to the weight of the letter
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.Letter.ToString">
+	<summary>
+ This method overrides the ToString() method of the 
+ MailType.vb and updates the price and returns the price
+ as string
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Letter.IsLarge">
+	<summary>
+ Checks if the letter's logest dimension is greater than 30mm
+ </summary>
+	<returns>true if longest dimension greater than 30mm else otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Letter.LargeEnvolopeCharger">
+	<summary>
+ If envolope is large then add teh extra price to the original
+ price and return the total price
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:VPS.Letter">
+	<summary>
+ This class inherits MailItem class and calcualtes
+ the postage prices so as to do so it overrides some of 
+ the methods of the MailItem class
+ </summary>
+	<remarks></remarks>
+</member><member name="T:VPS.MailType">
+	<summary>
+ Types of Mails, set as Enum data type
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.MailItem.#ctor(System.Double,VPS.MeasureData)">
+	<summary>
+ Constructor having 2 variables
+ </summary>
+	<param name="weight"></param>
+	<param name="measures"></param>
+	<remarks></remarks>
+</member><member name="P:VPS.MailItem.Measures">
+	<summary>
+ Reads and writes property for m_measurs variable
+ of customer datatype
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.MailItem.Receiver">
+	<summary>
+ Reads and writes property for m_receiver variable
+ of Customer datatype
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.MailItem.MailType">
+	<summary>
+ Read and write property for m_mailType of
+ MailType datatype
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.MailItem.Price">
+	<summary>
+ Read and writer property for m_price variable
+ of Decimal datatype
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.MailItem.Sender">
+	<summary>
+ Read and Write property for m_sender
+ of Customer datatype
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.MailItem.Weight">
+	<summary>
+ read and writer property for m_weight of
+ Double datatype
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.MailItem.CheckData">
+	<summary>
+ Ovveriadle CheckData() method which allows other classes
+ to override this method
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.MailItem.SetPrice">
+	<summary>
+ overridable SetPrice() method which allows other
+ classes to override this method
+ </summary>
+	<remarks></remarks>
+</member><member name="T:VPS.MailItem">
+	<summary>
+ This is the base class for all other classes. This class has instance of 
+ Customer class, MeasureData class and MailType enum class
+ </summary>
+	<remarks></remarks>
 </member><member name="P:VPS.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
@@ -546,7 +898,7 @@ VPS
 </summary>
 </member><member name="P:VPS.My.Resources.Resources.strError">
 	<summary>
-  Looks up a localized string similar to Values are not valid.
+  Looks up a localized string similar to Values are not within the Range. Please select the Info tab to see the allowable values..
 </summary>
 </member><member name="P:VPS.My.Resources.Resources.strLargeEnvolopeFee">
 	<summary>

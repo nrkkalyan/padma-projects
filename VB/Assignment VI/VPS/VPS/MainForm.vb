@@ -1,6 +1,7 @@
 ﻿'File Name: MainForm.vb
 'Created by: Padma Priya Duvvuri
 'Created on: 12-Nov-2011
+'Updated on: 02-Dec-2011
 
 Option Strict On
 Option Explicit On
@@ -20,6 +21,7 @@ Public Class MainForm
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
+        'My initialization
         MyInitialization()
         customerMngr = New CustomerManager()
 
@@ -37,6 +39,7 @@ Public Class MainForm
         Dim index As Integer
         For index = 0 To customerMngr.Count - 1 Step 1
             lstCustomerDetails.Items.Add(customerMngr.GetCustomer(index).ToString())
+            'To populate the Receiver and Sender Combo boxes
             cmbReceiver.Items.Add(customerMngr.GetName(index).ToString())
             cmbSender.Items.Add(customerMngr.GetName(index).ToString())
         Next
@@ -151,44 +154,70 @@ Public Class MainForm
         End If
     End Sub
 
+    ''' <summary>
+    ''' My initializations to set all the usercontrols to string.empty
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Sub MyInitialization()
         lstCustomerDetails.Items.Clear()
         txtLength.Text = String.Empty
         txtThickness.Text = String.Empty
         txtWeight.Text = String.Empty
         txtWidth.Text = String.Empty
-
+        'Set the image and deatils of Info tab to default values
         imgInfo.Image = My.Resources.Letter
         rtbDetails.Text = My.Resources.strPostCard
-
+        'to set up the default value for combobox
         FillComboBoxes()
     End Sub
 
+    ''' <summary>
+    ''' To populate the cmbMailType combobox and sets the default
+    ''' as postcard
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Sub FillComboBoxes()
         cmbMailType.Items.AddRange([Enum].GetNames(GetType(MailType)))
         cmbMailType.SelectedIndex = MailType.Postcard
     End Sub
 
+    ''' <summary>
+    ''' Event handler for the SelectedIndexChanged event of the cmbMailType
+    ''' combobox
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub cmbMailType_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbMailType.SelectedIndexChanged
         If cmbMailType.SelectedIndex = 0 Then 'for Letter MailType
             imgInfo.Image = My.Resources.Letter
             rtbDetails.Text = My.Resources.strLetter
+            pcboxTable.Image = My.Resources.LetterPrices
         ElseIf cmbMailType.SelectedIndex = 1 Then 'for Postcard MailType
             imgInfo.Image = My.Resources.Postcard
             rtbDetails.Text = My.Resources.strPostCard
+            pcboxTable.Image = My.Resources.LetterPrices
         ElseIf cmbMailType.SelectedIndex = 2 Then 'for Package MailType
             imgInfo.Image = My.Resources.Package
             rtbDetails.Text = My.Resources.strPackageParcel
+            pcboxTable.Image = My.Resources.PackagePrices
         ElseIf cmbMailType.SelectedIndex = 3 Then 'for Parcel MailType
             imgInfo.Image = My.Resources.Parcel
             rtbDetails.Text = My.Resources.strPackageParcel
+            pcboxTable.Image = My.Resources.PackagePrices
         End If
     End Sub
 
+    ''' <summary>
+    ''' Event hadler for the Click event of the OK button
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
 
         Dim mailObj As MailItem = Nothing
-
+        'switch case to select different mail types
         Select Case cmbMailType.SelectedIndex
             'for Letter Type
             Case MailType.Letter
@@ -236,6 +265,16 @@ Public Class MainForm
         ' End If
     End Sub
 
+    ''' <summary>
+    ''' This method validates the input fields of the forma nd converts them to double values.
+    ''' If all fields are valid as double values it returns true
+    ''' </summary>
+    ''' <param name="weight"></param>
+    ''' <param name="length"></param>
+    ''' <param name="width"></param>
+    ''' <param name="thickness"></param>
+    ''' <returns>true if all fields are valid and false otherwise</returns>
+    ''' <remarks></remarks>
     Private Function ReadAndValidateInput(ByRef weight As Double, ByRef length As Double, ByRef width As Double, ByRef thickness As Double) As Boolean
         Dim weightValid As Boolean = InputUtility.GetDouble(txtWeight.Text, weight)
         Dim lengthValid As Boolean = InputUtility.GetDouble(txtLength.Text, length)
@@ -249,10 +288,23 @@ Public Class MainForm
         End If
     End Function
 
+    ''' <summary>
+    ''' Event handler for the click event of the Help tool strip menu item
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub HelpToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HelpToolStripMenuItem.Click
-        AboutBox.Show()
+        AboutBox.Show() 'shows the AboutBox
     End Sub
 
+    ''' <summary>
+    ''' Event handler for the SelectedIndexChange event of the cmbSender 
+    ''' combobox. It assigns the values to the lables of the From groupbox.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub cmbSender_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbSender.SelectedIndexChanged
         lstCustomerDetails.SelectedIndex = cmbSender.SelectedIndex
         lblSenderName.Text = customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.FullName
@@ -262,6 +314,13 @@ Public Class MainForm
         lblSenderCountry.Text = customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.AddressData.Country.ToString()
     End Sub
 
+    ''' <summary>
+    ''' Event handler for the SelectedIndexChange event of the cmbReciever
+    ''' combobox. It assigns the values to the lables of the To groupbox.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub cmbReceiver_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbReceiver.SelectedIndexChanged
         lstCustomerDetails.SelectedIndex = cmbReceiver.SelectedIndex
         lblReceiverName.Text = customerMngr.GetCustomer(lstCustomerDetails.SelectedIndex).ContactData.FullName

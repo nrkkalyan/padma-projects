@@ -36,6 +36,7 @@ Partial Class MainForm
         Me.ChangeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripSeparator()
         Me.DeleteToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.btnOK = New System.Windows.Forms.Button()
@@ -70,6 +71,7 @@ Partial Class MainForm
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.pcboxTable = New System.Windows.Forms.PictureBox()
         Me.rtbDetails = New System.Windows.Forms.RichTextBox()
         Me.imgInfo = New System.Windows.Forms.PictureBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
@@ -79,7 +81,6 @@ Partial Class MainForm
         Me.label2 = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
         Me.lstCustomerDetails = New System.Windows.Forms.ListBox()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -91,6 +92,7 @@ Partial Class MainForm
         Me.GroupBox1.SuspendLayout()
         Me.grpMailInfo.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        CType(Me.pcboxTable, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imgInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
@@ -189,6 +191,13 @@ Partial Class MainForm
         Me.DeleteToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.Delete
         Me.DeleteToolStripMenuItem1.Size = New System.Drawing.Size(157, 22)
         Me.DeleteToolStripMenuItem1.Text = "Delete"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.H), System.Windows.Forms.Keys)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "&Help"
         '
         'TabControl1
         '
@@ -509,6 +518,7 @@ Partial Class MainForm
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.pcboxTable)
         Me.TabPage2.Controls.Add(Me.rtbDetails)
         Me.TabPage2.Controls.Add(Me.imgInfo)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
@@ -518,6 +528,15 @@ Partial Class MainForm
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Info"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'pcboxTable
+        '
+        Me.pcboxTable.Location = New System.Drawing.Point(528, 137)
+        Me.pcboxTable.Name = "pcboxTable"
+        Me.pcboxTable.Size = New System.Drawing.Size(341, 207)
+        Me.pcboxTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pcboxTable.TabIndex = 4
+        Me.pcboxTable.TabStop = False
         '
         'rtbDetails
         '
@@ -607,13 +626,6 @@ Partial Class MainForm
         Me.lstCustomerDetails.Size = New System.Drawing.Size(913, 354)
         Me.lstCustomerDetails.TabIndex = 13
         '
-        'HelpToolStripMenuItem
-        '
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.H), System.Windows.Forms.Keys)
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.HelpToolStripMenuItem.Text = "&Help"
-        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -641,6 +653,7 @@ Partial Class MainForm
         Me.grpMailInfo.ResumeLayout(False)
         Me.grpMailInfo.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
+        CType(Me.pcboxTable, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imgInfo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
@@ -706,4 +719,5 @@ Partial Class MainForm
     Friend WithEvents txtThickness As System.Windows.Forms.TextBox
     Friend WithEvents txtWidth As System.Windows.Forms.TextBox
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents pcboxTable As System.Windows.Forms.PictureBox
 End Class

@@ -134,7 +134,7 @@
     <value>Select From List</value>
   </data>
   <data name="strError" xml:space="preserve">
-    <value>Values are not valid</value>
+    <value>Values are not within the Range. Please select the Info tab to see the allowable values.</value>
   </data>
   <data name="strLargeEnvolopeFee" xml:space="preserve">
     <value> Large Envelope fee of SEK 12 included</value>
@@ -156,5 +156,11 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>Error</value>
+  </data>
+  <data name="LetterPrices" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LetterPrices.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PackagePrices" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PackagePrices.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
