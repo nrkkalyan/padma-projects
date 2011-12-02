@@ -1,0 +1,12 @@
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\bin\Debug\VPS.exe
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\bin\Debug\VPS.pdb
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\bin\Debug\VPS.xml
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\VPS.CustomerForm.resources
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\VPS.MainForm.resources
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\VPS.Resources.resources
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\VPS.exe
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\VPS.xml
+C:\Padma\padma-projects\VB\Assignment VI\VPS\VPS\obj\x86\Debug\VPS.pdb

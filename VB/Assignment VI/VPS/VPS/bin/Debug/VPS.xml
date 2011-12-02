@@ -1,0 +1,549 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+VPS
+</name>
+</assembly>
+<members>
+<member name="M:VPS.MainForm.UpdateCustomerList">
+	<summary>
+ clears the listbox and updates it with the customer values of the 
+ customerMngr arraylist
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.ExitToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ event handler for click event of Exit menu item of File menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.AddToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event handler for click event of Add menu item of Customer Menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.ChangeToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event handler for teh click event of Change menuitme of the Customer Menu.
+ If list box is not empty then allow the user to change details of the customer
+ at the selected index, else call showError() method
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.ShowError">
+	<summary>
+ If list box is empty then user will not be able to update or delete any values.
+ This method is called form click event of Delete and Change menuitems of Customer menu.
+ </summary>
+</member><member name="M:VPS.MainForm.DeleteToolStripMenuItem1_Click(System.Object,System.EventArgs)">
+	<summary>
+ event handler for click event of Delete menu item of Customer menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.MainForm.MainForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+	<summary>
+ Event handler for FormClosing event of MainForm
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.Contact.#ctor(System.String,System.String,VPS.Address,VPS.Phone,VPS.Email)">
+	<summary>
+ Constructor with 5 parameters.This is  constructor that has most
+ number of parameters. It is in tis constructor that all coding 
+ should be done.
+ </summary>
+	<param name="firstName">Input - first name</param>
+	<param name="lastName">Input - last name</param>
+	<param name="adr">Input - address object</param>
+	<param name="mail">Input - mail object</param>
+	<param name="tel">Input - phone object</param>
+</member><member name="M:VPS.Contact.#ctor">
+	<summary>
+ Default constuctor. It calls constructor with 5 parameters
+ passing the defaluts values.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:VPS.Contact.AddressData">
+	<summary>
+ Property related to the field m_address
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.Contact.EmailData">
+	<summary>
+ Property related to the field m_email
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.Contact.FirstName">
+	<summary>
+ Property related to the field m_firstname
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.Contact.LastName">
+	<summary>
+ Property related to the field m_lastname
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.Contact.FullName">
+	<summary>
+ It creates a string fullname by adding
+ firstname and last name
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.Contact.PhoneData">
+	<summary>
+ Property related to the field m_phone
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Contact.ToString">
+	<summary>
+  Delivers a formatted string with data stored in the object. The values will
+  appear as columns. 
+ </summary>
+	<returns>formatted string </returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Address.#ctor(System.String,System.String,System.String,VPS.Countries)">
+	<summary>
+ Consturctor with 4 parameters. This is constuctor that has most
+ number of paramets. It is in this constructor that all coding should
+ be done
+ </summary>
+	<param name="street">Input - street name</param>
+	<param name="zip">Input - zipcode</param>
+	<param name="city">Input - city name</param>
+	<param name="country">Input - country name</param>
+	<remarks></remarks>
+</member><member name="M:VPS.Address.#ctor(System.String,System.String,System.String)">
+	<summary>
+ Consturctor with 3 parameters. this consturctors calls the constructor with 
+ 4 parameters passing default value for country
+ </summary>
+	<param name="street">Input - street name</param>
+	<param name="zip">Input - zipcode</param>
+	<param name="city">Input - city name</param>
+	<remarks></remarks>
+</member><member name="M:VPS.Address.#ctor">
+	<summary>
+ It is default constructor - calls the consturctor with 3 parameters,
+ using default values
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.Address.CheckIndex">
+	<summary>
+ to perform validation for street and city names
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Address.GetCountryString">
+	<summary>
+ replaces the '_' char of the country name 
+ if it has any
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Address.ToString">
+	<summary>
+  Delivers a formatted string with data stored in the object. The values will
+  appear as columns. 
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:VPS.Address">
+	<summary>
+ This class stores the information of Adress of the customer.
+ It calls list of enums from the countries.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.Email.#ctor">
+	<summary>
+ Default constructor - calls another constructor in this class
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.Email.#ctor(System.String)">
+	<summary>
+ Constructor with one parameter - calls the constructor with 
+ two parameters, using a default value as the second argument.
+ </summary>
+	<param name="workMail">input coming from the client object</param>
+	<remarks></remarks>
+</member><member name="M:VPS.Email.#ctor(System.String,System.String)">
+	<summary>
+ Constructor with two parameters. This is  constructor that has most
+ number of parameters. It is in tis constructor that all coding 
+ should be done.
+ </summary>
+	<param name="workMail">Input - office mail</param>
+	<param name="personalMail">Input - private mail</param>
+	<remarks></remarks>
+</member><member name="P:VPS.Email.Personal">
+	<summary>
+ Property related to the field m_Personal
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.Email.Work">
+	<summary>
+ Property related to m_work field
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.Email.GetToStringItemsHeadings">
+	<summary>
+ This method prepares a format string that is in sync with the ToString
+ method.  It will be used in the MainForm as part of the heading for the ListBox
+ before customer information is added in the ListBox.
+ </summary>
+	<value></value>
+	<returns>A formatted string as heading for the values formatted in the ToString
+ method below.</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Email.ToString">
+	<summary>
+ Delivers a formatted string with data stored in the object. The values will
+ appear as columns.  Make sure that a font like "Courier New" is used in
+ the control displaying this information.
+ </summary>
+	<returns>the Formatted strings.</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.InputUtility.GetDouble(System.String,System.Double@,System.Double,System.Double)">
+	<summary>
+ Converts a string represented double value into a double type, and validates
+ the converted value to be within (and inclusive) a range, defined by minLimit and
+ max Limit
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
+	<returns>true if the conversion is successful and value is within the 
+ given range</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.InputUtility.GetDouble(System.String,System.Double@,System.Double)">
+	<summary>
+ Overloading the GetDouble Function so it can be used when a string is to be converted
+ to a numerical value with only minLimit Condition
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.InputUtility.GetDouble(System.String,System.Double@)">
+	<summary>
+ Overloading the GetDouble Function so it can be used when a string is to be converted
+ to a numerical value withoug any max or min conditions
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.InputUtility.GetLong(System.String,System.Int64@)">
+	<summary>
+ Convers a string represented long value into a long type. If parsing sucessfull
+ returns the long value
+ </summary>
+	<param name="stringToConvert">the string to be converted</param>
+	<param name="longOutValue">long valued out put parameter</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32,System.Int32)">
+	<summary>
+ Converts a string represented Integer value into a integer type, and validates
+ the converted value to be within (and inclusive) a range, defined by minLimit and
+ max Limit
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
+	<returns>true if the conversion is successful and value is within the 
+ given range</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32)">
+	<summary>
+ Overloading the GetInteger Function so it can be used when a string is to be converted
+ to a numerical value with only minLimit Condition
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.InputUtility.GetInteger(System.String,System.Int32@)">
+	<summary>
+ Overloading the GetInteger Function so it can be used when a string is to be converted
+ to a numerical value with no min or max conditions
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.InputUtility.CheckString(System.String)">
+	<summary>
+ this function evaluates the name. If it contains any white spaces or does not contain any value
+ it returns true.
+ </summary>
+	<param name="stringName">the name inputted by the user</param>
+	<returns>true if name is empty or a blank space</returns>
+	<remarks></remarks>
+</member><member name="T:VPS.InputUtility">
+	<summary>
+ This class holds the shared methods which are used to validate the user inputs.
+ It validates double, string and integer inputs
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.Customer.#ctor(VPS.Contact,System.String)">
+	<summary>
+ constructor that takes 2 parameters.
+ And adds id for the customer
+ </summary>
+	<param name="contact">the contact object</param>
+	<param name="id">id for the customer</param>
+	<remarks></remarks>
+</member><member name="M:VPS.Customer.#ctor(VPS.Customer)">
+	<summary>
+ constructor that takes 1 parameter.
+ It calls the constructor with 2 parameters
+ </summary>
+	<param name="customerIn">Input - customer object</param>
+</member><member name="M:VPS.Customer.#ctor">
+	<summary>
+ default constructor that creates a new contact 
+ object
+ </summary>
+</member><member name="M:VPS.Customer.#ctor(VPS.Contact)">
+	<summary>
+ constructor with one parameter which calls the constructor
+ with two parameters passing default value for id
+ </summary>
+	<param name="contactIn"></param>
+</member><member name="P:VPS.Customer.ContactData">
+	<summary>
+ Property related to the field contact object
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.Customer.ID">
+	<summary>
+ Property related to the field m_id
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Customer.ToString">
+	<summary>
+  Delivers a formatted string with data stored in the object. The values will
+  appear as columns. 
+ </summary>
+	<returns>formatted string </returns>
+	<remarks></remarks>
+</member><member name="T:VPS.Countries">
+	<summary>
+ the countries of the world
+ </summary>
+	<remarks></remarks>
+</member><member name="P:VPS.CustomerForm.CustomerData">
+	<summary>
+ Property CustomerData to read customer values, with access to
+ read and write
+ </summary>
+	<value></value>
+	<returns>Customer object</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.CustomerForm.UpdateGUI">
+	<summary>
+ update controls of customerForm to the m_customer object values
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.CustomerForm.CustomerForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+	<summary>
+ Event handler for formclosing event of the customer form
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.CustomerForm.ValidateInputFields">
+	<summary>
+ validate firstname, lastname and telephone numbers
+ </summary>
+	<returns>returns true if all fields are validated, false otherwise</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.CustomerForm.ValidationForPhoneNumbers">
+	<summary>
+ checks whehter atleast one telepone number is provided or not.And validates the
+ presented by the user
+ </summary>
+	<returns>true if atleast one phone number is given and validates the given
+ user input</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.CustomerForm.ValidatePhoneNumber(System.String)">
+	<summary>
+ If atleast one phone number is provided, converts the value to long
+ by calling GetLong method of InputUtility
+ </summary>
+	<param name="phone">string value of the user input for phone number</param>
+	<returns>true if conversion is successful</returns>
+	<remarks></remarks>
+</member><member name="M:VPS.CustomerForm.btnCancel_Click(System.Object,System.EventArgs)">
+	<summary>
+ event handler for click event of cancel button
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:VPS.CustomerManager.#ctor">
+	<summary>
+ default constructor. It creates a new arraylist object.
+ and it assigns default value of 101 for starters.
+ </summary>
+</member><member name="P:VPS.CustomerManager.Count">
+	<summary>
+ It counts the number of customers objects that are 
+ present in the arraylist.
+ </summary>
+	<returns>no.of customers present</returns>
+</member><member name="P:VPS.CustomerManager.GetNewID">
+	<summary>
+ It creates a new customer id for every customer 
+ present in the arraylist.
+ </summary>
+	<returns>new id for the new customer</returns>
+</member><member name="M:VPS.CustomerManager.AddCustomer(VPS.Customer)">
+	<summary>
+ It stores the new customer details entered by the user, and returns
+ true if added.
+ </summary>
+	<param name="customerIn">Input - customer details</param>
+	<returns>True when the new customer is added</returns>
+</member><member name="M:VPS.CustomerManager.IsValidIndex(System.Int32)">
+	<summary>
+ validates the index of the array list.
+ </summary>
+	<param name="index">selected index</param>
+	<returns>true if index is less than the arraysize</returns>
+</member><member name="M:VPS.CustomerManager.ChangeCustomer(VPS.Contact,System.Int32)">
+	<summary>
+ If the index is valid then it will allow the updation 
+ of the fields
+ </summary>
+	<param name="contactIn">details of selected customer</param>
+	<param name="index">selected index</param>
+	<returns>true if value is changed</returns>
+</member><member name="M:VPS.CustomerManager.RemoveCustomer(System.Int32)">
+	<summary>
+ If index is valid then it will remove that customer 
+ from the arraylist.
+ </summary>
+	<param name="index">index at which customer need to be deleted</param>
+	<returns></returns>
+</member><member name="M:VPS.CustomerManager.GetCustomer(System.Int32)">
+	<summary>
+ returns the customer object at the selected 
+ index of the customers arraylist
+ </summary>
+	<param name="index">selected index by the user</param>
+	<returns>customer object</returns>
+</member><member name="T:VPS.MeasureData">
+	<summary>
+ This class defines  the measurements of postal object, such as
+ letter, package, etc.
+ You job:  Review and understand teh code. Use it in your projecdt 
+ (optional).
+ The documentation of the methods is also left for you.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:VPS.Phone.#ctor(System.String,System.String)">
+	<summary>
+ Constructor with two parameters. This is  constructor that has most
+ number of parameters. It is in tis constructor that all coding 
+ should be done.
+ </summary>
+	<param name="homePhone">Input - Home Phone</param>
+	<param name="cellPhone">Input - Cell Phone</param>
+	<remarks></remarks>
+</member><member name="M:VPS.Phone.#ctor(System.String)">
+	<summary>
+ Constructor with one parameter - calls the constructor with 
+ two parameters, using a default value as the second argument.
+ </summary>
+	<param name="homePhone">input coming from the client object</param>
+	<remarks></remarks>
+</member><member name="M:VPS.Phone.#ctor">
+	<summary>
+ Default consturctor - calls another constructor in the class
+ </summary>
+	<remarks></remarks>
+</member><member name="P:VPS.Phone.Home">
+	<summary>
+ Property related to the field m_home
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:VPS.Phone.Cell">
+	<summary>
+ Property related to the field m_cell
+ Both read and write access
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:VPS.Phone.ToString">
+	<summary>
+ Delivers a formatted string with data stored in the object. The values will
+ appear as columns. 
+ </summary>
+	<returns>the Formatted strings.</returns>
+	<remarks></remarks>
+</member><member name="P:VPS.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:VPS.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:VPS.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

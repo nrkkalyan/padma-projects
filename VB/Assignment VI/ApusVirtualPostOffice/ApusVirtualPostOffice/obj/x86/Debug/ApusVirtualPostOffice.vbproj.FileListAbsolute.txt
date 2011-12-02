@@ -4,3 +4,9 @@ C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOf
 C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\ApusVirtualPostOffice.Resources.resources
 C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\bin\Debug\ApusVirtualPostOffice.exe
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\bin\Debug\ApusVirtualPostOffice.pdb
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\bin\Debug\ApusVirtualPostOffice.xml
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\ApusVirtualPostOffice.exe
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\ApusVirtualPostOffice.xml
+C:\Padma\padma-projects\VB\Assignment VI\ApusVirtualPostOffice\ApusVirtualPostOffice\obj\x86\Debug\ApusVirtualPostOffice.pdb
