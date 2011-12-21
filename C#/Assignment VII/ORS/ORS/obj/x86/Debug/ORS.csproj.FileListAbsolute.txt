@@ -1,0 +1,9 @@
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\bin\Debug\ORS.exe
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\bin\Debug\ORS.pdb
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.Form1.resources
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.Properties.Resources.resources
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.exe
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.pdb
