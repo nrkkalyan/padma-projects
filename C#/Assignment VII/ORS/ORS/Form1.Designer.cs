@@ -75,6 +75,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lstCustomers = new System.Windows.Forms.ListBox();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
+            this.checkBoxLessThan2 = new System.Windows.Forms.CheckBox();
             this.MainMenu.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             this.tabMakeReservation.SuspendLayout();
@@ -141,12 +142,12 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(112, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // transportaionToolStripMenuItem
@@ -208,6 +209,7 @@
             // 
             // tabMakeReservation
             // 
+            this.tabMakeReservation.Controls.Add(this.checkBoxLessThan2);
             this.tabMakeReservation.Controls.Add(this.dateOfJourney);
             this.tabMakeReservation.Controls.Add(this.numericChildren);
             this.tabMakeReservation.Controls.Add(this.numericAdults);
@@ -239,7 +241,7 @@
             this.dateOfJourney.Location = new System.Drawing.Point(190, 127);
             this.dateOfJourney.Name = "dateOfJourney";
             this.dateOfJourney.Size = new System.Drawing.Size(179, 20);
-            this.dateOfJourney.TabIndex = 22;
+            this.dateOfJourney.TabIndex = 3;
             // 
             // numericChildren
             // 
@@ -251,7 +253,7 @@
             0});
             this.numericChildren.Name = "numericChildren";
             this.numericChildren.Size = new System.Drawing.Size(43, 20);
-            this.numericChildren.TabIndex = 20;
+            this.numericChildren.TabIndex = 5;
             // 
             // numericAdults
             // 
@@ -263,7 +265,7 @@
             0});
             this.numericAdults.Name = "numericAdults";
             this.numericAdults.Size = new System.Drawing.Size(43, 20);
-            this.numericAdults.TabIndex = 19;
+            this.numericAdults.TabIndex = 4;
             // 
             // label10
             // 
@@ -290,7 +292,7 @@
             this.cmbCustomer.Location = new System.Drawing.Point(190, 94);
             this.cmbCustomer.Name = "cmbCustomer";
             this.cmbCustomer.Size = new System.Drawing.Size(179, 21);
-            this.cmbCustomer.TabIndex = 14;
+            this.cmbCustomer.TabIndex = 2;
             // 
             // label7
             // 
@@ -367,7 +369,7 @@
             this.cmbTranportation.Location = new System.Drawing.Point(270, 216);
             this.cmbTranportation.Name = "cmbTranportation";
             this.cmbTranportation.Size = new System.Drawing.Size(179, 21);
-            this.cmbTranportation.TabIndex = 9;
+            this.cmbTranportation.TabIndex = 7;
             this.cmbTranportation.SelectedIndexChanged += new System.EventHandler(this.cmbTranportation_SelectedIndexChanged);
             // 
             // cmbTo
@@ -377,7 +379,7 @@
             this.cmbTo.Location = new System.Drawing.Point(190, 60);
             this.cmbTo.Name = "cmbTo";
             this.cmbTo.Size = new System.Drawing.Size(179, 21);
-            this.cmbTo.TabIndex = 7;
+            this.cmbTo.TabIndex = 1;
             // 
             // cmbFrom
             // 
@@ -386,16 +388,17 @@
             this.cmbFrom.Location = new System.Drawing.Point(190, 26);
             this.cmbFrom.Name = "cmbFrom";
             this.cmbFrom.Size = new System.Drawing.Size(179, 21);
-            this.cmbFrom.TabIndex = 6;
+            this.cmbFrom.TabIndex = 0;
             // 
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(190, 262);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 5;
+            this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // label5
             // 
@@ -508,6 +511,16 @@
             this.imgList.Images.SetKeyName(1, "Train.gif");
             this.imgList.Images.SetKeyName(2, "Flight.gif");
             // 
+            // checkBoxLessThan2
+            // 
+            this.checkBoxLessThan2.AutoSize = true;
+            this.checkBoxLessThan2.Location = new System.Drawing.Point(402, 187);
+            this.checkBoxLessThan2.Name = "checkBoxLessThan2";
+            this.checkBoxLessThan2.Size = new System.Drawing.Size(69, 17);
+            this.checkBoxLessThan2.TabIndex = 6;
+            this.checkBoxLessThan2.Text = "< 2 years";
+            this.checkBoxLessThan2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -584,6 +597,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateOfJourney;
+        private System.Windows.Forms.CheckBox checkBoxLessThan2;
     }
 }
 

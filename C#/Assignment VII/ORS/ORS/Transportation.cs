@@ -46,5 +46,10 @@ namespace ORS
             else
                 e.Cancel = true;
         }
+
+        private void btnTransportation_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

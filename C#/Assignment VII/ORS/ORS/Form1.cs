@@ -80,5 +80,11 @@ namespace ORS
             Customer updateCustomer = new Customer("Update Customer Info");
             updateCustomer.Show();
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            SelectTime selectTime = new SelectTime();
+            selectTime.Show();
+        }
     }
 }

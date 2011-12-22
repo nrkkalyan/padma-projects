@@ -111,6 +111,7 @@
             this.btnCustomer.TabIndex = 8;
             this.btnCustomer.Text = "OK";
             this.btnCustomer.UseVisualStyleBackColor = true;
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // Customer
             // 

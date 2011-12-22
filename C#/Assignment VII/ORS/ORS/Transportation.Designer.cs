@@ -117,6 +117,7 @@
             this.btnTransportation.TabIndex = 8;
             this.btnTransportation.Text = "OK";
             this.btnTransportation.UseVisualStyleBackColor = true;
+            this.btnTransportation.Click += new System.EventHandler(this.btnTransportation_Click);
             // 
             // Transportation
             // 

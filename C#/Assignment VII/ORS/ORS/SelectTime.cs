@@ -9,37 +9,32 @@ using System.Windows.Forms;
 
 namespace ORS
 {
-    public partial class Customer : Form
+    public partial class SelectTime : Form
     {
-         //flag to handle the closing of the form
+        //flag to handle the closing of the form
         private bool closeForm;
 
-        //constructor with one parameter (title of the form)
-        public Customer(string title)
+        public SelectTime()
         {
             InitializeComponent();
-            //Other initalizations
-            this.Text = title;
-            closeForm = true;
-
         }
 
-         /// <summary>
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
         /// Event hadler for formclosing event event of the form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Customer_FormClosing(object sender, FormClosingEventArgs e)
+        private void SelectTime_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (closeForm)
                 e.Cancel = false;
             else
                 e.Cancel = true;
-        }
-
-        private void btnCustomer_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
