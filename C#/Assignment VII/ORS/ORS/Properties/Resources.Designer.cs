@@ -74,6 +74,24 @@ namespace ORS.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to  SEK.
+        /// </summary>
+        internal static string strCurrancyName {
+            get {
+                return ResourceManager.GetString("strCurrancyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input is not Valid, Please enter valid number of passengers.
+        /// </summary>
+        internal static string strErrorInput {
+            get {
+                return ResourceManager.GetString("strErrorInput", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap Train {
             get {
                 object obj = ResourceManager.GetObject("Train", resourceCulture);

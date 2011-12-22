@@ -35,12 +35,19 @@ namespace ORS
             cmbTo.Items.Clear();
             cmbTo.Items.AddRange(Enum.GetNames(typeof(Stations)));
             cmbTo.SelectedIndex = (int)Stations.Copenhagen;
+
         }
 
         private void cmbTranportation_SelectedIndexChanged(object sender, EventArgs e)
         {
             //change image in the image control according to the selection
             pictureBox.Image = this.imgList.Images[cmbTranportation.SelectedIndex];
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox about = new AboutBox();
+            about.Show();
         }
     }
 }

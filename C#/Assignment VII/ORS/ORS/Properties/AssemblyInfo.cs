@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ORS")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Online Reservation System")]
+[assembly: AssemblyDescription("Standard online reservation system for booking flight, train or bus tickets for specified station by registered users.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Duvvuri Inc.")]
 [assembly: AssemblyProduct("ORS")]
 [assembly: AssemblyCopyright("Copyright ©  2011")]
 [assembly: AssemblyTrademark("")]

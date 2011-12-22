@@ -7,3 +7,13 @@ c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debu
 c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\GenerateResource.write.1.tlog
 c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.exe
 c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.pdb
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.exe
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.pdb
+C:\padma-projects\C#\Assignment VII\ORS\ORS\bin\Debug\ORS.exe
+C:\padma-projects\C#\Assignment VII\ORS\ORS\bin\Debug\ORS.pdb
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.Form1.resources
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.Properties.Resources.resources
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.AboutBox.resources

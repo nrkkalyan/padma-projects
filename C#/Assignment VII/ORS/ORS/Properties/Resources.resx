@@ -124,6 +124,14 @@
   <data name="Flight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Flight.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="strCurrancyName" xml:space="preserve">
+    <value> SEK</value>
+    <comment>Currancy for in Swedish Krona</comment>
+  </data>
+  <data name="strErrorInput" xml:space="preserve">
+    <value>Input is not Valid, Please enter valid number of passengers</value>
+    <comment>Error Message</comment>
+  </data>
   <data name="Train" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Train.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
