@@ -60,6 +60,13 @@ namespace ORS.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap About {
+            get {
+                object obj = ResourceManager.GetObject("About", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Buss {
             get {
                 object obj = ResourceManager.GetObject("Buss", resourceCulture);
