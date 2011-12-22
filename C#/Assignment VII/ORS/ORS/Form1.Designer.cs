@@ -46,6 +46,11 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabCustomers = new System.Windows.Forms.TabControl();
             this.tabMakeReservation = new System.Windows.Forms.TabPage();
+            this.dateOfJourney = new System.Windows.Forms.DateTimePicker();
+            this.numericChildren = new System.Windows.Forms.NumericUpDown();
+            this.numericAdults = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.cmbCustomer = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.grpDetails = new System.Windows.Forms.GroupBox();
@@ -70,20 +75,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lstCustomers = new System.Windows.Forms.ListBox();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.numericAdults = new System.Windows.Forms.NumericUpDown();
-            this.numericChildren = new System.Windows.Forms.NumericUpDown();
-            this.dateOfJourney = new System.Windows.Forms.DateTimePicker();
             this.MainMenu.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             this.tabMakeReservation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericChildren)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAdults)).BeginInit();
             this.grpDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tabReservations.SuspendLayout();
             this.tabCustomer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericAdults)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericChildren)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -127,14 +127,16 @@
             // addCustomerToolStripMenuItem
             // 
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addCustomerToolStripMenuItem.Text = "Add";
+            this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.updateToolStripMenuItem.Text = "Update ";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -160,20 +162,23 @@
             // trainToolStripMenuItem
             // 
             this.trainToolStripMenuItem.Name = "trainToolStripMenuItem";
-            this.trainToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.trainToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.trainToolStripMenuItem.Text = "Train";
+            this.trainToolStripMenuItem.Click += new System.EventHandler(this.trainToolStripMenuItem_Click);
             // 
             // bussToolStripMenuItem
             // 
             this.bussToolStripMenuItem.Name = "bussToolStripMenuItem";
-            this.bussToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.bussToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bussToolStripMenuItem.Text = "Buss";
+            this.bussToolStripMenuItem.Click += new System.EventHandler(this.bussToolStripMenuItem_Click);
             // 
             // flightToolStripMenuItem
             // 
             this.flightToolStripMenuItem.Name = "flightToolStripMenuItem";
-            this.flightToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.flightToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.flightToolStripMenuItem.Text = "Flight";
+            this.flightToolStripMenuItem.Click += new System.EventHandler(this.flightToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -228,6 +233,55 @@
             this.tabMakeReservation.TabIndex = 0;
             this.tabMakeReservation.Text = "Make Reservation";
             this.tabMakeReservation.UseVisualStyleBackColor = true;
+            // 
+            // dateOfJourney
+            // 
+            this.dateOfJourney.Location = new System.Drawing.Point(190, 127);
+            this.dateOfJourney.Name = "dateOfJourney";
+            this.dateOfJourney.Size = new System.Drawing.Size(179, 20);
+            this.dateOfJourney.TabIndex = 22;
+            // 
+            // numericChildren
+            // 
+            this.numericChildren.Location = new System.Drawing.Point(339, 185);
+            this.numericChildren.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericChildren.Name = "numericChildren";
+            this.numericChildren.Size = new System.Drawing.Size(43, 20);
+            this.numericChildren.TabIndex = 20;
+            // 
+            // numericAdults
+            // 
+            this.numericAdults.Location = new System.Drawing.Point(169, 185);
+            this.numericAdults.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numericAdults.Name = "numericAdults";
+            this.numericAdults.Size = new System.Drawing.Size(43, 20);
+            this.numericAdults.TabIndex = 19;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(267, 187);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Children";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(112, 187);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(36, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Adults";
             // 
             // cmbCustomer
             // 
@@ -454,55 +508,6 @@
             this.imgList.Images.SetKeyName(1, "Train.gif");
             this.imgList.Images.SetKeyName(2, "Flight.gif");
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(112, 187);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Adults";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(267, 187);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Children";
-            // 
-            // numericAdults
-            // 
-            this.numericAdults.Location = new System.Drawing.Point(169, 185);
-            this.numericAdults.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numericAdults.Name = "numericAdults";
-            this.numericAdults.Size = new System.Drawing.Size(43, 20);
-            this.numericAdults.TabIndex = 19;
-            // 
-            // numericChildren
-            // 
-            this.numericChildren.Location = new System.Drawing.Point(339, 185);
-            this.numericChildren.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericChildren.Name = "numericChildren";
-            this.numericChildren.Size = new System.Drawing.Size(43, 20);
-            this.numericChildren.TabIndex = 20;
-            // 
-            // dateOfJourney
-            // 
-            this.dateOfJourney.Location = new System.Drawing.Point(190, 127);
-            this.dateOfJourney.Name = "dateOfJourney";
-            this.dateOfJourney.Size = new System.Drawing.Size(179, 20);
-            this.dateOfJourney.TabIndex = 22;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,6 +523,8 @@
             this.tabCustomers.ResumeLayout(false);
             this.tabMakeReservation.ResumeLayout(false);
             this.tabMakeReservation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericChildren)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericAdults)).EndInit();
             this.grpDetails.ResumeLayout(false);
             this.grpDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
@@ -525,8 +532,6 @@
             this.tabReservations.PerformLayout();
             this.tabCustomer.ResumeLayout(false);
             this.tabCustomer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericAdults)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericChildren)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

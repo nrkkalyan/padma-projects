@@ -49,5 +49,36 @@ namespace ORS
             AboutBox about = new AboutBox();
             about.Show();
         }
+
+        private void trainToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Transportation train = new Transportation("Add New Train Info");
+            train.Show();
+            
+        }
+
+        private void bussToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Transportation bus = new Transportation("Add New Bus Info");
+            bus.Show();
+        }
+
+        private void flightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Transportation flight = new Transportation("Add New Flight Info");
+            flight.Show();
+        }
+
+        private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Customer  addCustomer = new Customer ("Add New Customer Info");
+            addCustomer.Show();
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Customer updateCustomer = new Customer("Update Customer Info");
+            updateCustomer.Show();
+        }
     }
 }
