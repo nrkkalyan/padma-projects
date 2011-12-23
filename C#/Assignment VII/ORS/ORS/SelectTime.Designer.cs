@@ -44,10 +44,12 @@
             // 
             // lstSelectedTime
             // 
+            this.lstSelectedTime.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstSelectedTime.FormattingEnabled = true;
+            this.lstSelectedTime.ItemHeight = 14;
             this.lstSelectedTime.Location = new System.Drawing.Point(53, 77);
             this.lstSelectedTime.Name = "lstSelectedTime";
-            this.lstSelectedTime.Size = new System.Drawing.Size(658, 264);
+            this.lstSelectedTime.Size = new System.Drawing.Size(658, 256);
             this.lstSelectedTime.TabIndex = 1;
             // 
             // btnContinue

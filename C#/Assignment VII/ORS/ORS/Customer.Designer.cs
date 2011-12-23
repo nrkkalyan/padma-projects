@@ -1,6 +1,6 @@
 ﻿namespace ORS
 {
-    partial class Customer
+    partial class CustomerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,43 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
             this.txtCustomerFirstName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCustomerLastName = new System.Windows.Forms.TextBox();
             this.txtCustomerPhone = new System.Windows.Forms.TextBox();
             this.txtCustomerEmail = new System.Windows.Forms.TextBox();
-            this.btnCustomer = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblFirstName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Firstname:";
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Location = new System.Drawing.Point(55, 39);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(55, 13);
+            this.lblFirstName.TabIndex = 0;
+            this.lblFirstName.Text = "Firstname:";
             // 
-            // label2
+            // lblLastName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Lastname:";
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Location = new System.Drawing.Point(55, 80);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(56, 13);
+            this.lblLastName.TabIndex = 1;
+            this.lblLastName.Text = "Lastname:";
             // 
-            // label3
+            // lblPhone
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 120);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Phone/Mobile:";
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Location = new System.Drawing.Point(55, 120);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(77, 13);
+            this.lblPhone.TabIndex = 2;
+            this.lblPhone.Text = "Phone/Mobile:";
             // 
             // txtCustomerFirstName
             // 
@@ -103,31 +104,42 @@
             this.txtCustomerEmail.Size = new System.Drawing.Size(221, 20);
             this.txtCustomerEmail.TabIndex = 7;
             // 
-            // btnCustomer
+            // btnOK
             // 
-            this.btnCustomer.Location = new System.Drawing.Point(179, 213);
-            this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(89, 23);
-            this.btnCustomer.TabIndex = 8;
-            this.btnCustomer.Text = "OK";
-            this.btnCustomer.UseVisualStyleBackColor = true;
-            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
+            this.btnOK.Location = new System.Drawing.Point(103, 211);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(89, 23);
+            this.btnOK.TabIndex = 8;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
-            // Customer
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(281, 211);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(89, 23);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 262);
-            this.Controls.Add(this.btnCustomer);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtCustomerEmail);
             this.Controls.Add(this.txtCustomerPhone);
             this.Controls.Add(this.txtCustomerLastName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCustomerFirstName);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "Customer";
+            this.Controls.Add(this.lblPhone);
+            this.Controls.Add(this.lblLastName);
+            this.Controls.Add(this.lblFirstName);
+            this.Name = "CustomerForm";
             this.Text = "Customer";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,14 +148,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.TextBox txtCustomerFirstName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCustomerLastName;
         private System.Windows.Forms.TextBox txtCustomerPhone;
         private System.Windows.Forms.TextBox txtCustomerEmail;
-        private System.Windows.Forms.Button btnCustomer;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

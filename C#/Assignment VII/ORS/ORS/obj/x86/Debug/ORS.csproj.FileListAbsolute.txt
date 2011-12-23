@@ -12,11 +12,11 @@ C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.pdb
 C:\padma-projects\C#\Assignment VII\ORS\ORS\bin\Debug\ORS.exe
 C:\padma-projects\C#\Assignment VII\ORS\ORS\bin\Debug\ORS.pdb
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.Form1.resources
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.Properties.Resources.resources
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.AboutBox.resources
-C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.Customer.resources
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.Transportation.resources
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.SelectTime.resources
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.MainForm.resources
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.CustomerForm.resources
