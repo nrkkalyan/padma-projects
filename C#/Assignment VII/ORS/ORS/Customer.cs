@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace ORS
 {
@@ -15,6 +16,7 @@ namespace ORS
         private CustomerContacts m_customer;
          //flag to handle the closing of the form
         private bool closeForm;
+        private string[] m_fullConact;
 
         /// <summary>
         /// Property CustomerData to read customer values, with access to 
@@ -24,7 +26,7 @@ namespace ORS
         /// 
         /// <returns>Customer object</returns>
 
-       /* public CustomerContacts CustomerData
+        public CustomerContacts CustomerData
         {
             get { return m_customer; }
             set
@@ -35,12 +37,21 @@ namespace ORS
                 UpdateGUI();
             }
         }
-        */
+        
 
-        public CustomerContacts CustomerData() { 
+       /* public CustomerContacts CustomerData() { 
             return m_customer;
         }
-       
+
+        public string ContactString 
+        {
+            set
+            {
+                if (value != string.Empty)
+                     m_fullConact  = value;
+            } 
+        }
+        */
         /// <summary>
         /// update the controls of customerForm to the m_customer object values
         /// </summary>
@@ -61,6 +72,28 @@ namespace ORS
             closeForm = true;
 
         }
+
+        public string[] Details
+        {
+            set
+            {
+                if (value != null)
+                    m_fullConact = value;
+            }
+        }
+        public CustomerForm(string title, string[] details)
+        {
+            InitializeComponent();
+            //Other initalizations
+            this.Text = title;
+            closeForm = true;
+            m_customer = new CustomerContacts(details);
+            UpdateGUI();
+
+
+        }
+
+
 
          /// <summary>
         /// Event hadler for formclosing event event of the form

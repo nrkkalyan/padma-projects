@@ -12,7 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
-
+using System.IO;
+using System.Collections;
 
     public class InputUtility
     {
@@ -216,5 +217,64 @@ using System.Globalization;
                 return true;
         }
 
+        public static  ArrayList ReadNamesContent()
+        {
+            ArrayList names = new ArrayList();
+            string lineName;
+            StreamReader trNames = null;
+            //StreamReader trNames = null;
+            try
+            {
+                //to fill names combobx
+                trNames = new StreamReader("CustomerNames.txt");
+                lineName = trNames.ReadLine();
+                while (lineName != null)
+                {
+                    names.Add(lineName);
+                    lineName = trNames.ReadLine();
+                }
+
+                trNames.Close();
+                
+            }
+            catch (Exception e)
+            {
+                throw e;
+                //MessageBox.Show("Exception: " + e.Message);
+                
+            }
+            return names;
+
+        }
+
+        public static ArrayList ReadCustomersContent()
+        {
+            ArrayList customers = new ArrayList();
+            string lineCustomers;
+            StreamReader trCustomers = null;
+            //StreamReader trNames = null;
+            try
+            {
+                //to fill names combobx
+                trCustomers = new StreamReader("CustomerDetails.txt");
+                lineCustomers  = trCustomers.ReadLine();
+                while (lineCustomers != null)
+                {
+                    customers.Add(lineCustomers);
+                    lineCustomers = trCustomers.ReadLine();
+                }
+
+                trCustomers.Close();
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+                //MessageBox.Show("Exception: " + e.Message);
+
+            }
+            return customers;
+
+        }
     }
 

@@ -79,9 +79,17 @@ namespace ORS
         public CustomerContacts() : this(string.Empty, string.Empty,string.Empty,string.Empty)
         { }
 
+        public CustomerContacts(string[] details)
+        {
+            m_firstName = details[0];
+            m_lastName = details[1];
+            m_phone = details[2];
+            m_email = details[3];
+        }
+
         public override string ToString()
         {
-            string str = string.Format("{0,-15} {1} {2}", FullName, m_phone.ToString(),m_email.ToString());
+            string str = string.Format("{0} ,{1} ,{2,10} , {3,20}", m_firstName, m_lastName, m_phone.ToString(), m_email.ToString());
             return str;
         }
     }

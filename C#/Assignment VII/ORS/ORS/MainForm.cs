@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections;
 
 namespace ORS
 {
     public partial class MainForm : Form
     {
         CustomerManager customerMngr;
+        ArrayList storedCustomers;
+        ArrayList storeNames;
         public MainForm()
         {
             InitializeComponent();
@@ -48,6 +51,8 @@ namespace ORS
             lstCustomers.Items.Clear();
             cmbCustomer.Items.Clear();
 
+            
+
             string lineCustomer;
             string lineName;
             StreamReader trCustomers = null;
@@ -55,8 +60,7 @@ namespace ORS
             try
             {
                 //to fill names combobx
-                trNames = new StreamReader("C:/padma-projects/CustomerNames.txt");
-
+                trNames = new StreamReader("CustomerNames.txt");
                 lineName = trNames.ReadLine();
                 while (lineName != null)
                 {
@@ -65,26 +69,25 @@ namespace ORS
                 }
 
 
+                storeNames = new ArrayList(cmbCustomer.Items);
                 //to fill listbox with details
-                trCustomers = new StreamReader("C:/padma-projects/CustomerDetails.txt");
+                trCustomers = new StreamReader("CustomerDetails.txt");
                 lineCustomer = trCustomers.ReadLine();
                 while (lineCustomer != null)
                 {
                     lstCustomers.Items.Add(lineCustomer);
                     lineCustomer = trCustomers.ReadLine();
                 }
-
-
+                storedCustomers = new ArrayList(lstCustomers.Items);
+                 trCustomers.Close();
+                trNames.Close();
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception: " + e.Message);
+                //MessageBox.Show ("Exception: " + e.Message);
+                return;
             }
-            finally
-            {
-                trCustomers.Close();
-                trNames.Close();
-            }
+            
         }
 
         private void cmbTranportation_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,7 +126,7 @@ namespace ORS
             CustomerForm  frmCustomer = new CustomerForm ("Add New Customer Info");
             if (frmCustomer.ShowDialog() == DialogResult.OK)
             {
-                customerMngr.AddCustomer(frmCustomer.CustomerData());
+                customerMngr.AddCustomer(frmCustomer.CustomerData);
                 UpdateCustomerList();
             }
         }
@@ -136,8 +139,9 @@ namespace ORS
         {
             StreamWriter twCustomer = null;
             StreamWriter twCustomerNames = null;
-            FileStream fsCustomer = new FileStream("C:/padma-projects/CustomerDetails.txt", FileMode.Append);
-            FileStream fsNames = new FileStream("C:/padma-projects/CustomerNames.txt",FileMode.Append);
+
+            FileStream fsCustomer = new FileStream("CustomerDetails.txt", FileMode.Append);
+            FileStream fsNames = new FileStream("CustomerNames.txt", FileMode.Append);
 
             try
             {
@@ -165,11 +169,77 @@ namespace ORS
             ReadFiles();
         }
 
+        private void ChangedCustomerList()
+        {
+            StreamWriter twCustomer = null;
+            StreamWriter twCustomerNames = null;
 
+            FileStream fsCustomer = new FileStream("CustomerDetails.txt", FileMode.Create);
+            FileStream fsNames = new FileStream("CustomerNames.txt", FileMode.Create);
+
+            try
+            {
+
+                twCustomer = new StreamWriter(fsCustomer);
+                twCustomerNames = new StreamWriter(fsNames);
+                for (int i = 0; i < storedCustomers.Count; i++)
+                    twCustomer.WriteLine(storedCustomers[i]);
+                for (int i = 0; i < storeNames.Count; i++)
+                   twCustomerNames.WriteLine(storeNames[i]);
+           
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+            finally
+            {
+                twCustomer.Close();
+                twCustomerNames.Close();
+            }
+
+            ReadFiles();
+        }
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomerForm updateCustomer = new CustomerForm("Update Customer Info");
-            updateCustomer.Show();
+            
+            {
+                if (lstCustomers.Items.Count != 0)
+                {
+                    
+                   // ReadFiles();
+                    int index = lstCustomers.SelectedIndex;
+                    if (index == -1)
+                    {
+                        MessageBox.Show("Please select an index", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    string str = lstCustomers.SelectedItem.ToString();
+                    CustomerForm frmCustomer = new CustomerForm("Update Customer Info", customerMngr.GetDetails(str));
+                    customerMngr.Customers = storedCustomers;
+                    customerMngr.Names = storeNames;
+                    //if the customer clicks on OK button of the customer form then continue with the updation
+                    if (frmCustomer.ShowDialog() == DialogResult.OK)
+                    {
+                        customerMngr.ChangeCustomer(frmCustomer.CustomerData, lstCustomers.SelectedIndex);
+                        storedCustomers = customerMngr.Customers;
+                        storeNames = customerMngr.Names;
+                        ChangedCustomerList();
+                    }
+                    else
+                    {
+                        //if listbox is empty show error
+                        ShowError();
+                        return;
+                    }
+                }
+               
+            }
+        }
+
+        private void ShowError()
+        {
+            MessageBox.Show("Customer list is empty, choose the Add customer option to add a new customer.", "", MessageBoxButtons.OK);
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

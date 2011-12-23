@@ -26,6 +26,15 @@ namespace ORS
            
         }
 
+        public ArrayList Customers { 
+            get {return customers;}
+            set { customers = value; } }
+        public ArrayList Names {
+            get { return names; }
+            set { names = value; }
+        }
+
+
         /// <summary>
         /// It counts the number of customers objects that are 
         /// present in the arraylist.
@@ -66,7 +75,7 @@ namespace ORS
         /// <returns>true if index is less than the arraysize</returns>
         private bool IsValidIndex(int index)
         {
-            if (index >= 0 && index < CountCustomers)
+            if (index >= 0 && index <= CountCustomers)
                 return true;
             else
                 return false;
@@ -83,8 +92,12 @@ namespace ORS
         {
             if (IsValidIndex(index))
             {
+                
+                string str = customers[index].ToString();
+                string[] details = GetDetails(contactIn.ToString());
+                
 
-                CustomerContacts customer = (CustomerContacts)customers[index];
+                CustomerContacts customer = new CustomerContacts(details);
                 customers.RemoveAt(index);
                 names.RemoveAt(index);
                 customers.Insert(index, customer);
@@ -122,6 +135,15 @@ namespace ORS
         public CustomerContacts GetCustomer(int index)
         {
             return (CustomerContacts)customers[index];
+        }
+
+        public string[] GetDetails(string str)
+        {
+
+            string[] words = str.Split(',');
+            
+
+            return words;
         }
 
         public string  GetName(int index)
