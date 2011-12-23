@@ -119,9 +119,9 @@ namespace ORS
         /// </summary>
         /// <param name="index">selected index by the user</param>
         /// <returns>customer object</returns>
-        public string GetCustomer(int index)
+        public CustomerContacts GetCustomer(int index)
         {
-            return (string)customers[index];
+            return (CustomerContacts)customers[index];
         }
 
         public string  GetName(int index)
