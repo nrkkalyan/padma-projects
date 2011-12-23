@@ -247,5 +247,32 @@ namespace ORS
             SelectTime selectTime = new SelectTime();
             selectTime.Show();
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstCustomers.Items.Count != 0)
+            {
+                int index = lstCustomers.SelectedIndex;
+                customerMngr.Customers = storedCustomers;
+                customerMngr.Names = storeNames;
+                //show error if no index is selected, otherwise call the removeCustomer method of customerMngr for
+                //deleting specific customerdetails at selected index
+                if (index == -1)
+                {
+                    MessageBox.Show("Please select an index", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                customerMngr.RemoveCustomer(index);
+                storedCustomers = customerMngr.Customers;
+                storeNames = customerMngr.Names;
+                ChangedCustomerList();
+            }
+            else
+            {
+                //if listbox is empty show error
+                ShowError();
+                return;
+            }
+        }
     }
 }

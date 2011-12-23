@@ -91,6 +91,7 @@
       <DependentUpon>SelectTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Stations.cs" />
+    <Compile Include="TransportaionManager.cs" />
     <Compile Include="Transportation.cs">
       <SubType>Form</SubType>
     </Compile>

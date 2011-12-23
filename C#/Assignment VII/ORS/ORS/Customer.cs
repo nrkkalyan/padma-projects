@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace ORS
 {
@@ -156,7 +157,28 @@ namespace ORS
                 return false;
             }
 
+            if (!ValidateEmail())
+            {
+                MessageBox.Show("Enter a valid E-mail address", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblLastName.Text = "Email*";
+                return false;
+            }    
+
             return true;
+        }
+
+        private bool ValidateEmail()
+        {
+            string pattern = @"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|" +
+               @"0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z]" +
+               @"[a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$";
+            System.Text.RegularExpressions.Match match =
+                Regex.Match(txtCustomerEmail.Text.Trim(), pattern, RegexOptions.IgnoreCase);
+
+            if (match.Success)
+                return true;
+            else
+                return false;
         }
 
         /// <summary>
