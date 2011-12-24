@@ -14,18 +14,22 @@ namespace ORS
     public partial class MainForm : Form
     {
         CustomerManager customerMngr;
+        TransportaionManager transportMngr;
         ArrayList storedCustomers;
         ArrayList storeNames;
+        string reservation;
         public MainForm()
         {
             InitializeComponent();
             customerMngr = new CustomerManager();
+            transportMngr = new TransportaionManager();
             //My initalization
             InitializeGUI();
         }
 
         private void InitializeGUI()
         {
+            dateOfJourney.MinDate = DateTime.Today;
             // clear and updated the cmbTransportaion with Trasportation type and select default value as Train.
             cmbTranportation.Items.Clear();
             cmbTranportation.Items.AddRange(Enum.GetNames(typeof(TransportationType)));
@@ -104,21 +108,115 @@ namespace ORS
 
         private void trainToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Transportation train = new Transportation("Add New Train Info");
-            train.Show();
+            Transportation frmTrain = new Transportation("Add New Train Info");
+           
+
+            if (frmTrain.ShowDialog() == DialogResult.OK)
+            {
+                transportMngr.AddTrain(frmTrain.TransportData);
+                UpdateTrainList();
+            }
             
         }
 
         private void bussToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Transportation bus = new Transportation("Add New Bus Info");
-            bus.Show();
+            Transportation frmBus = new Transportation("Add New Bus Info");
+          
+            if (frmBus.ShowDialog() == DialogResult.OK)
+            {
+                transportMngr.AddBus(frmBus.TransportData);
+                UpdateBusList ();
+            }
+        }
+
+        private void UpdateBusList()
+            {
+            StreamWriter twBus = null;
+
+            FileStream fsBus = new FileStream("BusDetails.txt", FileMode.Append);
+
+            try
+            {
+
+                twBus  = new StreamWriter(fsBus );
+                int index1 = 0;
+                index1 = (transportMngr.CountBusses  - 1);
+                twBus.WriteLine(transportMngr.GetBus(index1).ToString());
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show ("Exception: " + e.Message);
+            }
+            finally
+            {
+                twBus.Close();
+            }
+            }
+            private void UpdateFlightList()
+                {
+            StreamWriter twFlight = null;
+
+            FileStream fsFlight = new FileStream("FlightDetails.txt", FileMode.Append);
+
+            try
+            {
+
+                twFlight  = new StreamWriter(fsFlight );
+                int index3 = 0;
+                index3 = (transportMngr.CountFlights  - 1);
+                twFlight.WriteLine(transportMngr.GetFlight(index3).ToString());
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show ("Exception: " + e.Message);
+            }
+            finally
+            {
+                twFlight.Close();
+            }
+                }
+
+        private void UpdateTrainList()
+        {
+            StreamWriter twTrain = null;
+
+            FileStream fsTrain = new FileStream("TrainDetails.txt", FileMode.Append);
+
+            try
+            {
+
+                twTrain  = new StreamWriter(fsTrain );
+                int index2 = 0;
+                index2 = (transportMngr.CountTrains  - 1);
+                twTrain.WriteLine(transportMngr.GetTrain(index2).ToString());
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show ("Exception: " + e.Message);
+            }
+            finally
+            {
+                twTrain.Close();
+            }
         }
 
         private void flightToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Transportation flight = new Transportation("Add New Flight Info");
-            flight.Show();
+            Transportation frmFlight = new Transportation("Add New Flight Info");
+            
+
+            if (frmFlight.ShowDialog() == DialogResult.OK)
+            {
+                transportMngr.AddFlight(frmFlight.TransportData);
+                UpdateFlightList ();
+            }
         }
 
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -244,8 +342,105 @@ namespace ORS
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            SelectTime selectTime = new SelectTime();
-            selectTime.Show();
+            if(ValidInput())
+        {
+            SelectTime frmSelectTime = new SelectTime(cmbTranportation.SelectedIndex+1,SelectTitle());
+            frmSelectTime.SetValues(cmbFrom.SelectedItem.ToString(), cmbTo.SelectedItem.ToString());
+            if(frmSelectTime.ShowDialog() == DialogResult.OK)
+                {
+                    lblCustomerName.Text = cmbCustomer.SelectedItem.ToString();
+                    string[] str = customerMngr.GetDetails(lstCustomers.Items[cmbCustomer.SelectedIndex].ToString());
+                    lblCustomerPhone.Text = str[2];
+                    lblReservationUpto.Text = frmSelectTime.Detail;
+                    lblPrice.Text = GetPrice().ToString("#.##");
+
+            AddReservations(lblCustomerName.Text, lblCustomerPhone.Text, lblReservationUpto.Text, lblPrice.Text);
+                }
+                else
+                {
+                    AddReservations("Nothing available",string.Empty,string.Empty,string.Empty);
+                }
+         }
+            else
+            {
+                MessageBox.Show("Please select all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+                }
+
+        }
+
+        private void AddReservations(string name, string phone, string fromto, string price)
+        {
+            reservation = string.Format("{0}- Phone:{1,10}- Details:{2,-10}- Price: {3,20} SEK", name, phone,fromto, price);
+            lstReservations.Items.Add(reservation);
+            UpdateReservations();
+        }
+
+        private void UpdateReservations()
+        {
+            StreamWriter twReservation = null;
+
+            FileStream fsReservation = new FileStream("Reservations.txt", FileMode.Append);
+
+            try
+            {
+
+                twReservation = new StreamWriter(fsReservation);
+                int index3 = 0;
+                index3 = (transportMngr.CountFlights - 1);
+                twReservation.WriteLine(transportMngr.GetFlight(index3).ToString());
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Exception: " + e.Message);
+            }
+            finally
+            {
+                twReservation.Close();
+            }
+        }
+
+        private decimal  GetPrice()
+        {
+            decimal price;
+            if(cmbTranportation.SelectedIndex == 0)
+            {
+                Bus bus = new Bus();
+                price = bus.GetPrice((int)numericAdults.Value, (int)numericChildren.Value);
+            }
+            else if (cmbTranportation.SelectedIndex == 1)
+            {
+                Train train = new Train();
+                price = train.GetPrice((int)numericAdults.Value, (int)numericChildren.Value);
+            }
+            else
+            {
+                Flight flight = new Flight();
+                price = flight.GetPrice((int)numericAdults.Value, (int)numericChildren.Value);
+            }
+            if(checkBoxLessThan2.Checked == true)
+            {
+                return price * 0.15M;
+            }
+            {
+                return price;
+            }
+        }
+
+        private string SelectTitle()
+        {
+            string str = string.Empty;
+            if (cmbTranportation.SelectedIndex == 0)
+                str = "Select Bus";
+            else if(cmbTranportation.SelectedIndex == 1)
+                str = "Select Train";
+            else
+             str = "Select Flight";
+
+            return str;
+
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -273,6 +468,38 @@ namespace ORS
                 ShowError();
                 return;
             }
+        }
+
+        public bool ValidInput() 
+        {
+            if (cmbFrom.SelectedItem.ToString() == cmbTo.SelectedItem.ToString())
+            {
+                MessageBox.Show("Select different Stations", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblFrom.Text = "From*";
+                lblTo.Text = "To*";
+                return false;
+            }
+            if(cmbCustomer.SelectedIndex == -1)
+            {
+                MessageBox.Show("Select Customer", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblName.Text = "Customer Name*";
+                return false;
+            }
+
+            if (numericAdults.Value == 0 || numericChildren.Value == 0)
+            {
+                MessageBox.Show("At least one passenger must be selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblPassengers.Text = "No.Of Passengers *";
+                return false;
+            }
+
+            if(cmbTranportation.SelectedIndex == -1)
+            {
+                MessageBox.Show("Select Transportation Type", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblTransportType.Text = "Select the means of Transportaione*";
+                return false;
+            }
+            return true;
         }
     }
 }

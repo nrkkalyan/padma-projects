@@ -67,6 +67,7 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bus.cs" />
     <Compile Include="Customer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +76,7 @@
     </Compile>
     <Compile Include="CustomerContacts.cs" />
     <Compile Include="CustomerManager.cs" />
+    <Compile Include="Flight.cs" />
     <Compile Include="InputUtility.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -91,6 +93,8 @@
       <DependentUpon>SelectTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Stations.cs" />
+    <Compile Include="Train.cs" />
+    <Compile Include="Transport.cs" />
     <Compile Include="TransportaionManager.cs" />
     <Compile Include="Transportation.cs">
       <SubType>Form</SubType>
@@ -170,10 +174,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\About.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="CustomerDetails.txt" />
-    <Content Include="CustomerNames.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

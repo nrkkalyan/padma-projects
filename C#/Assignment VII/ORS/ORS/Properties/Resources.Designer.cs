@@ -74,24 +74,6 @@ namespace ORS.Properties {
             }
         }
         
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string CustomerDetails {
-            get {
-                return ResourceManager.GetString("CustomerDetails", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string CustomerNames {
-            get {
-                return ResourceManager.GetString("CustomerNames", resourceCulture);
-            }
-        }
-        
         internal static System.Drawing.Bitmap Flight {
             get {
                 object obj = ResourceManager.GetObject("Flight", resourceCulture);

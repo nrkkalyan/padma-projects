@@ -51,9 +51,9 @@
             this.numericChildren = new System.Windows.Forms.NumericUpDown();
             this.numericAdults = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblAdults = new System.Windows.Forms.Label();
             this.cmbCustomer = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.grpDetails = new System.Windows.Forms.GroupBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblReservationUpto = new System.Windows.Forms.Label();
@@ -64,11 +64,11 @@
             this.cmbTo = new System.Windows.Forms.ComboBox();
             this.cmbFrom = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTransportType = new System.Windows.Forms.Label();
+            this.lblPassengers = new System.Windows.Forms.Label();
+            this.lblJourneyDate = new System.Windows.Forms.Label();
+            this.lblTo = new System.Windows.Forms.Label();
+            this.lblFrom = new System.Windows.Forms.Label();
             this.tabReservations = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.lstReservations = new System.Windows.Forms.ListBox();
@@ -76,6 +76,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lstCustomers = new System.Windows.Forms.ListBox();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.MainMenu.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             this.tabMakeReservation.SuspendLayout();
@@ -128,26 +129,26 @@
             // addCustomerToolStripMenuItem
             // 
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.addCustomerToolStripMenuItem.Text = "Add";
             this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.updateToolStripMenuItem.Text = "Update ";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(112, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -210,25 +211,26 @@
             // 
             // tabMakeReservation
             // 
+            this.tabMakeReservation.Controls.Add(this.label1);
             this.tabMakeReservation.Controls.Add(this.checkBoxLessThan2);
             this.tabMakeReservation.Controls.Add(this.dateOfJourney);
             this.tabMakeReservation.Controls.Add(this.numericChildren);
             this.tabMakeReservation.Controls.Add(this.numericAdults);
             this.tabMakeReservation.Controls.Add(this.label10);
-            this.tabMakeReservation.Controls.Add(this.label9);
+            this.tabMakeReservation.Controls.Add(this.lblAdults);
             this.tabMakeReservation.Controls.Add(this.cmbCustomer);
-            this.tabMakeReservation.Controls.Add(this.label7);
+            this.tabMakeReservation.Controls.Add(this.lblName);
             this.tabMakeReservation.Controls.Add(this.grpDetails);
             this.tabMakeReservation.Controls.Add(this.pictureBox);
             this.tabMakeReservation.Controls.Add(this.cmbTranportation);
             this.tabMakeReservation.Controls.Add(this.cmbTo);
             this.tabMakeReservation.Controls.Add(this.cmbFrom);
             this.tabMakeReservation.Controls.Add(this.btnSubmit);
-            this.tabMakeReservation.Controls.Add(this.label5);
-            this.tabMakeReservation.Controls.Add(this.label4);
-            this.tabMakeReservation.Controls.Add(this.label3);
-            this.tabMakeReservation.Controls.Add(this.label2);
-            this.tabMakeReservation.Controls.Add(this.label1);
+            this.tabMakeReservation.Controls.Add(this.lblTransportType);
+            this.tabMakeReservation.Controls.Add(this.lblPassengers);
+            this.tabMakeReservation.Controls.Add(this.lblJourneyDate);
+            this.tabMakeReservation.Controls.Add(this.lblTo);
+            this.tabMakeReservation.Controls.Add(this.lblFrom);
             this.tabMakeReservation.Location = new System.Drawing.Point(4, 22);
             this.tabMakeReservation.Name = "tabMakeReservation";
             this.tabMakeReservation.Padding = new System.Windows.Forms.Padding(3);
@@ -240,7 +242,7 @@
             // checkBoxLessThan2
             // 
             this.checkBoxLessThan2.AutoSize = true;
-            this.checkBoxLessThan2.Location = new System.Drawing.Point(402, 187);
+            this.checkBoxLessThan2.Location = new System.Drawing.Point(406, 197);
             this.checkBoxLessThan2.Name = "checkBoxLessThan2";
             this.checkBoxLessThan2.Size = new System.Drawing.Size(69, 17);
             this.checkBoxLessThan2.TabIndex = 6;
@@ -249,14 +251,15 @@
             // 
             // dateOfJourney
             // 
-            this.dateOfJourney.Location = new System.Drawing.Point(190, 127);
+            this.dateOfJourney.Location = new System.Drawing.Point(194, 137);
+            this.dateOfJourney.MinDate = new System.DateTime(2011, 12, 24, 0, 0, 0, 0);
             this.dateOfJourney.Name = "dateOfJourney";
             this.dateOfJourney.Size = new System.Drawing.Size(179, 20);
             this.dateOfJourney.TabIndex = 3;
             // 
             // numericChildren
             // 
-            this.numericChildren.Location = new System.Drawing.Point(339, 185);
+            this.numericChildren.Location = new System.Drawing.Point(343, 195);
             this.numericChildren.Maximum = new decimal(new int[] {
             10,
             0,
@@ -268,7 +271,7 @@
             // 
             // numericAdults
             // 
-            this.numericAdults.Location = new System.Drawing.Point(169, 185);
+            this.numericAdults.Location = new System.Drawing.Point(173, 195);
             this.numericAdults.Maximum = new decimal(new int[] {
             20,
             0,
@@ -281,38 +284,38 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(267, 187);
+            this.label10.Location = new System.Drawing.Point(271, 197);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 13);
             this.label10.TabIndex = 16;
             this.label10.Text = "Children";
             // 
-            // label9
+            // lblAdults
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(112, 187);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Adults";
+            this.lblAdults.AutoSize = true;
+            this.lblAdults.Location = new System.Drawing.Point(116, 197);
+            this.lblAdults.Name = "lblAdults";
+            this.lblAdults.Size = new System.Drawing.Size(36, 13);
+            this.lblAdults.TabIndex = 15;
+            this.lblAdults.Text = "Adults";
             // 
             // cmbCustomer
             // 
             this.cmbCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCustomer.FormattingEnabled = true;
-            this.cmbCustomer.Location = new System.Drawing.Point(190, 94);
+            this.cmbCustomer.Location = new System.Drawing.Point(194, 104);
             this.cmbCustomer.Name = "cmbCustomer";
             this.cmbCustomer.Size = new System.Drawing.Size(179, 21);
             this.cmbCustomer.TabIndex = 2;
             // 
-            // label7
+            // lblName
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(65, 97);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Customer Name";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(69, 107);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(82, 13);
+            this.lblName.TabIndex = 13;
+            this.lblName.Text = "Customer Name";
             // 
             // grpDetails
             // 
@@ -377,7 +380,7 @@
             // 
             this.cmbTranportation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTranportation.FormattingEnabled = true;
-            this.cmbTranportation.Location = new System.Drawing.Point(270, 216);
+            this.cmbTranportation.Location = new System.Drawing.Point(274, 226);
             this.cmbTranportation.Name = "cmbTranportation";
             this.cmbTranportation.Size = new System.Drawing.Size(179, 21);
             this.cmbTranportation.TabIndex = 7;
@@ -387,7 +390,7 @@
             // 
             this.cmbTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTo.FormattingEnabled = true;
-            this.cmbTo.Location = new System.Drawing.Point(190, 60);
+            this.cmbTo.Location = new System.Drawing.Point(194, 70);
             this.cmbTo.Name = "cmbTo";
             this.cmbTo.Size = new System.Drawing.Size(179, 21);
             this.cmbTo.TabIndex = 1;
@@ -396,14 +399,14 @@
             // 
             this.cmbFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFrom.FormattingEnabled = true;
-            this.cmbFrom.Location = new System.Drawing.Point(190, 26);
+            this.cmbFrom.Location = new System.Drawing.Point(194, 36);
             this.cmbFrom.Name = "cmbFrom";
             this.cmbFrom.Size = new System.Drawing.Size(179, 21);
             this.cmbFrom.TabIndex = 0;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(190, 262);
+            this.btnSubmit.Location = new System.Drawing.Point(194, 272);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 8;
@@ -411,50 +414,50 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // label5
+            // lblTransportType
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(65, 224);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(169, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Select the means of Transportaion";
+            this.lblTransportType.AutoSize = true;
+            this.lblTransportType.Location = new System.Drawing.Point(69, 234);
+            this.lblTransportType.Name = "lblTransportType";
+            this.lblTransportType.Size = new System.Drawing.Size(169, 13);
+            this.lblTransportType.TabIndex = 4;
+            this.lblTransportType.Text = "Select the means of Transportaion";
             // 
-            // label4
+            // lblPassengers
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(65, 159);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "No. Of Passengers";
+            this.lblPassengers.AutoSize = true;
+            this.lblPassengers.Location = new System.Drawing.Point(69, 169);
+            this.lblPassengers.Name = "lblPassengers";
+            this.lblPassengers.Size = new System.Drawing.Size(96, 13);
+            this.lblPassengers.TabIndex = 3;
+            this.lblPassengers.Text = "No. Of Passengers";
             // 
-            // label3
+            // lblJourneyDate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 133);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Date of Journey";
+            this.lblJourneyDate.AutoSize = true;
+            this.lblJourneyDate.Location = new System.Drawing.Point(69, 143);
+            this.lblJourneyDate.Name = "lblJourneyDate";
+            this.lblJourneyDate.Size = new System.Drawing.Size(82, 13);
+            this.lblJourneyDate.TabIndex = 2;
+            this.lblJourneyDate.Text = "Date of Journey";
             // 
-            // label2
+            // lblTo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "To";
+            this.lblTo.AutoSize = true;
+            this.lblTo.Location = new System.Drawing.Point(69, 73);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(20, 13);
+            this.lblTo.TabIndex = 1;
+            this.lblTo.Text = "To";
             // 
-            // label1
+            // lblFrom
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "From";
+            this.lblFrom.AutoSize = true;
+            this.lblFrom.Location = new System.Drawing.Point(69, 36);
+            this.lblFrom.Name = "lblFrom";
+            this.lblFrom.Size = new System.Drawing.Size(30, 13);
+            this.lblFrom.TabIndex = 0;
+            this.lblFrom.Text = "From";
             // 
             // tabReservations
             // 
@@ -526,6 +529,15 @@
             this.imgList.Images.SetKeyName(1, "Train.gif");
             this.imgList.Images.SetKeyName(2, "Flight.gif");
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "All Fields Mandantory:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -574,11 +586,11 @@
         private System.Windows.Forms.TabControl tabCustomers;
         private System.Windows.Forms.TabPage tabMakeReservation;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTransportType;
+        private System.Windows.Forms.Label lblPassengers;
+        private System.Windows.Forms.Label lblJourneyDate;
+        private System.Windows.Forms.Label lblTo;
+        private System.Windows.Forms.Label lblFrom;
         private System.Windows.Forms.TabPage tabReservations;
         private System.Windows.Forms.TabPage tabCustomer;
         private System.Windows.Forms.ComboBox cmbFrom;
@@ -586,7 +598,7 @@
         private System.Windows.Forms.ComboBox cmbTo;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.ComboBox cmbCustomer;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.GroupBox grpDetails;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblReservationUpto;
@@ -600,9 +612,10 @@
         private System.Windows.Forms.NumericUpDown numericChildren;
         private System.Windows.Forms.NumericUpDown numericAdults;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblAdults;
         private System.Windows.Forms.DateTimePicker dateOfJourney;
         private System.Windows.Forms.CheckBox checkBoxLessThan2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

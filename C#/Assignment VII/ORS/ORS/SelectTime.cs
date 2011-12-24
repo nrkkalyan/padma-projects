@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+using System.Collections;
 
 namespace ORS
 {
@@ -13,15 +15,172 @@ namespace ORS
     {
         //flag to handle the closing of the form
         private bool closeForm;
+        private ArrayList  details;
+        private string detail;
+        private string[] from;
+        private string[] to;
+        private string fromStation;
+        private string toStation;
 
-        public SelectTime()
+        public SelectTime(int choice, string title)
         {
             InitializeComponent();
+            this.Text = title;
+            ReadTransportFiles(choice);
+        details = new ArrayList();
+            FilterResults();
+            detail = string.Empty;
         }
+
+        private void FilterResults()
+        {
+            lstSelectedTime.Items.Clear();
+            for (int i = 0; i <= details.Count;i++)
+                {
+                    string str = details[i].ToString();
+                    string[] fromString = InputUtility.GetWords(str);
+                      if(fromString[1]==fromStation && fromString[2]==toStation)
+                        {
+                            lstSelectedTime.Items.Add(details[i]);
+                        }
+                      else
+                      {
+                          lstSelectedTime.Items.Add(string.Empty);
+                      }
+
+                }
+        }
+
+        public void SetValues(string from, string to)
+        {
+            fromStation = from;
+            toStation = to;
+        }
+
+        private void ReadTransportFiles(int choice)
+        {
+            
+            switch(choice)
+            { 
+                case 1:
+                    {
+                        lstSelectedTime.Items.Clear();
+
+                    string transportBus;
+            
+            StreamReader trTransportBus = null;
+           
+            try
+            {
+                //to fill names combobx
+                trTransportBus = new StreamReader("BusDetails.txt");
+                transportBus  = trTransportBus.ReadLine();
+                while (transportBus  != null)
+                {
+                    lstSelectedTime.Items.Add(transportBus);
+                    transportBus  = trTransportBus.ReadLine();
+                }
+                details.AddRange(lstSelectedTime.Items);
+
+                trTransportBus.Close();
+                
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show ("Exception: " + e.Message);
+                return;
+            }
+            break;
+                    }
+                case 2:
+                    {
+                        lstSelectedTime.Items.Clear();
+
+                        string transportTrain;
+
+                        StreamReader trTransportTrain = null;
+
+                        try
+                        {
+                            //to fill names combobx
+                            trTransportTrain = new StreamReader("TrainDetails.txt");
+                            transportTrain = trTransportTrain.ReadLine();
+                            while (transportTrain != null)
+                            {
+                                lstSelectedTime.Items.Add(transportTrain);
+                                transportTrain = trTransportTrain.ReadLine();
+                            }
+
+                            trTransportTrain.Close();
+
+                            details.AddRange(lstSelectedTime.Items);
+                        }
+                        catch (Exception e)
+                        {
+                            //MessageBox.Show ("Exception: " + e.Message);
+                            return;
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        lstSelectedTime.Items.Clear();
+
+                        string transportFlight;
+
+                        StreamReader trTransportFlight = null;
+
+                        try
+                        {
+                            //to fill names combobx
+                            trTransportFlight  = new StreamReader("FlightDetails.txt");
+                            transportFlight = trTransportFlight.ReadLine();
+                            while (transportFlight != null)
+                            {
+                                lstSelectedTime.Items.Add(transportFlight);
+                                transportFlight = trTransportFlight.ReadLine();
+
+                            }
+
+                            trTransportFlight.Close();
+
+                            details.AddRange(lstSelectedTime.Items);
+
+                        }
+                        catch (Exception e)
+                        {
+                            //MessageBox.Show ("Exception: " + e.Message);
+                            return;
+                        }
+                        break;
+                    }
+
+            }
+            
+        }
+
+        public string Detail { get { return detail; } set { value = detail; } }
+
+        public  string GetValue()
+        {
+            string str = lstSelectedTime.SelectedItem.ToString();
+            return str;
+        }
+
+
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (lstSelectedTime.SelectedIndex != -1)
+                detail = GetValue();
+            if (detail == string.Empty)
+            {
+                MessageBox.Show("No transport available", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.No;
+                return;
+            }
+            this.DialogResult = DialogResult.OK;
+            
         }
 
         /// <summary>
@@ -35,6 +194,11 @@ namespace ORS
                 e.Cancel = false;
             else
                 e.Cancel = true;
+        }
+
+        private void lstSelectedTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            detail = GetValue();
         }
     }
 }

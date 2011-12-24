@@ -40,19 +40,6 @@ namespace ORS
         }
         
 
-       /* public CustomerContacts CustomerData() { 
-            return m_customer;
-        }
-
-        public string ContactString 
-        {
-            set
-            {
-                if (value != string.Empty)
-                     m_fullConact  = value;
-            } 
-        }
-        */
         /// <summary>
         /// update the controls of customerForm to the m_customer object values
         /// </summary>

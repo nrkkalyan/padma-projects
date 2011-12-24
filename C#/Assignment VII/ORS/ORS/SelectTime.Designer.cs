@@ -51,6 +51,7 @@
             this.lstSelectedTime.Name = "lstSelectedTime";
             this.lstSelectedTime.Size = new System.Drawing.Size(658, 256);
             this.lstSelectedTime.TabIndex = 1;
+            this.lstSelectedTime.SelectedIndexChanged += new System.EventHandler(this.lstSelectedTime_SelectedIndexChanged);
             // 
             // btnContinue
             // 

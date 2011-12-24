@@ -217,64 +217,28 @@ using System.Collections;
                 return true;
         }
 
-        public static  ArrayList ReadNamesContent()
+       public static bool GetDecimal(string stringToConvert, out decimal  decimalOutValue)
         {
-            ArrayList names = new ArrayList();
-            string lineName;
-            StreamReader trNames = null;
-            //StreamReader trNames = null;
-            try
+           // parsing the string to check for whether value is double value or not
+            bool isDecimal = decimal.TryParse(stringToConvert, out decimalOutValue);
+            if (isDecimal == true)
             {
-                //to fill names combobx
-                trNames = new StreamReader("CustomerNames.txt");
-                lineName = trNames.ReadLine();
-                while (lineName != null)
-                {
-                    names.Add(lineName);
-                    lineName = trNames.ReadLine();
-                }
-
-                trNames.Close();
-                
+                // return true if the value is validated as a integer
+                return true;
             }
-            catch (Exception e)
-            {
-                throw e;
-                //MessageBox.Show("Exception: " + e.Message);
-                
-            }
-            return names;
+            // return false if the value is not validated as a integer
+            return false;
 
         }
 
-        public static ArrayList ReadCustomersContent()
-        {
-            ArrayList customers = new ArrayList();
-            string lineCustomers;
-            StreamReader trCustomers = null;
-            //StreamReader trNames = null;
-            try
-            {
-                //to fill names combobx
-                trCustomers = new StreamReader("CustomerDetails.txt");
-                lineCustomers  = trCustomers.ReadLine();
-                while (lineCustomers != null)
-                {
-                    customers.Add(lineCustomers);
-                    lineCustomers = trCustomers.ReadLine();
-                }
+       public static string[] GetWords(string str)
+       {
 
-                trCustomers.Close();
+           string[] words = str.Split(',');
 
-            }
-            catch (Exception e)
-            {
-                throw e;
-                //MessageBox.Show("Exception: " + e.Message);
 
-            }
-            return customers;
-
-        }
+           return words;
+       }
+        
     }
 
