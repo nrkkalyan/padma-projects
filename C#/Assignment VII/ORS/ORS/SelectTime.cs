@@ -17,31 +17,30 @@ namespace ORS
         private bool closeForm;
         private ArrayList  details;
         private string detail;
-        private string[] from;
-        private string[] to;
         private string fromStation;
         private string toStation;
 
-        public SelectTime(int choice, string title)
+        public SelectTime(int choice, string title,string from, string to)
         {
             InitializeComponent();
             this.Text = title;
+            SetValues(from, to);
             ReadTransportFiles(choice);
-        details = new ArrayList();
+        
             FilterResults();
             detail = string.Empty;
+            
         }
 
         private void FilterResults()
         {
             lstSelectedTime.Items.Clear();
-            for (int i = 0; i <= details.Count;i++)
+            foreach (string str in details)
                 {
-                    string str = details[i].ToString();
                     string[] fromString = InputUtility.GetWords(str);
                       if(fromString[1]==fromStation && fromString[2]==toStation)
                         {
-                            lstSelectedTime.Items.Add(details[i]);
+                            lstSelectedTime.Items.Add(str);
                         }
                       else
                       {
@@ -51,7 +50,7 @@ namespace ORS
                 }
         }
 
-        public void SetValues(string from, string to)
+        private void SetValues(string from, string to)
         {
             fromStation = from;
             toStation = to;
@@ -59,14 +58,12 @@ namespace ORS
 
         private void ReadTransportFiles(int choice)
         {
-            
+            details = new ArrayList();
             switch(choice)
             { 
                 case 1:
                     {
-                        lstSelectedTime.Items.Clear();
-
-                    string transportBus;
+                     string transportBus;
             
             StreamReader trTransportBus = null;
            
@@ -77,10 +74,9 @@ namespace ORS
                 transportBus  = trTransportBus.ReadLine();
                 while (transportBus  != null)
                 {
-                    lstSelectedTime.Items.Add(transportBus);
+                    details.Add(transportBus);
                     transportBus  = trTransportBus.ReadLine();
                 }
-                details.AddRange(lstSelectedTime.Items);
 
                 trTransportBus.Close();
                 
@@ -94,8 +90,6 @@ namespace ORS
                     }
                 case 2:
                     {
-                        lstSelectedTime.Items.Clear();
-
                         string transportTrain;
 
                         StreamReader trTransportTrain = null;
@@ -107,13 +101,9 @@ namespace ORS
                             transportTrain = trTransportTrain.ReadLine();
                             while (transportTrain != null)
                             {
-                                lstSelectedTime.Items.Add(transportTrain);
+                                details.Add(transportTrain);
                                 transportTrain = trTransportTrain.ReadLine();
                             }
-
-                            trTransportTrain.Close();
-
-                            details.AddRange(lstSelectedTime.Items);
                         }
                         catch (Exception e)
                         {
@@ -124,8 +114,6 @@ namespace ORS
                     }
                 case 3:
                     {
-                        lstSelectedTime.Items.Clear();
-
                         string transportFlight;
 
                         StreamReader trTransportFlight = null;
@@ -137,14 +125,13 @@ namespace ORS
                             transportFlight = trTransportFlight.ReadLine();
                             while (transportFlight != null)
                             {
-                                lstSelectedTime.Items.Add(transportFlight);
+
+                                details.Add(transportFlight);
                                 transportFlight = trTransportFlight.ReadLine();
 
                             }
 
                             trTransportFlight.Close();
-
-                            details.AddRange(lstSelectedTime.Items);
 
                         }
                         catch (Exception e)

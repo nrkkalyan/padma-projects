@@ -49,22 +49,21 @@ namespace ORS
 
         private void btnTransportation_Click(object sender, EventArgs e)
         {
-            decimal ticketPrice = 0.0M;
-            if (!ValidateInputFields() && !ValidatePrice(out ticketPrice))
+            int ticketPrice = 0;
+            if (!ValidateInputFields())
             {
                 return;
             }
             //if no customer is present then create a new customer
-            if (m_transport  == null)
-            {
-                m_transport = new Transport ();
-            }
 
+            ValidatePrice(out ticketPrice);
+           m_transport = new Transport (ticketPrice);
+            
             m_transport.TransportationNumber = txtNumber.Text;
-            Stations  fromStaion = (Stations)Enum.Parse(typeof(Stations ), (string)this.cmbFrom.SelectedItem);
+            Stations  fromStaion = (Stations)Enum.Parse(typeof(Stations ), (string)cmbFrom.SelectedItem);
             m_transport.FromStation = fromStaion;
-            Stations toStation = (Stations)Enum.Parse(typeof(Stations), (string)this.cmbTo.SelectedItem);
-            m_transport.FromStation = toStation;
+            Stations toStation = (Stations)Enum.Parse(typeof(Stations), (string)cmbTo.SelectedItem);
+            m_transport.ToStation = toStation;
             DateTime time = (DateTime)timeTransportation.Value;
             m_transport.Time = time;
             m_transport.PriceAdult = ticketPrice;
@@ -72,10 +71,10 @@ namespace ORS
             this.DialogResult = DialogResult.OK;
         }
 
-        private bool ValidatePrice(out decimal ticketPrice)
+        private bool ValidatePrice(out int ticketPrice)
         {
             string str = txtPrice.Text;
-            bool isValid = InputUtility.GetDecimal(str, out ticketPrice);
+            bool isValid = InputUtility.GetInteger(str, out ticketPrice);
             if (isValid)
             {
                 return true;
@@ -112,12 +111,12 @@ namespace ORS
             // clear and updated the cmbFrom with Station and select default value Stockholm.
             cmbFrom.Items.Clear();
             cmbFrom.Items.AddRange(Enum.GetNames(typeof(Stations)));
-            cmbFrom.SelectedIndex = (int)Stations.Stockholm;
+            //cmbFrom.SelectedIndex = (int)Stations.Stockholm;
 
             // clear and updated the cmbTo with Station and select default value Copenhagen.
             cmbTo.Items.Clear();
             cmbTo.Items.AddRange(Enum.GetNames(typeof(Stations)));
-            cmbTo.SelectedIndex = (int)Stations.Copenhagen;
+            //cmbTo.SelectedIndex = (int)Stations.Copenhagen;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

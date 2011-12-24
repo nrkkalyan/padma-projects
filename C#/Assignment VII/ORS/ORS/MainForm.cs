@@ -344,21 +344,26 @@ namespace ORS
         {
             if(ValidInput())
         {
-            SelectTime frmSelectTime = new SelectTime(cmbTranportation.SelectedIndex+1,SelectTitle());
-            frmSelectTime.SetValues(cmbFrom.SelectedItem.ToString(), cmbTo.SelectedItem.ToString());
+            SelectTime frmSelectTime = new SelectTime(cmbTranportation.SelectedIndex + 1, SelectTitle(), cmbFrom.SelectedItem.ToString(), cmbTo.SelectedItem.ToString());
+            
             if(frmSelectTime.ShowDialog() == DialogResult.OK)
                 {
                     lblCustomerName.Text = cmbCustomer.SelectedItem.ToString();
                     string[] str = customerMngr.GetDetails(lstCustomers.Items[cmbCustomer.SelectedIndex].ToString());
                     lblCustomerPhone.Text = str[2];
                     lblReservationUpto.Text = frmSelectTime.Detail;
-                    lblPrice.Text = GetPrice().ToString("#.##");
+                    string[] str1 = InputUtility.GetWords(frmSelectTime.Detail);
+                    string price = str1[4];
+                
+                    lblPrice.Text = GetPrice(price).ToString("#.##");
 
             AddReservations(lblCustomerName.Text, lblCustomerPhone.Text, lblReservationUpto.Text, lblPrice.Text);
                 }
                 else
                 {
-                    AddReservations("Nothing available",string.Empty,string.Empty,string.Empty);
+                    lstReservations.Items.Add("None availabe");
+                   
+                    return;
                 }
          }
             else
@@ -371,9 +376,9 @@ namespace ORS
 
         private void AddReservations(string name, string phone, string fromto, string price)
         {
-            reservation = string.Format("{0}- Phone:{1,10}- Details:{2,-10}- Price: {3,20} SEK", name, phone,fromto, price);
+            reservation = string.Format("{0}- Phone:{1,10}- Details:{2,-10}- Total Price: {3,20} SEK", name, phone,fromto, price);
             lstReservations.Items.Add(reservation);
-            UpdateReservations();
+            
         }
 
         private void UpdateReservations()
@@ -386,9 +391,10 @@ namespace ORS
             {
 
                 twReservation = new StreamWriter(fsReservation);
-                int index3 = 0;
-                index3 = (transportMngr.CountFlights - 1);
-                twReservation.WriteLine(transportMngr.GetFlight(index3).ToString());
+                for (int i= 0; i <= lstReservations.Items.Count -1; i++)
+                {
+                twReservation.WriteLine(lstReservations.Items[i].ToString());
+                }
 
 
             }
@@ -402,31 +408,20 @@ namespace ORS
             }
         }
 
-        private decimal  GetPrice()
+        private decimal  GetPrice(string priceValue)
         {
+            decimal adultPrice = decimal.Parse(priceValue);
+            decimal childPrice = adultPrice/2;
             decimal price;
-            if(cmbTranportation.SelectedIndex == 0)
-            {
-                Bus bus = new Bus();
-                price = bus.GetPrice((int)numericAdults.Value, (int)numericChildren.Value);
-            }
-            else if (cmbTranportation.SelectedIndex == 1)
-            {
-                Train train = new Train();
-                price = train.GetPrice((int)numericAdults.Value, (int)numericChildren.Value);
-            }
-            else
-            {
-                Flight flight = new Flight();
-                price = flight.GetPrice((int)numericAdults.Value, (int)numericChildren.Value);
-            }
+            price = ((int)numericAdults.Value * adultPrice) + ((int)numericChildren.Value * childPrice);
+            
             if(checkBoxLessThan2.Checked == true)
             {
                 return price * 0.15M;
             }
-            {
+            
                 return price;
-            }
+           
         }
 
         private string SelectTitle()
@@ -501,5 +496,34 @@ namespace ORS
             }
             return true;
         }
+
+
+        private void closeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void saveResToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateReservations();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        
+            {
+                DialogResult result = MessageBox.Show("Do you want to Save reservations before closing the application?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                //close the form only if the user clicks on Yes button of the messagebox.
+                if (result == DialogResult.Yes)
+                {
+                    e.Cancel = false;
+                   
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            
+        
     }
 }
