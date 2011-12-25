@@ -1,3 +1,2 @@
 Padma ,Duvvuri ,   1232323 , padmapriya.duvvuri@gmail.com
-Kalyan ,Nimmagadda ,45454635343 ,   nrkkalya@gmail.com
-Saranya     ,Tanvi     ,   7843847     ,   nrkkalyan@gmail.com
+nrk  ,Nimmagadda   ,45454635343   ,     nrkkalya@gmail.com
