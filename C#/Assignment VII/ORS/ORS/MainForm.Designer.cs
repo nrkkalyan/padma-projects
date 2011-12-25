@@ -47,6 +47,8 @@
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabCustomers = new System.Windows.Forms.TabControl();
             this.tabMakeReservation = new System.Windows.Forms.TabPage();
+            this.numericInfants = new System.Windows.Forms.NumericUpDown();
+            this.lblInfants = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBoxLessThan2 = new System.Windows.Forms.CheckBox();
             this.dateOfJourney = new System.Windows.Forms.DateTimePicker();
@@ -57,6 +59,7 @@
             this.cmbCustomer = new System.Windows.Forms.ComboBox();
             this.lblName = new System.Windows.Forms.Label();
             this.grpDetails = new System.Windows.Forms.GroupBox();
+            this.lblTotalTickets = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblReservationUpto = new System.Windows.Forms.Label();
             this.lblCustomerPhone = new System.Windows.Forms.Label();
@@ -78,9 +81,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lstCustomers = new System.Windows.Forms.ListBox();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.saveCurrentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.MainMenu.SuspendLayout();
             this.tabCustomers.SuspendLayout();
             this.tabMakeReservation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericInfants)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericChildren)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAdults)).BeginInit();
             this.grpDetails.SuspendLayout();
@@ -105,7 +114,9 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveCurrentToolStripMenuItem,
             this.saveResToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.exitToolStripMenuItem1});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
@@ -135,6 +146,7 @@
             this.customerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addCustomerToolStripMenuItem,
             this.updateToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.deleteToolStripMenuItem});
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
             this.customerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
@@ -183,7 +195,7 @@
             // 
             this.trainToolStripMenuItem.Name = "trainToolStripMenuItem";
             this.trainToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.trainToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.trainToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.trainToolStripMenuItem.Text = "&Train";
             this.trainToolStripMenuItem.ToolTipText = "To add a new Train details";
             this.trainToolStripMenuItem.Click += new System.EventHandler(this.trainToolStripMenuItem_Click);
@@ -192,7 +204,7 @@
             // 
             this.bussToolStripMenuItem.Name = "bussToolStripMenuItem";
             this.bussToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.bussToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.bussToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bussToolStripMenuItem.Text = "&Buss";
             this.bussToolStripMenuItem.ToolTipText = "To add new bus details";
             this.bussToolStripMenuItem.Click += new System.EventHandler(this.bussToolStripMenuItem_Click);
@@ -201,7 +213,7 @@
             // 
             this.flightToolStripMenuItem.Name = "flightToolStripMenuItem";
             this.flightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.flightToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.flightToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.flightToolStripMenuItem.Text = "&Flight";
             this.flightToolStripMenuItem.ToolTipText = "To add new flight details";
             this.flightToolStripMenuItem.Click += new System.EventHandler(this.flightToolStripMenuItem_Click);
@@ -220,7 +232,7 @@
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "A&bout";
             this.aboutToolStripMenuItem.ToolTipText = "To see applicaton info";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
@@ -229,7 +241,7 @@
             // 
             this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
             this.viewHelpToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.viewHelpToolStripMenuItem.Text = "View Help";
             this.viewHelpToolStripMenuItem.Click += new System.EventHandler(this.viewHelpToolStripMenuItem_Click);
             // 
@@ -246,6 +258,8 @@
             // 
             // tabMakeReservation
             // 
+            this.tabMakeReservation.Controls.Add(this.numericInfants);
+            this.tabMakeReservation.Controls.Add(this.lblInfants);
             this.tabMakeReservation.Controls.Add(this.label1);
             this.tabMakeReservation.Controls.Add(this.checkBoxLessThan2);
             this.tabMakeReservation.Controls.Add(this.dateOfJourney);
@@ -274,6 +288,29 @@
             this.tabMakeReservation.Text = "Make Reservation";
             this.tabMakeReservation.UseVisualStyleBackColor = true;
             // 
+            // numericInfants
+            // 
+            this.numericInfants.Location = new System.Drawing.Point(442, 199);
+            this.numericInfants.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericInfants.Name = "numericInfants";
+            this.numericInfants.Size = new System.Drawing.Size(43, 20);
+            this.numericInfants.TabIndex = 19;
+            this.numericInfants.Visible = false;
+            // 
+            // lblInfants
+            // 
+            this.lblInfants.AutoSize = true;
+            this.lblInfants.Location = new System.Drawing.Point(388, 202);
+            this.lblInfants.Name = "lblInfants";
+            this.lblInfants.Size = new System.Drawing.Size(39, 13);
+            this.lblInfants.TabIndex = 18;
+            this.lblInfants.Text = "Infants";
+            this.lblInfants.Visible = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -286,12 +323,14 @@
             // checkBoxLessThan2
             // 
             this.checkBoxLessThan2.AutoSize = true;
-            this.checkBoxLessThan2.Location = new System.Drawing.Point(406, 197);
+            this.checkBoxLessThan2.Location = new System.Drawing.Point(313, 200);
             this.checkBoxLessThan2.Name = "checkBoxLessThan2";
             this.checkBoxLessThan2.Size = new System.Drawing.Size(69, 17);
             this.checkBoxLessThan2.TabIndex = 6;
             this.checkBoxLessThan2.Text = "< 2 years";
             this.checkBoxLessThan2.UseVisualStyleBackColor = true;
+            this.checkBoxLessThan2.Visible = false;
+            this.checkBoxLessThan2.CheckedChanged += new System.EventHandler(this.checkBoxLessThan2_CheckedChanged);
             // 
             // dateOfJourney
             // 
@@ -303,7 +342,7 @@
             // 
             // numericChildren
             // 
-            this.numericChildren.Location = new System.Drawing.Point(343, 195);
+            this.numericChildren.Location = new System.Drawing.Point(246, 197);
             this.numericChildren.Maximum = new decimal(new int[] {
             10,
             0,
@@ -312,10 +351,11 @@
             this.numericChildren.Name = "numericChildren";
             this.numericChildren.Size = new System.Drawing.Size(43, 20);
             this.numericChildren.TabIndex = 5;
+            this.numericChildren.ValueChanged += new System.EventHandler(this.numericChildren_ValueChanged);
             // 
             // numericAdults
             // 
-            this.numericAdults.Location = new System.Drawing.Point(173, 195);
+            this.numericAdults.Location = new System.Drawing.Point(122, 197);
             this.numericAdults.Maximum = new decimal(new int[] {
             20,
             0,
@@ -328,7 +368,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(271, 197);
+            this.label10.Location = new System.Drawing.Point(182, 202);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 13);
             this.label10.TabIndex = 16;
@@ -337,7 +377,7 @@
             // lblAdults
             // 
             this.lblAdults.AutoSize = true;
-            this.lblAdults.Location = new System.Drawing.Point(116, 197);
+            this.lblAdults.Location = new System.Drawing.Point(69, 201);
             this.lblAdults.Name = "lblAdults";
             this.lblAdults.Size = new System.Drawing.Size(36, 13);
             this.lblAdults.TabIndex = 15;
@@ -363,6 +403,8 @@
             // 
             // grpDetails
             // 
+            this.grpDetails.Controls.Add(this.btnConfirm);
+            this.grpDetails.Controls.Add(this.lblTotalTickets);
             this.grpDetails.Controls.Add(this.lblPrice);
             this.grpDetails.Controls.Add(this.lblReservationUpto);
             this.grpDetails.Controls.Add(this.lblCustomerPhone);
@@ -373,6 +415,15 @@
             this.grpDetails.TabIndex = 12;
             this.grpDetails.TabStop = false;
             this.grpDetails.Text = "Reservation Details";
+            // 
+            // lblTotalTickets
+            // 
+            this.lblTotalTickets.AutoSize = true;
+            this.lblTotalTickets.Location = new System.Drawing.Point(473, 101);
+            this.lblTotalTickets.Name = "lblTotalTickets";
+            this.lblTotalTickets.Size = new System.Drawing.Size(75, 13);
+            this.lblTotalTickets.TabIndex = 4;
+            this.lblTotalTickets.Text = "[Total Tickets]";
             // 
             // lblPrice
             // 
@@ -573,6 +624,43 @@
             this.imgList.Images.SetKeyName(1, "Train.gif");
             this.imgList.Images.SetKeyName(2, "Flight.gif");
             // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Enabled = false;
+            this.btnConfirm.Location = new System.Drawing.Point(638, 91);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.TabIndex = 5;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.CheckFileExists = true;
+            this.saveFileDialog1.DefaultExt = "txt";
+            this.saveFileDialog1.Filter = "\"txt files (*.txt)|*.txt|All files (*.*)|*.*\"";
+            this.saveFileDialog1.RestoreDirectory = true;
+            // 
+            // saveCurrentToolStripMenuItem
+            // 
+            this.saveCurrentToolStripMenuItem.Name = "saveCurrentToolStripMenuItem";
+            this.saveCurrentToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+            this.saveCurrentToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.saveCurrentToolStripMenuItem.Text = "Sa&ve Current ";
+            this.saveCurrentToolStripMenuItem.ToolTipText = "To save Current reservation";
+            this.saveCurrentToolStripMenuItem.Click += new System.EventHandler(this.saveCurrentToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(204, 6);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(154, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,6 +678,7 @@
             this.tabCustomers.ResumeLayout(false);
             this.tabMakeReservation.ResumeLayout(false);
             this.tabMakeReservation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericInfants)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericChildren)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAdults)).EndInit();
             this.grpDetails.ResumeLayout(false);
@@ -654,6 +743,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
+        private System.Windows.Forms.NumericUpDown numericInfants;
+        private System.Windows.Forms.Label lblInfants;
+        private System.Windows.Forms.Label lblTotalTickets;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.ToolStripMenuItem saveCurrentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
