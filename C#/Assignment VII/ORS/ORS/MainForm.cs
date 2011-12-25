@@ -18,13 +18,17 @@ namespace ORS
         ArrayList storedCustomers;
         ArrayList storeNames;
         string reservation;
+        bool reservationSaved;
         public MainForm()
         {
             InitializeComponent();
             customerMngr = new CustomerManager();
             transportMngr = new TransportaionManager();
+            reservationSaved = false;
             //My initalization
             InitializeGUI();
+
+
         }
 
         private void InitializeGUI()
@@ -45,10 +49,16 @@ namespace ORS
             cmbTo.Items.AddRange(Enum.GetNames(typeof(Stations)));
             cmbTo.SelectedIndex = (int)Stations.Copenhagen;
 
+            numericAdults.Value = 0;
+            numericChildren.Value = 0;
+            checkBoxLessThan2.Checked = false;
+
             ReadFiles();
          
 
         }
+
+      
 
         private void ReadFiles()
         {
@@ -343,11 +353,18 @@ namespace ORS
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if(ValidInput())
-        {
+            {
             SelectTime frmSelectTime = new SelectTime(cmbTranportation.SelectedIndex + 1, SelectTitle(), cmbFrom.SelectedItem.ToString(), cmbTo.SelectedItem.ToString());
-            
-            if(frmSelectTime.ShowDialog() == DialogResult.OK)
+
+            if (frmSelectTime.ListBoxDetails.Count == 0)
                 {
+                MessageBox.Show("No transport available", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmSelectTime.Close();
+                }
+            else
+                {
+                if(frmSelectTime.ShowDialog() == DialogResult.OK)
+                    {
                     lblCustomerName.Text = cmbCustomer.SelectedItem.ToString();
                     string[] str = customerMngr.GetDetails(lstCustomers.Items[cmbCustomer.SelectedIndex].ToString());
                     lblCustomerPhone.Text = str[2];
@@ -357,15 +374,12 @@ namespace ORS
                 
                     lblPrice.Text = GetPrice(price).ToString("#.##");
 
-            AddReservations(lblCustomerName.Text, lblCustomerPhone.Text, lblReservationUpto.Text, lblPrice.Text);
+                    AddReservations(lblCustomerName.Text, lblCustomerPhone.Text, lblReservationUpto.Text, lblPrice.Text);
+                    }
                 }
-                else
-                {
-                    lstReservations.Items.Add("None availabe");
-                   
-                    return;
-                }
-         }
+
+            InitializeGUI();
+            }
             else
             {
                 MessageBox.Show("Please select all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -376,7 +390,7 @@ namespace ORS
 
         private void AddReservations(string name, string phone, string fromto, string price)
         {
-            reservation = string.Format("{0}- Phone:{1,10}- Details:{2,-10}- Total Price: {3,20} SEK", name, phone,fromto, price);
+            reservation = string.Format("{0}- Phone:{1,10}- Transport Details:{2}- Total Price: {3} SEK", name, phone,fromto, price);
             lstReservations.Items.Add(reservation);
             
         }
@@ -412,16 +426,13 @@ namespace ORS
         {
             decimal adultPrice = decimal.Parse(priceValue);
             decimal childPrice = adultPrice/2;
+            if (checkBoxLessThan2.Checked == true)
+            {
+                childPrice = childPrice * 0.15M;
+            }
             decimal price;
             price = ((int)numericAdults.Value * adultPrice) + ((int)numericChildren.Value * childPrice);
-            
-            if(checkBoxLessThan2.Checked == true)
-            {
-                return price * 0.15M;
-            }
-            
-                return price;
-           
+            return price;
         }
 
         private string SelectTitle()
@@ -481,7 +492,7 @@ namespace ORS
                 return false;
             }
 
-            if (numericAdults.Value == 0 || numericChildren.Value == 0)
+            if (numericAdults.Value == 0 && numericChildren.Value == 0)
             {
                 MessageBox.Show("At least one passenger must be selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 lblPassengers.Text = "No.Of Passengers *";
@@ -505,25 +516,56 @@ namespace ORS
 
         private void saveResToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (reservationSaved == false && lstReservations.Items.Count != 0)
+                  {
             UpdateReservations();
+            reservationSaved = true;
+            MessageBox.Show("Reservations are saved","Info",MessageBoxButtons.OK);
+                  }
+            else
+            {
+                reservationSaved = false;
+                 MessageBox.Show("No reservations are made!","Info",MessageBoxButtons.OK);
+                  }
+        }
+
+        
+
+        private void viewHelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hover the mouse over the controls to see the help.", "Help", MessageBoxButtons.OK);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        
+        {
+            if (reservationSaved == false && lstReservations.Items.Count != 0)
             {
                 DialogResult result = MessageBox.Show("Do you want to Save reservations before closing the application?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 //close the form only if the user clicks on Yes button of the messagebox.
                 if (result == DialogResult.Yes)
                 {
                     e.Cancel = false;
-                   
-                }
+                    UpdateReservations();
+                    DialogResult showMessage = MessageBox.Show("Reservations are saved", "Info", MessageBoxButtons.OK);
+                    if (showMessage == DialogResult.OK)
+                    {
+                        reservationSaved = true;
+                       // e.Cancel = true;
+                        this.Dispose();
+                    }
+               }
                 else
                 {
                     e.Cancel = true;
                 }
+
             }
-            
-        
+        }
+
+       
+
+       
+
+      
     }
 }

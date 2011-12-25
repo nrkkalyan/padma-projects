@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Online Reservation System")]
-[assembly: AssemblyDescription("Standard online reservation system for booking flight, train or bus tickets between specif station by registered users. In this version only oneway tickets can be booked.")]
+[assembly: AssemblyDescription("Online Reservation System (ORS) is simple online reservation system for booking flight, train or bus tickets between specif station by registered users. In this version only oneway tickets can be booked.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Duvvuri Inc.")]
 [assembly: AssemblyProduct("ORS")]

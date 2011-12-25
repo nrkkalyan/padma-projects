@@ -33,12 +33,10 @@
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveResToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.closeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transportaionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +44,7 @@
             this.flightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabCustomers = new System.Windows.Forms.TabControl();
             this.tabMakeReservation = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -107,66 +106,66 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveResToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.closeToolStripMenuItem1});
+            this.exitToolStripMenuItem1});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Text = "&File";
             // 
             // saveResToolStripMenuItem
             // 
             this.saveResToolStripMenuItem.Name = "saveResToolStripMenuItem";
-            this.saveResToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.saveResToolStripMenuItem.Text = "Save Reservations";
+            this.saveResToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveResToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.saveResToolStripMenuItem.Text = "&Save Reservations";
+            this.saveResToolStripMenuItem.ToolTipText = "To Save the Reservations to a File";
             this.saveResToolStripMenuItem.Click += new System.EventHandler(this.saveResToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem2
+            // exitToolStripMenuItem1
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(164, 6);
-            // 
-            // closeToolStripMenuItem1
-            // 
-            this.closeToolStripMenuItem1.Name = "closeToolStripMenuItem1";
-            this.closeToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
-            this.closeToolStripMenuItem1.Text = "Close";
-            this.closeToolStripMenuItem1.Click += new System.EventHandler(this.closeToolStripMenuItem1_Click);
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(207, 22);
+            this.exitToolStripMenuItem1.Text = "E&xit";
+            this.exitToolStripMenuItem1.ToolTipText = "To close the application";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.closeToolStripMenuItem1_Click);
             // 
             // customerToolStripMenuItem
             // 
             this.customerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addCustomerToolStripMenuItem,
             this.updateToolStripMenuItem,
-            this.toolStripMenuItem1,
             this.deleteToolStripMenuItem});
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
+            this.customerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
             this.customerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.customerToolStripMenuItem.Text = "Customer";
+            this.customerToolStripMenuItem.Text = "&Customer";
             // 
             // addCustomerToolStripMenuItem
             // 
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.addCustomerToolStripMenuItem.Text = "Add";
+            this.addCustomerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.addCustomerToolStripMenuItem.Text = "&Add";
+            this.addCustomerToolStripMenuItem.ToolTipText = "To add new customer details";
             this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.updateToolStripMenuItem.Text = "Update ";
+            this.updateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.updateToolStripMenuItem.Text = "&Update ";
+            this.updateToolStripMenuItem.ToolTipText = "To update customer details";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(112, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.deleteToolStripMenuItem.Text = "&Delete";
+            this.deleteToolStripMenuItem.ToolTipText = "To delete a customer";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // transportaionToolStripMenuItem
@@ -176,44 +175,63 @@
             this.bussToolStripMenuItem,
             this.flightToolStripMenuItem});
             this.transportaionToolStripMenuItem.Name = "transportaionToolStripMenuItem";
+            this.transportaionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
             this.transportaionToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.transportaionToolStripMenuItem.Text = "Transportaion";
+            this.transportaionToolStripMenuItem.Text = "&Transportaion";
             // 
             // trainToolStripMenuItem
             // 
             this.trainToolStripMenuItem.Name = "trainToolStripMenuItem";
-            this.trainToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
-            this.trainToolStripMenuItem.Text = "Train";
+            this.trainToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.trainToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.trainToolStripMenuItem.Text = "&Train";
+            this.trainToolStripMenuItem.ToolTipText = "To add a new Train details";
             this.trainToolStripMenuItem.Click += new System.EventHandler(this.trainToolStripMenuItem_Click);
             // 
             // bussToolStripMenuItem
             // 
             this.bussToolStripMenuItem.Name = "bussToolStripMenuItem";
-            this.bussToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
-            this.bussToolStripMenuItem.Text = "Buss";
+            this.bussToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.bussToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.bussToolStripMenuItem.Text = "&Buss";
+            this.bussToolStripMenuItem.ToolTipText = "To add new bus details";
             this.bussToolStripMenuItem.Click += new System.EventHandler(this.bussToolStripMenuItem_Click);
             // 
             // flightToolStripMenuItem
             // 
             this.flightToolStripMenuItem.Name = "flightToolStripMenuItem";
-            this.flightToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
-            this.flightToolStripMenuItem.Text = "Flight";
+            this.flightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.flightToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.flightToolStripMenuItem.Text = "&Flight";
+            this.flightToolStripMenuItem.ToolTipText = "To add new flight details";
             this.flightToolStripMenuItem.Click += new System.EventHandler(this.flightToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.viewHelpToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "H&elp";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.aboutToolStripMenuItem.Text = "A&bout";
+            this.aboutToolStripMenuItem.ToolTipText = "To see applicaton info";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // viewHelpToolStripMenuItem
+            // 
+            this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
+            this.viewHelpToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.viewHelpToolStripMenuItem.Text = "View Help";
+            this.viewHelpToolStripMenuItem.Click += new System.EventHandler(this.viewHelpToolStripMenuItem_Click);
             // 
             // tabCustomers
             // 
@@ -559,12 +577,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(924, 527);
             this.Controls.Add(this.tabCustomers);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Online Reservation System";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
@@ -593,7 +612,6 @@
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transportaionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trainToolStripMenuItem;
@@ -634,8 +652,8 @@
         private System.Windows.Forms.DateTimePicker dateOfJourney;
         private System.Windows.Forms.CheckBox checkBoxLessThan2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
     }
 }
 

@@ -19,17 +19,34 @@ namespace ORS
         private string detail;
         private string fromStation;
         private string toStation;
+        private ArrayList listBoxDetails;
 
         public SelectTime(int choice, string title,string from, string to)
         {
             InitializeComponent();
+            lstSelectedTime.Items.Add(string.Empty);
+            lstSelectedTime.SetSelected(0,true);
+            
             this.Text = title;
             SetValues(from, to);
             ReadTransportFiles(choice);
         
+            listBoxDetails = new ArrayList();
             FilterResults();
             detail = string.Empty;
+
             
+        }
+        public ArrayList  ListBoxDetails 
+        {
+            get
+            {
+               return  listBoxDetails ;
+            }
+            set
+            {
+                value = listBoxDetails;
+            }
         }
 
         private void FilterResults()
@@ -42,12 +59,9 @@ namespace ORS
                         {
                             lstSelectedTime.Items.Add(str);
                         }
-                      else
-                      {
-                          lstSelectedTime.Items.Add(string.Empty);
-                      }
-
+                    
                 }
+            listBoxDetails.AddRange(lstSelectedTime.Items);
         }
 
         private void SetValues(string from, string to)
@@ -151,7 +165,8 @@ namespace ORS
         public  string GetValue()
         {
             string str = lstSelectedTime.SelectedItem.ToString();
-            return str;
+                return str;
+       
         }
 
 
@@ -159,14 +174,16 @@ namespace ORS
         private void btnContinue_Click(object sender, EventArgs e)
         {
             if (lstSelectedTime.SelectedIndex != -1)
+                {
                 detail = GetValue();
-            if (detail == string.Empty)
+                
+                this.DialogResult = DialogResult.OK;
+                }
+            else
             {
-                MessageBox.Show("No transport available", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.No;
+                MessageBox.Show("Please select an index", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            this.DialogResult = DialogResult.OK;
             
         }
 
@@ -183,9 +200,11 @@ namespace ORS
                 e.Cancel = true;
         }
 
-        private void lstSelectedTime_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            detail = GetValue();
+            this.DialogResult = DialogResult.No;
         }
+
+       
     }
 }

@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lstSelectedTime = new System.Windows.Forms.ListBox();
             this.btnContinue = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -51,11 +52,10 @@
             this.lstSelectedTime.Name = "lstSelectedTime";
             this.lstSelectedTime.Size = new System.Drawing.Size(658, 256);
             this.lstSelectedTime.TabIndex = 1;
-            this.lstSelectedTime.SelectedIndexChanged += new System.EventHandler(this.lstSelectedTime_SelectedIndexChanged);
             // 
             // btnContinue
             // 
-            this.btnContinue.Location = new System.Drawing.Point(344, 357);
+            this.btnContinue.Location = new System.Drawing.Point(424, 355);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(75, 23);
             this.btnContinue.TabIndex = 2;
@@ -63,11 +63,23 @@
             this.btnContinue.UseVisualStyleBackColor = true;
             this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(254, 355);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 3;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // SelectTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(787, 418);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.lstSelectedTime);
             this.Controls.Add(this.label1);
@@ -83,5 +95,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lstSelectedTime;
         private System.Windows.Forms.Button btnContinue;
+        private System.Windows.Forms.Button btnBack;
     }
 }

@@ -200,7 +200,7 @@ namespace ORS
         {
             long number;
             bool isValid = InputUtility.GetLong(phone, out number);
-            if (isValid)
+            if (isValid )
             {
                 return true;
             }
