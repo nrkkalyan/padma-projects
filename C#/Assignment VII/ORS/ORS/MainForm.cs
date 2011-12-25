@@ -150,23 +150,53 @@ namespace ORS
             
         }
 
+        /// <summary>
+        /// Event-hanler for click event of train menu item in Transport Menu.
+        /// This is used to add new train info
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bussToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // create and show teh Transportation form
             Transportation frmBus = new Transportation("Add New Bus Info");
           
             if (frmBus.ShowDialog() == DialogResult.OK)
             {
+                //Add the details and call the UpdateTrain List() method to write the values in File
                 transportMngr.AddBus(frmBus.TransportData);
                 UpdateBusList ();
             }
         }
 
-        private void UpdateBusList()
+        /// <summary>
+        /// Event-hanler for click event of train menu item in Transport Menu.
+        /// This is used to add new train info
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void flightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // create and show teh Transportation form
+            Transportation frmFlight = new Transportation("Add New Flight Info");
+
+            if (frmFlight.ShowDialog() == DialogResult.OK)
             {
+                //Add the details and call the UpdateTrain List() method to write the values in File
+                transportMngr.AddFlight(frmFlight.TransportData);
+                UpdateFlightList();
+            }
+        }
+        
+        /// <summary>
+        /// Writes the Bussdetails to BusDetails.txt, if file already exits it will 
+        /// append to it, otherwise creates new.
+        /// </summary>
+        private void UpdateBusList()
+        {
             StreamWriter twBus = null;
-
             FileStream fsBus = new FileStream("BusDetails.txt", FileMode.Append);
-
+            //write data from transportMngr object to file
             try
             {
 
@@ -174,8 +204,6 @@ namespace ORS
                 int index1 = 0;
                 index1 = (transportMngr.CountBusses  - 1);
                 twBus.WriteLine(transportMngr.GetBus(index1).ToString());
-
-
             }
             catch (Exception e)
             {
@@ -185,22 +213,23 @@ namespace ORS
             {
                 twBus.Close();
             }
-            }
-            private void UpdateFlightList()
-                {
+         }
+
+        /// <summary>
+        /// Writes the FlightDetails to FlightDetails.txt, if file already exits it will 
+        /// append to it, otherwise creates new.
+        /// </summary>
+        private void UpdateFlightList()
+        {
             StreamWriter twFlight = null;
-
             FileStream fsFlight = new FileStream("FlightDetails.txt", FileMode.Append);
-
+            //write data from transportMngr object to file
             try
             {
-
                 twFlight  = new StreamWriter(fsFlight );
                 int index3 = 0;
                 index3 = (transportMngr.CountFlights  - 1);
                 twFlight.WriteLine(transportMngr.GetFlight(index3).ToString());
-
-
             }
             catch (Exception e)
             {
@@ -210,24 +239,23 @@ namespace ORS
             {
                 twFlight.Close();
             }
-                }
+         }
 
-
+        /// <summary>
+        /// Writes the TrainDetails to TrainDetails.txt, if file already exits it will 
+        /// append to it, otherwise creates new.
+        /// </summary>
         private void UpdateTrainList()
         {
             StreamWriter twTrain = null;
-
             FileStream fsTrain = new FileStream("TrainDetails.txt", FileMode.Append);
-
+            //write data from transportMngr object to file
             try
             {
-
                 twTrain  = new StreamWriter(fsTrain );
                 int index2 = 0;
                 index2 = (transportMngr.CountTrains  - 1);
                 twTrain.WriteLine(transportMngr.GetTrain(index2).ToString());
-
-
             }
             catch (Exception e)
             {
@@ -239,24 +267,21 @@ namespace ORS
             }
         }
 
-        private void flightToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Transportation frmFlight = new Transportation("Add New Flight Info");
-            
 
-            if (frmFlight.ShowDialog() == DialogResult.OK)
-            {
-                transportMngr.AddFlight(frmFlight.TransportData);
-                UpdateFlightList ();
-            }
-        }
-
+        /// <summary>
+        /// event-hanlre for the add customer menu item of customer Menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //show customerform to enter the values
             CustomerForm  frmCustomer = new CustomerForm ("Add New Customer Info");
             if (frmCustomer.ShowDialog() == DialogResult.OK)
             {
+                //add new customer with help of customerMngr object
                 customerMngr.AddCustomer(frmCustomer.CustomerData);
+                //Update the customer list and updates the files
                 UpdateCustomerList();
             }
         }
@@ -272,18 +297,15 @@ namespace ORS
 
             FileStream fsCustomer = new FileStream("CustomerDetails.txt", FileMode.Append);
             FileStream fsNames = new FileStream("CustomerNames.txt", FileMode.Append);
-
+            //loop through and write the values to the files
             try
             {
-
-                 twCustomer = new StreamWriter(fsCustomer);
-                 twCustomerNames = new StreamWriter(fsNames);
-                 int index1 = 0;
+                twCustomer = new StreamWriter(fsCustomer);
+                twCustomerNames = new StreamWriter(fsNames);
+                int index1 = 0;
                 index1 = (customerMngr.CountCustomers - 1);
                 twCustomer.WriteLine(customerMngr.GetCustomer(index1).ToString());
-               twCustomerNames.WriteLine(customerMngr.GetName(index1).ToString());
-
-               
+                twCustomerNames.WriteLine(customerMngr.GetName(index1).ToString());
             }
             catch(Exception e)
 			{
@@ -293,10 +315,14 @@ namespace ORS
                 twCustomer.Close();
                 twCustomerNames.Close();
             }
-
+            //Read the files to get the updated list of customer and names
             ReadFiles();
         }
 
+        /// <summary>
+        /// Update the customer list if any value of customer is updated by clicking 
+        /// update menu item of customer menu.
+        /// </summary>
         private void ChangedCustomerList()
         {
             StreamWriter twCustomer = null;
@@ -304,17 +330,15 @@ namespace ORS
 
             FileStream fsCustomer = new FileStream("CustomerDetails.txt", FileMode.Create);
             FileStream fsNames = new FileStream("CustomerNames.txt", FileMode.Create);
-
+            //update the values and write them to files
             try
             {
-
                 twCustomer = new StreamWriter(fsCustomer);
                 twCustomerNames = new StreamWriter(fsNames);
                 for (int i = 0; i < storedCustomers.Count; i++)
                     twCustomer.WriteLine(storedCustomers[i]);
                 for (int i = 0; i < storeNames.Count; i++)
                    twCustomerNames.WriteLine(storeNames[i]);
-           
             }
             catch (Exception e)
             {
@@ -325,16 +349,22 @@ namespace ORS
                 twCustomer.Close();
                 twCustomerNames.Close();
             }
-
+            //Read files again to get the updates values
             ReadFiles();
         }
+
+        /// <summary>
+        /// Event-hanler for click event of update menu item of customer menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                if (lstCustomers.Items.Count != 0)
+            // Perform updation only when some customers already present.
+            if (lstCustomers.Items.Count != 0)
                 {
-                    
-                   // ReadFiles();
                     int index = lstCustomers.SelectedIndex;
+                    //if no index is selected show error
                     if (index == -1)
                     {
                         MessageBox.Show("Please select an index", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -350,25 +380,31 @@ namespace ORS
                         customerMngr.ChangeCustomer(frmCustomer.CustomerData, lstCustomers.SelectedIndex);
                         storedCustomers = customerMngr.Customers;
                         storeNames = customerMngr.Names;
+                        //update the customer list
                         ChangedCustomerList();
                     }
                 }
-                else
-                    {
+            else
+                {
                         //if listbox is empty show error
                         ShowError();
                         return;
-                    
                 }
-               
-            
         }
 
+        /// <summary>
+        /// Show error if the no customers are present to update or delete
+        /// </summary>
         private void ShowError()
         {
             MessageBox.Show("Customer list is empty, choose the Add customer option to add a new customer.", "", MessageBoxButtons.OK);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if(ValidInput())
