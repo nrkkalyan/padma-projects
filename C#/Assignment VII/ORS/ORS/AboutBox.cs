@@ -1,4 +1,8 @@
-﻿using System;
+﻿// File Name: AboutBox.cs
+// Created By: Padma Priya Duvvuri
+// Created On: 19-Dec-2011
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;

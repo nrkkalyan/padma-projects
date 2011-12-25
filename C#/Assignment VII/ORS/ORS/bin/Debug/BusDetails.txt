@@ -1,2 +1,0 @@
-1233 ,Amsterdam,Copenhagen,01:59 AM,100,50
-wqq ,Paris,Rome,03:05 AM,32,16

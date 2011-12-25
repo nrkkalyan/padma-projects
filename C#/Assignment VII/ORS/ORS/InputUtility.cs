@@ -217,7 +217,14 @@ using System.Collections;
                 return true;
         }
 
-       public static bool GetDecimal(string stringToConvert, out decimal  decimalOutValue)
+        /// <summary>
+        /// Converts the string value to decimal value. If the parsing is successfull
+        /// returns the decimal value
+        /// </summary>
+        /// <param name="stringToConvert"> string to be converted</param>
+        /// <param name="longOutValue">decimal valued output parameter</param>
+        /// <returns></returns>
+        public static bool GetDecimal(string stringToConvert, out decimal  decimalOutValue)
         {
            // parsing the string to check for whether value is double value or not
             bool isDecimal = decimal.TryParse(stringToConvert, out decimalOutValue);
@@ -231,13 +238,17 @@ using System.Collections;
 
         }
 
-       public static string[] GetWords(string str)
+
+       /// <summary>
+       /// Devides the perticular string and stores the values into array
+       /// of strings
+       /// </summary>
+       /// <param name="str">the string to be divided</param>
+       /// <returns>array of strings</returns>
+        public static string[] GetWords(string str)
        {
-
-           string[] words = str.Split(',');
-
-
-           return words;
+            string[] words = str.Split(',');
+            return words;
        }
         
     }

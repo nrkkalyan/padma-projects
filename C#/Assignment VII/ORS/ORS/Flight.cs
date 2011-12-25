@@ -1,23 +1,41 @@
-﻿using System;
+﻿// File Name: Flight.cs
+// Created By: Padma Priya Duvvuri
+// Created On: 22-Dec-2011
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace ORS
 {
+    /// <summary>
+    /// This class inherits from Transport Class
+    /// </summary>
     class Flight : Transport
     {
+        /// <summary>
+        /// Constructor that takes 6 parameters, It calls the base class contructor
+        /// to set the values
+        /// </summary>
+        /// <param name="number">Bus Number</param>
+        /// <param name="from">From station</param>
+        /// <param name="to">to station</param>
+        /// <param name="time">time of departure</param>
+        /// <param name="priceA">price for adult</param>
+        /// <param name="priceC">price for children</param>
         public Flight(string number, Stations from, Stations to, DateTime time, decimal priceA, decimal priceC)
             : base(number, from, to, time, priceA,priceC)
         { }
+
+
+        /// <summary>
+        /// Constructor that takes one parameter, It calls base class 
+        /// constructor to set the values
+        /// </summary>
+        /// <param name="price">Price for adult</param>
         public Flight(decimal price):base(price)
         { }
 
-        public override decimal GetPrice(int adults, int children,decimal price)
-        {
-            decimal flightAdultPrice = base.PriceAdult + 2500.00M;
-            decimal flightChildPrice = base.PriceChild + 1000.00M;
-            return (adults * flightAdultPrice) + (children * flightChildPrice);
-        }
     }
 }

@@ -50,25 +50,22 @@ namespace ORS
         private void btnTransportation_Click(object sender, EventArgs e)
         {
             int ticketPrice = 0;
-            if (!ValidateInputFields())
+            if (ValidateInputFields() == true && ValidatePrice(out ticketPrice) == true)
             {
-                return;
-            }
-            //if no customer is present then create a new customer
+                m_transport = new Transport(ticketPrice);
 
-            ValidatePrice(out ticketPrice);
-           m_transport = new Transport (ticketPrice);
-            
-            m_transport.TransportationNumber = txtNumber.Text;
-            Stations  fromStaion = (Stations)Enum.Parse(typeof(Stations ), (string)cmbFrom.SelectedItem);
-            m_transport.FromStation = fromStaion;
-            Stations toStation = (Stations)Enum.Parse(typeof(Stations), (string)cmbTo.SelectedItem);
-            m_transport.ToStation = toStation;
-            DateTime time = (DateTime)timeTransportation.Value;
-            m_transport.Time = time;
-            m_transport.PriceAdult = ticketPrice;
-            UpdateGUI();
-            this.DialogResult = DialogResult.OK;
+                m_transport.TransportationNumber = txtNumber.Text;
+                Stations fromStaion = (Stations)Enum.Parse(typeof(Stations), (string)cmbFrom.SelectedItem);
+                m_transport.FromStation = fromStaion;
+                Stations toStation = (Stations)Enum.Parse(typeof(Stations), (string)cmbTo.SelectedItem);
+                m_transport.ToStation = toStation;
+                DateTime time = (DateTime)timeTransportation.Value;
+                m_transport.Time = time;
+                m_transport.PriceAdult = ticketPrice;
+                UpdateGUI();
+                this.DialogResult = DialogResult.OK;
+            }
+           
         }
 
         private bool ValidatePrice(out int ticketPrice)
@@ -81,6 +78,7 @@ namespace ORS
             }
             else
             {
+                MessageBox.Show("Please enter valid price", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
 
             }

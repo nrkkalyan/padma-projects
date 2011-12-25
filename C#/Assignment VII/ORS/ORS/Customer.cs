@@ -1,4 +1,8 @@
-﻿using System;
+﻿// File Name: Customer.cs
+// Created By: Padma Priya Duvvuri
+// Created On: 24-Dec-2011
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,14 +21,13 @@ namespace ORS
         private CustomerContacts m_customer;
          //flag to handle the closing of the form
         private bool closeForm;
-        private string[] m_fullConact;
+        private string[] m_fullConact; //to store value of customer details 
 
         /// <summary>
         /// Property CustomerData to read customer values, with access to 
         /// read and write
         /// </summary>
-        /// <value></value>
-        /// 
+        /// <value></value> 
         /// <returns>Customer object</returns>
 
         public CustomerContacts CustomerData
@@ -61,6 +64,9 @@ namespace ORS
 
         }
 
+        /// <summary>
+        /// Write only property to set the value of m_fullContact
+        /// </summary>
         public string[] Details
         {
             set
@@ -69,6 +75,12 @@ namespace ORS
                     m_fullConact = value;
             }
         }
+        
+        /// <summary>
+        /// Constructor with 2 paramerts with custom title and details of customer
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="details"></param>
         public CustomerForm(string title, string[] details)
         {
             InitializeComponent();
@@ -77,8 +89,6 @@ namespace ORS
             closeForm = true;
             m_customer = new CustomerContacts(details);
             UpdateGUI();
-
-
         }
 
 
@@ -96,6 +106,11 @@ namespace ORS
                 e.Cancel = true;
         }
 
+        /// <summary>
+        /// Event-handler to handle click event of btnCustomer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCustomer_Click(object sender, EventArgs e)
         {
             //validate the user given values for Name fields and phone number
@@ -108,7 +123,7 @@ namespace ORS
             {
                 m_customer = new CustomerContacts();
             }
-
+            //set the values inputted by the user to m_customer object
             m_customer.Email = txtCustomerEmail.Text;
             m_customer.Phone = txtCustomerPhone.Text ;
             m_customer.FirstName = txtCustomerFirstName.Text;
@@ -143,7 +158,7 @@ namespace ORS
             {
                 return false;
             }
-
+            //to validate email
             if (!ValidateEmail())
             {
                 MessageBox.Show("Enter a valid E-mail address", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -154,6 +169,10 @@ namespace ORS
             return true;
         }
 
+        /// <summary>
+        /// It validates the email.
+        /// </summary>
+        /// <returns>true if email is valid and false otherwise</returns>
         private bool ValidateEmail()
         {
             string pattern = @"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|" +
@@ -210,6 +229,12 @@ namespace ORS
                 return false;
             }
         }
+
+        /// <summary>
+        /// Event handler for the click event of btnCancel to close the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

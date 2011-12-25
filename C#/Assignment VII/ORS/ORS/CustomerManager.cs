@@ -1,4 +1,8 @@
-﻿using System;
+﻿// File Name: CustomerManager.cs
+// Created By: Padma Priya Duvvuri
+// Created On: 23-Dec-2011
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -7,13 +11,14 @@ using System.Collections;
 
 namespace ORS
 {
+    /// <summary>
+    /// A manager class that acts as a media between MainForm and the CustomerContacts Class
+    /// </summary>
     class CustomerManager
     {
         //private arraylist to store customer details
         private ArrayList customers;
         private ArrayList names;
-
-
 
         /// <summary>
         /// default constructor. It creates a new arraylist object.
@@ -22,13 +27,18 @@ namespace ORS
         {
             customers = new ArrayList();
             names = new ArrayList();
-
-           
         }
 
+        /// <summary>
+        /// Read and Write propety for customers arraylist
+        /// </summary>
         public ArrayList Customers { 
             get {return customers;}
             set { customers = value; } }
+        
+        /// <summary>
+        /// Read and Write propery for names arraylist
+        /// </summary>
         public ArrayList Names {
             get { return names; }
             set { names = value; }
@@ -43,16 +53,6 @@ namespace ORS
         public int CountCustomers
         {
             get { return customers.Count; }
-        }
-
-        /// <summary>
-        /// It counts the number of customers objects that are 
-        /// present in the arraylist.
-        /// </summary>
-        /// <returns>no.of customers present</returns>
-        public int CountNames
-        {
-            get { return names.Count; }
         }
 
 
@@ -94,9 +94,8 @@ namespace ORS
             {
                 
                 string str = customers[index].ToString();
-                string[] details = GetDetails(contactIn.ToString());
-                
-
+                string[] details = InputUtility.GetWords(contactIn.ToString());
+                //create a new customercontacts object with selected string values
                 CustomerContacts customer = new CustomerContacts(details);
                 customers.RemoveAt(index);
                 names.RemoveAt(index);
@@ -137,15 +136,12 @@ namespace ORS
             return (CustomerContacts)customers[index];
         }
 
-        public string[] GetDetails(string str)
-        {
-
-            string[] words = str.Split(',');
-            
-
-            return words;
-        }
-
+ 
+        /// <summary>
+        /// Gets the value of string at a perticular index of names arrayList
+        /// </summary>
+        /// <param name="index">index</param>
+        /// <returns>a name as string</returns>
         public string  GetName(int index)
         {
             return (string)names[index];

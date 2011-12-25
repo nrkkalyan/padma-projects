@@ -1,36 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
+﻿// File Name: MainForm.cs
+// Created By: Padma Priya Duvvuri
+// Created On: 24-Dec-2011
+
+using System;
 using System.Collections;
+using System.IO;
+using System.Windows.Forms;
 
 namespace ORS
-{
+{ 
+    /// <summary>
+    /// This is the mainForm class where the actual process happens
+    /// </summary>
     public partial class MainForm : Form
     {
-        CustomerManager customerMngr;
-        TransportaionManager transportMngr;
-        ArrayList storedCustomers;
-        ArrayList storeNames;
-        string reservation;
-        bool reservationSaved;
+        //Instance variables
+        CustomerManager customerMngr; //To manage customer details
+        TransportationManager transportMngr; // To manage Transportion details
+        ArrayList storedCustomers; // to store already store customers of the last instance
+        ArrayList storeNames; //to store already store names of customers of the last instance
+        string reservation; // to store the value of reservations
+        bool reservationSaved; // to check wheter the reservations details are stored
         public MainForm()
         {
             InitializeComponent();
             customerMngr = new CustomerManager();
-            transportMngr = new TransportaionManager();
+            transportMngr = new TransportationManager();
             reservationSaved = false;
             //My initalization
             InitializeGUI();
-
-
         }
 
+        /// <summary>
+        /// Other inializations that set default values for fields
+        /// </summary>
         private void InitializeGUI()
         {
             dateOfJourney.MinDate = DateTime.Today;
@@ -52,28 +55,28 @@ namespace ORS
             numericAdults.Value = 0;
             numericChildren.Value = 0;
             checkBoxLessThan2.Checked = false;
-
+            //read customer data from files
             ReadFiles();
          
 
         }
 
-      
-
+        /// <summary>
+        /// Reads the customer data from the files if any customers are already added
+        /// </summary>
         private void ReadFiles()
         {
             lstCustomers.Items.Clear();
             cmbCustomer.Items.Clear();
-
             
-
             string lineCustomer;
             string lineName;
+            //StreamReader object to read the customer details
             StreamReader trCustomers = null;
             StreamReader trNames = null;
             try
             {
-                //to fill names combobx
+                //Read data from CustomerNames.txt
                 trNames = new StreamReader("CustomerNames.txt");
                 lineName = trNames.ReadLine();
                 while (lineName != null)
@@ -81,10 +84,10 @@ namespace ORS
                     cmbCustomer.Items.Add(lineName);
                     lineName = trNames.ReadLine();
                 }
-
-
+                //store the customer names in combobox
                 storeNames = new ArrayList(cmbCustomer.Items);
-                //to fill listbox with details
+
+                //read data from CustomerDetails.txt
                 trCustomers = new StreamReader("CustomerDetails.txt");
                 lineCustomer = trCustomers.ReadLine();
                 while (lineCustomer != null)
@@ -92,37 +95,55 @@ namespace ORS
                     lstCustomers.Items.Add(lineCustomer);
                     lineCustomer = trCustomers.ReadLine();
                 }
+                //store teh customer details in lstCustomers
                 storedCustomers = new ArrayList(lstCustomers.Items);
-                 trCustomers.Close();
+                trCustomers.Close();
                 trNames.Close();
             }
             catch (Exception e)
             {
-                //MessageBox.Show ("Exception: " + e.Message);
+                MessageBox.Show ("Exception: " + e.Message);
                 return;
             }
             
         }
 
+        /// <summary>
+        /// Event-handler for SelectedIndexChanged event of cmbTranportation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbTranportation_SelectedIndexChanged(object sender, EventArgs e)
         {
             //change image in the image control according to the selection
             pictureBox.Image = this.imgList.Images[cmbTranportation.SelectedIndex];
         }
 
+        /// <summary>
+        /// Event-hanler for click event of about menu item in help menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //show the About form
             AboutBox about = new AboutBox();
             about.Show();
         }
 
+        /// <summary>
+        /// Event-hanler for click event of train menu item in Transport Menu.
+        /// This is used to add new train info
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void trainToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // create and show teh Transportation form
             Transportation frmTrain = new Transportation("Add New Train Info");
-           
-
             if (frmTrain.ShowDialog() == DialogResult.OK)
             {
+                //Add the details and call the UpdateTrain List() method to write the values in File
                 transportMngr.AddTrain(frmTrain.TransportData);
                 UpdateTrainList();
             }
@@ -190,6 +211,7 @@ namespace ORS
                 twFlight.Close();
             }
                 }
+
 
         private void UpdateTrainList()
         {
@@ -259,9 +281,7 @@ namespace ORS
                  int index1 = 0;
                 index1 = (customerMngr.CountCustomers - 1);
                 twCustomer.WriteLine(customerMngr.GetCustomer(index1).ToString());
-                int index2 = 0;
-                index2 = (customerMngr.CountNames - 1);
-                 twCustomerNames.WriteLine(customerMngr.GetName(index2).ToString());
+               twCustomerNames.WriteLine(customerMngr.GetName(index1).ToString());
 
                
             }
@@ -310,8 +330,6 @@ namespace ORS
         }
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            {
                 if (lstCustomers.Items.Count != 0)
                 {
                     
@@ -323,7 +341,7 @@ namespace ORS
                         return;
                     }
                     string str = lstCustomers.SelectedItem.ToString();
-                    CustomerForm frmCustomer = new CustomerForm("Update Customer Info", customerMngr.GetDetails(str));
+                    CustomerForm frmCustomer = new CustomerForm("Update Customer Info", InputUtility.GetWords(str));
                     customerMngr.Customers = storedCustomers;
                     customerMngr.Names = storeNames;
                     //if the customer clicks on OK button of the customer form then continue with the updation
@@ -334,15 +352,16 @@ namespace ORS
                         storeNames = customerMngr.Names;
                         ChangedCustomerList();
                     }
-                    else
+                }
+                else
                     {
                         //if listbox is empty show error
                         ShowError();
                         return;
-                    }
+                    
                 }
                
-            }
+            
         }
 
         private void ShowError()
@@ -366,7 +385,7 @@ namespace ORS
                 if(frmSelectTime.ShowDialog() == DialogResult.OK)
                     {
                     lblCustomerName.Text = cmbCustomer.SelectedItem.ToString();
-                    string[] str = customerMngr.GetDetails(lstCustomers.Items[cmbCustomer.SelectedIndex].ToString());
+                    string[] str = InputUtility.GetWords(lstCustomers.Items[cmbCustomer.SelectedIndex].ToString());
                     lblCustomerPhone.Text = str[2];
                     lblReservationUpto.Text = frmSelectTime.Detail;
                     string[] str1 = InputUtility.GetWords(frmSelectTime.Detail);
@@ -380,11 +399,6 @@ namespace ORS
 
             InitializeGUI();
             }
-            else
-            {
-                MessageBox.Show("Please select all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-                }
 
         }
 
@@ -460,7 +474,7 @@ namespace ORS
                 //deleting specific customerdetails at selected index
                 if (index == -1)
                 {
-                    MessageBox.Show("Please select an index", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please select an index from Customer list", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 customerMngr.RemoveCustomer(index);
@@ -518,9 +532,9 @@ namespace ORS
         {
             if (reservationSaved == false && lstReservations.Items.Count != 0)
                   {
-            UpdateReservations();
-            reservationSaved = true;
-            MessageBox.Show("Reservations are saved","Info",MessageBoxButtons.OK);
+                UpdateReservations();
+                reservationSaved = true;
+                MessageBox.Show("Reservations are saved","Info",MessageBoxButtons.OK);
                   }
             else
             {
@@ -556,10 +570,23 @@ namespace ORS
                }
                 else
                 {
-                    e.Cancel = true;
+                    this.Dispose();
                 }
 
             }
+            else
+            {
+                DialogResult result = MessageBox.Show("Do you want to close the application?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                {
+                    e.Cancel = false;
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+
         }
 
        

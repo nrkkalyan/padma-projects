@@ -1,23 +1,41 @@
-﻿using System;
+﻿// File Name: Train.cs
+// Created By: Padma Priya Duvvuri
+// Created On: 22-Dec-2011
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace ORS
 {
+    /// <summary>
+    /// This class inherits from Transport Class
+    /// </summary>
     class Train :Transport 
     {
+        /// <summary>
+        /// Constructor that takes 6 parameters, It calls the base class contructor
+        /// to set the values
+        /// </summary>
+        /// <param name="number">Bus Number</param>
+        /// <param name="from">From station</param>
+        /// <param name="to">to station</param>
+        /// <param name="time">time of departure</param>
+        /// <param name="priceA">price for adult</param>
+        /// <param name="priceC">price for children</param>
         public Train(string number, Stations from, Stations to, DateTime time, decimal priceA, decimal priceC)
             : base(number, from, to, time, priceA, priceC)
         { }
+
+
+        /// <summary>
+        /// Constructor that takes one parameter, It calls base class 
+        /// constructor to set the values
+        /// </summary>
+        /// <param name="price">Price for adult</param>
         public Train(decimal price):base(price)
         { }
 
-        public override decimal GetPrice(int adults, int children,decimal price)
-        {
-            decimal trainAdultPrice = base.PriceAdult + 250.00M;
-            decimal trainChildPrice = base.PriceChild + 100.00M;
-            return (adults * trainAdultPrice) + (children * trainChildPrice);
-        }
     }
 }
