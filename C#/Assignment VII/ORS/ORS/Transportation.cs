@@ -1,4 +1,8 @@
-﻿using System;
+﻿// File Name: Transportaion.cs
+// Created By: Padma Priya Duvvuri
+// Created On: 25-Dec-2011
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,12 +13,14 @@ using System.Windows.Forms;
 
 namespace ORS
 {
+    /// <summary>
+    /// This form is used to add new info of transportation (buss, train or flight)
+    /// </summary>
     public partial class Transportation : Form
     {
         private Transport m_transport;
          //flag to handle the closing of the form
         private bool closeForm;
-       // private string[] m_fullTransportDetails;
 
         //constructor with one parameter (title of the form)
         public Transportation(string title)
@@ -27,14 +33,16 @@ namespace ORS
 
         }
 
+        /// <summary>
+        /// Read only property for m_transport
+        /// </summary>
         public Transport  TransportData
         {
             get { return m_transport; }
            
         }
       
-       
-         /// <summary>
+        /// <summary>
         /// Event hadler for formclosing event event of the form
         /// </summary>
         /// <param name="sender"></param>
@@ -47,13 +55,20 @@ namespace ORS
                 e.Cancel = true;
         }
 
+        /// <summary>
+        /// Event-handler for click event of Transporation button. This will create a new tranport object and 
+        /// calls the transport constructor to add new details fo transport
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTransportation_Click(object sender, EventArgs e)
         {
             int ticketPrice = 0;
+            //if all fields are validated continue with adding new transportaion info
             if (ValidateInputFields() == true && ValidatePrice(out ticketPrice) == true)
             {
                 m_transport = new Transport(ticketPrice);
-
+                //assign the values
                 m_transport.TransportationNumber = txtNumber.Text;
                 Stations fromStaion = (Stations)Enum.Parse(typeof(Stations), (string)cmbFrom.SelectedItem);
                 m_transport.FromStation = fromStaion;
@@ -68,6 +83,11 @@ namespace ORS
            
         }
 
+        /// <summary>
+        /// validation for price field
+        /// </summary>
+        /// <param name="ticketPrice"></param>
+        /// <returns>a integer having ticket price</returns>
         private bool ValidatePrice(out int ticketPrice)
         {
             string str = txtPrice.Text;
@@ -84,8 +104,13 @@ namespace ORS
             }
         }
 
+        /// <summary>
+        /// validate all input fields
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateInputFields()
-        {//calls checkstring method of inpututility class
+        {
+            //calls checkstring method of inpututility class
             if (!InputUtility.CheckString(txtNumber.Text))
             {
                 MessageBox.Show("Number cannot be empty", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -102,6 +127,9 @@ namespace ORS
             return true;
         }
 
+        /// <summary>
+        /// Update the controls of the form
+        /// </summary>
         private void UpdateGUI()
         {
             txtNumber.Text = string.Empty;
@@ -109,16 +137,20 @@ namespace ORS
             // clear and updated the cmbFrom with Station and select default value Stockholm.
             cmbFrom.Items.Clear();
             cmbFrom.Items.AddRange(Enum.GetNames(typeof(Stations)));
-            //cmbFrom.SelectedIndex = (int)Stations.Stockholm;
-
+            
             // clear and updated the cmbTo with Station and select default value Copenhagen.
             cmbTo.Items.Clear();
             cmbTo.Items.AddRange(Enum.GetNames(typeof(Stations)));
-            //cmbTo.SelectedIndex = (int)Stations.Copenhagen;
         }
 
+        /// <summary>
+        /// Event hanlder for Click event of cancel button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            //to close the form.
             this.Close();
         }
     }

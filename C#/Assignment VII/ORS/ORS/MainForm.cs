@@ -31,6 +31,7 @@ namespace ORS
             customerMngr = new CustomerManager();
             transportMngr = new TransportationManager();
             reservationSaved = false;
+            EmptyReservationLabels();
             //My initalization
             InitializeGUI();
         }
@@ -61,7 +62,6 @@ namespace ORS
             checkBoxLessThan2.Checked = false;
             //read customer data from files
             ReadFiles();
-         
 
         }
 
@@ -429,25 +429,40 @@ namespace ORS
                 //if some transports are available then continue
                 if(frmSelectTime.ShowDialog() == DialogResult.OK)
                     {
-                    //store the values of reservations in the labels
-                    lblCustomerName.Text = cmbCustomer.SelectedItem.ToString();
-                    string[] str = InputUtility.GetWords(lstCustomers.Items[cmbCustomer.SelectedIndex].ToString());
-                    lblCustomerPhone.Text = str[2];
-                    lblReservationUpto.Text = frmSelectTime.Detail;
-                    string[] str1 = InputUtility.GetWords(frmSelectTime.Detail);
-                    string price = str1[4];
-                    //calculate the total Price
-                    lblPrice.Text = GetPrice(price).ToString("#.##");
-                    lblTotalTickets.Text = (numericInfants.Value + numericChildren.Value + numericAdults.Value).ToString();
-                    //to save the reservations to reservations listbox
-                    AddReservations(lblCustomerName.Text, lblCustomerPhone.Text, lblReservationUpto.Text, lblPrice.Text,lblTotalTickets.Text);
+                        //store the values of reservations in the labels
+                        lblCustomerName.Text = cmbCustomer.SelectedItem.ToString();
+                        string[] str = InputUtility.GetWords(lstCustomers.Items[cmbCustomer.SelectedIndex].ToString());
+                        lblCustomerPhone.Text = str[2];
+                        lblReservationUpto.Text = frmSelectTime.Detail;
+                        string[] str1 = InputUtility.GetWords(frmSelectTime.Detail);
+                        string price = str1[4];
+                        //calculate the total Price
+                        lblPrice.Text = GetPrice(price).ToString("#.##");
+                        lblTotalTickets.Text = (numericInfants.Value + numericChildren.Value + numericAdults.Value).ToString();
+                        //shwo the controls to confrim or cancel the reservations
+                        btnSubmit.Enabled = false;
+                        btnConfirm.Enabled = true;
+                        btnCancel.Enabled = true;
+                    }
+                else
+                    {
+                        //to empty labels which save the reservation details
+                        EmptyReservationLabels();
                     }
                 }
             //re-initialize all fields
             InitializeGUI();
-            btnConfirm.Enabled = true;
             }
 
+        }
+
+        private void EmptyReservationLabels()
+        {
+            lblCustomerName.Text = "No Reservations are made";
+            lblCustomerPhone.Text = string.Empty;
+            lblReservationUpto.Text = string.Empty;
+            lblPrice.Text = string.Empty;
+            lblTotalTickets.Text = string.Empty;
         }
 
         /// <summary>
@@ -753,12 +768,26 @@ namespace ORS
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
             //save the current reservation
+            //to save the reservations to reservations listbox
+            AddReservations(lblCustomerName.Text, lblCustomerPhone.Text, lblReservationUpto.Text, lblPrice.Text, lblTotalTickets.Text);
             UpdateReservations();
             confirmCurrentReservation = true;
-            MessageBox.Show("To save current reservation select SAVE CURRENT  from File menu", "Info!", MessageBoxButtons.OK);
+            DialogResult result= MessageBox.Show("Do you want to save the current reservation to a file?", "Info!", MessageBoxButtons.OKCancel);
+
+            if (result == DialogResult.OK)
+            {
+                SaveResult();
+            }
+            else
+            {
+                EmptyReservationLabels();
+            }
+            btnSubmit.Enabled = true;
+            btnCancel.Enabled = false;
+            btnConfirm.Enabled = false;
         }
 
        
@@ -772,15 +801,7 @@ namespace ORS
         {
             if(confirmCurrentReservation == true)
             {
-                //saveFileDialog1.ShowDialog();
-                saveFileDialog1.Filter = "Text Files (*.txt)|*.txt";
-                saveFileDialog1.FilterIndex = 1;
-
-                if(saveFileDialog1.ShowDialog() == DialogResult.OK)
-                {  
-                    string name = saveFileDialog1.FileName;
-                    WriteToFile(name);
-                }
+                SaveResult();
             }
             else
             {
@@ -790,6 +811,25 @@ namespace ORS
 
         }
 
+        /// <summary>
+        /// To save the current reservation details in the a file
+        /// provided by the user at user specified location
+        /// </summary>
+        private void SaveResult()
+        { 
+            //saveFileDialog1.ShowDialog();
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string name = saveFileDialog1.FileName;
+                WriteToFile(name);
+            }
+        }
+
 
         /// <summary>
         /// Write current reservation details to specic file provided by the user
@@ -797,6 +837,7 @@ namespace ORS
         private void WriteToFile(string name)
         {
             //Create a file stream using the file name
+            name = name + ".txt";
             FileStream fs = new FileStream(name, FileMode.Create);
 
             //Create a writer that will write to the stream
@@ -813,6 +854,58 @@ namespace ORS
                     writer.WriteLine(detail);
                 }
             writer.Close();
+        }
+
+        /// <summary>
+        /// Event-handler for MouseHover event of Submit button, this will show help for
+        /// the button control.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSubmit_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnSubmit, "To get available options and to continue with reservation. Press Confirm the button to save the reservation");
+        }
+
+        /// <summary>
+        /// Event-handler for MouseHover event of Confirm button, this will show help for
+        /// the button control
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnConfirm_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnConfirm, "Press this button to save the current reservation, otherwise the reservation won't be saved!");
+        }
+
+        /// <summary>
+        /// Event-handler for Click event of Cancel button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            //Reinitialize form controls so no reservation is saved.
+            InitializeGUI();
+            btnConfirm.Enabled = false;
+            btnCancel.Enabled = false;
+            btnSubmit.Enabled = true;
+            EmptyReservationLabels();
+            reservationSaved = true;
+        }
+
+        /// <summary>
+        /// Event-handler for MouseHover event of Confirm button, this will show help for
+        /// the button control
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCancel_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnCancel, "Press this button to cancel the current reservation.");
         }
 
         
