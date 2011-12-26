@@ -16,14 +16,14 @@ namespace ORS
     /// <summary>
     /// This form is used to add new info of transportation (buss, train or flight)
     /// </summary>
-    public partial class Transportation : Form
+    public partial class TransportationForm : Form
     {
         private Transport m_transport;
          //flag to handle the closing of the form
         private bool closeForm;
 
         //constructor with one parameter (title of the form)
-        public Transportation(string title)
+        public TransportationForm(string title)
         {
             InitializeComponent();
             //Other initalizations

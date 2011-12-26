@@ -19,7 +19,7 @@ namespace ORS
     /// This form shows the available transport between the locations provided
     /// by the user in the main form.
     /// </summary>
-    public partial class SelectTime : Form
+    public partial class SelectTimeForm : Form
     {
         //flag to handle the closing of the form
         private bool closeForm;
@@ -36,7 +36,7 @@ namespace ORS
         /// <param name="title">Title of the form</param>
         /// <param name="from">from station</param>
         /// <param name="to">to station</param>
-        public SelectTime(int choice, string title,string from, string to)
+        public SelectTimeForm(int choice, string title,string from, string to)
         {
             InitializeComponent();
             lstSelectedTime.Items.Add(string.Empty); 

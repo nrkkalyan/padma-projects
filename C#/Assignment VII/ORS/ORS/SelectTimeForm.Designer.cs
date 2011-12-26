@@ -1,6 +1,6 @@
 ﻿namespace ORS
 {
-    partial class SelectTime
+    partial class SelectTimeForm
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace ORS
 {
-    partial class Transportation
+    partial class TransportationForm
     {
         /// <summary>
         /// Required designer variable.

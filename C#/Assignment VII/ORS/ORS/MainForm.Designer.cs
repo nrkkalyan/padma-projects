@@ -225,7 +225,7 @@
             this.bussToolStripMenuItem.Name = "bussToolStripMenuItem";
             this.bussToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
             this.bussToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.bussToolStripMenuItem.Text = "&Buss";
+            this.bussToolStripMenuItem.Text = "&Bus";
             this.bussToolStripMenuItem.ToolTipText = "To add new bus details";
             this.bussToolStripMenuItem.Click += new System.EventHandler(this.bussToolStripMenuItem_Click);
             // 
@@ -686,6 +686,7 @@
             this.Controls.Add(this.tabCustomers);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Online Reservation System";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);

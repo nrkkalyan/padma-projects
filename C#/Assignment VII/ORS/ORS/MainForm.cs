@@ -26,9 +26,9 @@ namespace ORS
         bool confirmCurrentReservation; // to confirm current reservation
 
         //forms that will be shown
-        SelectTime frmSelectTime; // to show the select time form
+        SelectTimeForm frmSelectTime; // to show the select time form
         CustomerForm frmCustomer; // to show customer form
-        Transportation frmTransport; // toshow transport form
+        TransportationForm frmTransport; // toshow transport form
 
         public MainForm()
         {
@@ -149,7 +149,7 @@ namespace ORS
         private void trainToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // create and show teh Transportation form
-            frmTransport = new Transportation("Add New Train Info");
+            frmTransport = new TransportationForm("Add New Train Info");
             if (frmTransport.ShowDialog() == DialogResult.OK)
             {
                 //Add the details and call the UpdateTrain List() method to write the values in File
@@ -168,7 +168,7 @@ namespace ORS
         private void bussToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // create and show the Transportation form
-            frmTransport = new Transportation("Add New Bus Info");
+            frmTransport = new TransportationForm("Add New Bus Info");
           
             if (frmTransport.ShowDialog() == DialogResult.OK)
             {
@@ -187,7 +187,7 @@ namespace ORS
         private void flightToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // create and show teh Transportation form
-            frmTransport = new Transportation("Add New Flight Info");
+            frmTransport = new TransportationForm("Add New Flight Info");
 
             if (frmTransport.ShowDialog() == DialogResult.OK)
             {
@@ -380,7 +380,7 @@ namespace ORS
             if(ValidInput())
             {
             //Show the Select time form by passing the type of form selected by the user, title and from and to stations
-            frmSelectTime = new SelectTime(cmbTranportation.SelectedIndex + 1, SelectTitle(), cmbFrom.SelectedItem.ToString(), cmbTo.SelectedItem.ToString());
+            frmSelectTime = new SelectTimeForm(cmbTranportation.SelectedIndex + 1, SelectTitle(), cmbFrom.SelectedItem.ToString(), cmbTo.SelectedItem.ToString());
             //if no matching transport between selected locations are found show the message
             if (frmSelectTime.ListBoxDetails.Count == 0)
                 {
