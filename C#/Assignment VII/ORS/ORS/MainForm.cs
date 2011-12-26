@@ -106,7 +106,7 @@ namespace ORS
             }
             catch (Exception e)
             {
-                MessageBox.Show ("Exception: " + e.Message);
+                //MessageBox.Show ("Exception: " + e.Message);
                 return;
             }
             
@@ -413,6 +413,12 @@ namespace ORS
         /// <param name="e"></param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            //if no customers are present prompt to add one
+            if(cmbCustomer.Items.Count == 0)
+            {
+                MessageBox.Show("No Customers are registerd, add customers first.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             //to check whether the user has provided all the input or not, if provided continue
             if(ValidInput())
             {
