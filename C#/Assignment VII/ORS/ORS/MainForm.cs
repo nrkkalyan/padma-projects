@@ -153,8 +153,8 @@ namespace ORS
             if (frmTransport.ShowDialog() == DialogResult.OK)
             {
                 //Add the details and call the UpdateTrain List() method to write the values in File
-                transportMngr.AddTrain(frmTransport.TransportData);
-                UpdateTrainList();
+                transportMngr.AddTransport(frmTransport.TransportData);
+                UpdateTransportList("TrainDetails.txt");
             }
             
         }
@@ -167,14 +167,14 @@ namespace ORS
         /// <param name="e"></param>
         private void bussToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // create and show teh Transportation form
+            // create and show the Transportation form
             frmTransport = new Transportation("Add New Bus Info");
           
             if (frmTransport.ShowDialog() == DialogResult.OK)
             {
                 //Add the details and call the UpdateTrain List() method to write the values in File
-                transportMngr.AddBus(frmTransport.TransportData);
-                UpdateBusList ();
+                transportMngr.AddTransport(frmTransport.TransportData);
+                UpdateTransportList("BusDetails.txt");
             }
         }
 
@@ -192,89 +192,41 @@ namespace ORS
             if (frmTransport.ShowDialog() == DialogResult.OK)
             {
                 //Add the details and call the UpdateTrain List() method to write the values in File
-                transportMngr.AddFlight(frmTransport.TransportData);
-                UpdateFlightList();
+                transportMngr.AddTransport(frmTransport.TransportData);
+                UpdateTransportList("FlightDetails.txt");
             }
         }
         
+
         /// <summary>
-        /// Writes the Bussdetails to BusDetails.txt, if file already exits it will 
+        /// Writes theTransportDetails to chosen file name (eg. bussdetails.txt for bus, train
+        /// details for trains etc), if file already exits it will 
         /// append to it, otherwise creates new.
         /// </summary>
-        private void UpdateBusList()
+        private void UpdateTransportList(string fileName)
         {
-            StreamWriter twBus = null;
-            FileStream fsBus = new FileStream("BusDetails.txt", FileMode.Append);
+            StreamWriter twTransport = null;
+            FileStream fsTransport = new FileStream(fileName, FileMode.Append);
             //write data from transportMngr object to file
             try
             {
 
-                twBus  = new StreamWriter(fsBus );
-                int index1 = 0;
-                index1 = (transportMngr.CountBusses  - 1);
-                twBus.WriteLine(transportMngr.GetBus(index1).ToString());
+                twTransport = new StreamWriter(fsTransport);
+                int index = 0;
+                index = (transportMngr.CountTransport - 1);
+                twTransport.WriteLine(transportMngr.GetTransport(index).ToString());
             }
             catch (Exception e)
             {
-                MessageBox.Show ("Exception: " + e.Message);
+                MessageBox.Show("Exception: " + e.Message);
             }
             finally
             {
-                twBus.Close();
-            }
-         }
-
-        /// <summary>
-        /// Writes the FlightDetails to FlightDetails.txt, if file already exits it will 
-        /// append to it, otherwise creates new.
-        /// </summary>
-        private void UpdateFlightList()
-        {
-            StreamWriter twFlight = null;
-            FileStream fsFlight = new FileStream("FlightDetails.txt", FileMode.Append);
-            //write data from transportMngr object to file
-            try
-            {
-                twFlight  = new StreamWriter(fsFlight );
-                int index3 = 0;
-                index3 = (transportMngr.CountFlights  - 1);
-                twFlight.WriteLine(transportMngr.GetFlight(index3).ToString());
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show ("Exception: " + e.Message);
-            }
-            finally
-            {
-                twFlight.Close();
-            }
-         }
-
-        /// <summary>
-        /// Writes the TrainDetails to TrainDetails.txt, if file already exits it will 
-        /// append to it, otherwise creates new.
-        /// </summary>
-        private void UpdateTrainList()
-        {
-            StreamWriter twTrain = null;
-            FileStream fsTrain = new FileStream("TrainDetails.txt", FileMode.Append);
-            //write data from transportMngr object to file
-            try
-            {
-                twTrain  = new StreamWriter(fsTrain );
-                int index2 = 0;
-                index2 = (transportMngr.CountTrains  - 1);
-                twTrain.WriteLine(transportMngr.GetTrain(index2).ToString());
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show ("Exception: " + e.Message);
-            }
-            finally
-            {
-                twTrain.Close();
+                twTransport.Close();
             }
         }
+
+
 
 
         /// <summary>

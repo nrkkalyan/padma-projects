@@ -16,86 +16,45 @@ namespace ORS
     /// </summary>
     class TransportationManager
     {
-        //Instance Cariables
-        private ArrayList busDetails; //To store bus details and Max.no. busses
-        int maxNoOfBusses = 70;
-        private ArrayList trainDetails; //To store train details and Max.no. trains
-        int maxNoOfTrains = 400;
-        private ArrayList flightDetails; //To store flight details and Max.no. flights
-        int maxNoOfFlights = 230;
+        //Instance Variables
+        private ArrayList m_transportDetails; //arraylist to save transport details
+        private int maxNoOfTransports = 100; // max. no.of tranpsports
+        Transport m_transport; //transport object
 
         /// <summary>
-        /// Default constuctor that initializes the arraylists
+        /// Default constuctor that initializes the arraylist
         /// </summary>
         public TransportationManager()
         {
-            busDetails = new ArrayList();
-            trainDetails = new ArrayList();
-            flightDetails = new ArrayList();
+            m_transportDetails = new ArrayList();
         }
 
         /// <summary>
-        /// Read and write property for busDetails
+        /// Read and write property for transportDetails
         /// </summary>
-        public ArrayList Bus
+        public ArrayList TransportDetails
         {
-            get { return busDetails; }
-            set { busDetails = value; }
+            get { return m_transportDetails; }
+            set { m_transportDetails  = value; }
         }
 
         /// <summary>
-        /// Read and write property for trainDetails
+        /// Read and write property for maxNoOfTransports
         /// </summary>
-        public ArrayList Train
+        public int MaxTransports
         {
-            get { return trainDetails ; }
-            set { trainDetails  = value; }
+            get { return maxNoOfTransports; }
         }
 
+ 
         /// <summary>
-        /// Read and write property for flightDetails
-        /// </summary>
-        public ArrayList Flight
-        {
-            get { return flightDetails ; }
-            set { flightDetails  = value; }
-        }
-
-        /// <summary>
-        /// Read and write property for maxNoOfBusses
-        /// </summary>
-        public int BusSeats
-        {
-            get { return maxNoOfBusses; }
-            set { maxNoOfBusses = value; }
-        }
-
-        /// <summary>
-        /// Read and write property for maxNoOfTrains
-        /// </summary>
-        public int TrainSeats
-        {
-            get { return maxNoOfTrains ; }
-            set { maxNoOfTrains  = value; }
-        }
-
-        /// <summary>
-        /// Read and write property for maxNoOfFlights
-        /// </summary>
-        public int FlightSeats
-        {
-            get { return maxNoOfFlights ; }
-            set { maxNoOfFlights  = value; }
-        }
-
-        /// <summary>
-        /// This method checks wheter total number of busses is less than
-        /// max number of busses
+        /// This method checks wheter total number of transports is less than
+        /// max number of transports
         /// </summary>
         /// <returns>true if within range and false otherwise</returns>
-        private bool CheckBusses()
+        private bool CheckTransporst()
              {
-            if (busDetails.Count <= maxNoOfBusses) 
+            if (m_transportDetails.Count <= maxNoOfTransports) 
                 return true;
             else
                 return false;
@@ -103,66 +62,24 @@ namespace ORS
 
 
         /// <summary>
-        /// This method checks wheter total number of trains is less than
-        /// max number of busses
+        /// Read-only property to count no.of Transport details
         /// </summary>
-        /// <returns>true if within range and false otherwise</returns>
-        private bool CheckTrains()
+        public int CountTransport
         {
-            if (trainDetails.Count <= maxNoOfTrains )
-                return true;
-            else
-                return false;
+            get { return m_transportDetails.Count; }
         }
 
-
+     
         /// <summary>
-        /// This method checks wheter total number of flights is less than
-        /// max number of busses
+        /// Adds a new transport object to details arraylist
         /// </summary>
-        /// <returns>true if within range and false otherwise</returns>
-        private bool CheckFlights()
-        {
-            if (flightDetails.Count <= maxNoOfFlights )
-                return true;
-            else
-                return false;
-        }
-
-        /// <summary>
-        /// Read-only property to count no.of busses
-        /// </summary>
-        public int CountBusses
-        {
-            get { return busDetails.Count; }
-        }
-
-        /// <summary>
-        /// Read-only property to count no.of trains
-        /// </summary>
-        public int CountTrains
-        {
-            get { return trainDetails.Count; }
-        }
-
-        /// <summary>
-        /// Read-only property to count no.of flights
-        /// </summary>
-        public int CountFlights
-        {
-            get { return flightDetails.Count; }
-        }
-      
-        /// <summary>
-        /// Adds a new bus object to buss details arraylist
-        /// </summary>
-        /// <param name="bus">bus object</param>
+        /// <param name="bus">transport object</param>
         /// <returns>true if new detail is added , false otherwise</returns>
-        public bool AddBus(Transport bus)
+        public bool AddTransport(Transport transport)
         {
-            if (CheckBusses())
+            if (CheckTransporst())
             {
-                busDetails.Add(bus);
+                m_transportDetails.Add(transport);
                 return true;
             }
             else
@@ -171,66 +88,13 @@ namespace ORS
 
 
         /// <summary>
-        /// Adds a new train object to train details arraylist
-        /// </summary>
-        /// <param name="bus">bus object</param>
-        /// <returns>true if new detail is added , false otherwise</returns>
-        public bool AddTrain(Transport  train)
-        {
-            if (CheckTrains ())
-            {
-                trainDetails.Add(train);
-                return true;
-            }
-            else
-                return false;
-        }
-
-
-        /// <summary>
-        /// Adds a new flight object to flight details arraylist
-        /// </summary>
-        /// <param name="bus">bus object</param>
-        /// <returns>true if new detail is added , false otherwise</returns>
-        public bool AddFlight(Transport flight)
-        {
-            if (CheckFlights())
-            {
-                flightDetails.Add(flight);
-                return true;
-            }
-            else
-                return false;
-        }
-
-        /// <summary>
         /// Returns details at perticular index
         /// </summary>
         /// <param name="index">index</param>
         /// <returns>Transport object</returns>
-        public Transport  GetBus(int index)
+        public Transport  GetTransport(int index)
         {
-            return (Transport)busDetails[index];
-        }
-
-        /// <summary>
-        /// Returns details at perticular index
-        /// </summary>
-        /// <param name="index">index</param>
-        /// <returns>Transport object</returns>
-        public Transport GetTrain(int index)
-        {
-            return (Transport)trainDetails[index];
-        }
-
-        /// <summary>
-        /// Returns details at perticular index
-        /// </summary>
-        /// <param name="index">index</param>
-        /// <returns>Transport object</returns>
-        public Transport GetFlight(int index)
-        {
-            return (Transport)flightDetails[index];
+            return (Transport)m_transportDetails[index];
         }
 
         /// <summary>
@@ -247,12 +111,12 @@ namespace ORS
         }
 
         /// <summary>
-        /// get and set transport property can be implemented if needed.
+        /// write only property for m_transport
         /// </summary>
         public Transport Transport
-        {
-            get;
-            set;
+        {  
+            set { m_transport   = value; }
+        
         }
     }
 }
