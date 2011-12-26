@@ -1,0 +1,15 @@
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.AboutBox.resources
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.CustomerForm.resources
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.MainForm.resources
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.Resources.resources
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.SelectTimeForm.resources
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.TransportationForm.resources
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\bin\Debug\ORS.exe
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\bin\Debug\ORS.pdb
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\bin\Debug\ORS.xml
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.exe
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.xml
+c:\users\radhakrishna\documents\visual studio 2010\Projects\ORS\ORS\obj\x86\Debug\ORS.pdb

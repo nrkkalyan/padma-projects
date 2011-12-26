@@ -1,0 +1,723 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ORS
+</name>
+</assembly>
+<members>
+<member name="M:ORS.SelectTimeForm.#ctor(System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Constructor that takes 4 paramerters
+ </summary>
+	<param name="choice">To get user choice of transport</param>
+	<param name="title">Title of the form</param>
+	<param name="from">from station</param>
+	<param name="to">to station</param>
+</member><member name="P:ORS.SelectTimeForm.ListBoxDetails">
+	<summary>
+ Read and write property for listBoxDetails
+ </summary>
+</member><member name="M:ORS.SelectTimeForm.FilterResults">
+	<summary>
+ Depending on user selected stations filter the results
+ and show them in listbox
+ </summary>
+</member><member name="M:ORS.SelectTimeForm.SetValues(System.String,System.String)">
+	<summary>
+ Set the values of user selected station to the use if for filter results
+ </summary>
+	<param name="from"></param>
+	<param name="to"></param>
+</member><member name="M:ORS.SelectTimeForm.ReadTransportFiles(System.Int32)">
+	<summary>
+ Depening on user choice of transport, read the corresponding 
+ files
+ </summary>
+	<param name="choice"></param>
+</member><member name="P:ORS.SelectTimeForm.Detail">
+	<summary>
+ Read and write property for detail variable
+ </summary>
+</member><member name="M:ORS.SelectTimeForm.GetValue">
+	<summary>
+ stores the value of user selected choice of travel time
+ </summary>
+	<returns>a string containing the user choice</returns>
+</member><member name="M:ORS.SelectTimeForm.btnContinue_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event handler for Click event of btnContinue button
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.SelectTimeForm.SelectTime_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+	<summary>
+ Event hadler for formclosing event event of the form
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.SelectTimeForm.btnBack_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for Click for btnBack button. If this button is clicked reservation
+ will not be continued.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="T:ORS.SelectTimeForm">
+	<summary>
+ This form shows the available transport between the locations provided
+ by the user in the main form.
+ </summary>
+</member><member name="P:ORS.TransportationForm.TransportData">
+	<summary>
+ Read only property for m_transport
+ </summary>
+</member><member name="M:ORS.TransportationForm.Transportation_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+	<summary>
+ Event hadler for formclosing event event of the form
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.TransportationForm.btnTransportation_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for click event of Transporation button. This will create a new tranport object and 
+ calls the transport constructor to add new details fo transport
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.TransportationForm.ValidatePrice(System.Int32@)">
+	<summary>
+ validation for price field
+ </summary>
+	<param name="ticketPrice"></param>
+	<returns>a integer having ticket price</returns>
+</member><member name="M:ORS.TransportationForm.ValidateInputFields">
+	<summary>
+ validate all input fields
+ </summary>
+	<returns></returns>
+</member><member name="M:ORS.TransportationForm.UpdateGUI">
+	<summary>
+ Update the controls of the form
+ </summary>
+</member><member name="M:ORS.TransportationForm.btnCancel_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event hanlder for Click event of cancel button
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="T:ORS.TransportationForm">
+	<summary>
+ This form is used to add new info of transportation (buss, train or flight)
+ </summary>
+</member><member name="P:ORS.CustomerForm.CustomerData">
+	<summary>
+ Property CustomerData to read customer values, with access to 
+ read and write
+ </summary>
+	<value></value>
+	<returns>Customer object</returns>
+</member><member name="M:ORS.CustomerForm.UpdateGUI">
+	<summary>
+ update the controls of customerForm to the m_customer object values
+ </summary>
+</member><member name="P:ORS.CustomerForm.Details">
+	<summary>
+ Write only property to set the value of m_fullContact
+ </summary>
+</member><member name="M:ORS.CustomerForm.#ctor(System.String,System.String[])">
+	<summary>
+ Constructor with 2 paramerts with custom title and details of customer
+ </summary>
+	<param name="title"></param>
+	<param name="details"></param>
+</member><member name="M:ORS.CustomerForm.Customer_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+	<summary>
+ Event hadler for formclosing event event of the form
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.CustomerForm.btnCustomer_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler to handle click event of btnCustomer
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.CustomerForm.ValidateInputFields">
+	<summary>
+ Validates the firstname, lastname and telephone numbers.
+ </summary>
+	<returns>returns true if all the three fields are validated, false
+ otherwise</returns>
+</member><member name="M:ORS.CustomerForm.ValidateEmail">
+	<summary>
+ It validates the email.
+ </summary>
+	<returns>true if email is valid and false otherwise</returns>
+</member><member name="M:ORS.CustomerForm.ValidationForPhoneNumbers">
+	<summary>
+ checks whehter atleast one telepone number is provided or not.And validates the
+ presented by the user
+ </summary>
+	<returns>true if atleast one phone number is given and validates the given
+ user input</returns>
+</member><member name="M:ORS.CustomerForm.ValidatePhoneNumber(System.String)">
+	<summary>
+ If atleast one phone number is provided, converts the value to long
+ by calling GetLong method of InputUtility
+ </summary>
+	<param name="phone">string value of the user input for phone number</param>
+	<returns>true if conversion is successful</returns>
+</member><member name="M:ORS.CustomerForm.btnCancel_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event handler for the click event of btnCancel to close the form.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.InitializeGUI">
+	<summary>
+ Other inializations that set default values for fields
+ </summary>
+</member><member name="M:ORS.MainForm.ReadFiles">
+	<summary>
+ Reads the customer data from the files if any customers are already added
+ </summary>
+</member><member name="M:ORS.MainForm.cmbTranportation_SelectedIndexChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for SelectedIndexChanged event of cmbTranportation
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.aboutToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-hanler for click event of about menu item in help menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.trainToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-hanler for click event of train menu item in Transport Menu.
+ This is used to add new train info
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.bussToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-hanler for click event of train menu item in Transport Menu.
+ This is used to add new train info
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.flightToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-hanler for click event of train menu item in Transport Menu.
+ This is used to add new train info
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.UpdateTransportList(System.String)">
+	<summary>
+ Writes theTransportDetails to chosen file name (eg. bussdetails.txt for bus, train
+ details for trains etc), if file already exits it will 
+ append to it, otherwise creates new.
+ </summary>
+</member><member name="M:ORS.MainForm.addCustomerToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ event-hanlre for the add customer menu item of customer Menu.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.UpdateCustomerList">
+	<summary>
+ clears the listbox and updates it with the customer values of the 
+ customerMngr arraylist
+ </summary>
+</member><member name="M:ORS.MainForm.ChangedCustomerList">
+	<summary>
+ Update the customer list if any value of customer is updated by clicking 
+ update menu item of customer menu.
+ </summary>
+</member><member name="M:ORS.MainForm.updateToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-hanler for click event of update menu item of customer menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.ShowError">
+	<summary>
+ Show error if the no customers are present to update or delete
+ </summary>
+</member><member name="M:ORS.MainForm.btnSubmit_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for click event of submittt button. Here every calculation is performed and
+ the result for one reservations will be showed in the labels and the all the reservations are stored
+ in the Reservations tab.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.AddReservations(System.String,System.String,System.String,System.String,System.String)">
+	<summary>
+ Add the reservation details in the listbox
+ </summary>
+	<param name="name">Customer Name parameter</param>
+	<param name="phone">Customer phone number</param>
+	<param name="fromto">transport details</param>
+	<param name="price">Total price</param>
+</member><member name="M:ORS.MainForm.UpdateReservations">
+	<summary>
+ To save the reservations in the file ReservationDetails.txt, if file exits then append the
+ values or create a new file
+ </summary>
+</member><member name="M:ORS.MainForm.GetPrice(System.String)">
+	<summary>
+ Calcuate the total price to be paid by the customer
+ </summary>
+	<param name="priceValue">price per adult</param>
+	<returns>Total price to be paid by customer</returns>
+</member><member name="M:ORS.MainForm.SelectTitle">
+	<summary>
+ Depending on the user chosen mode of transportion pass the title of the 
+ SelectTime Form
+ </summary>
+	<returns>A string containing the title</returns>
+</member><member name="M:ORS.MainForm.deleteToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event hanlder for the click event of delete menu item of customer menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.ValidInput">
+	<summary>
+ To validate the user input in the main Form.
+ </summary>
+	<returns>true if all fields are entered otherwise false</returns>
+</member><member name="M:ORS.MainForm.ShowInfantControls">
+	<summary>
+ //show infant controls
+ </summary>
+</member><member name="M:ORS.MainForm.exitToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-hanler for the click event of close menu item of File menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.saveResToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for the click event of Save Reservations menu item of File menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.viewHelpToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for the click event of View help menu item of Help Menu
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.MainForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+	<summary>
+ Event handler for the formclosing event of Mainform. It checks with the user whether he wants to close the application
+ or not. If he wants to close then asks them wheter to save the reservations or not.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.numericChildren_ValueChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for value changed event of number of children control(numericChildren)
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.checkBoxLessThan2_CheckedChanged(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for CheckedChaged event of checkbox to show teh controls are not
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.btnConfirm_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-handlre for click event of Save button.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.saveCurrentToolStripMenuItem_Click(System.Object,System.EventArgs)">
+	<summary>
+ To save current reservation details
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.SaveResult">
+	<summary>
+ To save the current reservation details in the a file
+ provided by the user at user specified location
+ </summary>
+</member><member name="M:ORS.MainForm.WriteToFile(System.String)">
+	<summary>
+ Write current reservation details to specic file provided by the user
+ </summary>
+</member><member name="M:ORS.MainForm.btnSubmit_MouseHover(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for MouseHover event of Submit button, this will show help for
+ the button control.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.btnConfirm_MouseHover(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for MouseHover event of Confirm button, this will show help for
+ the button control
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.btnCancel_Click(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for Click event of Cancel button
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="M:ORS.MainForm.btnCancel_MouseHover(System.Object,System.EventArgs)">
+	<summary>
+ Event-handler for MouseHover event of Confirm button, this will show help for
+ the button control
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+</member><member name="T:ORS.MainForm">
+	<summary>
+ This is the mainForm class where the actual process happens
+ </summary>
+</member><member name="M:ORS.TransportationManager.#ctor">
+	<summary>
+ Default constuctor that initializes the arraylist
+ </summary>
+</member><member name="P:ORS.TransportationManager.TransportDetails">
+	<summary>
+ Read and write property for transportDetails
+ </summary>
+</member><member name="P:ORS.TransportationManager.MaxTransports">
+	<summary>
+ Read and write property for maxNoOfTransports
+ </summary>
+</member><member name="M:ORS.TransportationManager.CheckTransporst">
+	<summary>
+ This method checks wheter total number of transports is less than
+ max number of transports
+ </summary>
+	<returns>true if within range and false otherwise</returns>
+</member><member name="P:ORS.TransportationManager.CountTransport">
+	<summary>
+ Read-only property to count no.of Transport details
+ </summary>
+</member><member name="M:ORS.TransportationManager.AddTransport(ORS.Transport)">
+	<summary>
+ Adds a new transport object to details arraylist
+ </summary>
+	<param name="transport">transport object</param>
+	<returns>true if new detail is added , false otherwise</returns>
+</member><member name="M:ORS.TransportationManager.GetTransport(System.Int32)">
+	<summary>
+ Returns details at perticular index
+ </summary>
+	<param name="index">index</param>
+	<returns>Transport object</returns>
+</member><member name="M:ORS.TransportationManager.GetTransportationDetails(System.String)">
+	<summary>
+ Devides the perticular string and stores the values into array
+ of strings
+ </summary>
+	<param name="str">the string to be divided</param>
+	<returns>array of strings</returns>
+</member><member name="P:ORS.TransportationManager.Transport">
+	<summary>
+ write only property for m_transport
+ </summary>
+</member><member name="T:ORS.TransportationManager">
+	<summary>
+ A manager class that acts as a media between MainForm and the Transport Class
+ </summary>
+</member><member name="P:ORS.Transport.TransportationNumber">
+	<summary>
+ Read and Write property for m_transportNumber
+ </summary>
+</member><member name="P:ORS.Transport.FromStation">
+	<summary>
+ Read and Write property for fromStation
+ </summary>
+</member><member name="P:ORS.Transport.ToStation">
+	<summary>
+ Read and Writer property for toStation
+ </summary>
+</member><member name="P:ORS.Transport.Time">
+	<summary>
+ Read and Write property for timeOfTransport
+ </summary>
+</member><member name="P:ORS.Transport.PriceAdult">
+	<summary>
+ Read and Write property for priceAdult
+ </summary>
+</member><member name="P:ORS.Transport.PriceChild">
+	<summary>
+ Read and Write property for priceChild
+ </summary>
+</member><member name="M:ORS.Transport.#ctor(System.String,ORS.Stations,ORS.Stations,System.DateTime,System.Decimal,System.Decimal)">
+	<summary>
+ Constructor that takes 6 parameters,It initializes the values
+ </summary>
+	<param name="number">Bus Number</param>
+	<param name="from">From station</param>
+	<param name="toStation">to station</param>
+	<param name="time">time of departure</param>
+	<param name="priceAdult">price for adult</param>
+	<param name="priceChildren">price for children</param>
+</member><member name="M:ORS.Transport.#ctor">
+	<summary>
+ Default constructor
+ </summary>
+</member><member name="M:ORS.Transport.#ctor(System.Decimal)">
+	<summary>
+ Constructor that takes one parameter, It calls base class 
+ constructor to set the values
+ </summary>
+	<param name="price">Price for adult</param>
+</member><member name="M:ORS.Transport.ToString">
+	<summary>
+ Overrides the string to give formatted string having all details that are provided for a Transport
+ </summary>
+	<returns>a fromatted string</returns>
+</member><member name="T:ORS.Transport">
+	<summary>
+ Base class for Bus, Train and Flight Classes
+ </summary>
+</member><member name="M:ORS.InputUtility.GetDouble(System.String,System.Double@,System.Double,System.Double)">
+	<summary>
+ Converts a string represented double value into a double type, and validates
+ the converted value to be within (and inclusive) a range, defined by minLimit and
+ max Limit
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
+	<returns>true if the conversion is successful and value is within the 
+ given range</returns>
+	<remarks></remarks>
+</member><member name="M:ORS.InputUtility.GetDouble(System.String,System.Double@,System.Double)">
+	<summary>
+ Overloading the GetDouble Function so it can be used when a string is to be converted
+ to a numerical value with only minLimit Condition
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:ORS.InputUtility.GetDouble(System.String,System.Double@)">
+	<summary>
+ Overloading the GetDouble Function so it can be used when a string is to be converted
+ to a numerical value withoug any max or min conditions
+ </summary>
+	<param name="stringToConvert">string representing the double value</param>
+	<param name="dblOutValue">output parameter, the converted double</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:ORS.InputUtility.GetLong(System.String,System.Int64@)">
+	<summary>
+ Convers a string represented long value into a long type. If parsing sucessfull
+ returns the long value
+ </summary>
+	<param name="stringToConvert">the string to be converted</param>
+	<param name="longOutValue">long valued out put parameter</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ORS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32,System.Int32)">
+	<summary>
+ Converts a string represented Integer value into a integer type, and validates
+ the converted value to be within (and inclusive) a range, defined by minLimit and
+ max Limit
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<param name="maxLimit">output value should be less than or equal to maxLimit</param>
+	<returns>true if the conversion is successful and value is within the 
+ given range</returns>
+	<remarks></remarks>
+</member><member name="M:ORS.InputUtility.GetInteger(System.String,System.Int32@,System.Int32)">
+	<summary>
+ Overloading the GetInteger Function so it can be used when a string is to be converted
+ to a numerical value with only minLimit Condition
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<param name="minLimit">output value should be greater than or equal to minLimit</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:ORS.InputUtility.GetInteger(System.String,System.Int32@)">
+	<summary>
+ Overloading the GetInteger Function so it can be used when a string is to be converted
+ to a numerical value with no min or max conditions
+ </summary>
+	<param name="stringToConvert">string representing the integer value</param>
+	<param name="intOutValue">output parameter, the converted integer</param>
+	<returns> true if the converstion is successful and the value is greater than or 
+ equal to minLimt</returns>
+	<remarks></remarks>
+</member><member name="M:ORS.InputUtility.CheckString(System.String)">
+	<summary>
+ this function evaluates the name. If it contains any white spaces or does not contain any value
+ it returns true.
+ </summary>
+	<param name="stringName">the name inputted by the user</param>
+	<returns>true if name is empty or a blank space</returns>
+	<remarks></remarks>
+</member><member name="M:ORS.InputUtility.GetDecimal(System.String,System.Decimal@)">
+	<summary>
+ Converts the string value to decimal value. If the parsing is successfull
+ returns the decimal value
+ </summary>
+	<param name="stringToConvert"> string to be converted</param>
+	<param name="decimalOutValue">decimal valued output parameter</param>
+	<returns></returns>
+</member><member name="M:ORS.InputUtility.GetWords(System.String)">
+	<summary>
+ Devides the perticular string and stores the values into array
+ of strings
+ </summary>
+	<param name="str">the string to be divided</param>
+	<returns>array of strings</returns>
+</member><member name="T:ORS.InputUtility">
+	<summary>
+ This class holds the shared methods which are used to validate the user inputs.
+ It validates double, string and integer inputs
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ORS.CustomerManager.#ctor">
+	<summary>
+ default constructor. It creates a new arraylist object.
+ </summary>
+</member><member name="P:ORS.CustomerManager.Customers">
+	<summary>
+ Read and Write propety for customers arraylist
+ </summary>
+</member><member name="P:ORS.CustomerManager.Names">
+	<summary>
+ Read and Write propery for names arraylist
+ </summary>
+</member><member name="P:ORS.CustomerManager.contact">
+	<summary>
+ implementd if needed.
+ </summary>
+</member><member name="P:ORS.CustomerManager.CountCustomers">
+	<summary>
+ It counts the number of customers objects that are 
+ present in the arraylist.
+ </summary>
+	<returns>no.of customers present</returns>
+</member><member name="M:ORS.CustomerManager.AddCustomer(ORS.CustomerContacts)">
+	<summary>
+ It stores the new customer details entered by the user, and returns
+ true if added.
+ </summary>
+	<param name="customerIn">Input - customer details</param>
+	<returns>True when the new customer is added</returns>
+</member><member name="M:ORS.CustomerManager.IsValidIndex(System.Int32)">
+	<summary>
+ validates the index of the array list.
+ </summary>
+	<param name="index">selected index</param>
+	<returns>true if index is less than the arraysize</returns>
+</member><member name="M:ORS.CustomerManager.ChangeCustomer(ORS.CustomerContacts,System.Int32)">
+	<summary>
+ If the index is valid then it will allow the updation 
+ of the fields
+ </summary>
+	<param name="contactIn">details of selected customer</param>
+	<param name="index">selected index</param>
+	<returns>true if value is changed</returns>
+</member><member name="M:ORS.CustomerManager.RemoveCustomer(System.Int32)">
+	<summary>
+ If index is valid then it will remove that customer 
+ from the arraylist.
+ </summary>
+	<param name="index">index at which customer need to be deleted</param>
+	<returns></returns>
+</member><member name="M:ORS.CustomerManager.GetCustomer(System.Int32)">
+	<summary>
+ returns the customer object at the selected 
+ index of the customers arraylist
+ </summary>
+	<param name="index">selected index by the user</param>
+	<returns>customer object</returns>
+</member><member name="M:ORS.CustomerManager.GetName(System.Int32)">
+	<summary>
+ Gets the value of string at a perticular index of names arrayList
+ </summary>
+	<param name="index">index</param>
+	<returns>a name as string</returns>
+</member><member name="T:ORS.CustomerManager">
+	<summary>
+ A manager class that acts as a media between MainForm and the CustomerContacts Class
+ </summary>
+</member><member name="P:ORS.CustomerContacts.FirstName">
+	<summary>
+ Read and Write property for m_firstName
+ </summary>
+</member><member name="P:ORS.CustomerContacts.LastName">
+	<summary>
+ Read and Write property for m_lastName
+ </summary>
+</member><member name="P:ORS.CustomerContacts.FullName">
+	<summary>
+ Read only property to get Full name of the customer
+ </summary>
+</member><member name="P:ORS.CustomerContacts.Email">
+	<summary>
+ Read and Write property for m_email
+ </summary>
+</member><member name="P:ORS.CustomerContacts.Phone">
+	<summary>
+ Read and Write property for m_phone
+ </summary>
+</member><member name="M:ORS.CustomerContacts.#ctor(System.String,System.String,System.String,System.String)">
+	<summary>
+ Constructor that takes 4 parameters and sets the values
+ </summary>
+	<param name="firstName">first name of customer</param>
+	<param name="lastName">last name of customer</param>
+	<param name="phone">phone number of the customer</param>
+	<param name="email">email of the customer</param>
+</member><member name="M:ORS.CustomerContacts.#ctor">
+	<summary>
+ Defaults constructor that calls constructor having 4 parameters
+ </summary>
+</member><member name="M:ORS.CustomerContacts.#ctor(System.String[])">
+	<summary>
+ assigns the values of string array to customer contact details
+ </summary>
+	<param name="details">array of string containing customerInfo</param>
+</member><member name="M:ORS.CustomerContacts.ToString">
+	<summary>
+ overrides the ToString() method to give formatted string having customer details
+ </summary>
+	<returns>formatted strings</returns>
+</member><member name="T:ORS.CustomerContacts">
+	<summary>
+ This class stores the information about a customer
+ </summary>
+</member><member name="P:ORS.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ORS.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ORS.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

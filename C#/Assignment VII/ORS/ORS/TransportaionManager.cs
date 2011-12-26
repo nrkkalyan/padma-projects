@@ -73,7 +73,7 @@ namespace ORS
         /// <summary>
         /// Adds a new transport object to details arraylist
         /// </summary>
-        /// <param name="bus">transport object</param>
+        /// <param name="transport">transport object</param>
         /// <returns>true if new detail is added , false otherwise</returns>
         public bool AddTransport(Transport transport)
         {

@@ -154,7 +154,7 @@
             this.exitToolStripMenuItem1.Size = new System.Drawing.Size(207, 22);
             this.exitToolStripMenuItem1.Text = "E&xit";
             this.exitToolStripMenuItem1.ToolTipText = "To close the application";
-            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.closeToolStripMenuItem1_Click);
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 

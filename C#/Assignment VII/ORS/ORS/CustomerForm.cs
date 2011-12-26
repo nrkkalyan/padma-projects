@@ -1,4 +1,4 @@
-﻿// File Name: Customer.cs
+﻿// File Name: CustomerForm.cs
 // Created By: Padma Priya Duvvuri
 // Created On: 24-Dec-2011
 

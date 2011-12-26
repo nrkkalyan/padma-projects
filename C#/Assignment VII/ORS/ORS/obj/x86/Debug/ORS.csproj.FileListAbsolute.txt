@@ -16,7 +16,7 @@ C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.Properties.Resourc
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.AboutBox.resources
-C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.Transportation.resources
-C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.SelectTime.resources
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.MainForm.resources
 C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.CustomerForm.resources
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.SelectTimeForm.resources
+C:\padma-projects\C#\Assignment VII\ORS\ORS\obj\x86\Debug\ORS.TransportationForm.resources

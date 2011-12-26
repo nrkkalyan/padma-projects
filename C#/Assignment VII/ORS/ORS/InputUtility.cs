@@ -222,7 +222,7 @@ using System.Collections;
         /// returns the decimal value
         /// </summary>
         /// <param name="stringToConvert"> string to be converted</param>
-        /// <param name="longOutValue">decimal valued output parameter</param>
+        /// <param name="decimalOutValue">decimal valued output parameter</param>
         /// <returns></returns>
         public static bool GetDecimal(string stringToConvert, out decimal  decimalOutValue)
         {
