@@ -44,6 +44,13 @@ namespace ORS
             set { names = value; }
         }
 
+        /// <summary>
+        /// implementd if needed.
+        /// </summary>
+        public CustomerContacts contact
+        {
+            get; set; }
+
 
         /// <summary>
         /// It counts the number of customers objects that are 

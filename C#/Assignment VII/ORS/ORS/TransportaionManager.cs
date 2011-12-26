@@ -245,5 +245,14 @@ namespace ORS
             string[] words = str.Split(',');
             return words;
         }
+
+        /// <summary>
+        /// get and set transport property can be implemented if needed.
+        /// </summary>
+        public Transport Transport
+        {
+            get;
+            set;
+        }
     }
 }

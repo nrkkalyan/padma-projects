@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ORS.Bus" Collapsed="true">
+    <Position X="5.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORS.Transport" Collapsed="true">
+    <Position X="7.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAIAAAAIAAAAAAEAAAAAAIAAAACAEAAAIDAAAEAgQA=</HashCode>
+      <FileName>Transport.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FromStation" />
+      <Property Name="ToStation" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ORS.Flight" Collapsed="true">
+    <Position X="8.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Flight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORS.Train" Collapsed="true">
+    <Position X="11.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Train.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORS.TransportationManager" Collapsed="true">
+    <Position X="9.25" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIgAAAAAAQAAQBAwAQNQAUEAAAABkAoBCIAIAAAgAA=</HashCode>
+      <FileName>TransportaionManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Transport" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ORS.MainForm" Collapsed="true">
+    <Position X="7" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>FZT6RACGBCBBUX/SEASGxNkeCSRiECGMEqVgAlAKcIc=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="customerMngr" />
+      <Field Name="transportMngr" />
+      <Field Name="frmCustomer" />
+      <Field Name="frmSelectTime" />
+      <Field Name="frmTransport" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ORS.CustomerManager" Collapsed="true">
+    <Position X="5.25" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAEAkAIBAAAAAAAIAQAAAAgAACAAAAAAAAAAAAABBIA=</HashCode>
+      <FileName>CustomerManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="contact" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ORS.SelectTime" Collapsed="true">
+    <Position X="4.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUAAAAAAITAAAjGgAQCAAIACAAEAAABAAABIAAAACAA=</HashCode>
+      <FileName>SelectTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ORS.Transportation" Collapsed="true">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="m_transport" Type="ORS.Transport" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.375" Y="2.691" />
+        <Point X="12.375" Y="4.875" />
+        <Point X="10.083" Y="4.875" Type="JumpStart" />
+        <Point X="9.917" Y="4.875" Type="JumpEnd" />
+        <Point X="7.969" Y="4.875" />
+        <Point X="7.969" Y="5.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIIAAAABACBAAFEAAAiAAEgCAAAgACABAAAAAQAYUEA=</HashCode>
+      <FileName>Transportation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_transport" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ORS.CustomerForm" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACBBABMAAhKJIEgCAQAAAFACQAAAAAAIAAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_customer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ORS.CustomerContacts" Collapsed="true">
+    <Position X="1.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAEAEACAAAIAEAAAAAIAAAAAAAAQAAAAAIAAAAAg=</HashCode>
+      <FileName>CustomerContacts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ORS.Stations" Collapsed="true">
+    <Position X="12.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAEAAAAgACIAMAAAAAAAAACgAQAAAAABQAABSAA=</HashCode>
+      <FileName>Stations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

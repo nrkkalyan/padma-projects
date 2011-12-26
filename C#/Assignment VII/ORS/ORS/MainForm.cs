@@ -25,6 +25,11 @@ namespace ORS
         bool reservationSaved; // to check wheter the reservations details are stored
         bool confirmCurrentReservation; // to confirm current reservation
 
+        //forms that will be shown
+        SelectTime frmSelectTime; // to show the select time form
+        CustomerForm frmCustomer; // to show customer form
+        Transportation frmTransport; // toshow transport form
+
         public MainForm()
         {
             InitializeComponent();
@@ -144,11 +149,11 @@ namespace ORS
         private void trainToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // create and show teh Transportation form
-            Transportation frmTrain = new Transportation("Add New Train Info");
-            if (frmTrain.ShowDialog() == DialogResult.OK)
+            frmTransport = new Transportation("Add New Train Info");
+            if (frmTransport.ShowDialog() == DialogResult.OK)
             {
                 //Add the details and call the UpdateTrain List() method to write the values in File
-                transportMngr.AddTrain(frmTrain.TransportData);
+                transportMngr.AddTrain(frmTransport.TransportData);
                 UpdateTrainList();
             }
             
@@ -163,12 +168,12 @@ namespace ORS
         private void bussToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // create and show teh Transportation form
-            Transportation frmBus = new Transportation("Add New Bus Info");
+            frmTransport = new Transportation("Add New Bus Info");
           
-            if (frmBus.ShowDialog() == DialogResult.OK)
+            if (frmTransport.ShowDialog() == DialogResult.OK)
             {
                 //Add the details and call the UpdateTrain List() method to write the values in File
-                transportMngr.AddBus(frmBus.TransportData);
+                transportMngr.AddBus(frmTransport.TransportData);
                 UpdateBusList ();
             }
         }
@@ -182,12 +187,12 @@ namespace ORS
         private void flightToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // create and show teh Transportation form
-            Transportation frmFlight = new Transportation("Add New Flight Info");
+            frmTransport = new Transportation("Add New Flight Info");
 
-            if (frmFlight.ShowDialog() == DialogResult.OK)
+            if (frmTransport.ShowDialog() == DialogResult.OK)
             {
                 //Add the details and call the UpdateTrain List() method to write the values in File
-                transportMngr.AddFlight(frmFlight.TransportData);
+                transportMngr.AddFlight(frmTransport.TransportData);
                 UpdateFlightList();
             }
         }
@@ -280,7 +285,7 @@ namespace ORS
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //show customerform to enter the values
-            CustomerForm  frmCustomer = new CustomerForm ("Add New Customer Info");
+            frmCustomer = new CustomerForm ("Add New Customer Info");
             if (frmCustomer.ShowDialog() == DialogResult.OK)
             {
                 //add new customer with help of customerMngr object
@@ -423,7 +428,7 @@ namespace ORS
             if(ValidInput())
             {
             //Show the Select time form by passing the type of form selected by the user, title and from and to stations
-            SelectTime frmSelectTime = new SelectTime(cmbTranportation.SelectedIndex + 1, SelectTitle(), cmbFrom.SelectedItem.ToString(), cmbTo.SelectedItem.ToString());
+            frmSelectTime = new SelectTime(cmbTranportation.SelectedIndex + 1, SelectTitle(), cmbFrom.SelectedItem.ToString(), cmbTo.SelectedItem.ToString());
             //if no matching transport between selected locations are found show the message
             if (frmSelectTime.ListBoxDetails.Count == 0)
                 {
